@@ -4,6 +4,8 @@ Dash gives your iPad and iPhone instant offline access to 150+ API documentation
 
 For more information about Dash, check out https://kapeli.com/dash_ios.
 
+Also please check out [Dash for macOS](https://kapeli.com/dash).
+
 # Installation Instructions
 
 You can use Xcode to install Dash on your iOS device using just your Apple ID.
