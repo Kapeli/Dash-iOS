@@ -43,12 +43,18 @@
         dispatch_queue_t queue = dispatch_queue_create([[NSString stringWithFormat:@"%u", arc4random() % 100000] UTF8String], 0);
         dispatch_async(queue, ^{
             NSData *jsonData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:[@"https://kapeli.com/dash_ios.json?bundle_id=" stringByAppendingString:[NSBundle mainBundle].bundleIdentifier]]];
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-            NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
-            NSString *myVersion = [infoDict objectForKey:@"CFBundleVersion"];
-            if([myVersion integerValue] < [json[@"version"] integerValue])
+            if(jsonData)
             {
-                [[NSUserDefaults standardUserDefaults] setObject:json[@"version"] forKey:DHAppUpdateCheckerScheduledUpdateVersion];
+                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+                if(json)
+                {
+                    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+                    NSString *myVersion = [infoDict objectForKey:@"CFBundleVersion"];
+                    if([myVersion integerValue] < [json[@"version"] integerValue])
+                    {
+                        [[NSUserDefaults standardUserDefaults] setObject:json[@"version"] forKey:DHAppUpdateCheckerScheduledUpdateVersion];
+                    }
+                }
             }
         });
     }
