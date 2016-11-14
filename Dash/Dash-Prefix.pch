@@ -1,0 +1,61 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#define iPad ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+#define isRetina (UIScreen.mainScreen.scale > 1.0)
+#define isRegularHorizontalClass ([DHAppDelegate sharedDelegate].window.rootViewController.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular)
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+#define homePath NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0]
+#define transfersPath NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]
+#define TICK   NSDate *startTime = [NSDate date]
+#define TOCK   NSLog(@"Time: %f", -[startTime timeIntervalSinceNow])
+#define DHPrepareForURLSearch @"DHPrepareForURLSearch"
+#define DHSplitViewControllerDidSeparate @"DHSplitViewControllerDidSeparate"
+#define DHSplitViewControllerDidCollapse @"DHSplitViewControllerDidCollapse"
+#define DHPerformURLSearch @"DHPerformURLSearch"
+#define DHWindowChangedTraitCollection @"DHWindowChangedTraitCollection"
+
+#import "NSString+DHUtils.h"
+#import "NSArray+DHUtils.h"
+#import "UIView+DHUtils.h"
+#import "DHDocset.h"
+#import "UIAlertView+Blocks.h"
+#import "UIActionSheet+Blocks.h"
+#import "NSTimer+DHUtils.h"
+#import "UIButton+DHUtils.h"
+#import "NSURL+DHUtils.h"
+#import "NSFileManager+DHUtils.h"
+#import "DHImageCache.h"
+#import "UIScrollView+EmptyDataSet.h"
+#import "NSString+GTM.h"
+#import "NSObject+DHUtils.h"
+#import "UIViewController+DHUtils.h"
+#import "DHDBResultSorter.h"
+#import "DHDBNestedResultSorter.h"
+#import "DHTarixIndex.h"
+#import "UITableView+DHUtils.h"
+#import "NSData+DHUtils.h"
+#import "DHRemoteServer.h"
+#import "DHRemote.h"
+#import "NSTimer+Blocks.h"
+#import "GZIP.h"
+#import "DHAppDelegate.h"
+#import "DHAppleActiveLanguage.h"
+
+#endif

@@ -1,0 +1,421 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		A70B24A116E1389D008C4BB8 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A70B24A216E1389D008C4BB8 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				A70B24A516E138A3008C4BB8 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		A719026C16A7F8B700C1EC52 /* DTBonjourDataChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = A719026516A7F8B700C1EC52 /* DTBonjourDataChunk.m */; };
+		A719026E16A7F8B700C1EC52 /* DTBonjourDataConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A719026716A7F8B700C1EC52 /* DTBonjourDataConnection.m */; };
+		A719027016A7F8B700C1EC52 /* DTBonjourServer.m in Sources */ = {isa = PBXBuildFile; fileRef = A719026916A7F8B700C1EC52 /* DTBonjourServer.m */; };
+		A719027216A7F8B700C1EC52 /* NSScanner+DTBonjour.m in Sources */ = {isa = PBXBuildFile; fileRef = A719026B16A7F8B700C1EC52 /* NSScanner+DTBonjour.m */; };
+		A719029616A7F95100C1EC52 /* DTBonjourDataChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = A719026516A7F8B700C1EC52 /* DTBonjourDataChunk.m */; };
+		A719029716A7F95100C1EC52 /* DTBonjourDataConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A719026716A7F8B700C1EC52 /* DTBonjourDataConnection.m */; };
+		A719029816A7F95100C1EC52 /* DTBonjourServer.m in Sources */ = {isa = PBXBuildFile; fileRef = A719026916A7F8B700C1EC52 /* DTBonjourServer.m */; };
+		A719029916A7F95100C1EC52 /* NSScanner+DTBonjour.m in Sources */ = {isa = PBXBuildFile; fileRef = A719026B16A7F8B700C1EC52 /* NSScanner+DTBonjour.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A719021716A7F5E300C1EC52 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A70B24A016E1385F008C4BB8 /* AppledocSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppledocSettings.plist; sourceTree = "<group>"; };
+		A719021916A7F5E300C1EC52 /* libDTBonjour_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDTBonjour_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A719021C16A7F5E300C1EC52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A719026216A7F8B700C1EC52 /* DTBonjour-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DTBonjour-Prefix.pch"; sourceTree = "<group>"; };
+		A719026416A7F8B700C1EC52 /* DTBonjourDataChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTBonjourDataChunk.h; sourceTree = "<group>"; };
+		A719026516A7F8B700C1EC52 /* DTBonjourDataChunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTBonjourDataChunk.m; sourceTree = "<group>"; };
+		A719026616A7F8B700C1EC52 /* DTBonjourDataConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTBonjourDataConnection.h; sourceTree = "<group>"; };
+		A719026716A7F8B700C1EC52 /* DTBonjourDataConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTBonjourDataConnection.m; sourceTree = "<group>"; };
+		A719026816A7F8B700C1EC52 /* DTBonjourServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTBonjourServer.h; sourceTree = "<group>"; };
+		A719026916A7F8B700C1EC52 /* DTBonjourServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTBonjourServer.m; sourceTree = "<group>"; };
+		A719026A16A7F8B700C1EC52 /* NSScanner+DTBonjour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScanner+DTBonjour.h"; sourceTree = "<group>"; };
+		A719026B16A7F8B700C1EC52 /* NSScanner+DTBonjour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScanner+DTBonjour.m"; sourceTree = "<group>"; };
+		A719028B16A7F93000C1EC52 /* libDTBonjour_Mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDTBonjour_Mac.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A719029B16A7FC7100C1EC52 /* DTBonjour.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DTBonjour.podspec; sourceTree = "<group>"; };
+		A719029C16A7FC7100C1EC52 /* readme.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme.markdown; sourceTree = "<group>"; };
+		A719029D16A7FC7100C1EC52 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A719021616A7F5E300C1EC52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A719028816A7F93000C1EC52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A719021016A7F5E300C1EC52 = {
+			isa = PBXGroup;
+			children = (
+				A719029A16A7FC6100C1EC52 /* Documentation */,
+				A719026116A7F8B700C1EC52 /* Core */,
+				A719021B16A7F5E300C1EC52 /* Frameworks */,
+				A719021A16A7F5E300C1EC52 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A719021A16A7F5E300C1EC52 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A719021916A7F5E300C1EC52 /* libDTBonjour_iOS.a */,
+				A719028B16A7F93000C1EC52 /* libDTBonjour_Mac.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A719021B16A7F5E300C1EC52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A719021C16A7F5E300C1EC52 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A719026116A7F8B700C1EC52 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A719026216A7F8B700C1EC52 /* DTBonjour-Prefix.pch */,
+				A719026316A7F8B700C1EC52 /* Source */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A719026316A7F8B700C1EC52 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A719026416A7F8B700C1EC52 /* DTBonjourDataChunk.h */,
+				A719026516A7F8B700C1EC52 /* DTBonjourDataChunk.m */,
+				A719026616A7F8B700C1EC52 /* DTBonjourDataConnection.h */,
+				A719026716A7F8B700C1EC52 /* DTBonjourDataConnection.m */,
+				A719026816A7F8B700C1EC52 /* DTBonjourServer.h */,
+				A719026916A7F8B700C1EC52 /* DTBonjourServer.m */,
+				A719026A16A7F8B700C1EC52 /* NSScanner+DTBonjour.h */,
+				A719026B16A7F8B700C1EC52 /* NSScanner+DTBonjour.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		A719029A16A7FC6100C1EC52 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				A70B24A016E1385F008C4BB8 /* AppledocSettings.plist */,
+				A719029B16A7FC7100C1EC52 /* DTBonjour.podspec */,
+				A719029D16A7FC7100C1EC52 /* LICENSE */,
+				A719029C16A7FC7100C1EC52 /* readme.markdown */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A719028916A7F93000C1EC52 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A719021816A7F5E300C1EC52 /* DTBonjour (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A719022716A7F5E300C1EC52 /* Build configuration list for PBXNativeTarget "DTBonjour (iOS)" */;
+			buildPhases = (
+				A719021516A7F5E300C1EC52 /* Sources */,
+				A719021616A7F5E300C1EC52 /* Frameworks */,
+				A719021716A7F5E300C1EC52 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DTBonjour (iOS)";
+			productName = DTBonjour;
+			productReference = A719021916A7F5E300C1EC52 /* libDTBonjour_iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A719028A16A7F93000C1EC52 /* DTBonjour (OS X) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A719029316A7F93000C1EC52 /* Build configuration list for PBXNativeTarget "DTBonjour (OS X)" */;
+			buildPhases = (
+				A719028716A7F93000C1EC52 /* Sources */,
+				A719028816A7F93000C1EC52 /* Frameworks */,
+				A719028916A7F93000C1EC52 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DTBonjour (OS X)";
+			productName = DTBonjour;
+			productReference = A719028B16A7F93000C1EC52 /* libDTBonjour_Mac.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A719021116A7F5E300C1EC52 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Drobnik KG";
+			};
+			buildConfigurationList = A719021416A7F5E300C1EC52 /* Build configuration list for PBXProject "DTBonjour" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A719021016A7F5E300C1EC52;
+			productRefGroup = A719021A16A7F5E300C1EC52 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A719021816A7F5E300C1EC52 /* DTBonjour (iOS) */,
+				A719028A16A7F93000C1EC52 /* DTBonjour (OS X) */,
+				A70B24A116E1389D008C4BB8 /* Documentation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A70B24A516E138A3008C4BB8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/appledoc --print-settings --output \"${BUILD_DIR}/Documentation/\" \"${PROJECT_DIR}\"\necho \"Documentation Output directory: ${BUILD_DIR}/Documentation/\"";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A719021516A7F5E300C1EC52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A719026C16A7F8B700C1EC52 /* DTBonjourDataChunk.m in Sources */,
+				A719026E16A7F8B700C1EC52 /* DTBonjourDataConnection.m in Sources */,
+				A719027016A7F8B700C1EC52 /* DTBonjourServer.m in Sources */,
+				A719027216A7F8B700C1EC52 /* NSScanner+DTBonjour.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A719028716A7F93000C1EC52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A719029616A7F95100C1EC52 /* DTBonjourDataChunk.m in Sources */,
+				A719029716A7F95100C1EC52 /* DTBonjourDataConnection.m in Sources */,
+				A719029816A7F95100C1EC52 /* DTBonjourServer.m in Sources */,
+				A719029916A7F95100C1EC52 /* NSScanner+DTBonjour.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A70B24A316E1389D008C4BB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A70B24A416E1389D008C4BB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A719022516A7F5E300C1EC52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A719022616A7F5E300C1EC52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A719022816A7F5E300C1EC52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/DTBonjour.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Core/DTBonjour-Prefix.pch";
+				PRODUCT_NAME = DTBonjour_iOS;
+			};
+			name = Debug;
+		};
+		A719022916A7F5E300C1EC52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/DTBonjour.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Core/DTBonjour-Prefix.pch";
+				PRODUCT_NAME = DTBonjour_iOS;
+			};
+			name = Release;
+		};
+		A719029416A7F93000C1EC52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Core/DTBonjour-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = DTBonjour_Mac;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A719029516A7F93000C1EC52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Core/DTBonjour-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = DTBonjour_Mac;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A70B24A216E1389D008C4BB8 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A70B24A316E1389D008C4BB8 /* Debug */,
+				A70B24A416E1389D008C4BB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A719021416A7F5E300C1EC52 /* Build configuration list for PBXProject "DTBonjour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A719022516A7F5E300C1EC52 /* Debug */,
+				A719022616A7F5E300C1EC52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A719022716A7F5E300C1EC52 /* Build configuration list for PBXNativeTarget "DTBonjour (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A719022816A7F5E300C1EC52 /* Debug */,
+				A719022916A7F5E300C1EC52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A719029316A7F93000C1EC52 /* Build configuration list for PBXNativeTarget "DTBonjour (OS X)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A719029416A7F93000C1EC52 /* Debug */,
+				A719029516A7F93000C1EC52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A719021116A7F5E300C1EC52 /* Project object */;
+}

@@ -1,0 +1,214 @@
+body.dash_cleared {opacity:0.0 !important}
+
+body.jazz {background-color:white !important}
+body.jazz .hideInXcode {display:none !important;}
+body.jazz section#valence {display:none !important}
+body.jazz .chapter div.pixel-line {display:none !important}
+body.jazz .chapter {border:none !important; position:static !important; overflow-x:visible !important; overflow-y:visible !important; width:auto !important; margin:0px !important; top:0px !important; box-shadow:none !important;}
+body.jazz .content-wrapper {width:auto !important; background-color:white !important}
+body.jazz #bashful {text-align:right; width:100% !important; height:auto !important; position:absolute !important; background:none !important; top:10px !important; margin:0px !important; padding:0px !important; padding-right:0px !important; padding-left:0px !important;}
+body.jazz #language label.selected {background: transparent !important; color: rgba(0,136,204,1) !important; cursor:pointer !important;}
+body.jazz #bashful .shield {width:auto !important}
+body.jazz #bashful #language {user-select:none !important;-webkit-touch-callout:none !important; -webkit-user-select:none !important; padding:0px !important; float:none !important; position: static !important; left:auto !important; font-size:11px !important; -webkit-text-size-adjust: none !important; padding-right:0px !important;}
+body.jazz #bashful #jump_to, body.jazz #bashful #options {display:none !important}
+body.jazz #next_previous .copyright {display:none !important}
+body.jazz .height-container {height:inherit !important;}
+body.jazz .height-container .section {background-color:white !important; border:none !important; padding-left:40px !important; padding-bottom:25px !important; width:auto !important;}
+body.jazz #next_previous {position:static !important; width:auto !important}
+body.jazz .next-link a, body.jazz .previous-link a {margin-top: 0px !important}
+body.jazz .pointy-thing-container, body.jazz .pointy-thing {display:none !important;}
+body.jazz .hiding-symbol-counts {display:none !important}
+body.jazz .overview-bulk-toggle {display:inline-block;}
+body.jazz .overview-bulk {display:none; pointer-events:auto !important; opacity:1 !important; height:auto !important;}
+body.jazz .pixel-line {display:none !important;}
+body.jazz .chapter-name {margin-top:10px !important}
+body.jazz a[name] {margin-top:-10px !important; padding-top:10px !important}
+body.jazz p.para {display:block;}
+body.jazz .task-name-container {padding-right: 0px !important;}
+body.jazz span.x-name {word-wrap:break-word}
+@media only screen and (max-width:320px) {
+    body.jazz td {word-break:break-word !important; width: 2% !important}
+    body.jazz td:first-of-type {width:1% !important}
+}
+body.jazz .rubber-band-gap { display:none !important; }
+body.jazz .metadata-table, body.jazz #metadata_table { max-height:none !important}
+body.jazz .metadata-table > div {margin-bottom:15px !important}
+
+html.dash .method-declaration code { padding:0.5em !important; display:inline-block !important; } /* for cocoadocs docs */
+html.dash .method-subsection h4 {text-align:left !important; float:none !important;}
+html.dash .method-subsection .params {float:none !important; width:auto !important;}
+html.dash div.method-subsection.method-declaration { word-wrap: break-word !important;}
+html.dash code {word-wrap: break-word !important}
+
+body.jazz .section, body.jazz .height-container, body.jazz .symbol, body.jazz .task-group-section {padding-right:5px !important}
+body.jazz {-webkit-nbsp-mode: space !important;}
+
+.jazz h3.section-name:before {margin-top:0px !important; height:auto !important;}
+.jazz .section .section .section-name {padding-top:0px !important}
+.jazz .section-name { margin-top:16px !important}
+
+body, #contents, #adcHeader
+{
+    min-width:0 !important;
+}
+
+#contents .specbox span
+{
+    white-space:normal !important;
+}
+
+article#contents a[href=""]
+{
+    pointer-events: none;
+    cursor: default;
+}
+
+body#conceptual_flow_with_tasks a[href=""]
+{
+    pointer-events: none;
+    cursor: default;
+}
+
+body
+{
+    overflow:visible !important;
+}
+
+div#leave_feedback, div#xcode_leave_feedback
+{
+    display:none !important;
+}
+
+div#adcHeader, div#adcHeader + header
+{
+    display:none !important;
+}
+
+body#conceptual_flow_with_tasks div.content-wrapper nav.book-parts
+{
+    display:none !important;
+}
+
+body#conceptual_flow_with_tasks div.content-wrapper input#ssi_SearchField
+{
+    display:none !important;
+}
+
+body#conceptual_flow_with_tasks div.content-wrapper section#mini_toc
+{
+    display:none !important;
+}
+
+body#conceptual_flow_with_tasks section#valence
+{
+    position:static !important;
+}
+
+body#conceptual_flow_with_tasks div.pixel-line {display:none !important;}
+
+body#conceptual_flow_with_tasks div.content-wrapper
+{
+    margin:0px !important;
+    width:auto !important;
+    padding:0 0px 0 0px !important;
+}
+
+body#conceptual_flow_with_tasks div.content-wrapper section#next_previous
+{
+    position:relative !important;
+    width: auto !important;
+}
+
+body#conceptual_flow_with_tasks div.content-wrapper article.chapter
+{
+    margin-left:0px !important;
+    margin-right:0px !important;
+    width:auto !important;
+}
+
+body#conceptual_flow_with_tasks header#ios_header
+{
+    display:none !important;
+}
+
+.rubyDashNamespaceClass
+{
+    background:url(Dash-Intercept-ClassRuby.png) transparent no-repeat;
+    background-image: -webkit-image-set(url(DashClassRuby.png) 1x, url(Dash-Intercept-ClassRubyRetina.png) 2x);
+    background-size:14px 14px;
+    padding-left:18px !important;
+    background-position:left;
+}
+
+.rubyDashNamespaceModule
+{
+    background:url(Dash-Intercept-ModuleRuby.png) transparent no-repeat;
+    background-image: -webkit-image-set(url(Dash-Intercept-ModuleRuby.png) 1x, url(Dash-Intercept-ModuleRubyRetina.png) 2x);
+    background-size:14px 14px;
+    padding-left:18px !important;
+    background-position:left;
+}
+
+article#contents .task
+{
+    -webkit-transition: none !important;
+    transition: none !important;
+}
+
+article#contents pre.declaration
+{
+    white-space:pre-wrap !important;
+}
+
+div#ppStaticForm
+{
+    display:none !important;
+}
+
+div#feedbackForm
+{
+    display:none !important;
+}
+
+div.spec_sheet_info_box
+{
+    display:block !important;
+}
+
+body.class#top, body.file, body.module#top {margin-left:0px !important; margin-bottom:40px !important}
+body.class#top #validator-badges, body.file #validator-badges, body.module#top #validator-badges {display:none !important}
+body.class#top h1 span, body.class#top h2 span, body.class#top h3 span, body.class#top h4 span, body.class#top h5 span, body.class#top h6 span, body.file h1 span, body.file h2 span, body.file h3 span, body.file h4 span, body.file h5 span, body.file h6 span, body.module#top h1 span, body.module#top h2 span, body.module#top h3 span, body.module#top h4 span, body.module#top h5 span, body.module#top h6 span {display:none !important}
+body.class#top #metadata, body.file #metadata, body.module#top #metadata {display:none !important}
+body.class#top div#documentation, body.file div#documentation, body.module#top div#documentation {margin: 10px 10px 0px 10px !important}
+body.class#top div#documentation div.method-detail:hover, body.file div#documentation div.method-detail:hover, body.module#topdiv#documentation div.method-detail:hover {background-color:rgba(1,1,1,0) !important}
+body.class#top div#documentation div.section div.target-section, body.file div#documentation div.section div.target-section, body.module#top div#documentation div.section div.target-section {border:0px !important; border-left-width: 0px !important; padding:0px !important;background:rgba(1,1,1,0) !important}
+
+body.class#top div#documentation .class::after, body.module#top div#documentation .module::after  {content:"Loading..."; display:block; font-size:14px;}
+body.class#top div#documentation .class.class-loaded::after, body.module#top div#documentation .module.class-loaded::after {content:none !important}
+body.class#top div#documentation .class.class-loaded span, body.module#top div#documentation .module.class-loaded span { display:block !important; font-size:14px !important; padding:0px !important; margin:0px !important; color:inherit !important;}
+body.class#top div#documentation .class.class-loaded span a, body.module#top div#documentation .module.class-loaded span a { font-size:14px !important; color:inherit !important; text-decoration:underline !important;}
+body.class#top div#documentation .class.class-loaded span a:hover, body.module#top div#documentation .module.class-loaded span a:hover { border-bottom:0px !important; color:red !important;}
+
+body.appledoc {background:transparent !important; }
+body.appledoc > header, body.appledoc > aside {display:none !important}
+body.appledoc > article {margin-top:0px !important}
+body.appledoc .container {padding-left: 0px !important; padding-right:0px !important; max-width: none !important;}
+body.appledoc #content {padding: 0px 25px 30px !important; border: 0px !important}
+body.appledoc article #content .title {padding-top:0px !important}
+body.appledoc .method-info .pointy-thing::before { content: normal !important}
+
+.subsubtitle {height:100% !important}
+#bodyText{margin-left:0px !important}
+#tocMenu{display:none !important}
+#tocContainer{display:none !important}
+#tocPinky{display:none !important}
+#headerButtons{display:none !important}
+#top_header{display:none !important}
+#contents{left:0px !important;position:static !important; top:0px !important; border-top:0px !important; margin-top:0px !important; padding-top:0px !important;}
+#overview_contents{left:0px !important;position:static !important; top:0px !important; border-top:0px !important}
+#maincontainer{position:static !important}
+#mainpinky{display:none !important}
+#content{position:static !important}
+#tocContainer.isShowingTOC{display:none !important}
+#contents.isShowingTOC{left:0px !important}
+#overview_contents{position:static !important;top:0 !important;border-top:0 !important;}

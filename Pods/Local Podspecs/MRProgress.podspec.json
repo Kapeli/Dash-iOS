@@ -1,0 +1,259 @@
+{
+  "name": "MRProgress",
+  "version": "0.7.0",
+  "summary": "Collection of iOS drop-in components to visualize progress with different modes",
+  "homepage": "https://github.com/mrackwitz/MRProgress",
+  "social_media_url": "https://twitter.com/mrackwitz",
+  "authors": {
+    "Marius Rackwitz": "git@mariusrackwitz.de"
+  },
+  "license": "MIT License",
+  "source": {
+    "git": "https://github.com/mrackwitz/MRProgress.git",
+    "tag": "0.7.0"
+  },
+  "source_files": "src/MRProgress.h",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Blur",
+    "ActivityIndicator",
+    "Circular",
+    "Icons",
+    "NavigationBarProgress",
+    "Overlay"
+  ],
+  "subspecs": [
+    {
+      "name": "Blur",
+      "source_files": "src/Blur/*.{h,m}",
+      "dependencies": {
+        "MRProgress/Helper": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "UIKit",
+          "QuartzCore",
+          "CoreGraphics",
+          "Accelerate"
+        ]
+      }
+    },
+    {
+      "name": "ActivityIndicator",
+      "source_files": "src/Components/MRActivityIndicatorView.{h,m}",
+      "dependencies": {
+        "MRProgress/Stopable": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "UIKit",
+          "QuartzCore",
+          "CoreGraphics"
+        ]
+      }
+    },
+    {
+      "name": "Circular",
+      "source_files": "src/Components/MRCircularProgressView.{h,m}",
+      "dependencies": {
+        "MRProgress/Stopable": [
+
+        ],
+        "MRProgress/Helper": [
+
+        ],
+        "MRProgress/ProgressBaseClass": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "UIKit",
+          "QuartzCore"
+        ]
+      }
+    },
+    {
+      "name": "Icons",
+      "source_files": "src/Components/MRIconView.{h,m}",
+      "ios": {
+        "frameworks": [
+          "UIKit",
+          "QuartzCore"
+        ]
+      }
+    },
+    {
+      "name": "NavigationBarProgress",
+      "source_files": "src/Components/MRNavigationBarProgressView.{h,m}",
+      "dependencies": {
+        "MRProgress/ProgressBaseClass": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "UIKit"
+        ]
+      }
+    },
+    {
+      "name": "Overlay",
+      "source_files": "src/Components/MRProgressOverlayView.{h,m}",
+      "dependencies": {
+        "MRProgress/ActivityIndicator": [
+
+        ],
+        "MRProgress/Circular": [
+
+        ],
+        "MRProgress/Icons": [
+
+        ],
+        "MRProgress/Blur": [
+
+        ],
+        "MRProgress/Helper": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "UIKit",
+          "QuartzCore",
+          "CoreGraphics"
+        ]
+      }
+    },
+    {
+      "name": "AFNetworking",
+      "subspecs": [
+        {
+          "name": "Base",
+          "dependencies": {
+            "MRProgress/MethodCopier": [
+
+            ],
+            "AFNetworking": [
+
+            ],
+            "AFNetworking/UIKit": [
+              "2.4.1"
+            ]
+          }
+        },
+        {
+          "name": "ActivityIndicator",
+          "dependencies": {
+            "MRProgress/AFNetworking/Base": [
+
+            ],
+            "MRProgress/ActivityIndicator": [
+
+            ]
+          },
+          "source_files": "src/Support/AFNetworking/MRActivityIndicatorView+AFNetworking.{h,m}"
+        },
+        {
+          "name": "ProgressBaseClass",
+          "dependencies": {
+            "MRProgress/AFNetworking/Base": [
+
+            ],
+            "MRProgress/ProgressBaseClass": [
+
+            ]
+          },
+          "source_files": "src/Support/AFNetworking/MRProgressView+AFNetworking.{h,m}"
+        },
+        {
+          "name": "Overlay",
+          "dependencies": {
+            "MRProgress/AFNetworking/Base": [
+
+            ],
+            "MRProgress/Overlay": [
+
+            ],
+            "MRProgress/AFNetworking/ActivityIndicator": [
+
+            ],
+            "MRProgress/AFNetworking/Circular": [
+
+            ]
+          },
+          "source_files": "src/Support/AFNetworking/MRProgressOverlayView+AFNetworking.{h,m}"
+        },
+        {
+          "name": "Circular",
+          "dependencies": {
+            "MRProgress/AFNetworking/ProgressBaseClass": [
+
+            ]
+          }
+        },
+        {
+          "name": "NavigationBarProgress",
+          "dependencies": {
+            "MRProgress/AFNetworking/ProgressBaseClass": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "MessageInterceptor",
+      "source_files": "src/Utils/MRMessageInterceptor.{h,m}"
+    },
+    {
+      "name": "MethodCopier",
+      "source_files": "src/Utils/MRMethodCopier.{h,m}"
+    },
+    {
+      "name": "WeakProxy",
+      "source_files": "src/Utils/MRWeakProxy.{h,m}"
+    },
+    {
+      "name": "ProgressBaseClass",
+      "source_files": "src/Components/MRProgressView.{h,m}",
+      "ios": {
+        "frameworks": [
+          "UIKit"
+        ]
+      }
+    },
+    {
+      "name": "Stopable",
+      "source_files": "src/Components/{MRStopableView,MRStopButton}.{h,m}",
+      "ios": {
+        "frameworks": [
+          "UIKit",
+          "QuartzCore"
+        ]
+      },
+      "dependencies": {
+        "MRProgress/Helper": [
+
+        ]
+      }
+    },
+    {
+      "name": "Helper",
+      "source_files": "src/Utils/MRProgressHelper.h",
+      "ios": {
+        "frameworks": [
+          "UIKit",
+          "QuartzCore"
+        ]
+      }
+    }
+  ]
+}

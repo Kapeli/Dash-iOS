@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>--project-name</key>
+	<string>DTBonjour</string>
+	<key>--project-company</key>
+	<string>Cocoanetics</string>
+	<key>--project-version</key>
+	<string>1.0</string>
+	<key>--company-id</key>
+	<string>com.cocoanetics</string>
+	<key>--docset-atom-filename</key>
+	<string>DTBonjour.atom</string>
+	<key>--docset-feed-url</key>
+	<string>https://docs.cocoanetics.com/DTBonjour/%DOCSETATOMFILENAME</string>
+	<key>--docset-package-url</key>
+	<string>https://docs.cocoanetics.com/DTBonjour/%DOCSETPACKAGEFILENAME</string>
+	<key>--docset-fallback-url</key>
+	<string>https://docs.cocoanetics.com/DTBonjour/</string>
+	<key>--create-docset</key>
+	<true/>
+	<key>--publish-docset</key>
+	<true/>
+	<key>--install-docset</key>
+	<false/>
+	<key>--logformat</key>
+	<string>xcode</string>
+	<key>--keep-intermediate-files</key>
+	<true/>
+	<key>--no-repeat-first-par</key>
+	<true/>
+	<key>--include</key>
+	<array>
+		<string>./Documentation/Change Log-template.markdown</string>
+	</array>
+	<key>--ignore</key>
+	<array>
+		<string>*.m</string>
+		<string>Core/Externals</string>
+		<string>Demo</string>
+	</array>
+	<key>--index-desc</key>
+	<string>readme.markdown</string>
+	<key>--warn-invalid-crossref</key>
+	<false/>
+</dict>
+</plist>

@@ -1,0 +1,82 @@
+PODS:
+  - AutoCoding (2.2.2)
+  - DTBonjour (1.1.1)
+  - DZNEmptyDataSet (1.4.1)
+  - GZIP (1.1.1)
+  - JGMethodSwizzler (2.0.1)
+  - KissXML (5.1.2):
+    - KissXML/Core (= 5.1.2)
+  - KissXML/Core (5.1.2)
+  - MRProgress (0.7.0):
+    - MRProgress/ActivityIndicator (= 0.7.0)
+    - MRProgress/Blur (= 0.7.0)
+    - MRProgress/Circular (= 0.7.0)
+    - MRProgress/Icons (= 0.7.0)
+    - MRProgress/NavigationBarProgress (= 0.7.0)
+    - MRProgress/Overlay (= 0.7.0)
+  - MRProgress/ActivityIndicator (0.7.0):
+    - MRProgress/Stopable
+  - MRProgress/Blur (0.7.0):
+    - MRProgress/Helper
+  - MRProgress/Circular (0.7.0):
+    - MRProgress/Helper
+    - MRProgress/ProgressBaseClass
+    - MRProgress/Stopable
+  - MRProgress/Helper (0.7.0)
+  - MRProgress/Icons (0.7.0)
+  - MRProgress/NavigationBarProgress (0.7.0):
+    - MRProgress/ProgressBaseClass
+  - MRProgress/Overlay (0.7.0):
+    - MRProgress/ActivityIndicator
+    - MRProgress/Blur
+    - MRProgress/Circular
+    - MRProgress/Helper
+    - MRProgress/Icons
+  - MRProgress/ProgressBaseClass (0.7.0)
+  - MRProgress/Stopable (0.7.0):
+    - MRProgress/Helper
+  - NSTimer-Blocks (0.0.1)
+  - Reachability (3.2)
+  - SAMKeychain (1.5.2)
+  - UIActionSheet+Blocks (0.9)
+  - UIAlertView+Blocks (0.9)
+
+DEPENDENCIES:
+  - AutoCoding
+  - DTBonjour (from `Modified Pods/DTBonjour/DTBonjour.podspec`)
+  - DZNEmptyDataSet (from `Modified Pods/DZNEmptyDataSet/DZNEmptyDataSet.podspec`)
+  - GZIP
+  - JGMethodSwizzler
+  - KissXML
+  - MRProgress (from `Modified Pods/MRProgress/MRProgress.podspec`)
+  - NSTimer-Blocks
+  - Reachability
+  - SAMKeychain
+  - UIActionSheet+Blocks
+  - UIAlertView+Blocks
+
+EXTERNAL SOURCES:
+  DTBonjour:
+    :path: Modified Pods/DTBonjour/DTBonjour.podspec
+  DZNEmptyDataSet:
+    :path: Modified Pods/DZNEmptyDataSet/DZNEmptyDataSet.podspec
+  MRProgress:
+    :path: Modified Pods/MRProgress/MRProgress.podspec
+
+SPEC CHECKSUMS:
+  AutoCoding: 56fa46dbfa89d44189a26ce64e6a470ed8ff4661
+  DTBonjour: f221ef5500b109de0eb8cf0f6700c10a27cc8eb0
+  DZNEmptyDataSet: b6d8ef0e69a4347b70c642148453174dbf8817f1
+  GZIP: f8beb59597f651e6970a45b816508a9c6d700b77
+  JGMethodSwizzler: e0ea5c1c6c55304ec4ef3f54e441400c6735c899
+  KissXML: 246c842586bb77110e04fb88e19376d96245c856
+  MRProgress: ae0bff676bc83d62cfd5567bba3325f4617c7215
+  NSTimer-Blocks: 88faf9aef5f250ead087f3f67ae642517083bf36
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
+  UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
+  UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
+
+PODFILE CHECKSUM: 16f2ec3842a1db6d36c3bdca4350d584851af81b
+
+COCOAPODS: 1.1.1

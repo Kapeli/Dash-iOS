@@ -1,0 +1,33 @@
+{
+  "name": "DTBonjour",
+  "version": "1.1.1",
+  "summary": "Client/Server Communication of NSObjects over WiFi.",
+  "homepage": "https://github.com/Cocoanetics/DTBonjour",
+  "authors": {
+    "Oliver Drobnik": "oliver@drobnik.com"
+  },
+  "source": {
+    "git": "https://github.com/Cocoanetics/DTBonjour.git",
+    "tag": "1.1.1"
+  },
+  "source_files": "Core/Source/*.{h,m}",
+  "license": "BSD",
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "ios": {
+    "frameworks": [
+      "CoreFoundation",
+      "Foundation",
+      "UIKit"
+    ]
+  },
+  "osx": {
+    "frameworks": [
+      "CoreFoundation",
+      "Foundation"
+    ]
+  },
+  "requires_arc": true
+}

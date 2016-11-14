@@ -1,0 +1,126 @@
+buildscript {
+    repositories {
+				maven {
+					url('http://openbakery.org/repository/')
+				}
+				mavenCentral()
+    }
+    dependencies {
+        classpath group: 'org.openbakery', name: 'xcodePlugin', version: '0.9.+'
+    }
+}
+apply plugin: 'xcode'
+
+xcodebuild {
+  scheme = 'Static Library'
+  target = 'Static Library'
+  configuration = 'Debug'
+}
+
+
+// ---------- FTP Publish ----------
+
+repositories {
+  mavenCentral()
+}
+
+configurations {
+  ftpAntTask
+}
+
+dependencies {
+  ftpAntTask("org.apache.ant:ant-commons-net:1.9.+");
+}
+
+
+ant.taskdef(
+  name: 'ftp',
+  classname: 'org.apache.tools.ant.taskdefs.optional.net.FTP',
+  classpath: configurations.ftpAntTask.asPath
+)
+
+task documentationUpload << {
+  def uploadHost = 'docs.cocoanetics.com'
+  if (project.ext.properties.containsKey("uploadHost")) {
+    uploadHost = project.ext.uploadHost
+  }
+
+  def uploadUser = null
+  if (project.ext.properties.containsKey("uploadUser")) {
+    uploadUser = project.ext.uploadUser
+  } else {
+    uploadUser = System.console().readLine("\nPlease enter the upload user: ")
+  }
+
+  def uploadPassword = null
+  if (project.ext.properties.containsKey("uploadPassword")) {
+    uploadPassword = project.ext.uploadPassword
+  } else {
+    uploadPassword = "" + System.console().readPassword("\nPlease enter the upload server password: ")
+  }
+
+
+  // -------------- UPLOAD DIRECTORY -------------
+
+  def uploadDirectory = 'DTBonjour'
+  if (project.ext.properties.containsKey("uploadDirectory")) {
+    uploadDirectory = project.ext.uploadDirectory
+  }
+
+
+  ant.ftp(
+    server: uploadHost,
+    remotedir: uploadDirectory,
+    userid: uploadUser,
+    password: uploadPassword,
+    depends: true,
+    verbose: true,
+    passive: true) {
+
+      fileset(dir: 'build/documentation/html') {
+        include(name: '**/**')
+      }
+      fileset(dir: 'build/documentation/publish') {
+        include(name: '**/**')
+      }
+  }
+
+}
+
+
+// -------------- UNIT TESTS -------------
+
+task continuous(dependsOn: 'test')
+
+gradle.taskGraph.whenReady { taskGraph ->
+
+	if (taskGraph.hasTask(test)) {
+		println "CONFIGURE CONTINUOUS"
+		xcodebuild {
+
+			destination {
+				platform = 'iOS Simulator'
+				name = 'iPad'
+				os='7.1'
+			}
+
+			destination {
+				platform = 'iOS Simulator'
+				name = 'iPhone Retina (3.5-inch)'
+				os='7.1'
+			}
+
+			destination {
+				platform = 'iOS Simulator'
+				name = 'iPhone Retina (4-inch)'
+				os='7.1'
+			}
+
+			destination {
+				platform = 'iOS Simulator'
+				name = 'iPad Retina'
+				os='7.1'
+			}
+		}
+	}
+}

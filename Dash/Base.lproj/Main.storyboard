@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="pY4-Hu-kfo">
+            <objects>
+                <navigationController storyboardIdentifier="DHMainNavigationController" id="RMx-3f-FxP" customClass="DHNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="Pmd-2v-anx">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7bK-jq-Zjz" kind="relationship" relationship="rootViewController" id="tsl-Nk-0bq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="246" y="-545"/>
+        </scene>
+        <!--Nested Result-->
+        <scene sceneID="ftd-z8-gfn">
+            <objects>
+                <tableViewController storyboardIdentifier="DHNestedBrowser" id="On6-fK-Wo0" customClass="DHNestedViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHNestedBrowserTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="34K-oz-RHA">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BLABLA Cell" id="x0P-fR-ekF">
+                                <rect key="frame" x="0.0" y="22" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x0P-fR-ekF" id="xkY-Bg-Jb1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="On6-fK-Wo0" id="1bW-nC-WxR"/>
+                            <outlet property="delegate" destination="On6-fK-Wo0" id="33f-4n-Xfr"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Nested Result" id="BLr-sT-VsR"/>
+                    <connections>
+                        <segue destination="JEX-9P-axG" kind="push" identifier="DHSearchWebViewSegue" id="JVl-yk-gWU"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBi-q0-XGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2322" y="404"/>
+        </scene>
+        <!--WebView-->
+        <scene sceneID="yUG-lL-AsK">
+            <objects>
+                <viewController storyboardIdentifier="DHWebViewController" title="WebView" id="JEX-9P-axG" customClass="DHWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KEp-bG-ttG"/>
+                        <viewControllerLayoutGuide type="bottom" id="UCD-CE-b5i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="DHWebView" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0LW-3L-DOL" customClass="DHWebView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0LW-3L-DOL" firstAttribute="top" secondItem="svH-Pt-448" secondAttribute="top" id="0jL-UA-6vM"/>
+                            <constraint firstItem="0LW-3L-DOL" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="Hek-yP-hkF"/>
+                            <constraint firstAttribute="bottom" secondItem="0LW-3L-DOL" secondAttribute="bottom" id="Jyu-U7-lXJ"/>
+                            <constraint firstAttribute="trailing" secondItem="0LW-3L-DOL" secondAttribute="trailing" id="TI5-dG-fOf"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="WebView" id="LO3-Fn-NLm"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="webView" destination="0LW-3L-DOL" id="ZcG-L8-Mdc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="212" y="588"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="Nki-YV-4Qg">
+            <objects>
+                <splitViewController storyboardIdentifier="DHSplitView" id="H1p-Uh-vWS" customClass="DHSplitViewController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <connections>
+                        <segue destination="RMx-3f-FxP" kind="relationship" relationship="masterViewController" id="BlO-5A-QYV"/>
+                        <segue destination="vC3-pB-5Vb" kind="relationship" relationship="detailViewController" id="Tll-UG-LXB"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-536.71875" y="-544.921875"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="PgB-42-Mhn">
+            <objects>
+                <tableViewController storyboardIdentifier="DHPreferences" id="LN4-2N-5f1" customClass="DHPreferences" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="9XA-MP-Y6T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <sections>
+                            <tableViewSection id="5ll-Jq-5KZ">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DHSettingsCell" textLabel="Ug3-nq-xyc" imageView="CfY-ch-rUA" style="IBUITableViewCellStyleDefault" id="r0i-wt-QAr">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r0i-wt-QAr" id="x7u-4T-8E0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Download Docsets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ug3-nq-xyc">
+                                                    <rect key="frame" x="58" y="0.0" width="302" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="main_repo" id="CfY-ch-rUA">
+                                                    <rect key="frame" x="15" y="7" width="28" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DHSettingsCell" textLabel="tH7-qh-OUH" imageView="hJO-jA-eBm" style="IBUITableViewCellStyleDefault" id="sda-gL-9CQ">
+                                        <rect key="frame" x="0.0" y="79" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sda-gL-9CQ" id="Wp8-gy-b2o">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Transfer Docsets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tH7-qh-OUH">
+                                                    <rect key="frame" x="58" y="0.0" width="302" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="transfer_repo" id="hJO-jA-eBm">
+                                                    <rect key="frame" x="15" y="7" width="28" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection footerTitle="Dash will notify you when docset updates are available.             " id="DSC-i5-noV">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="auto_updates" textLabel="L5q-QS-QhJ" style="IBUITableViewCellStyleDefault" id="NBw-o2-OgI">
+                                        <rect key="frame" x="0.0" y="143" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NBw-o2-OgI" id="P7F-Da-gdU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Automatic Updates" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L5q-QS-QhJ">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hvT-X0-nTG">
+                                                    <rect key="frame" x="311" y="7" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="updatesSwitchValueChanged:" destination="LN4-2N-5f1" eventType="valueChanged" id="74Q-tw-KN2"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hvT-X0-nTG" firstAttribute="centerY" secondItem="L5q-QS-QhJ" secondAttribute="centerY" id="Znc-x7-6X4"/>
+                                                <constraint firstItem="hvT-X0-nTG" firstAttribute="trailing" secondItem="L5q-QS-QhJ" secondAttribute="trailing" id="rUM-hk-XWB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="LN4-2N-5f1" id="Efj-iq-t4A"/>
+                            <outlet property="delegate" destination="LN4-2N-5f1" id="u0Q-nm-tNM"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="T2e-0d-yIN"/>
+                        <barButtonItem title="Get Dash for macOS" id="2rJ-qk-tNm">
+                            <connections>
+                                <action selector="getDashForMacOS:" destination="LN4-2N-5f1" id="53W-TV-cwl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="vy5-DI-Lqt"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Settings" id="OIB-dx-J0z">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="Fip-DI-Smg">
+                            <connections>
+                                <action selector="dismissModal:" destination="LN4-2N-5f1" id="KMc-0W-FPt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="updatesSwitch" destination="hvT-X0-nTG" id="uqh-Ew-FYx"/>
+                        <segue destination="bVq-xA-3wd" kind="push" identifier="DHDocsetDownloaderToDetailSegue" splitViewControllerTargetIndex="1" id="078-Zd-cbO"/>
+                        <segue destination="KZf-iV-yPx" kind="push" identifier="DHDocsetTransferrerToMasterSegue" splitViewControllerTargetIndex="0" id="vh9-ti-qTq"/>
+                        <segue destination="KZf-iV-yPx" kind="push" identifier="DHDocsetTransferrerToDetailSegue" splitViewControllerTargetIndex="1" id="jto-ap-CAv"/>
+                        <segue destination="bVq-xA-3wd" kind="push" identifier="DHDocsetDownloaderToMasterSegue" splitViewControllerTargetIndex="0" id="tZ0-kY-m9B"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fmo-gt-gw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1586" y="-1657"/>
+        </scene>
+        <!--Docset Browser-->
+        <scene sceneID="smW-Zh-WAh">
+            <objects>
+                <tableViewController storyboardIdentifier="DHDocsetsBrowser" title="Docset Browser" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="DHDocsetBrowser" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHDocsetsBrowserTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0" customClass="DHBrowserTableView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" restorationIdentifier="DocsetsSearchBar" id="VJZ-Lp-FAA">
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="7bK-jq-Zjz" id="dJ4-gv-uRt"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BLABLA" id="H2Y-Rn-XFZ">
+                                <rect key="frame" x="0.0" y="66" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H2Y-Rn-XFZ" id="kux-Q3-Ab3">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="7bK-jq-Zjz" id="Gho-Na-rnu"/>
+                            <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Docsets" id="Zdf-7t-Un8">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="UFq-dX-jiF">
+                            <connections>
+                                <action selector="openSettings:" destination="7bK-jq-Zjz" id="q2C-N5-b8Q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="4Nc-re-3YX" id="d5C-Zk-9Cy"/>
+                        <segue destination="LN4-2N-5f1" kind="show" identifier="DHOpenSettingsSegue" id="4LN-qs-RRA"/>
+                        <segue destination="bVq-xA-3wd" kind="push" identifier="DHDocsetDownloaderToDetailSegue" splitViewControllerTargetIndex="1" id="BAb-G2-tNG"/>
+                        <segue destination="MG8-DW-Fv2" kind="show" identifier="DHTypeBrowserSegue" id="Ocj-J9-g6q"/>
+                        <segue destination="On6-fK-Wo0" kind="show" identifier="DHNestedSegue" id="Zvp-4Y-BjQ"/>
+                        <segue destination="fAU-6P-OeP" kind="show" identifier="DHRemoteBrowserSegue" id="bdX-NV-KLl"/>
+                        <segue destination="JEX-9P-axG" kind="push" identifier="DHSearchWebViewSegue" id="iku-X1-02v"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="4Nc-re-3YX" customClass="DHSearchDisplayController">
+                    <connections>
+                        <outlet property="delegate" destination="7bK-jq-Zjz" id="t43-uI-qHE"/>
+                        <outlet property="searchBar" destination="VJZ-Lp-FAA" id="sUn-GY-TJA"/>
+                        <outlet property="searchContentsController" destination="7bK-jq-Zjz" id="FYG-uq-SSP"/>
+                        <outlet property="searchResultsDataSource" destination="7bK-jq-Zjz" id="58Z-1R-yn6"/>
+                        <outlet property="searchResultsDelegate" destination="7bK-jq-Zjz" id="Yap-xw-oMZ"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="918" y="-545"/>
+        </scene>
+        <!--Type Browser-->
+        <scene sceneID="0HO-gO-dJg">
+            <objects>
+                <tableViewController storyboardIdentifier="DHTypesBrowser" title="Type Browser" id="MG8-DW-Fv2" customClass="DHTypeBrowser" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHTypesBrowserTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="XY4-1C-CBf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="VJR-eZ-B8V">
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="MG8-DW-Fv2" id="4dd-ej-3oY"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BLABLA" id="VA8-am-q6Z">
+                                <rect key="frame" x="0.0" y="66" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VA8-am-q6Z" id="nIL-hj-vFk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MG8-DW-Fv2" id="9mk-Iz-bpP"/>
+                            <outlet property="delegate" destination="MG8-DW-Fv2" id="Nn0-Nk-gye"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Types" id="1DN-dq-KAm"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="QXT-TT-18q" id="Ffp-2g-pgc"/>
+                        <segue destination="9Rs-Yt-R1b" kind="show" identifier="DHEntryBrowserSegue" id="FUX-Tg-BvC"/>
+                        <segue destination="On6-fK-Wo0" kind="show" identifier="DHNestedSegue" id="ljv-Qq-slv"/>
+                        <segue destination="JEX-9P-axG" kind="push" identifier="DHSearchWebViewSegue" id="l26-aC-Nx3"/>
+                        <segue destination="JEX-9P-axG" kind="push" identifier="DHShowIndexPageSegue" id="5fr-qx-aky"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l8s-68-JtL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="QXT-TT-18q" customClass="DHSearchDisplayController">
+                    <connections>
+                        <outlet property="delegate" destination="MG8-DW-Fv2" id="NhR-F4-gaX"/>
+                        <outlet property="searchBar" destination="VJR-eZ-B8V" id="ZoK-EI-6Xc"/>
+                        <outlet property="searchContentsController" destination="MG8-DW-Fv2" id="59w-BX-ea7"/>
+                        <outlet property="searchResultsDataSource" destination="MG8-DW-Fv2" id="SJ6-b1-uYr"/>
+                        <outlet property="searchResultsDelegate" destination="MG8-DW-Fv2" id="kPV-0H-TmG"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1614" y="-545"/>
+        </scene>
+        <!--Entry Browser-->
+        <scene sceneID="hsl-sd-m15">
+            <objects>
+                <tableViewController storyboardIdentifier="DHEntriesBrowser" title="Type Browser" id="9Rs-Yt-R1b" userLabel="Entry Browser" customClass="DHEntryBrowser" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHEntriesBrowserTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wwv-Id-rNo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" restorationIdentifier="EntriesSearchBar" id="ar1-R2-LNh">
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="9Rs-Yt-R1b" id="dCU-Oq-KCt"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BLABLA" id="gr3-qP-hfk">
+                                <rect key="frame" x="0.0" y="66" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gr3-qP-hfk" id="HWD-2S-7F9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9Rs-Yt-R1b" id="6dg-AY-vP5"/>
+                            <outlet property="delegate" destination="9Rs-Yt-R1b" id="nix-zh-9ZC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Entries" id="Un0-xc-bRD"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="zcF-qB-4QT" id="cms-mv-pRf"/>
+                        <segue destination="On6-fK-Wo0" kind="show" identifier="DHNestedSegue" id="y34-0z-6ul"/>
+                        <segue destination="JEX-9P-axG" kind="push" identifier="DHSearchWebViewSegue" id="hEp-xK-Brz"/>
+                        <segue destination="JEX-9P-axG" kind="push" identifier="DHWebViewSegue" id="Vt3-tf-TGA"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KwV-Su-f2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="zcF-qB-4QT" customClass="DHSearchDisplayController">
+                    <connections>
+                        <outlet property="delegate" destination="9Rs-Yt-R1b" id="PES-ZY-NqP"/>
+                        <outlet property="searchBar" destination="ar1-R2-LNh" id="Yvm-7w-6oa"/>
+                        <outlet property="searchContentsController" destination="9Rs-Yt-R1b" id="8Ws-Jg-PC2"/>
+                        <outlet property="searchResultsDataSource" destination="9Rs-Yt-R1b" id="eHe-KB-xvu"/>
+                        <outlet property="searchResultsDelegate" destination="9Rs-Yt-R1b" id="jRI-Em-gu9"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2322" y="-545"/>
+        </scene>
+        <!--Remote Browser-->
+        <scene sceneID="gnf-QR-1ra">
+            <objects>
+                <tableViewController storyboardIdentifier="DHRemoteBrowser" title="Remote Browser" id="fAU-6P-OeP" customClass="DHRemoteBrowser" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHEntriesBrowserTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GI0-k2-aY7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BLABLA" id="geM-gl-w4a">
+                                <rect key="frame" x="0.0" y="22" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="geM-gl-w4a" id="dRi-kM-G9B">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fAU-6P-OeP" id="NIx-So-K1H"/>
+                            <outlet property="delegate" destination="fAU-6P-OeP" id="bP7-1o-Pks"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Remotes" id="q55-40-w46"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="zcF-qB-4QT" id="Vgn-AA-Bhw"/>
+                        <segue destination="On6-fK-Wo0" kind="show" identifier="DHNestedSegue" id="cEQ-Zo-INv"/>
+                        <segue destination="JEX-9P-axG" kind="push" identifier="DHSearchWebViewSegue" id="q6b-SO-d4X"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fUb-q5-H6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="926" y="392"/>
+        </scene>
+        <!--Download Docsets-->
+        <scene sceneID="j1n-HE-PZF">
+            <objects>
+                <tableViewController storyboardIdentifier="DHDocsetDownloader" modalPresentationStyle="currentContext" id="bVq-xA-3wd" customClass="DHDocsetDownloader" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHDocsetsDownloaderTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ktb-IW-SX0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" restorationIdentifier="DownloadSearchBar" placeholder="Find docsets to download" id="ibw-RZ-LKe">
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="bVq-xA-3wd" id="Ihj-hM-GF4"/>
+                            </connections>
+                        </searchBar>
+                        <connections>
+                            <outlet property="dataSource" destination="bVq-xA-3wd" id="nTB-cw-YaL"/>
+                            <outlet property="delegate" destination="bVq-xA-3wd" id="kNS-Ag-j4A"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Download Docsets" id="9ic-mO-5WP">
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="rwQ-iw-bgR">
+                            <connections>
+                                <action selector="updateButtonPressed:" destination="bVq-xA-3wd" id="KBw-7q-bpx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="ibw-RZ-LKe" id="Q52-Do-Tr4"/>
+                        <outlet property="searchDisplayController" destination="PMB-N5-wGr" id="pz9-mU-T4r"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0xz-hu-dUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="PMB-N5-wGr">
+                    <connections>
+                        <outlet property="delegate" destination="bVq-xA-3wd" id="xQ2-19-HTr"/>
+                        <outlet property="searchBar" destination="ibw-RZ-LKe" id="N2f-yf-RkE"/>
+                        <outlet property="searchContentsController" destination="bVq-xA-3wd" id="lUZ-i4-ck1"/>
+                        <outlet property="searchResultsDataSource" destination="bVq-xA-3wd" id="SiM-kY-Q8J"/>
+                        <outlet property="searchResultsDelegate" destination="bVq-xA-3wd" id="wdp-p8-Zh2"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2420" y="-1950"/>
+        </scene>
+        <!--Transfer Docsets-->
+        <scene sceneID="dSW-F9-RBB">
+            <objects>
+                <tableViewController storyboardIdentifier="DHDocsetTransferrer" modalPresentationStyle="currentContext" id="KZf-iV-yPx" customClass="DHDocsetTransferrer" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHTransferDocsetsTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="RlC-hy-GCI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="KZf-iV-yPx" id="ICT-G5-j4u"/>
+                            <outlet property="delegate" destination="KZf-iV-yPx" id="4Gd-H2-3Ta"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Transfer Docsets" id="w85-3G-Wi2">
+                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="g6k-h1-fQg">
+                            <connections>
+                                <action selector="refreshFeeds:" destination="KZf-iV-yPx" id="seQ-0r-Kic"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ar8-em-khk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2420" y="-1204"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r7l-gg-dq7">
+            <objects>
+                <navigationController storyboardIdentifier="DHWebViewNavigationController" id="vC3-pB-5Vb" customClass="DHNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="DjV-YW-jjY">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JEX-9P-axG" kind="relationship" relationship="rootViewController" id="GKi-kA-LjT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SLD-UC-DBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-539.453125" y="588.28125"/>
+        </scene>
+        <!--ToC Browser-->
+        <scene sceneID="krs-xc-y3h">
+            <objects>
+                <tableViewController storyboardIdentifier="DHTocBrowser" title="Table of Contents" clearsSelectionOnViewWillAppear="NO" id="Wkz-GU-NNB" userLabel="ToC Browser" customClass="DHTocBrowser" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHTocBrowserTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="us7-S7-Voe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Lzc-4G-LSC">
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="Wkz-GU-NNB" id="08o-8I-7Be"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BLABLA" id="uat-DW-uld">
+                                <rect key="frame" x="0.0" y="66" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uat-DW-uld" id="B7g-3q-qBW">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Wkz-GU-NNB" id="b4q-De-aK8"/>
+                            <outlet property="delegate" destination="Wkz-GU-NNB" id="Zcd-Yw-Zcp"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Table of Contents" id="zNW-Es-vkB">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="g7R-rT-w04">
+                            <connections>
+                                <action selector="dismissModal:" destination="Wkz-GU-NNB" id="u7Z-XE-Bwx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="Lzc-4G-LSC" id="kW7-uu-5Rf"/>
+                        <outlet property="searchDisplayController" destination="QXT-TT-18q" id="hDw-2l-hBA"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1fg-gS-VxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="8u3-sF-Owm" customClass="DHSearchDisplayController">
+                    <connections>
+                        <outlet property="delegate" destination="Wkz-GU-NNB" id="kvD-zX-wpP"/>
+                        <outlet property="searchBar" destination="Lzc-4G-LSC" id="fNw-gA-Vhh"/>
+                        <outlet property="searchContentsController" destination="Wkz-GU-NNB" id="8fa-tp-JZ0"/>
+                        <outlet property="searchResultsDataSource" destination="Wkz-GU-NNB" id="ga5-o2-6Ts"/>
+                        <outlet property="searchResultsDelegate" destination="Wkz-GU-NNB" id="M5n-z4-w4w"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1999" y="1202"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lHw-UH-CNc">
+            <objects>
+                <navigationController storyboardIdentifier="DHTocBrowserNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="pJz-3h-N98" customClass="DHNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="U01-gx-C7H">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Wkz-GU-NNB" kind="relationship" relationship="rootViewController" id="3ME-RF-aVw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QwS-fp-JCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1177" y="1202"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="main_repo" width="28" height="28"/>
+        <image name="transfer_repo" width="28" height="28"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="078-Zd-cbO"/>
+        <segue reference="vh9-ti-qTq"/>
+        <segue reference="5fr-qx-aky"/>
+        <segue reference="ljv-Qq-slv"/>
+    </inferredMetricsTieBreakers>
+</document>

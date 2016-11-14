@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C02C30F8-F308-43A9-A650-2CDC908CD42D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Dash iOS</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>395522B8-D3D5-4330-ADA3-6704BFDEC894</key>
+		<string>file:///Users/bogdan/Dropbox/repos/Dash%20iOS.git/</string>
+		<key>F06BACAE22F3F16FFBC5A77320E75D5F66B7147B</key>
+		<string>/Users/bogdan/Dropbox/repos/Dash%20iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Dash iOS.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>395522B8-D3D5-4330-ADA3-6704BFDEC894</key>
+		<string>../../../Dash iOS</string>
+		<key>F06BACAE22F3F16FFBC5A77320E75D5F66B7147B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>/Users/bogdan/Dropbox/repos/Dash%20iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F06BACAE22F3F16FFBC5A77320E75D5F66B7147B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>395522B8-D3D5-4330-ADA3-6704BFDEC894</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Dash iOS</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F06BACAE22F3F16FFBC5A77320E75D5F66B7147B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Dash%20iOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
