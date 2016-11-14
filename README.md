@@ -14,7 +14,7 @@ All you need to do is:
 
 1. Install [Xcode](https://developer.apple.com/xcode/download/)
 1. Download the [Dash for iOS Source Code](https://github.com/Kapeli/Dash-iOS/releases/latest)
-1. Open the "Dash iOS.xcworkspace" project in Xcode
+1. Open "Dash iOS.xcworkspace" in Xcode
 1. Open Xcode's Preferences > Accounts and add your Apple ID
 1. In Xcode's sidebar select "Dash iOS" and go to Targets > Dash > General > Identity and add a word to the end of the Bundle Identifier to make it unique. Also select your Apple ID in Signing > Team
 1. Connect your iPad or iPhone and select it in Xcode's Product menu > Destination
