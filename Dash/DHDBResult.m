@@ -559,14 +559,8 @@ static NSDictionary *highlightDictionary;
     NSString *declaredInStyle = self.docset.declaredInStyle;
     NSString *parseFamily = self.docset.parseFamily;
     parseFamily = (declaredInStyle) ? declaredInStyle : parseFamily;
-    if ([[DHDBResult commonDeclaredInStylePlatforms] containsObject:self.platform] ||
-        ([self.platform isEqualToString:@"wordpress"] && [self.originalName contains:@"::"] && [self.type isEqualToString:@"Method"]) ||
-        [self.platform isCaseInsensitiveEqual:@"apache"] ||
-        ([self.platform isEqualToString:@"matlab"] && [self.type isEqualToString:@"Class"]) ||
-        ([self.platform isEqualToString:@"actionscript"] && ![self.type isEqualToString:@"Class"]) ||
-        ([self.platform isEqualToString:@"grails"] && [self.type isEqualToString:@"Guide"]) ||
-        [parseFamily isEqualToString:@"cheatsheet"] ||
-        [parseFamily isEqualToString:@"originalName"]) {
+    if([[DHDBResult commonDeclaredInStylePlatforms] containsObject:self.platform] || ([self.platform isEqualToString:@"wordpress"] && [self.originalName contains:@"::"] && [self.type isEqualToString:@"Method"]) || ([self.platform isEqualToString:@"matlab"] && [self.type isEqualToString:@"Class"]) || ([self.platform isEqualToString:@"actionscript"] && ![self.type isEqualToString:@"Class"]) || ([self.platform isEqualToString:@"grails"] && [self.type isEqualToString:@"Guide"]) || [parseFamily isEqualToString:@"cheatsheet"] || [parseFamily isEqualToString:@"originalName"])
+    {
         self._declaredInPage = [@" - " stringByAppendingString:self.originalName];
         return self._declaredInPage;
     }
@@ -1325,8 +1319,9 @@ static NSDictionary *highlightDictionary;
 
 + (NSSet *)commonDeclaredInStylePlatforms
 {
-    if(!commonDeclaredInStylePlatforms) {
-        commonDeclaredInStylePlatforms = [NSSet setWithObjects:@"python", @"zepto", @"cvp", @"cvc", @"mongodb", @"cvcpp", @"vagrant", @"cf", @"ansible", @"ocaml", @"twig", @"smarty", @"chef", @"php", @"express", @"bash", @"swift", @"extjs", @"titanium", @"sencha", @"markdown", @"latex", @"bourbon", @"cmake", @"awesome", @"jade", @"SproutCore", @"neat", @"moment", @"elasticsearch", @"xojo", @"lodash", @"statamic", @"drupal", @"phonegap", @"cordova", @"laravel", @"compass", @"haml", @"sass", @"bootstrap", @"ember", @"jasmine", @"perl", @"jquerym", @"jQuery", @"css", @"dartlang", @"phpunit", @"polymerdart", @"angulardart", @"xul", @"xslt", @"javascript", @"arduino",  @"angularjs", @"emmet", @"chai", @"mongoose", @"react", @"grunt", @"sooffline", @"soonline", @"rust", @"flask", @"numpy", @"pandas",  @"sqlalchemy", @"tornado", @"matplotlib", @"salt", @"jinja", @"require", @"scipy", @"go", @"godoc", @"prototype", @"puppet", @"stylus", @"sinon", @"gl2", @"gl3", @"gl4", @"jqueryui", @"underscore", @"backbone", @"marionette", @"coffee", @"yii", @"mono", @"xamarin", @"yui", @"tcl", @"erlang", @"vsphere", @"twisted", @"phpp", @"joomla", @"symfony", @"cakephp", @"scala", @"scaladoc", @"playscala", @"akka", @"sqlite", @"boost", @"unity3d", @"django", @"cpp", @"c", @"qt", @"rails", @"codeigniter", @"yard", @"ruby", @"awsjs", @"rubyGems",  @"foundation", @"lua", @"dojo", @"elixir", @"knockout", @"meteor", nil];
+    if(!commonDeclaredInStylePlatforms)
+    {
+        commonDeclaredInStylePlatforms = [NSSet setWithObjects:@"apache", @"python", @"zepto", @"cvp", @"cvc", @"mongodb", @"cvcpp", @"vagrant", @"cf", @"ansible", @"ocaml", @"twig", @"smarty", @"chef", @"php", @"express", @"bash", @"swift", @"extjs", @"titanium", @"sencha", @"markdown", @"latex", @"bourbon", @"cmake", @"awesome", @"jade", @"SproutCore", @"neat", @"moment", @"elasticsearch", @"xojo", @"lodash", @"statamic", @"drupal", @"phonegap", @"cordova", @"laravel", @"compass", @"haml", @"sass", @"bootstrap", @"ember", @"jasmine", @"perl", @"jquerym", @"jQuery", @"css", @"dartlang", @"phpunit", @"polymerdart", @"angulardart", @"xul", @"xslt", @"javascript", @"arduino",  @"angularjs", @"emmet", @"chai", @"mongoose", @"react", @"grunt", @"sooffline", @"soonline", @"rust", @"flask", @"numpy", @"pandas",  @"sqlalchemy", @"tornado", @"matplotlib", @"salt", @"jinja", @"require", @"scipy", @"go", @"godoc", @"prototype", @"puppet", @"stylus", @"sinon", @"gl2", @"gl3", @"gl4", @"jqueryui", @"underscore", @"backbone", @"marionette", @"coffee", @"yii", @"mono", @"xamarin", @"yui", @"tcl", @"erlang", @"vsphere", @"twisted", @"phpp", @"joomla", @"symfony", @"cakephp", @"scala", @"scaladoc", @"playscala", @"akka", @"sqlite", @"boost", @"unity3d", @"django", @"cpp", @"c", @"qt", @"rails", @"codeigniter", @"yard", @"ruby", @"awsjs", @"rubyGems",  @"foundation", @"lua", @"dojo", @"elixir", @"knockout", @"meteor", nil];
     }
     return commonDeclaredInStylePlatforms;
 }
