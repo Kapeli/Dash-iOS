@@ -6,7 +6,7 @@ For more information about Dash, check out https://kapeli.com/dash_ios.
 
 Also please check out [Dash for macOS](https://kapeli.com/dash).
 
-# Installation Instructions
+## Installation Instructions
 
 You can use Xcode to install Dash on your iOS device using just your Apple ID.
 
@@ -22,7 +22,7 @@ All you need to do is:
 
 [Contact me](https://kapeli.com/contact) if you need help.
 
-# Contribution Guidelines
+## Contribution Guidelines
 
 Contributions are welcome! 
 
