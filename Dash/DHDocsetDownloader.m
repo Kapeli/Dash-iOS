@@ -710,7 +710,7 @@ static id singleton = nil;
     else if([feed.feedURL isEqualToString:@"http://kapeli.com/feeds/Apple_API_Reference.xml"])
     {
         title = @"Apple API Reference";
-        message = @"To install the Apple API Reference docset you need to:\n\n1. Use Dash for macOS to install the Apple API Reference docset from Preferences > Downloads\n2. Go to Preferences > Docsets, right click the Apple API Reference docset and select \"Generate iOS Compatible Docset\"\n3. Transfer the resulting docset using iTunes File Sharing";
+        message = @"To install the Apple API Reference docset you need to:\n\n1. Use Dash for macOS 3.4.1 or newer to install the Apple API Reference docset from Preferences > Downloads\n2. Go to Preferences > Docsets, right click the Apple API Reference docset and select \"Generate iOS Compatible Docset\"\n3. Transfer the resulting docset using iTunes File Sharing";
     }
     else if([feed.feedURL isEqualToString:@"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml"])
     {
