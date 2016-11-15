@@ -84,7 +84,8 @@ static NSDictionary *highlightDictionary;
             return nil;
         }
         
-        self.isApple = (isOSX || [[self platform] isEqualToString:@"ios"] || [[self platform] isEqualToString:@"iphoneos"] || [self.platform isEqualToString:@"watchos"] || [self.platform isEqualToString:@"tvos"]);
+        NSSet *applePlatforms = [NSSet setWithObjects:@"ios", @"iphoneos", @"watchos", @"tvos", nil];
+        self.isApple = (isOSX || [applePlatforms containsObject:[self platform]]);
         if(self.isApple)
         {
             if([self.anchor hasSuffix:@"-dash-swift-hack"])
@@ -187,9 +188,23 @@ static NSDictionary *highlightDictionary;
     NSString *shorteningFamily = self.docset.nameShorteningFamily;
     NSString *parseFamily = (shorteningFamily) ? shorteningFamily : self.docset.parseFamily;
     parseFamily = (parseFamily && parseFamily.length) ? parseFamily : self.platform;
-    if(([parseFamily isEqualToString:@"python"] || [parseFamily isEqualToString:@"flask"] || [parseFamily isEqualToString:@"scipy"] || [parseFamily isEqualToString:@"numpy"] || [parseFamily isEqualToString:@"pandas"] || [parseFamily isEqualToString:@"sqlalchemy"] || [parseFamily isEqualToString:@"tornado"] || [parseFamily isEqualToString:@"matplotlib"] || [parseFamily isEqualToString:@"salt"] || [parseFamily isEqualToString:@"jinja"] || ([self.platform isEqualToString:@"ocaml"] && ([self.type isEqualToString:@"Type"] || [self.type isEqualToString:@"Value"])) || [parseFamily isEqualToString:@"mono"] || [parseFamily isEqualToString:@"xamarin"] || [parseFamily isEqualToString:@"sencha"] || [parseFamily isEqualToString:@"extjs"] || [parseFamily isEqualToString:@"titanium"] || [parseFamily isEqualToString:@"twisted"] || [parseFamily isEqualToString:@"unity3d"] || [parseFamily isEqualToString:@"django"] || ([parseFamily isEqualToString:@"javascript"] && ![self.type isEqualToString:@"Function"]) || [parseFamily isEqualToString:@"actionscript"] || [parseFamily isEqualToString:@"yui"] || [parseFamily isEqualToString:@"vsphere"] || ([self.platform isEqualToString:@"SproutCore"] && ![self.type isClassType] && ![self.type isEqualToString:@"Protocol"] && ![self.type isEqualToString:@"Delegate"])) && ![self.type isPackageType])
+    
+    NSSet *allowedParseFamily = [NSSet setWithObjects:@"python", @"flask", @"scipy", @"numpy", @"pandas", @"sqlalchemy", @"tornado", @"matplotlib", @"salt", @"jinja", @"mono", @"xamarin", @"sencha", @"extjs", @"titanium", @"twisted", @"unity3d", @"django", @"actionscript", @"yui", @"vsphere", nil];
+    if(![self.type isPackageType])
     {
-        self.name = [self.name lastPackageComponent:@"."];
+        if([allowedParseFamily containsObject:parseFamily] ||
+           ([self.platform isEqualToString:@"ocaml"] &&
+            ([self.type isEqualToString:@"Type"] || [self.type isEqualToString:@"Value"])
+           ) ||
+           ([parseFamily isEqualToString:@"javascript"] && ![self.type isEqualToString:@"Function"]) ||
+           ([self.platform isEqualToString:@"SproutCore"] &&
+            ![self.type isClassType] &&
+            ![self.type isEqualToString:@"Protocol"] &&
+            ![self.type isEqualToString:@"Delegate"])
+           )
+        {
+            self.name = [self.name lastPackageComponent:@"."];
+        }
     }
     else if([parseFamily isEqualToString:@"apple"])
     {
@@ -1294,23 +1309,11 @@ static NSDictionary *highlightDictionary;
 
 - (NSString *)sortType
 {
-    if(self.isPHP && [self.type isEqualToString:@"Function"])
-    {
-        return @"Class";
-    }
-    else if(self.isRust && [self.type isEqualToString:@"_Struct"])
-    {
-        return @"Class";
-    }
-    else if(self.isSwift && [self.type isEqualToString:@"Type"])
-    {
-        return @"Class";
-    }
-    else if(self.isGo && [self.type isEqualToString:@"Type"])
-    {
-        return @"Class";
-    }
-    else if(self.isApple && self.linkIsSwift && [self.type isEqualToString:@"Struct"] && [self.path contains:@"/Swift/Reference/"])
+    if( (self.isPHP && [self.type isEqualToString:@"Function"]) ||
+        (self.isRust && [self.type isEqualToString:@"_Struct"]) ||
+        (self.isSwift && [self.type isEqualToString:@"Type"]) ||
+        (self.isGo && [self.type isEqualToString:@"Type"]) ||
+        (self.isApple && self.linkIsSwift && [self.type isEqualToString:@"Struct"] && [self.path contains:@"/Swift/Reference/"]))
     {
         return @"Class";
     }
