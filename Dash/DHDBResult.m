@@ -625,19 +625,47 @@ static NSDictionary *highlightDictionary;
             }
         }
         
-        NSString *declaredName = [[[[[[[[[[[[[[[[[[[[[[[[filename stringByReplacingOccurrencesOfString:@"_1" withString:@":"] stringByReplacingOccurrencesOfString:@"_2" withString:@"/"] stringByReplacingOccurrencesOfString:@"_3" withString:@"<"] stringByReplacingOccurrencesOfString:@"_4" withString:@">"] stringByReplacingOccurrencesOfString:@"_5" withString:@"*"] stringByReplacingOccurrencesOfString:@"_6" withString:@"&"] stringByReplacingOccurrencesOfString:@"_7" withString:@"|"] stringByReplacingOccurrencesOfString:@"_9" withString:@"!"] stringByReplacingOccurrencesOfString:@"_00" withString:@","] stringByReplacingOccurrencesOfString:@"_01" withString:@" "] stringByReplacingOccurrencesOfString:@"_02" withString:@"{"] stringByReplacingOccurrencesOfString:@"_03" withString:@"}"] stringByReplacingOccurrencesOfString:@"_04" withString:@"?"] stringByReplacingOccurrencesOfString:@"_05" withString:@"^"] stringByReplacingOccurrencesOfString:@"_06" withString:@"%"] stringByReplacingOccurrencesOfString:@"_07" withString:@"("] stringByReplacingOccurrencesOfString:@"_08" withString:@")"] stringByReplacingOccurrencesOfString:@"_09" withString:@"+"] stringByReplacingOccurrencesOfString:@"_0A" withString:@"="] stringByReplacingOccurrencesOfString:@"_0B" withString:@"$"] stringByReplacingOccurrencesOfString:@"_0C" withString:@"\\"] stringByReplacingOccurrencesOfString:@"_8" withString:@"."] stringByReplacingOccurrencesOfString:@"__" withString:@" "] stringByReplacingOccurrencesOfString:@"::" withString:@"\\"];
-        NSRange underRange = [declaredName rangeOfString:@"_"];
-        while(underRange.location != NSNotFound)
+        // FIXME: It may be better to move this replacement out to a function with descent descriptive name
+        NSDictionary *replacePairs = @{ @"_1" : @":",
+                                        @"_2" : @"/",
+                                        @"_3" : @"<",
+                                        @"_4" : @">",
+                                        @"_5" : @"*",
+                                        @"_6" : @"&",
+                                        @"_7" : @"|",
+                                        @"_9" : @"!",
+                                        @"_00" : @",",
+                                        @"_01" : @" ",
+                                        @"_02" : @"{",
+                                        @"_03" : @"}",
+                                        @"_04" : @"?",
+                                        @"_05" : @"^",
+                                        @"_06" : @"%",
+                                        @"_07" : @"(",
+                                        @"_08" : @")",
+                                        @"_09" : @"+",
+                                        @"_0A" : @"=",
+                                        @"_0B" : @"$",
+                                        @"_0C" : @"\\",
+                                        @"_8" : @".",
+                                        @"__" : @" ", 
+                                        @"::" : @"\\" };
+        NSMutableString *mutableFilename = [filename mutableCopy];
+        for(NSString *key in [replacePairs allKeys])
         {
-            if(underRange.location+2 <= declaredName.length)
-            {
-                declaredName = [declaredName stringByReplacingCharactersInRange:NSMakeRange(underRange.location, 2) withString:[[declaredName substringWithDashRange:NSMakeRange(underRange.location+1, 1)] uppercaseString]];
-                underRange = [declaredName rangeOfString:@"_"];
-            }
-            else
-            {
-                break;
-            }
+            [mutableFilename replaceOccurrencesOfString:key
+                                             withString:replacePairs[key]
+                                                options:(NSStringCompareOptions)0
+                                                  range:NSMakeRange(0, [mutableFilename length])];
+        }
+        NSString *declaredName = mutableFilename;
+        
+        NSRange underRange = [declaredName rangeOfString:@"_"];
+        while(underRange.location != NSNotFound &&
+              underRange.location+2 <= declaredName.length)
+        {
+            declaredName = [declaredName stringByReplacingCharactersInRange:NSMakeRange(underRange.location, 2) withString:[[declaredName substringWithDashRange:NSMakeRange(underRange.location+1, 1)] uppercaseString]];
+            underRange = [declaredName rangeOfString:@"_"];
         }
         if(declaredName.length)
         {
