@@ -286,7 +286,8 @@ static NSDictionary *highlightDictionary;
             self.name = [self.name substringToLastOccurrenceOfString:@"/"];
         }
     }
-    else if(([self.platform isEqualToString:@"dartlang"] || [parseFamily isEqualToString:@"dartlang"] || [self.platform isEqualToString:@"polymerdart"] || [self.platform isEqualToString:@"angulardart"]) && ![self.type isPackageType])
+    else if(![self.type isPackageType] &&
+            ([parseFamily isEqualToString:@"dartlang"] || [@[@"dartlang", @"polymerdart", @"angulardart"] containsObject:self.platform]))
     {
         if([self.type isEqualToString:@"Constructor"])
         {
@@ -316,7 +317,8 @@ static NSDictionary *highlightDictionary;
     {
         self.name = [self.name substringFromString:@"::"];
     }
-    else if([parseFamily isEqualToString:@"cappuccino"] || [self.platform isEqualToString:@"cvcpp"] || [self.platform isEqualToString:@"drupal"] || [self.platform isEqualToString:@"zend"] || [self.platform isEqualToString:@"cocos2dx"] || [self.platform isEqualToString:@"doxy"] || [self.platform isEqualToString:@"doxygen"] || [parseFamily isEqualToString:@"doxy"] || [parseFamily isEqualToString:@"doxygen"])
+    else if([@[@"cappuccino", @"doxy", @"doxygen"] containsObject:parseFamily] ||
+            [@[@"cvcpp", @"drupal", @"zend", @"cocos2dx", @"doxy", @"doxygen"] containsObject:self.platform])
     {
         self.name = [self.name lastPackageComponent:@"::"];
     }
@@ -364,7 +366,7 @@ static NSDictionary *highlightDictionary;
             }
         }
     }
-    else if([parseFamily isEqualToString:@"ruby"] || [parseFamily isEqualToString:@"rubyGems"] || [parseFamily isEqualToString:@"rails"])
+    else if([@[@"ruby", @"rubyGems", @"rails"] containsObject:parseFamily])
     {
         if([parseFamily isEqualToString:@"rails"])
         {
@@ -390,7 +392,8 @@ static NSDictionary *highlightDictionary;
             }
         }
     }
-    else if([self.platform isEqualToString:@"laravel"] || [self.platform isEqualToString:@"phpp"] || [parseFamily isEqualToString:@"phpShortening"] || [self.platform isEqualToString:@"joomla"] || [self.platform isEqualToString:@"symfony"] || [self.platform isEqualToString:@"cakephp"] || [self.platform isEqualToString:@"typo3"])
+    else if([parseFamily isEqualToString:@"phpShortening"] ||
+            [@[@"laravel", @"phpp", @"joomla", @"symfony", @"cakephp", @"typo3"] containsObject:self.platform])
     {
         if(![self.type isPackageType] && ![self.type isEqualToString:@"Function"])
         {
@@ -410,7 +413,7 @@ static NSDictionary *highlightDictionary;
             self.name = [self.name substringToDashIndex:loc];
         }
     }
-    else if([parseFamily isEqualToString:@"java"] || [parseFamily isEqualToString:@"playjava"] || [parseFamily isEqualToString:@"javafx"] || [parseFamily isEqualToString:@"groovy"])
+    else if([@[@"java", @"playjava", @"javafx", @"groovy"] containsObject:parseFamily])
     {
         self.name = [self.name stringByUnescapingFromHTML];
         self.originalName = self.name;
@@ -611,30 +614,17 @@ static NSDictionary *highlightDictionary;
         {
             filename = [filename substringFromDashIndex:6];
         }
-        if([filename hasCaseInsensitivePrefix:@"category"])
+        
+        NSSet *prefixes = [NSSet setWithObjects:@"category", @"interface", @"class", @"namespace", @"struct", @"union", nil];
+        for(NSString *prefix in prefixes)
         {
-            filename = [filename substringFromDashIndex:8];
+            if([filename hasCaseInsensitivePrefix:prefix])
+            {
+                filename = [filename substringFromDashIndex:[prefix length]];
+                break;
+            }
         }
-        else if([filename hasCaseInsensitivePrefix:@"interface"])
-        {
-            filename = [filename substringFromDashIndex:9];
-        }
-        else if([filename hasCaseInsensitivePrefix:@"class"])
-        {
-            filename = [filename substringFromDashIndex:5];
-        }
-        else if([filename hasCaseInsensitivePrefix:@"namespace"])
-        {
-            filename = [filename substringFromDashIndex:9];
-        }
-        else if([filename hasCaseInsensitivePrefix:@"struct"])
-        {
-            filename = [filename substringFromDashIndex:6];
-        }
-        else if([filename hasCaseInsensitivePrefix:@"union"])
-        {
-            filename = [filename substringFromDashIndex:5];
-        }
+        
         NSString *declaredName = [[[[[[[[[[[[[[[[[[[[[[[[filename stringByReplacingOccurrencesOfString:@"_1" withString:@":"] stringByReplacingOccurrencesOfString:@"_2" withString:@"/"] stringByReplacingOccurrencesOfString:@"_3" withString:@"<"] stringByReplacingOccurrencesOfString:@"_4" withString:@">"] stringByReplacingOccurrencesOfString:@"_5" withString:@"*"] stringByReplacingOccurrencesOfString:@"_6" withString:@"&"] stringByReplacingOccurrencesOfString:@"_7" withString:@"|"] stringByReplacingOccurrencesOfString:@"_9" withString:@"!"] stringByReplacingOccurrencesOfString:@"_00" withString:@","] stringByReplacingOccurrencesOfString:@"_01" withString:@" "] stringByReplacingOccurrencesOfString:@"_02" withString:@"{"] stringByReplacingOccurrencesOfString:@"_03" withString:@"}"] stringByReplacingOccurrencesOfString:@"_04" withString:@"?"] stringByReplacingOccurrencesOfString:@"_05" withString:@"^"] stringByReplacingOccurrencesOfString:@"_06" withString:@"%"] stringByReplacingOccurrencesOfString:@"_07" withString:@"("] stringByReplacingOccurrencesOfString:@"_08" withString:@")"] stringByReplacingOccurrencesOfString:@"_09" withString:@"+"] stringByReplacingOccurrencesOfString:@"_0A" withString:@"="] stringByReplacingOccurrencesOfString:@"_0B" withString:@"$"] stringByReplacingOccurrencesOfString:@"_0C" withString:@"\\"] stringByReplacingOccurrencesOfString:@"_8" withString:@"."] stringByReplacingOccurrencesOfString:@"__" withString:@" "] stringByReplacingOccurrencesOfString:@"::" withString:@"\\"];
         NSRange underRange = [declaredName rangeOfString:@"_"];
         while(underRange.location != NSNotFound)
