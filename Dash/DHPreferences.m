@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prepareForURLSearch:) name:DHPrepareForURLSearch object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openDownloads:) name:DHOpenDownloads object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openTransfers:) name:DHOpenTransfers object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -135,21 +137,30 @@
 {
     if(indexPath.section == 0)
     {
-        if(isRegularHorizontalClass)
+        if(indexPath.row == 0)
         {
-            [self performSegueWithIdentifier:[self detailSegueIdentifierForRow:indexPath.row] sender:self];
+            [self openDownloads:nil];
         }
-        else
+        else if(indexPath.row == 1)
         {
-            if(indexPath.row == 0)
-            {
-                [self performSegueWithIdentifier:@"DHDocsetDownloaderToMasterSegue" sender:self];
-            }
-            else if(indexPath.row == 1)
-            {
-                [self performSegueWithIdentifier:@"DHDocsetTransferrerToMasterSegue" sender:self];
-            }
+            [self openTransfers:nil];
         }
+    }
+}
+
+- (void)openDownloads:(id)sender {
+    if(isRegularHorizontalClass) {
+        [self performSegueWithIdentifier:@"DHDocsetDownloaderToDetailSegue" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"DHDocsetDownloaderToMasterSegue" sender:self];
+    }
+}
+
+- (void)openTransfers:(id)sender {
+    if(isRegularHorizontalClass) {
+        [self performSegueWithIdentifier:@"DHDocsetTransferrerToDetailSegue" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"DHDocsetTransferrerToMasterSegue" sender:self];
     }
 }
 

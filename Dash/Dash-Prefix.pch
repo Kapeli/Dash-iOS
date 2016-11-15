@@ -29,6 +29,9 @@
 #define DHSplitViewControllerDidSeparate @"DHSplitViewControllerDidSeparate"
 #define DHSplitViewControllerDidCollapse @"DHSplitViewControllerDidCollapse"
 #define DHPerformURLSearch @"DHPerformURLSearch"
+#define DHOpenSettings @"DHOpenSettings"
+#define DHOpenDownloads @"DHOpenDownloads"
+#define DHOpenTransfers @"DHOpenTransfers"
 #define DHWindowChangedTraitCollection @"DHWindowChangedTraitCollection"
 
 #import "NSString+DHUtils.h"
