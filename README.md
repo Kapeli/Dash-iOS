@@ -21,3 +21,9 @@ All you need to do is:
 1. Press CMD+R or Product > Run to install Dash
 
 [Contact me](https://kapeli.com/contact) if you need help.
+
+# Contribution Guidelines
+
+Contributions are welcome! 
+
+My only request is: try to maintain the same coding style I use (e.g. curly braces on their own line). I know it's a bit different from anyone else's and you might disagree with it, but having sections of code with a different style would make things worse.
