@@ -134,6 +134,8 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
+    [[self.displayController.searchResultsTableView getSubViewByClass:NSClassFromString(@"_UISearchBarShadowView")] setHidden:YES];
+    
     if(self.isRestoring)
     {
         self.displayController.searchResultsTableView.allowsSelection = YES;
@@ -168,11 +170,17 @@
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView
 {
-
+    if ([self.viewController isKindOfClass:[UITableViewController class]]) {
+        [(UITableViewController *)self.viewController tableView].separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
 }
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView
 {
+    if ([self.viewController isKindOfClass:[UITableViewController class]]) {
+        [(UITableViewController *)self.viewController tableView].separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }
+
     [self.searcher cancelSearch];
     self.searcher = nil;
 }

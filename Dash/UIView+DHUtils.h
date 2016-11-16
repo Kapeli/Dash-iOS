@@ -21,6 +21,8 @@
 
 - (void)increaseFrameByX:(CGFloat)x y:(CGFloat)y width:(CGFloat)width height:(CGFloat)height;
 
+- (UIView *)getSubViewByClass:(Class)class;
+
 @end
 
 CGRect CGIncreaseRect(CGRect rect, CGFloat x, CGFloat y, CGFloat width, CGFloat height);
