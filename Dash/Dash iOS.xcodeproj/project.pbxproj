@@ -119,11 +119,10 @@
 		43FD2EFF19BB8D87007E594D /* DHDocsetBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FD2EFE19BB8D87007E594D /* DHDocsetBrowser.m */; };
 		43FD2F0219BB8D87007E594D /* DHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FD2F0119BB8D87007E594D /* DHWebViewController.m */; };
 		43FD2F0419BB8D87007E594D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FD2F0319BB8D87007E594D /* Images.xcassets */; };
-		BBB3B8850811DF599E5B94B1 /* libPods-Dash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAA490E87044F567A335E75 /* libPods-Dash.a */; };
+		45D28F8ABD1FC392B1930467 /* libPods-Dash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2364AD2032B0714BCD2265 /* libPods-Dash.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2CAC7E81E329482ED9879D31 /* Pods-Dash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dash/Pods-Dash.debug.xcconfig"; sourceTree = "<group>"; };
 		4303A3B019C6584F00A7CD85 /* whitespace_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whitespace_tokenizer.h; sourceTree = "<group>"; };
 		4303A3B119C6584F00A7CD85 /* whitespace_tokenizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = whitespace_tokenizer.c; sourceTree = "<group>"; };
 		4303A3B219C6584F00A7CD85 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -314,8 +313,9 @@
 		43FD2F0019BB8D87007E594D /* DHWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHWebViewController.h; sourceTree = "<group>"; };
 		43FD2F0119BB8D87007E594D /* DHWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHWebViewController.m; sourceTree = "<group>"; };
 		43FD2F0319BB8D87007E594D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8A903FC979556D0CD8EA207B /* Pods-Dash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dash/Pods-Dash.release.xcconfig"; sourceTree = "<group>"; };
-		BAAA490E87044F567A335E75 /* libPods-Dash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E45E2662CBB7671D0D844A3 /* Pods-Dash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Dash/Pods-Dash.release.xcconfig"; sourceTree = "<group>"; };
+		9A2364AD2032B0714BCD2265 /* libPods-Dash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAE47FF5DEE33300EBFF9AEA /* Pods-Dash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Dash/Pods-Dash.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,7 +332,7 @@
 				43FD2EE819BB8D87007E594D /* CoreGraphics.framework in Frameworks */,
 				43FD2EEA19BB8D87007E594D /* UIKit.framework in Frameworks */,
 				43FD2EE619BB8D87007E594D /* Foundation.framework in Frameworks */,
-				BBB3B8850811DF599E5B94B1 /* libPods-Dash.a in Frameworks */,
+				45D28F8ABD1FC392B1930467 /* libPods-Dash.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,7 +730,7 @@
 				43FD2EEB19BB8D87007E594D /* Dash */,
 				43FD2EE419BB8D87007E594D /* Frameworks */,
 				43FD2EE319BB8D87007E594D /* Products */,
-				5CCEB4E0A4F487AD01CC0653 /* Pods */,
+				578166A9FCC162CE3E4A4980 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -753,7 +753,7 @@
 				43FD2EE519BB8D87007E594D /* Foundation.framework */,
 				43FD2EE719BB8D87007E594D /* CoreGraphics.framework */,
 				43FD2EE919BB8D87007E594D /* UIKit.framework */,
-				BAAA490E87044F567A335E75 /* libPods-Dash.a */,
+				9A2364AD2032B0714BCD2265 /* libPods-Dash.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -781,7 +781,7 @@
 				43FD2EF319BB8D87007E594D /* Dash-Prefix.pch */,
 				43FD2EED19BB8D87007E594D /* Dash-Info.plist */,
 			);
-			path = Dash;
+			name = Dash;
 			sourceTree = "<group>";
 		};
 		43FD2EEC19BB8D87007E594D /* Supporting Files */ = {
@@ -793,11 +793,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5CCEB4E0A4F487AD01CC0653 /* Pods */ = {
+		578166A9FCC162CE3E4A4980 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2CAC7E81E329482ED9879D31 /* Pods-Dash.debug.xcconfig */,
-				8A903FC979556D0CD8EA207B /* Pods-Dash.release.xcconfig */,
+				BAE47FF5DEE33300EBFF9AEA /* Pods-Dash.debug.xcconfig */,
+				7E45E2662CBB7671D0D844A3 /* Pods-Dash.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -809,16 +809,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43FD2F1A19BB8D87007E594D /* Build configuration list for PBXNativeTarget "Dash" */;
 			buildPhases = (
-				6CCF84649D760DDC8AB1C7EF /* [CP] Check Pods Manifest.lock */,
-				B48590048B008D0179E2CAB8 /* Check Pods Manifest.lock */,
+				74E707306BFB902C5388BE39 /* [CP] Check Pods Manifest.lock */,
 				43FD2EDE19BB8D87007E594D /* Sources */,
 				43FD2EDF19BB8D87007E594D /* Frameworks */,
 				43FD2EE019BB8D87007E594D /* Resources */,
 				43F760BF19EA8C57002BD8A6 /* Git Hashes */,
-				CC84690F1B6CD4E1B67FB35E /* [CP] Embed Pods Frameworks */,
-				F000B69EDF4FCF62531BDF4A /* [CP] Copy Pods Resources */,
-				3CB49A22D3F426694BD18A38 /* Embed Pods Frameworks */,
-				836C27CCB4B3EE864746C286 /* Copy Pods Resources */,
+				C71793A2EB8A6FB0EA63C3D3 /* [CP] Embed Pods Frameworks */,
+				988D171F13583CC36FBA7412 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -908,21 +905,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3CB49A22D3F426694BD18A38 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dash/Pods-Dash-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		43F760BF19EA8C57002BD8A6 /* Git Hashes */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -937,7 +919,7 @@
 			shellPath = /bin/sh;
 			shellScript = "[ -d /Users/bogdan/Projects/Dash ] || exit 0;\n \nPLISTBUDDY=\"/usr/libexec/PlistBuddy\"\nINFOPLISTPATH=\"${TARGET_BUILD_DIR}/${EXECUTABLE_NAME}.app/Info.plist\"\n\ncd \"/Users/bogdan/Projects/Dash/Dash/\"\n\nDHDBSearcherCommit=$(git log -n 1 --pretty=format:%h -- DHDBSearcher.m)\n$PLISTBUDDY -c \"Set :DHDBSearcherCommit $DHDBSearcherCommit\" \"${INFOPLISTPATH}\"\nDHDBResultCommit=$(git log -n 1 --pretty=format:%h -- DHDBResult.m)\n$PLISTBUDDY -c \"Set :DHDBResultCommit $DHDBResultCommit\" \"${INFOPLISTPATH}\"\nDHDBUnifiedResultCommit=$(git log -n 1 --pretty=format:%h -- DHDBUnifiedResult.m)\n$PLISTBUDDY -c \"Set :DHDBUnifiedResultCommit $DHDBUnifiedResultCommit\" \"${INFOPLISTPATH}\"\nDHQueuedDBCommit=$(git log -n 1 --pretty=format:%h -- DHQueuedDB.m)\n$PLISTBUDDY -c \"Set :DHQueuedDBCommit $DHQueuedDBCommit\" \"${INFOPLISTPATH}\"\nDHUnifiedQueuedDBCommit=$(git log -n 1 --pretty=format:%h -- DHUnifiedQueuedDB.m)\n$PLISTBUDDY -c \"Set :DHUnifiedQueuedDBCommit $DHUnifiedQueuedDBCommit\" \"${INFOPLISTPATH}\"\nDHTypesCommit=$(git log -n 1 --pretty=format:%h -- DHTypes.m)\n$PLISTBUDDY -c \"Set :DHTypesCommit $DHTypesCommit\" \"${INFOPLISTPATH}\"\nDHDBUnifiedOperationCommit=$(git log -n 1 --pretty=format:%h -- DHDBUnifiedOperation.m)\n$PLISTBUDDY -c \"Set :DHDBUnifiedOperationCommit $DHDBUnifiedOperationCommit\" \"${INFOPLISTPATH}\"\nDHWebPreferencesCommit=$(git log -n 1 --pretty=format:%h -- DHWebPreferences.m)\n$PLISTBUDDY -c \"Set :DHWebPreferencesCommit $DHWebPreferencesCommit\" \"${INFOPLISTPATH}\"\nDHWebViewControllerCommit=$(git log -n 1 --pretty=format:%h -- DHWebViewController.m)\n$PLISTBUDDY -c \"Set :DHWebViewControllerCommit $DHWebViewControllerCommit\" \"${INFOPLISTPATH}\"\nDHDocsetDownloaderCommit=$(git log -n 1 --pretty=format:%h -- DHDocsetDownloader.m)\n$PLISTBUDDY -c \"Set :DHDocsetDownloaderCommit $DHDocsetDownloaderCommit\" \"${INFOPLISTPATH}\"\n\ncd \"/Users/bogdan/Projects/Dash/Resources/\"\n\nPlatformIconsCommit=$(git log -n 1 --pretty=format:%h -- PlatformIcons)\n$PLISTBUDDY -c \"Set :PlatformIconsCommit $PlatformIconsCommit\" \"${INFOPLISTPATH}\"\nTypesCommit=$(git log -n 1 --pretty=format:%h -- Types)\n$PLISTBUDDY -c \"Set :TypesCommit $TypesCommit\" \"${INFOPLISTPATH}\"\nCSSCommit=$(git log -n 1 --pretty=format:%h -- CSS)\n$PLISTBUDDY -c \"Set :CSSCommit $CSSCommit\" \"${INFOPLISTPATH}\"";
 		};
-		6CCF84649D760DDC8AB1C7EF /* [CP] Check Pods Manifest.lock */ = {
+		74E707306BFB902C5388BE39 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -952,52 +934,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		836C27CCB4B3EE864746C286 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dash/Pods-Dash-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B48590048B008D0179E2CAB8 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CC84690F1B6CD4E1B67FB35E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dash/Pods-Dash-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F000B69EDF4FCF62531BDF4A /* [CP] Copy Pods Resources */ = {
+		988D171F13583CC36FBA7412 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1009,7 +946,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dash/Pods-Dash-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Dash/Pods-Dash-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C71793A2EB8A6FB0EA63C3D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Dash/Pods-Dash-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1209,7 +1161,7 @@
 		};
 		43FD2F1B19BB8D87007E594D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CAC7E81E329482ED9879D31 /* Pods-Dash.debug.xcconfig */;
+			baseConfigurationReference = BAE47FF5DEE33300EBFF9AEA /* Pods-Dash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
@@ -1219,17 +1171,17 @@
 				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Dash/Dash-Prefix.pch";
+				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				IBC_NOTICES = NO;
 				IBC_WARNINGS = NO;
 				IBSC_NOTICES = NO;
 				IBSC_WARNINGS = NO;
-				INFOPLIST_FILE = "Dash/Dash-Info.plist";
+				INFOPLIST_FILE = "Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Dash",
+					"$(PROJECT_DIR)",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.dash.ios;
@@ -1241,7 +1193,7 @@
 		};
 		43FD2F1C19BB8D87007E594D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A903FC979556D0CD8EA207B /* Pods-Dash.release.xcconfig */;
+			baseConfigurationReference = 7E45E2662CBB7671D0D844A3 /* Pods-Dash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
@@ -1250,7 +1202,7 @@
 				DEVELOPMENT_TEAM = JP58VMK957;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Dash/Dash-Prefix.pch";
+				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -1261,11 +1213,11 @@
 				IBC_WARNINGS = NO;
 				IBSC_NOTICES = NO;
 				IBSC_WARNINGS = NO;
-				INFOPLIST_FILE = "Dash/Dash-Info.plist";
+				INFOPLIST_FILE = "Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Dash",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.dash.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";

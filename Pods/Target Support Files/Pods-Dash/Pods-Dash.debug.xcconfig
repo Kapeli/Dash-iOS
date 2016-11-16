@@ -6,4 +6,4 @@ OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${P
 OTHER_LDFLAGS = $(inherited) -ObjC -l"AutoCoding" -l"DTBonjour" -l"DZNEmptyDataSet" -l"GZIP" -l"JGMethodSwizzler" -l"KissXML" -l"MRProgress" -l"NSTimer-Blocks" -l"Reachability" -l"SAMKeychain" -l"UIActionSheet+Blocks" -l"UIAlertView+Blocks" -l"xml2" -framework "Accelerate" -framework "CoreFoundation" -framework "CoreGraphics" -framework "Foundation" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration" -framework "UIKit"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
-PODS_ROOT = ${SRCROOT}/Pods
+PODS_ROOT = ${SRCROOT}/../Pods
