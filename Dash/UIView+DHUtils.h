@@ -21,7 +21,7 @@
 
 - (void)increaseFrameByX:(CGFloat)x y:(CGFloat)y width:(CGFloat)width height:(CGFloat)height;
 
-- (UIView *)getSubViewByClass:(Class)class;
+- (UIView *)getSubViewByClass:(Class)className;
 
 @end
 

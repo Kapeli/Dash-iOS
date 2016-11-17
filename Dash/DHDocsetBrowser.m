@@ -517,6 +517,10 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 - (void)orientationChanged:(id)sender
 {
     [self.tableView reloadEmptyDataSet];
+    
+    UIEdgeInsets inset = self.searchController.displayController.searchResultsTableView.contentInset;
+    inset.top = self.searchController.displayController.searchBar.frame.size.height + self.searchController.displayController.searchBar.superview.frame.origin.y;
+    self.searchController.displayController.searchResultsTableView.contentInset = inset;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

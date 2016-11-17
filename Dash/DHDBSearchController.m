@@ -133,9 +133,7 @@
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [[self.displayController.searchResultsTableView getSubViewByClass:NSClassFromString(@"_UISearchBarShadowView")] setHidden:YES];
-    
+{    
     if(self.isRestoring)
     {
         self.displayController.searchResultsTableView.allowsSelection = YES;

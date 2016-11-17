@@ -25,10 +25,10 @@
     [self setFrame:CGIncreaseRect(currentRect, x, y, width, height)];
 }
 
-- (UIView *)getSubViewByClass:(Class)class
+- (UIView *)getSubViewByClass:(Class)className
 {
     for (UIView *view in self.subviews) {
-        if ([view isKindOfClass:class]) {
+        if ([view isKindOfClass:className]) {
             return view;
         }
     }
