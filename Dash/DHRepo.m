@@ -725,6 +725,14 @@
 {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+
+- (void)orientationChanged:(id)sender
+{
+    UIEdgeInsets inset = self.searchController.searchResultsTableView.contentInset;
+    inset.top = self.searchController.searchBar.frame.size.height + self.searchController.searchBar.superview.frame.origin.y;
+    self.searchController.searchResultsTableView.contentInset = inset;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -886,6 +894,10 @@
         ++i;
     }
     return NSNotFound;
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
