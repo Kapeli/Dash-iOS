@@ -17,6 +17,7 @@
 
 #import "DHAppDelegate.h"
 #import "DHDocsetDownloader.h"
+#import "DHUserRepo.h"
 #import "DHDocsetTransferrer.h"
 #import "DHDocsetManager.h"
 #import "DHTarixProtocol.h"
@@ -83,6 +84,7 @@
 //    self.window.tintColor = [UIColor purpleColor];
     [DHDocsetDownloader sharedDownloader];
     [DHDocsetTransferrer sharedTransferrer];
+    [DHUserRepo sharedUserRepo];
     [DHRemoteServer sharedServer];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clipboardChanged:) name:UIPasteboardChangedNotification object:nil];
     return YES;

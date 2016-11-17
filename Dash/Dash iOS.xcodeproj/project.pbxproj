@@ -25,6 +25,7 @@
 		432321E21AA1BBF70045BA77 /* DHRemoteBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 432321E11AA1BBF70045BA77 /* DHRemoteBrowser.m */; };
 		43256F0719F7A6A8003919BA /* DHBrowserTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43256F0619F7A6A8003919BA /* DHBrowserTableView.m */; };
 		43256F0A19F7B4B9003919BA /* UITableView+DHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43256F0919F7B4B9003919BA /* UITableView+DHUtils.m */; };
+		43280F541DDE4A7B001C2062 /* DHUserRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = 43280F531DDE4A7B001C2062 /* DHUserRepo.m */; };
 		43328E3619EDA0D8000D44AE /* scroll_to_current_anchor.js in Resources */ = {isa = PBXBuildFile; fileRef = 43328E3419EDA0D8000D44AE /* scroll_to_current_anchor.js */; };
 		43352F6519C7A69900D4B1D8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 43352F6419C7A69900D4B1D8 /* libz.dylib */; };
 		4338AB601AAF70AF007B85DE /* DHWebProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4338AB5F1AAF70AF007B85DE /* DHWebProgressView.m */; };
@@ -157,6 +158,8 @@
 		43256F0619F7A6A8003919BA /* DHBrowserTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBrowserTableView.m; sourceTree = "<group>"; };
 		43256F0819F7B4B9003919BA /* UITableView+DHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DHUtils.h"; sourceTree = "<group>"; };
 		43256F0919F7B4B9003919BA /* UITableView+DHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DHUtils.m"; sourceTree = "<group>"; };
+		43280F521DDE4A7B001C2062 /* DHUserRepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHUserRepo.h; sourceTree = "<group>"; };
+		43280F531DDE4A7B001C2062 /* DHUserRepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHUserRepo.m; sourceTree = "<group>"; };
 		43328E3419EDA0D8000D44AE /* scroll_to_current_anchor.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = scroll_to_current_anchor.js; sourceTree = "<group>"; };
 		43352F5F19C7A67200D4B1D8 /* archive_entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = archive_entry.h; sourceTree = "<group>"; };
 		43352F6019C7A67200D4B1D8 /* archive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = archive.h; sourceTree = "<group>"; };
@@ -423,6 +426,15 @@
 			name = Others;
 			sourceTree = "<group>";
 		};
+		43280F511DDE4A4C001C2062 /* User Contributed */ = {
+			isa = PBXGroup;
+			children = (
+				43280F521DDE4A7B001C2062 /* DHUserRepo.h */,
+				43280F531DDE4A7B001C2062 /* DHUserRepo.m */,
+			);
+			name = "User Contributed";
+			sourceTree = "<group>";
+		};
 		4338AB5D1AAF7091007B85DE /* Others */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,19 +451,20 @@
 				43B0956A19BFD57500F8611B /* DHRepo.h */,
 				43B0956B19BFD57500F8611B /* DHRepo.m */,
 				437699A319D8FD0B008B37F4 /* Downloader */,
+				43280F511DDE4A4C001C2062 /* User Contributed */,
 				437699A219D8FD00008B37F4 /* Transferrer */,
 				434AB15819C273A500791E07 /* Others */,
 			);
 			name = Repos;
 			sourceTree = "<group>";
 		};
-		4341A1F219BFE6CA00AD164A /* Settings */ = {
+		4341A1F219BFE6CA00AD164A /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
 				4398D34419BF55B500457CAF /* DHPreferences.h */,
 				4398D34519BF55B500457CAF /* DHPreferences.m */,
 			);
-			name = Settings;
+			name = Preferences;
 			sourceTree = "<group>";
 		};
 		4341A1F319BFE6D200AD164A /* Browser */ = {
@@ -770,7 +783,7 @@
 				438525E919C1509A002BAFD1 /* Searcher */,
 				437AD41819E26F0A00BA0FE4 /* WebView */,
 				4341A1F319BFE6D200AD164A /* Browser */,
-				4341A1F219BFE6CA00AD164A /* Settings */,
+				4341A1F219BFE6CA00AD164A /* Preferences */,
 				4341A1F119BFE6B500AD164A /* Repos */,
 				43573F751A997EB0000E6F2D /* Remote */,
 				43B0956619BFD16C00F8611B /* Others */,
@@ -1031,6 +1044,7 @@
 				43D4F06D19E7E88400C22AF5 /* DHDBSearchController.m in Sources */,
 				43D4F06419E7CEC500C22AF5 /* DHQueuedDB.m in Sources */,
 				4303A3BF19C6584F00A7CD85 /* FMResultSet.m in Sources */,
+				43280F541DDE4A7B001C2062 /* DHUserRepo.m in Sources */,
 				43B0956919BFD19900F8611B /* DHNavigationAnimator.m in Sources */,
 				439051F919E684160083A55E /* DHEntryBrowser.m in Sources */,
 				431108D519C7AE6D0050174C /* DHUnarchiver.m in Sources */,

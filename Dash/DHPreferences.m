@@ -117,39 +117,45 @@
     return indexPath;
 }
 
-- (NSString *)detailSegueIdentifierForRow:(NSInteger)row
+- (NSString *)segueIdentifierForIndexPath:(NSIndexPath *)indexPath
 {
-    // Also used by DHSplitViewController. Make sure identifiers end with "ToDetailSegue"
-    if(row == 0)
+    NSString *title = [[[self.tableView cellForRowAtIndexPath:indexPath] textLabel] text];
+    if([title isEqualToString:@"Main Docsets"])
     {
-        return @"DHDocsetDownloaderToDetailSegue";
+        if(isRegularHorizontalClass)
+        {
+            // Also used by DHSplitViewController. Make sure identifiers end with "ToDetailSegue"
+            return @"DHDocsetDownloaderToDetailSegue";
+        }
+        return @"DHDocsetDownloaderToMasterSegue";
     }
-    else if(row == 1)
+    else if([title isEqualToString:@"User Contributed Docsets"])
     {
-        return @"DHDocsetTransferrerToDetailSegue";
+        if(isRegularHorizontalClass)
+        {
+            // Also used by DHSplitViewController. Make sure identifiers end with "ToDetailSegue"
+            return @"DHUserRepoToDetailSegue";
+        }
+        return @"DHUserRepoToMasterSegue";
+    }
+    else if([title isEqualToString:@"Transfer Docsets"])
+    {
+        if(isRegularHorizontalClass)
+        {
+            // Also used by DHSplitViewController. Make sure identifiers end with "ToDetailSegue"
+            return @"DHDocsetTransferrerToDetailSegue";
+        }
+        return @"DHDocsetTransferrerToMasterSegue";
     }
     return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0)
+    NSString *segueIdentifier = [self segueIdentifierForIndexPath:indexPath];
+    if(segueIdentifier)
     {
-        if(isRegularHorizontalClass)
-        {
-            [self performSegueWithIdentifier:[self detailSegueIdentifierForRow:indexPath.row] sender:self];
-        }
-        else
-        {
-            if(indexPath.row == 0)
-            {
-                [self performSegueWithIdentifier:@"DHDocsetDownloaderToMasterSegue" sender:self];
-            }
-            else if(indexPath.row == 1)
-            {
-                [self performSegueWithIdentifier:@"DHDocsetTransferrerToMasterSegue" sender:self];
-            }
-        }
+        [self performSegueWithIdentifier:[self segueIdentifierForIndexPath:indexPath] sender:self];
     }
 }
 
