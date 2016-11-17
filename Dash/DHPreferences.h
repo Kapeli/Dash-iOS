@@ -24,6 +24,6 @@
 
 - (IBAction)updatesSwitchValueChanged:(id)sender;
 - (IBAction)getDashForMacOS:(id)sender;
-- (NSString *)detailSegueIdentifierForRow:(NSInteger)row;
+- (NSString *)segueIdentifierForIndexPath:(NSIndexPath *)indexPath;
 
 @end
