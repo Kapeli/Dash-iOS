@@ -36,9 +36,9 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     [self grabTitleBarItemAttributedStringTemplate];
     self.clearsSelectionOnViewWillAppear = NO;
     self.searchController = [DHDBSearchController searchControllerWithDocsets:nil typeLimit:nil viewController:self];
-    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"DHBrowserCell" bundle:nil] forCellReuseIdentifier:@"DHBrowserCell"];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:DHDocsetsChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:DHRemotesChangedNotification object:nil];
     self.tableView.rowHeight = 44;

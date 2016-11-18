@@ -31,6 +31,7 @@
     }
     [super viewDidLoad];
     self.clearsSelectionOnViewWillAppear = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.searchController = [DHDBSearchController searchControllerWithDocsets:@[self.docset] typeLimit:self.type viewController:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prepareForURLSearch:) name:DHPrepareForURLSearch object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];

@@ -560,18 +560,34 @@
     self.searchController = controller;
     self.searchBarActive = YES;
     [self.tableView reloadSectionIndexTitles];
+    
+    controller.searchBar.backgroundColor = UIColorFromRGB(0xC9C9CE);
+    controller.searchBar.backgroundImage = [UIImage new];
+    self.navigationController.navigationBar.barTintColor = UIColorFromRGB(0xC9C9CE);
 }
 
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
 {
     self.searchBarActive = NO;
     [self reload];
+    
+    controller.searchBar.backgroundColor = nil;
+    controller.searchBar.backgroundImage = nil;
+    self.navigationController.navigationBar.barTintColor = nil;
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     [self filterFeedsWithQuery:searchString];
     return YES;
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView
+{
+    if ([self isKindOfClass:[UITableViewController class]]) {
+        [(UITableViewController *)self tableView].separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self.tableView reloadData];
+    }
 }
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView
@@ -585,6 +601,10 @@
     [self reload];
     self.searchBarActiveIsALie = NO;
     self.searchBarActive = YES;
+    
+    if ([self isKindOfClass:[UITableViewController class]]) {
+        [(UITableViewController *)self tableView].separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }
 }
 
 - (void)reload
@@ -725,14 +745,6 @@
 {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
-}
-
-- (void)orientationChanged:(id)sender
-{
-    UIEdgeInsets inset = self.searchController.searchResultsTableView.contentInset;
-    inset.top = self.searchController.searchBar.frame.size.height + self.searchController.searchBar.superview.frame.origin.y;
-    self.searchController.searchResultsTableView.contentInset = inset;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -769,6 +781,10 @@
 {
     [super viewWillDisappear:animated];
     [UIApplication sharedApplication].idleTimerDisabled = NO;
+    if(self.searchController.isActive)
+    {
+        [self.searchController setActive:NO animated:YES];
+    }
 }
 
 - (NSString *)docsetInstallFolderName
@@ -894,10 +910,6 @@
         ++i;
     }
     return NSNotFound;
-}
-
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

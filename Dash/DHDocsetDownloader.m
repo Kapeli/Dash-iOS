@@ -733,6 +733,15 @@ static id singleton = nil;
     return YES;
 }
 
+- (void)orientationChanged:(id)sender
+{
+    [self.tableView reloadEmptyDataSet];
+    
+    UIEdgeInsets inset = self.searchController.searchResultsTableView.contentInset;
+    inset.top = self.searchController.searchBar.frame.size.height + self.searchController.searchBar.superview.frame.origin.y;
+    self.searchController.searchResultsTableView.contentInset = inset;
+}
+
 + (instancetype)sharedDownloader
 {
     if(singleton)
@@ -762,6 +771,16 @@ static id singleton = nil;
     self = [super initWithCoder:aDecoder];
     singleton = self;
     return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
