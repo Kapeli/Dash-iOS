@@ -25,16 +25,6 @@
     [self setFrame:CGIncreaseRect(currentRect, x, y, width, height)];
 }
 
-- (UIView *)getSubViewByClass:(Class)className
-{
-    for (UIView *view in self.subviews) {
-        if ([view isKindOfClass:className]) {
-            return view;
-        }
-    }
-    return nil;
-}
-
 @end
 
 CGRect CGIncreaseRect(CGRect rect, CGFloat x, CGFloat y, CGFloat width, CGFloat height) {

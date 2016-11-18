@@ -33,7 +33,6 @@
     self.clearsSelectionOnViewWillAppear = NO;
     self.searchController = [DHDBSearchController searchControllerWithDocsets:@[self.docset] typeLimit:self.type viewController:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prepareForURLSearch:) name:DHPrepareForURLSearch object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"DHBrowserCell" bundle:nil] forCellReuseIdentifier:@"DHBrowserCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
@@ -98,13 +97,6 @@
     }
     [self.tableView deselectAll:YES];
     [self.searchController viewWillAppear];
-}
-
-- (void)orientationChanged:(id)sender
-{
-    UIEdgeInsets inset = self.searchController.displayController.searchResultsTableView.contentInset;
-    inset.top = self.searchController.displayController.searchBar.frame.size.height + self.searchController.displayController.searchBar.superview.frame.origin.y;
-    self.searchController.displayController.searchResultsTableView.contentInset = inset;
 }
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
