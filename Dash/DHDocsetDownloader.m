@@ -764,4 +764,10 @@ static id singleton = nil;
     return self;
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.searchController setActive:NO animated:YES];
+}
+
 @end
