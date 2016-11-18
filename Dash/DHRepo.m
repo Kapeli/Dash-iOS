@@ -761,6 +761,10 @@
 {
     [super viewWillDisappear:animated];
     [UIApplication sharedApplication].idleTimerDisabled = NO;
+    if(self.searchController.isActive)
+    {
+        [self.searchController setActive:NO animated:YES];
+    }
 }
 
 - (NSString *)docsetInstallFolderName
