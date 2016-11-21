@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,8 +11,8 @@
         <!--Navigation Controller-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <navigationController storyboardIdentifier="DHMainNavigationController" id="RMx-3f-FxP" customClass="DHNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="Pmd-2v-anx">
+                <navigationController storyboardIdentifier="DHMainNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RMx-3f-FxP" customClass="DHNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -26,7 +26,7 @@
         <!--Nested Result-->
         <scene sceneID="ftd-z8-gfn">
             <objects>
-                <tableViewController storyboardIdentifier="DHNestedBrowser" id="On6-fK-Wo0" customClass="DHNestedViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DHNestedBrowser" useStoryboardIdentifierAsRestorationIdentifier="YES" id="On6-fK-Wo0" customClass="DHNestedViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHNestedBrowserTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="34K-oz-RHA">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,7 +59,7 @@
         <!--WebView-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController storyboardIdentifier="DHWebViewController" title="WebView" id="JEX-9P-axG" customClass="DHWebViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DHWebViewController" title="WebView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JEX-9P-axG" customClass="DHWebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KEp-bG-ttG"/>
                         <viewControllerLayoutGuide type="bottom" id="UCD-CE-b5i"/>
@@ -91,12 +91,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="212" y="588"/>
+            <point key="canvasLocation" x="262" y="527"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
             <objects>
-                <splitViewController storyboardIdentifier="DHSplitView" id="H1p-Uh-vWS" customClass="DHSplitViewController" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="DHSplitView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H1p-Uh-vWS" customClass="DHSplitViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <connections>
                         <segue destination="RMx-3f-FxP" kind="relationship" relationship="masterViewController" id="BlO-5A-QYV"/>
@@ -110,7 +110,7 @@
         <!--Settings-->
         <scene sceneID="PgB-42-Mhn">
             <objects>
-                <tableViewController storyboardIdentifier="DHPreferences" id="LN4-2N-5f1" customClass="DHPreferences" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DHPreferences" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LN4-2N-5f1" customClass="DHPreferences" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="9XA-MP-Y6T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,7 +179,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hvT-X0-nTG">
-                                                    <rect key="frame" x="311" y="7" width="51" height="31"/>
+                                                    <rect key="frame" x="311" y="6" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="updatesSwitchValueChanged:" destination="LN4-2N-5f1" eventType="valueChanged" id="74Q-tw-KN2"/>
                                                     </connections>
@@ -231,7 +231,7 @@
         <!--Docset Browser-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController storyboardIdentifier="DHDocsetsBrowser" title="Docset Browser" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="DHDocsetBrowser" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DHDocsetsBrowser" title="Docset Browser" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="DHDocsetBrowser" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHDocsetsBrowserTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0" customClass="DHBrowserTableView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -293,7 +293,7 @@
         <!--Type Browser-->
         <scene sceneID="0HO-gO-dJg">
             <objects>
-                <tableViewController storyboardIdentifier="DHTypesBrowser" title="Type Browser" id="MG8-DW-Fv2" customClass="DHTypeBrowser" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DHTypesBrowser" title="Type Browser" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MG8-DW-Fv2" customClass="DHTypeBrowser" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHTypesBrowserTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="XY4-1C-CBf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -341,12 +341,12 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1614" y="-545"/>
+            <point key="canvasLocation" x="1743" y="-451"/>
         </scene>
         <!--Entry Browser-->
         <scene sceneID="hsl-sd-m15">
             <objects>
-                <tableViewController storyboardIdentifier="DHEntriesBrowser" title="Type Browser" id="9Rs-Yt-R1b" userLabel="Entry Browser" customClass="DHEntryBrowser" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DHEntriesBrowser" title="Type Browser" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9Rs-Yt-R1b" userLabel="Entry Browser" customClass="DHEntryBrowser" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHEntriesBrowserTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wwv-Id-rNo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -398,7 +398,7 @@
         <!--Remote Browser-->
         <scene sceneID="gnf-QR-1ra">
             <objects>
-                <tableViewController storyboardIdentifier="DHRemoteBrowser" title="Remote Browser" id="fAU-6P-OeP" customClass="DHRemoteBrowser" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DHRemoteBrowser" title="Remote Browser" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fAU-6P-OeP" customClass="DHRemoteBrowser" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHEntriesBrowserTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GI0-k2-aY7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -427,7 +427,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUb-q5-H6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="392"/>
+            <point key="canvasLocation" x="1241" y="465"/>
         </scene>
         <!--Download Docsets-->
         <scene sceneID="j1n-HE-PZF">
@@ -505,8 +505,8 @@
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
             <objects>
-                <navigationController storyboardIdentifier="DHWebViewNavigationController" id="vC3-pB-5Vb" customClass="DHNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="DjV-YW-jjY">
+                <navigationController storyboardIdentifier="DHWebViewNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vC3-pB-5Vb" customClass="DHNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -581,7 +581,7 @@
             <objects>
                 <navigationController storyboardIdentifier="DHTocBrowserNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="pJz-3h-N98" customClass="DHNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="U01-gx-C7H">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U01-gx-C7H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -600,9 +600,9 @@
         <image name="transfer_repo" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="078-Zd-cbO"/>
+        <segue reference="BAb-G2-tNG"/>
         <segue reference="vh9-ti-qTq"/>
-        <segue reference="5fr-qx-aky"/>
         <segue reference="ljv-Qq-slv"/>
+        <segue reference="l26-aC-Nx3"/>
     </inferredMetricsTieBreakers>
 </document>

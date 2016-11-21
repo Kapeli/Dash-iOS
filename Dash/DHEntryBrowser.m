@@ -48,7 +48,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if(!self.didLoad)
+    if(!self.didLoad && self.docset)
     {
         self.didLoad = YES;
         self.tableView.allowsSelection = NO;
