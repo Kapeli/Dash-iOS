@@ -28,6 +28,7 @@
 {
     [super viewDidLoad];
     self.delegate = (id)self;
+    [self.view setBackgroundColor:UIColorFromRGB(0xC9C9CE)];
 }
 
 - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UINavigationController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController

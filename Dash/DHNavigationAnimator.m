@@ -18,6 +18,7 @@
 #import "DHNavigationAnimator.h"
 #import "DHPreferences.h"
 #import "DHWebViewController.h"
+#import "DHDocsetDownloader.h"
 
 @implementation DHNavigationAnimator
 
@@ -45,10 +46,11 @@
             CGRect endFrame = fromViewController.view.frame;
             CGRect startFrame = endFrame;
             startFrame.origin.y = CGRectGetMaxY(endFrame);
+            startFrame.size.height = [transitionContext containerView].frame.size.height;
             toViewController.view.frame = startFrame;
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-                toViewController.view.frame = endFrame;
+                toViewController.view.frame = [transitionContext containerView].frame;
             } completion:^(BOOL finished) {
                 fromViewController.view.transform = CGAffineTransformIdentity;
                 [transitionContext completeTransition:YES];
@@ -59,7 +61,10 @@
             [[transitionContext containerView] insertSubview:toViewController.view belowSubview:fromViewController.view];
             toViewController.view.alpha = 1;
             CGRect endFrame = fromViewController.view.frame;
-            toViewController.view.frame = fromViewController.view.frame;
+            CGRect toFrame = fromViewController.view.frame;
+            toFrame.origin.y = CGRectGetMaxY(fromViewController.navigationController.navigationBar.frame);
+            toFrame.size.height -= toFrame.origin.y;
+            toViewController.view.frame = toFrame;
             endFrame.origin.y = CGRectGetMaxY(endFrame);
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
@@ -72,16 +77,35 @@
     }
     else
     {
-        [[transitionContext containerView] addSubview:toViewController.view];
-        toViewController.view.alpha = 0;
-        toViewController.view.frame = fromViewController.view.frame;
-        
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-            toViewController.view.alpha = 1;
-        } completion:^(BOOL finished) {
-            fromViewController.view.transform = CGAffineTransformIdentity;
-            [transitionContext completeTransition:YES];
-        }];
+        BOOL isOpening = [toViewController isKindOfClass:[DHPreferences class]] || [toViewController isKindOfClass:[DHDocsetDownloader class]];
+        if(isOpening)
+        {
+            [[transitionContext containerView] addSubview:toViewController.view];
+            toViewController.view.alpha = 0;
+            toViewController.view.frame = [transitionContext containerView].frame;
+            
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+                toViewController.view.alpha = 1;
+            } completion:^(BOOL finished) {
+                fromViewController.view.transform = CGAffineTransformIdentity;
+                [transitionContext completeTransition:YES];
+            }];
+        }
+        else{
+            [[transitionContext containerView] addSubview:toViewController.view];
+            toViewController.view.alpha = 0;
+            CGRect toFrame = fromViewController.view.frame;
+            toFrame.origin.y = CGRectGetMaxY(fromViewController.navigationController.navigationBar.frame);
+            toFrame.size.height -= toFrame.origin.y;
+            toViewController.view.frame = toFrame;
+            
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+                toViewController.view.alpha = 1;
+            } completion:^(BOOL finished) {
+                fromViewController.view.transform = CGAffineTransformIdentity;
+                [transitionContext completeTransition:YES];
+            }];
+        }
     }
 }
 

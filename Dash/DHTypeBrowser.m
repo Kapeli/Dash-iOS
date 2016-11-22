@@ -30,10 +30,12 @@
     }
     [super viewDidLoad];
     self.clearsSelectionOnViewWillAppear = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.searchController = [DHDBSearchController searchControllerWithDocsets:@[self.docset] typeLimit:nil viewController:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prepareForURLSearch:) name:DHPrepareForURLSearch object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enforceSmartTitleBarButton) name:DHSplitViewControllerDidSeparate object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enforceSmartTitleBarButton) name:DHSplitViewControllerDidCollapse object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     [self.tableView registerNib:[UINib nibWithNibName:@"DHBrowserCell" bundle:nil] forCellReuseIdentifier:@"DHBrowserCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
 
@@ -171,6 +173,13 @@
     }
     [self.searchController traitCollectionDidChange:previousTraitCollection];
     [self enforceSmartTitleBarButton];
+}
+
+- (void)orientationChanged:(id)sender
+{
+    UIEdgeInsets inset = self.searchController.displayController.searchResultsTableView.contentInset;
+    inset.top = self.searchController.displayController.searchBar.frame.size.height + self.searchController.displayController.searchBar.superview.frame.origin.y;
+    self.searchController.displayController.searchResultsTableView.contentInset = inset;
 }
 
 - (void)viewWillDisappear:(BOOL)animated

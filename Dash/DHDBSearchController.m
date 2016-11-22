@@ -101,6 +101,10 @@
     self.loading = YES;
     self.displayController.searchResultsTableView.allowsSelection = NO;
     [self.displayController.searchResultsTableView reloadData];
+
+    controller.searchBar.backgroundColor = UIColorFromRGB(0xC9C9CE);
+    controller.searchBar.backgroundImage = [UIImage new];
+    self.viewController.navigationController.navigationBar.barTintColor = UIColorFromRGB(0xC9C9CE);
 }
 
 - (void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller
@@ -122,6 +126,10 @@
     self.viewController.navigationItem.title = self.viewControllerTitle;
     [self.searcher cancelSearch];
     self.searcher = nil;
+    
+    controller.searchBar.backgroundColor = nil;
+    controller.searchBar.backgroundImage = nil;
+    self.viewController.navigationController.navigationBar.barTintColor = nil;
 }
 
 - (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
@@ -133,7 +141,7 @@
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
+{    
     if(self.isRestoring)
     {
         self.displayController.searchResultsTableView.allowsSelection = YES;
@@ -168,11 +176,17 @@
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView
 {
-
+    if ([self.viewController isKindOfClass:[UITableViewController class]]) {
+        [(UITableViewController *)self.viewController tableView].separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
 }
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView
 {
+    if ([self.viewController isKindOfClass:[UITableViewController class]]) {
+        [(UITableViewController *)self.viewController tableView].separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }
+
     [self.searcher cancelSearch];
     self.searcher = nil;
 }
