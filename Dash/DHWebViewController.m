@@ -297,6 +297,10 @@ static id singleton = nil;
     [self setUpScripts];
     [self setUpTOC];
     [self.progressView setProgress:1.0 animated:YES];
+    if (self.isRestoreScroll) {
+        [self.webView.scrollView setContentOffset:self.webViewOffset animated:NO];
+        self.isRestoreScroll = NO;
+    }
 }
 
 - (void)setUpTOC
@@ -738,15 +742,25 @@ static id singleton = nil;
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder
 {
     [super encodeRestorableStateWithCoder:coder];
+    [coder encodeObject:self.webView.request.URL.absoluteString forKey:@"webViewURL"];
+    [coder encodeObject:homePath forKey:@"homePath"];
+    [coder encodeCGPoint:self.webView.scrollView.contentOffset forKey:@"webViewOffset"];
 }
 
 - (void)decodeRestorableStateWithCoder:(NSCoder *)coder
 {
+    [super decodeRestorableStateWithCoder:coder];
+    NSString *home = homePath;
+    NSString *loadURL = [coder decodeObjectForKey:@"webViewURL"];
+    NSString *lastHomePath = [coder decodeObjectForKey:@"homePath"];
+    self.webViewOffset = [coder decodeCGPointForKey:@"webViewOffset"];
+    loadURL = [loadURL stringByReplacingOccurrencesOfString:lastHomePath withString:home];
     self.isRestoring = YES;
     [self viewDidLoad];
     self.isRestoring = NO;
     self.isDecoding = YES;
-    [super decodeRestorableStateWithCoder:coder];
+    [self loadURL:loadURL];
+    self.isRestoreScroll = YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
