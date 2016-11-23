@@ -750,11 +750,10 @@ static id singleton = nil;
 - (void)decodeRestorableStateWithCoder:(NSCoder *)coder
 {
     [super decodeRestorableStateWithCoder:coder];
-    NSString *home = homePath;
     NSString *loadURL = [coder decodeObjectForKey:@"webViewURL"];
     NSString *lastHomePath = [coder decodeObjectForKey:@"homePath"];
     self.webViewOffset = [coder decodeCGPointForKey:@"webViewOffset"];
-    loadURL = [loadURL stringByReplacingOccurrencesOfString:lastHomePath withString:home];
+    loadURL = [[loadURL stringByReplacingOccurrencesOfString:lastHomePath withString:homePath] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     self.isRestoring = YES;
     [self viewDidLoad];
     self.isRestoring = NO;
