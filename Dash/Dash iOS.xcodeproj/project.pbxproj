@@ -110,6 +110,7 @@
 		43F7527519CD31D100D76F58 /* DHRepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43F7527419CD31D100D76F58 /* DHRepoCell.xib */; };
 		43F760B219EA61B5002BD8A6 /* DHSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F760B119EA61B5002BD8A6 /* DHSearchDisplayController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		43F84A7619EEBD1A008FE85C /* DHTarixIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F84A7519EEBD1A008FE85C /* DHTarixIndex.m */; };
+		43FC34041DE784C40089F134 /* DHUserRepoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC34011DE784C40089F134 /* DHUserRepoList.m */; };
 		43FD2EE619BB8D87007E594D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FD2EE519BB8D87007E594D /* Foundation.framework */; };
 		43FD2EE819BB8D87007E594D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FD2EE719BB8D87007E594D /* CoreGraphics.framework */; };
 		43FD2EEA19BB8D87007E594D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FD2EE919BB8D87007E594D /* UIKit.framework */; };
@@ -300,6 +301,8 @@
 		43F760B119EA61B5002BD8A6 /* DHSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSearchDisplayController.m; sourceTree = "<group>"; };
 		43F84A7419EEBD1A008FE85C /* DHTarixIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHTarixIndex.h; sourceTree = "<group>"; };
 		43F84A7519EEBD1A008FE85C /* DHTarixIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHTarixIndex.m; sourceTree = "<group>"; };
+		43FC34001DE784C40089F134 /* DHUserRepoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHUserRepoList.h; sourceTree = "<group>"; };
+		43FC34011DE784C40089F134 /* DHUserRepoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHUserRepoList.m; sourceTree = "<group>"; };
 		43FD2EE219BB8D87007E594D /* Dash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FD2EE519BB8D87007E594D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		43FD2EE719BB8D87007E594D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -431,6 +434,8 @@
 			children = (
 				43280F521DDE4A7B001C2062 /* DHUserRepo.h */,
 				43280F531DDE4A7B001C2062 /* DHUserRepo.m */,
+				43FC34001DE784C40089F134 /* DHUserRepoList.h */,
+				43FC34011DE784C40089F134 /* DHUserRepoList.m */,
 			);
 			name = "User Contributed";
 			sourceTree = "<group>";
@@ -1044,6 +1049,7 @@
 				43D4F06D19E7E88400C22AF5 /* DHDBSearchController.m in Sources */,
 				43D4F06419E7CEC500C22AF5 /* DHQueuedDB.m in Sources */,
 				4303A3BF19C6584F00A7CD85 /* FMResultSet.m in Sources */,
+				43FC34041DE784C40089F134 /* DHUserRepoList.m in Sources */,
 				43280F541DDE4A7B001C2062 /* DHUserRepo.m in Sources */,
 				43B0956919BFD19900F8611B /* DHNavigationAnimator.m in Sources */,
 				439051F919E684160083A55E /* DHEntryBrowser.m in Sources */,

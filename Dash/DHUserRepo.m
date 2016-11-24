@@ -16,6 +16,7 @@
 //
 
 #import "DHUserRepo.h"
+#import "DHUserRepoList.h"
 
 @implementation DHUserRepo
 
@@ -28,8 +29,37 @@ static id singleton = nil;
         return singleton;
     }
     id userRepo = [[DHAppDelegate mainStoryboard] instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
-//    [userRepo setUp];
+    [userRepo setUp];
     return userRepo;
+}
+
+- (void)setUp
+{
+    [super setUp];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self reloadUserDocsetsIfNeeded];
+}
+
+- (void)reloadUserDocsetsIfNeeded
+{
+    if(!self.loading && (!self.lastListLoad || (!self.searchBar.text.length && [[NSDate date] timeIntervalSinceDate:self.lastListLoad] > 30)))
+    {
+        self.loading = YES;
+        self.searchBar.userInteractionEnabled = NO;
+        self.searchBar.alpha = 0.5;
+        self.searchBar.placeholder = @"Loading...";
+        [self.tableView reloadData];
+        dispatch_queue_t queue = dispatch_queue_create([[NSString stringWithFormat:@"%u", arc4random() % 100000] UTF8String], 0);
+        dispatch_async(queue, ^{
+            [[DHUserRepoList sharedUserRepoList] reload];
+            NSArray *feeds = [[DHUserRepoList sharedUserRepoList] allUserDocsets];
+            NSLog(@"%@", feeds);
+        });
+    }
 }
 
 + (id)alloc

@@ -33,6 +33,7 @@
 @property (strong) NSString *filterQuery;
 @property (weak) MRProgressOverlayView *updateOverlay;
 @property (assign) IBOutlet UISearchBar *searchBar;
+@property (assign) BOOL loading;
 
 - (void)setUp;
 - (IBAction)downloadButtonPressed:(id)sender;

@@ -19,6 +19,8 @@
 
 @interface DHUserRepo : DHRepo
 
+@property (strong) NSDate *lastListLoad;
+
 + (instancetype)sharedUserRepo;
 
 @end
