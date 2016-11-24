@@ -12,7 +12,8 @@
         <scene sceneID="pY4-Hu-kfo">
             <objects>
                 <navigationController storyboardIdentifier="DHMainNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RMx-3f-FxP" customClass="DHNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="Pmd-2v-anx">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -432,7 +433,7 @@
         <!--Download Docsets-->
         <scene sceneID="j1n-HE-PZF">
             <objects>
-                <tableViewController storyboardIdentifier="DHDocsetDownloader" modalPresentationStyle="currentContext" id="bVq-xA-3wd" customClass="DHDocsetDownloader" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DHDocsetDownloader" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bVq-xA-3wd" customClass="DHDocsetDownloader" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHDocsetsDownloaderTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ktb-IW-SX0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -474,12 +475,12 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2420" y="-1950"/>
+            <point key="canvasLocation" x="2854" y="-1988"/>
         </scene>
         <!--Transfer Docsets-->
         <scene sceneID="dSW-F9-RBB">
             <objects>
-                <tableViewController storyboardIdentifier="DHDocsetTransferrer" modalPresentationStyle="currentContext" id="KZf-iV-yPx" customClass="DHDocsetTransferrer" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DHDocsetTransferrer" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KZf-iV-yPx" customClass="DHDocsetTransferrer" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHTransferDocsetsTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="RlC-hy-GCI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -506,7 +507,8 @@
         <scene sceneID="r7l-gg-dq7">
             <objects>
                 <navigationController storyboardIdentifier="DHWebViewNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vC3-pB-5Vb" customClass="DHNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="DjV-YW-jjY">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -581,7 +583,7 @@
             <objects>
                 <navigationController storyboardIdentifier="DHTocBrowserNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="pJz-3h-N98" customClass="DHNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U01-gx-C7H">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="U01-gx-C7H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -600,9 +602,9 @@
         <image name="transfer_repo" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BAb-G2-tNG"/>
+        <segue reference="Zvp-4Y-BjQ"/>
+        <segue reference="iku-X1-02v"/>
         <segue reference="vh9-ti-qTq"/>
-        <segue reference="ljv-Qq-slv"/>
-        <segue reference="l26-aC-Nx3"/>
+        <segue reference="tZ0-kY-m9B"/>
     </inferredMetricsTieBreakers>
 </document>

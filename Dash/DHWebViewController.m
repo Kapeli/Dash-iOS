@@ -753,12 +753,18 @@ static id singleton = nil;
     NSString *loadURL = [coder decodeObjectForKey:@"webViewURL"];
     NSString *lastHomePath = [coder decodeObjectForKey:@"homePath"];
     self.webViewOffset = [coder decodeCGPointForKey:@"webViewOffset"];
-    loadURL = [[loadURL stringByReplacingOccurrencesOfString:lastHomePath withString:homePath] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    if (lastHomePath) {
+        loadURL = [[loadURL stringByReplacingOccurrencesOfString:lastHomePath withString:homePath] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+    
     self.isRestoring = YES;
     [self viewDidLoad];
     self.isRestoring = NO;
     self.isDecoding = YES;
     [self loadURL:loadURL];
+    if (isRegularHorizontalClass) {
+        [self.splitViewController setPreferredDisplayMode:UISplitViewControllerDisplayModeAllVisible];
+    }
     self.isRestoreScroll = YES;
 }
 
