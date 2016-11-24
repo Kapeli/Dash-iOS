@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,7 +12,9 @@
         <scene sceneID="pY4-Hu-kfo">
             <objects>
                 <navigationController storyboardIdentifier="DHMainNavigationController" id="RMx-3f-FxP" customClass="DHNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="Pmd-2v-anx">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -36,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x0P-fR-ekF" id="xkY-Bg-Jb1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -49,7 +51,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Nested Result" id="BLr-sT-VsR"/>
                     <connections>
-                        <segue destination="JEX-9P-axG" kind="push" identifier="DHSearchWebViewSegue" id="JVl-yk-gWU"/>
+                        <segue destination="JEX-9P-axG" kind="show" identifier="DHSearchWebViewSegue" id="JVl-yk-gWU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBi-q0-XGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -68,8 +70,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="DHWebView" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0LW-3L-DOL" customClass="DHWebView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <webView opaque="NO" contentMode="scaleToFill" restorationIdentifier="DHWebView" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0LW-3L-DOL" customClass="DHWebView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
@@ -122,11 +124,11 @@
                                         <rect key="frame" x="0.0" y="35" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r0i-wt-QAr" id="x7u-4T-8E0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Download Docsets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ug3-nq-xyc">
-                                                    <rect key="frame" x="58" y="0.0" width="302" height="43"/>
+                                                    <rect key="frame" x="58" y="0.0" width="302" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -143,11 +145,11 @@
                                         <rect key="frame" x="0.0" y="79" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sda-gL-9CQ" id="Wp8-gy-b2o">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Transfer Docsets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tH7-qh-OUH">
-                                                    <rect key="frame" x="58" y="0.0" width="302" height="43"/>
+                                                    <rect key="frame" x="58" y="0.0" width="302" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -168,11 +170,11 @@
                                         <rect key="frame" x="0.0" y="143" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NBw-o2-OgI" id="P7F-Da-gdU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Automatic Updates" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L5q-QS-QhJ">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -218,10 +220,10 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="updatesSwitch" destination="hvT-X0-nTG" id="uqh-Ew-FYx"/>
-                        <segue destination="bVq-xA-3wd" kind="push" identifier="DHDocsetDownloaderToDetailSegue" splitViewControllerTargetIndex="1" id="078-Zd-cbO"/>
-                        <segue destination="KZf-iV-yPx" kind="push" identifier="DHDocsetTransferrerToMasterSegue" splitViewControllerTargetIndex="0" id="vh9-ti-qTq"/>
-                        <segue destination="KZf-iV-yPx" kind="push" identifier="DHDocsetTransferrerToDetailSegue" splitViewControllerTargetIndex="1" id="jto-ap-CAv"/>
-                        <segue destination="bVq-xA-3wd" kind="push" identifier="DHDocsetDownloaderToMasterSegue" splitViewControllerTargetIndex="0" id="tZ0-kY-m9B"/>
+                        <segue destination="bVq-xA-3wd" kind="show" identifier="DHDocsetDownloaderToDetailSegue" id="078-Zd-cbO"/>
+                        <segue destination="KZf-iV-yPx" kind="show" identifier="DHDocsetTransferrerToMasterSegue" id="vh9-ti-qTq"/>
+                        <segue destination="KZf-iV-yPx" kind="show" identifier="DHDocsetTransferrerToDetailSegue" id="jto-ap-CAv"/>
+                        <segue destination="bVq-xA-3wd" kind="show" identifier="DHDocsetDownloaderToMasterSegue" id="tZ0-kY-m9B"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fmo-gt-gw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -249,7 +251,7 @@
                                 <rect key="frame" x="0.0" y="66" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H2Y-Rn-XFZ" id="kux-Q3-Ab3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -270,11 +272,11 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="4Nc-re-3YX" id="d5C-Zk-9Cy"/>
                         <segue destination="LN4-2N-5f1" kind="show" identifier="DHOpenSettingsSegue" id="4LN-qs-RRA"/>
-                        <segue destination="bVq-xA-3wd" kind="push" identifier="DHDocsetDownloaderToDetailSegue" splitViewControllerTargetIndex="1" id="BAb-G2-tNG"/>
+                        <segue destination="bVq-xA-3wd" kind="show" identifier="DHDocsetDownloaderToDetailSegue" id="BAb-G2-tNG"/>
                         <segue destination="MG8-DW-Fv2" kind="show" identifier="DHTypeBrowserSegue" id="Ocj-J9-g6q"/>
                         <segue destination="On6-fK-Wo0" kind="show" identifier="DHNestedSegue" id="Zvp-4Y-BjQ"/>
                         <segue destination="fAU-6P-OeP" kind="show" identifier="DHRemoteBrowserSegue" id="bdX-NV-KLl"/>
-                        <segue destination="JEX-9P-axG" kind="push" identifier="DHSearchWebViewSegue" id="iku-X1-02v"/>
+                        <segue destination="JEX-9P-axG" kind="show" identifier="DHSearchWebViewSegue" id="iku-X1-02v"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -311,7 +313,7 @@
                                 <rect key="frame" x="0.0" y="66" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VA8-am-q6Z" id="nIL-hj-vFk">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -326,8 +328,8 @@
                         <outlet property="searchDisplayController" destination="QXT-TT-18q" id="Ffp-2g-pgc"/>
                         <segue destination="9Rs-Yt-R1b" kind="show" identifier="DHEntryBrowserSegue" id="FUX-Tg-BvC"/>
                         <segue destination="On6-fK-Wo0" kind="show" identifier="DHNestedSegue" id="ljv-Qq-slv"/>
-                        <segue destination="JEX-9P-axG" kind="push" identifier="DHSearchWebViewSegue" id="l26-aC-Nx3"/>
-                        <segue destination="JEX-9P-axG" kind="push" identifier="DHShowIndexPageSegue" id="5fr-qx-aky"/>
+                        <segue destination="JEX-9P-axG" kind="show" identifier="DHSearchWebViewSegue" id="l26-aC-Nx3"/>
+                        <segue destination="JEX-9P-axG" kind="show" identifier="DHShowIndexPageSegue" id="5fr-qx-aky"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l8s-68-JtL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -364,7 +366,7 @@
                                 <rect key="frame" x="0.0" y="66" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gr3-qP-hfk" id="HWD-2S-7F9">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -378,8 +380,8 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="zcF-qB-4QT" id="cms-mv-pRf"/>
                         <segue destination="On6-fK-Wo0" kind="show" identifier="DHNestedSegue" id="y34-0z-6ul"/>
-                        <segue destination="JEX-9P-axG" kind="push" identifier="DHSearchWebViewSegue" id="hEp-xK-Brz"/>
-                        <segue destination="JEX-9P-axG" kind="push" identifier="DHWebViewSegue" id="Vt3-tf-TGA"/>
+                        <segue destination="JEX-9P-axG" kind="show" identifier="DHSearchWebViewSegue" id="hEp-xK-Brz"/>
+                        <segue destination="JEX-9P-axG" kind="show" identifier="DHWebViewSegue" id="Vt3-tf-TGA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KwV-Su-f2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -408,7 +410,7 @@
                                 <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="geM-gl-w4a" id="dRi-kM-G9B">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -422,7 +424,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="zcF-qB-4QT" id="Vgn-AA-Bhw"/>
                         <segue destination="On6-fK-Wo0" kind="show" identifier="DHNestedSegue" id="cEQ-Zo-INv"/>
-                        <segue destination="JEX-9P-axG" kind="push" identifier="DHSearchWebViewSegue" id="q6b-SO-d4X"/>
+                        <segue destination="JEX-9P-axG" kind="show" identifier="DHSearchWebViewSegue" id="q6b-SO-d4X"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUb-q5-H6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -506,7 +508,9 @@
         <scene sceneID="r7l-gg-dq7">
             <objects>
                 <navigationController storyboardIdentifier="DHWebViewNavigationController" id="vC3-pB-5Vb" customClass="DHNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="DjV-YW-jjY">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -539,7 +543,7 @@
                                 <rect key="frame" x="0.0" y="66" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uat-DW-uld" id="B7g-3q-qBW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -581,7 +585,9 @@
             <objects>
                 <navigationController storyboardIdentifier="DHTocBrowserNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="pJz-3h-N98" customClass="DHNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="U01-gx-C7H">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U01-gx-C7H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -600,9 +606,9 @@
         <image name="transfer_repo" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="078-Zd-cbO"/>
-        <segue reference="vh9-ti-qTq"/>
-        <segue reference="5fr-qx-aky"/>
-        <segue reference="ljv-Qq-slv"/>
+        <segue reference="GKi-kA-LjT"/>
+        <segue reference="BAb-G2-tNG"/>
+        <segue reference="jto-ap-CAv"/>
+        <segue reference="cEQ-Zo-INv"/>
     </inferredMetricsTieBreakers>
 </document>
