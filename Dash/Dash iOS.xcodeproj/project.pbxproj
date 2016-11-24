@@ -837,7 +837,7 @@
 				ORGANIZATIONNAME = Kapeli;
 				TargetAttributes = {
 					43FD2EE119BB8D87007E594D = {
-						DevelopmentTeam = JP58VMK957;
+						DevelopmentTeam = CX893E63R7;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1167,7 +1167,7 @@
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bogdan Popescu (JB3QRP5DC5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JP58VMK957;
+				DEVELOPMENT_TEAM = CX893E63R7;
 				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1199,7 +1199,7 @@
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bogdan Popescu (JB3QRP5DC5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JP58VMK957;
+				DEVELOPMENT_TEAM = CX893E63R7;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
