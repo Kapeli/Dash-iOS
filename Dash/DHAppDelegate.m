@@ -235,4 +235,32 @@
     return self._window;
 }
 
+- (void)handleShortCutItem:(UIApplicationShortcutItem *)shortcutItem {
+    [self parseShortcutItem:shortcutItem];
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    
+    [self parseShortcutItem:shortcutItem];
+}
+
+- (void)parseShortcutItem:(UIApplicationShortcutItem *)shortcutItem {
+    if ([shortcutItem.type isEqualToString:@"com.kapeli.dash.ios.download-docset"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:DHOpenSettings object:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:DHOpenDownloads object:nil];
+        });
+    } else if ([shortcutItem.type isEqualToString:@"com.kapeli.dash.ios.transfer-docset"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:DHOpenSettings object:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:DHOpenTransfers object:nil];
+        });
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:DHPrepareForURLSearch object:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:DHPerformURLSearch object:@"dash://"];
+        });
+    }
+}
+
 @end

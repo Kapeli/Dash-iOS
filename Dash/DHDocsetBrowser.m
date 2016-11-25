@@ -46,6 +46,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(performURLSearch:) name:DHPerformURLSearch object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openSettings:) name:DHOpenSettings object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -171,8 +172,8 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     }
     query = [[query stringByReplacingPercentEscapes] trimWhitespace];
     self.searchDisplayController.searchBar.text = @"";
-    [self.searchDisplayController setActive:NO animated:NO];
-    [self.searchDisplayController.searchBar resignFirstResponder];
+    [self.searchDisplayController setActive:YES animated:NO];
+    [self.searchDisplayController.searchBar becomeFirstResponder];
     if((query && query.length) || keywordDocsets.count)
     {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.00 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -187,6 +188,9 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
                 [self.searchDisplayController.searchBar becomeFirstResponder];
             }
         });
+    } else {
+        [self.searchDisplayController setActive:YES animated:NO];
+        [self.searchDisplayController.searchBar becomeFirstResponder];
     }
 }
 

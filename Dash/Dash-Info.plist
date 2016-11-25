@@ -2,6 +2,33 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeSearch</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Search</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.kapeli.dash.ios.search</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>download_button_background</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Download Docsets</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.kapeli.dash.ios.download-docset</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>transfer_button</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Transfer Docsets</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.kapeli.dash.ios.transfer-docset</string>
+		</dict>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

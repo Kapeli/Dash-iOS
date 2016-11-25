@@ -24,6 +24,8 @@
 
 - (IBAction)updatesSwitchValueChanged:(id)sender;
 - (IBAction)getDashForMacOS:(id)sender;
+- (void)openDownloads:(id)sender;
+- (void)openTransfers:(id)sender;
 - (NSString *)detailSegueIdentifierForRow:(NSInteger)row;
 
 @end
