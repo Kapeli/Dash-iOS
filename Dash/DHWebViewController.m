@@ -62,8 +62,6 @@ static id singleton = nil;
     self.progressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 
     [self.splitViewController setPreferredDisplayMode:UISplitViewControllerDisplayModeAllVisible];
-    self.splitViewController.preferredPrimaryColumnWidthFraction = (iPad) ? 0.39 : 0.35;
-    self.splitViewController.maximumPrimaryColumnWidth = 320;
     self.splitViewController.presentsWithGesture = NO;
     
     if(isRegularHorizontalClass)
