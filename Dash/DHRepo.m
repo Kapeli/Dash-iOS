@@ -723,6 +723,8 @@
 
 - (void)viewDidLoad
 {
+    if(!self.navigationController)
+        return;
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
 }
@@ -890,6 +892,12 @@
         ++i;
     }
     return NSNotFound;
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [super decodeRestorableStateWithCoder:coder];
+    [self viewDidLoad];
 }
 
 @end

@@ -186,15 +186,27 @@
     [super encodeRestorableStateWithCoder:coder];
     [coder encodeObject:self.result forKey:@"result"];
     [coder encodeBool:self.hasMultipleDocsets forKey:@"hasMultipleDocsets"];
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    if(selectedIndexPath != nil)
+    {
+        [coder encodeObject:selectedIndexPath forKey:@"selectedIndexPath"];
+    }
 }
 
 - (void)decodeRestorableStateWithCoder:(NSCoder *)coder
 {
+    [super decodeRestorableStateWithCoder:coder];
     self.didDecode = YES;
     self.result = [coder decodeObjectForKey:@"result"];
     self.hasMultipleDocsets = [coder decodeBoolForKey:@"hasMultipleDocsets"];
     self.title = self.result.name;
-    [super decodeRestorableStateWithCoder:coder];
+    NSIndexPath *selectedIndexPath = [coder decodeObjectForKey:@"selectedIndexPath"];
+    if(selectedIndexPath != nil)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        });
+    }
 }
 
 @end
