@@ -15,15 +15,12 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <UIKit/UIKit.h>
+#import "DHRepo.h"
 
-@interface DHPreferences : UITableViewController
+@interface DHUserRepo : DHRepo
 
-@property (assign) IBOutlet UISwitch *updatesSwitch;
-@property (assign) BOOL didSetUpdateLabelBefore;
+@property (strong) NSDate *lastListLoad;
 
-- (IBAction)updatesSwitchValueChanged:(id)sender;
-- (IBAction)getDashForMacOS:(id)sender;
-- (NSString *)segueIdentifierForIndexPath:(NSIndexPath *)indexPath;
++ (instancetype)sharedUserRepo;
 
 @end

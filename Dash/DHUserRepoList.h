@@ -15,15 +15,20 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "DHFeed.h"
 
-@interface DHPreferences : UITableViewController
+@interface DHUserRepoList : NSObject
 
-@property (assign) IBOutlet UISwitch *updatesSwitch;
-@property (assign) BOOL didSetUpdateLabelBefore;
+@property (retain) NSDictionary *json;
 
-- (IBAction)updatesSwitchValueChanged:(id)sender;
-- (IBAction)getDashForMacOS:(id)sender;
-- (NSString *)segueIdentifierForIndexPath:(NSIndexPath *)indexPath;
++ (DHUserRepoList *)sharedUserRepoList;
+- (NSMutableArray *)allUserDocsets;
+- (NSString *)versionForEntry:(DHFeed *)entry;
+- (NSString *)downloadURLForEntry:(DHFeed *)entry;
+- (void)reload;
+- (NSMutableArray *)allVersionsForEntry:(DHFeed *)entry;
+- (NSString *)downloadURLForVersionedEntry:(DHFeed *)versionedEntry parentEntry:(DHFeed *)parentEntry;
+- (UIImage *)imageForEntry:(DHFeed *)entry;
 
 @end

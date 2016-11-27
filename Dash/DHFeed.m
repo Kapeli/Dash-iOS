@@ -19,6 +19,14 @@
 
 @implementation DHFeed
 
++ (instancetype)entryWithName:(NSString *)name platform:(NSString *)platform icon:(UIImage *)icon
+{
+    DHFeed *feed = [[DHFeed alloc] init];
+    feed._icon = icon;
+    feed.name = name;
+    return feed;
+}
+
 // For Dash provided feeds only
 + (instancetype)feedWithFeed:(NSString *)aFeed icon:(NSString *)aIcon aliases:(id)someAliases doesNotHaveVersions:(BOOL)doesNotHaveVersions
 {
@@ -42,14 +50,19 @@
 {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     dictionary[@"feed"] = self.feed ?: @"";
+    dictionary[@"name"] = self.name ?: @"";
     dictionary[@"feedURL"] = self.feedURL ?: @"";
+    dictionary[@"_uniqueIdentifier"] = self._uniqueIdentifier ?: @"";
     dictionary[@"icon"] = self.iconName ?: @"";
     dictionary[@"size"] = self.size ?: @"";
     dictionary[@"aliases"] = self.aliases ?: @[];
     dictionary[@"doesNotHaveVersions"] = self.doesNotHaveVersions ? @YES : @NO;
     dictionary[@"installed"] = self.installed ? @YES : @NO;
     dictionary[@"isCustom"] = self.isCustom ? @YES : @NO;
+    dictionary[@"_isMajorVersioned"] = self._isMajorVersioned ? @YES : @NO;
     if(self.installedVersion) { dictionary[@"installedVersion"] = self.installedVersion; }
+    dictionary[@"authorLinkHref"] = self.authorLinkHref ?: @"";
+    dictionary[@"authorLinkText"] = self.authorLinkText ?: @"";
     return dictionary;
 }
 
@@ -57,21 +70,26 @@
 {
     DHFeed *feed = [[DHFeed alloc] init];
     feed.detailString = @"";
+    feed.name = dictionary[@"name"];
     feed.feed = dictionary[@"feed"];
     feed.feedURL = dictionary[@"feedURL"];
+    feed._uniqueIdentifier = dictionary[@"_uniqueIdentifier"];
     feed.size = dictionary[@"size"];
     feed.iconName = dictionary[@"icon"];
     feed.aliases = dictionary[@"aliases"];
     feed.doesNotHaveVersions = [dictionary[@"doesNotHaveVersions"] boolValue];
     feed.installed = [dictionary[@"installed"] boolValue];
+    feed._isMajorVersioned = [dictionary[@"_isMajorVersioned"] boolValue];
     feed.installedVersion = dictionary[@"installedVersion"];
+    feed.authorLinkHref = dictionary[@"authorLinkHref"];
+    feed.authorLinkText = dictionary[@"authorLinkText"];
     feed.isCustom = [dictionary[@"isCustom"] boolValue];
     return feed;
 }
 
 - (NSString *)docsetNameWithVersion:(BOOL)withVersion
 {
-    NSString *docsetName = [NSString stringWithFormat:@"%@", [[[[self.feedURL lastPathComponent] stringByDeletingPathExtension] stringByReplacingOccurrencesOfString:@"_" withString:@" "] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    NSString *docsetName = (self.name) ? self.name : [NSString stringWithFormat:@"%@", [[[[self.feedURL lastPathComponent] stringByDeletingPathExtension] stringByReplacingOccurrencesOfString:@"_" withString:@" "] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
     if([docsetName isEqualToString:@"NET Framework"])
     {
         docsetName = @".NET Framework";
@@ -109,6 +127,10 @@
 
 - (BOOL)isMajorVersioned:(NSString *)feedURL
 {
+    if(self._isMajorVersioned)
+    {
+        return YES;
+    }
     return [feedURL isEqualToString:@"http://kapeli.com/feeds/Drupal_7.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Drupal_8.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Zend_Framework_1.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Zend_Framework_2.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Zend_Framework_3.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Bootstrap_2.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Bootstrap_3.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Bootstrap_4.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Python_2.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Python_3.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Java_SE6.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Java_SE7.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Java_SE8.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Ruby_on_Rails_3.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Ruby_on_Rails_4.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Ruby_on_Rails_5.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Qt_4.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Qt_5.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Lua_5.1.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Lua_5.2.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Ruby_2.xml"];
 }
 
@@ -184,17 +206,25 @@
 
 - (UIImage *)icon
 {
-    return [UIImage imageNamed:self.iconName];
+    if(self._icon)
+    {
+        return self._icon;
+    }
+    UIImage *image = [UIImage imageNamed:self.iconName];
+    return (image) ? image : [UIImage imageNamed:@"Other"];
 }
 
 - (BOOL)isEqual:(id)object
 {
-    return [self.feedURL isEqualToString:[object feedURL]];
+    return [self.uniqueIdentifier isEqualToString:[object uniqueIdentifier]];
 }
-
 
 - (NSString *)uniqueIdentifier // Used to find a corresponding feed from a installed docset
 {
+    if(self._uniqueIdentifier)
+    {
+        return self._uniqueIdentifier;
+    }
     return self.feedURL;
 }
 

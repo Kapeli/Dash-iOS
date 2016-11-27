@@ -33,6 +33,8 @@
 @property (strong) NSString *filterQuery;
 @property (weak) MRProgressOverlayView *updateOverlay;
 @property (assign) IBOutlet UISearchBar *searchBar;
+@property (assign) BOOL loading;
+@property (assign) NSString *loadingText;
 
 - (void)setUp;
 - (IBAction)downloadButtonPressed:(id)sender;
@@ -58,6 +60,9 @@
 - (NSInteger)numberOfEntriesBeingInstalled;
 - (NSInteger)indexOfFeedWithFeedURL:(NSString *)feedURL;
 - (void)startInstallingFeed:(DHFeed *)feed isAnUpdate:(BOOL)isAnUpdate;
+- (NSString *)defaultsScheduledUpdateKey;
+- (void)updateFeeds:(NSArray *)feeds;
+- (void)checkForUpdatesAndShowInterface:(BOOL)withInterface updateWithoutAsking:(BOOL)updateWithoutAsking;
 
 @end
 

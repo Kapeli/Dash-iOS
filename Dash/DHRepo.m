@@ -59,6 +59,11 @@
 
 - (IBAction)updateButtonPressed:(id)sender
 {
+    if(self.loading)
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Loading..." message:@"Wait for loading to complete and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        return;
+    }
     [self checkForUpdatesAndShowInterface:YES updateWithoutAsking:NO];
 }
 
@@ -92,6 +97,10 @@
     dispatch_queue_t queue = dispatch_queue_create([[NSString stringWithFormat:@"%u", arc4random() % 100000] UTF8String], 0);
     dispatch_async(queue, ^{
         if(withInterface)
+        {
+            [NSThread sleepForTimeInterval:1.0f];
+        }
+        while(self.loading)
         {
             [NSThread sleepForTimeInterval:1.0f];
         }
@@ -450,11 +459,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return ([self activeFeeds].count) ? 1 : 0;
+    return (self.loading) ? 1 : ([self activeFeeds].count) ? 1 : 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if(self.loading)
+    {
+        return 3;
+    }
     if(tableView != self.tableView)
     {
         return self.filteredFeeds.count;
@@ -464,6 +477,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(self.loading)
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DHLoadingCell" forIndexPath:indexPath];
+        cell.userInteractionEnabled = NO;
+        if(indexPath.row == 2)
+        {
+            NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+            [paragraph setAlignment:NSTextAlignmentCenter];
+            UIFont *font = [UIFont boldSystemFontOfSize:20];
+            cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:(self.loadingText) ? self.loadingText : @"Loading..." attributes:@{NSParagraphStyleAttributeName : paragraph, NSForegroundColorAttributeName: [UIColor colorWithWhite:0.8 alpha:1], NSFontAttributeName: font}];
+        }
+        else
+        {
+            cell.textLabel.text = @"";
+        }
+        return cell;
+    }
+
     DHRepoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DHRepoCell" forIndexPath:indexPath];
     [cell.downloadButton setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -2, -10, -10)];
     [cell.uninstallButton setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
@@ -484,6 +515,8 @@
     [feed prepareCell:cell];
     cell.titleLabel.maxRightDetailWidth = feed.maxRightDetailWidth;
     cell.titleLabel.rightDetailText = feed.detailString;
+    cell.titleLabel.subtitle = feed.authorLinkText;
+    cell.titleLabel.authorLinkHref = feed.authorLinkHref;
     [self setSizeLabelForCell:cell];
     [self setTitle:[feed docsetNameWithVersion:!feed.installing] forCell:cell];
     return cell;
@@ -493,6 +526,7 @@
 {
     if(!isRegularHorizontalClass)
     {
+        [cell.titleLabel setRightDetailText:nil];
         return;
     }
     if(cell.feed.installed && !cell.feed.installing && cell.feed.size && cell.feed.size.length)
@@ -505,8 +539,11 @@
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(DHRepoTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cell.feed.cell = nil;
-    cell.feed = nil;
+    if([cell isKindOfClass:[DHRepoTableViewCell class]])
+    {
+        cell.feed.cell = nil;
+        cell.feed = nil;
+    }
 }
 
 - (void)highlightCell:(DHRepoTableViewCell *)cell
@@ -551,6 +588,7 @@
 - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
     [controller.searchResultsTableView registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
+    [controller.searchResultsTableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
     tableView.allowsSelection = NO;
 }
 
@@ -723,10 +761,9 @@
 
 - (void)viewDidLoad
 {
-    if(!self.navigationController)
-        return;
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -744,10 +781,12 @@
     if(isRegularHorizontalClass)
     {
         [self.navigationItem setHidesBackButton:YES animated:NO];
+        [self.tableView reloadData];
     }
     else
     {
         [self.navigationItem setHidesBackButton:NO animated:NO];
+        [self.tableView reloadData];
     }
 }
 

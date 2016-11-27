@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <scene sceneID="pY4-Hu-kfo">
             <objects>
                 <navigationController storyboardIdentifier="DHMainNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RMx-3f-FxP" customClass="DHNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -117,16 +117,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
-                            <tableViewSection id="5ll-Jq-5KZ">
+                            <tableViewSection headerTitle="Download Docsets" id="5ll-Jq-5KZ">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DHSettingsCell" textLabel="Ug3-nq-xyc" imageView="CfY-ch-rUA" style="IBUITableViewCellStyleDefault" id="r0i-wt-QAr">
-                                        <rect key="frame" x="0.0" y="35" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.333333333333336" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r0i-wt-QAr" id="x7u-4T-8E0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Download Docsets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ug3-nq-xyc">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Main Docsets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ug3-nq-xyc">
                                                     <rect key="frame" x="58" y="0.0" width="341" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -140,8 +140,33 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DHSettingsCell" textLabel="g0J-MY-Gyr" imageView="6px-e6-A4A" style="IBUITableViewCellStyleDefault" id="gTK-ia-7zI">
+                                        <rect key="frame" x="0.0" y="99.333333333333343" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gTK-ia-7zI" id="3LL-D8-sfE">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="User Contributed Docsets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g0J-MY-Gyr">
+                                                    <rect key="frame" x="58" y="0.0" width="341" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="user_repo" id="6px-e6-A4A">
+                                                    <rect key="frame" x="15" y="7" width="28" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Other Docset Sources" id="geA-nh-aJW">
+                                <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DHSettingsCell" textLabel="tH7-qh-OUH" imageView="hJO-jA-eBm" style="IBUITableViewCellStyleDefault" id="sda-gL-9CQ">
-                                        <rect key="frame" x="0.0" y="79" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="191.33333333333334" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sda-gL-9CQ" id="Wp8-gy-b2o">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -163,10 +188,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="Dash will notify you when docset updates are available.             " id="DSC-i5-noV">
+                            <tableViewSection headerTitle="Update settings" footerTitle="Dash will notify you when docset updates are available.             " id="DSC-i5-noV">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="auto_updates" textLabel="L5q-QS-QhJ" style="IBUITableViewCellStyleDefault" id="NBw-o2-OgI">
-                                        <rect key="frame" x="0.0" y="143" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="290.66666666666669" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NBw-o2-OgI" id="P7F-Da-gdU">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -223,6 +248,8 @@
                         <segue destination="KZf-iV-yPx" kind="push" identifier="DHDocsetTransferrerToMasterSegue" splitViewControllerTargetIndex="0" id="vh9-ti-qTq"/>
                         <segue destination="KZf-iV-yPx" kind="push" identifier="DHDocsetTransferrerToDetailSegue" splitViewControllerTargetIndex="1" id="jto-ap-CAv"/>
                         <segue destination="bVq-xA-3wd" kind="push" identifier="DHDocsetDownloaderToMasterSegue" splitViewControllerTargetIndex="0" id="tZ0-kY-m9B"/>
+                        <segue destination="7Pl-oD-WzV" kind="push" identifier="DHUserRepoToDetailSegue" splitViewControllerTargetIndex="1" id="UMU-KR-a0h"/>
+                        <segue destination="7Pl-oD-WzV" kind="push" identifier="DHUserRepoToMasterSegue" splitViewControllerTargetIndex="0" id="BNM-LK-jE2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fmo-gt-gw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -430,7 +457,7 @@
             </objects>
             <point key="canvasLocation" x="1383" y="353"/>
         </scene>
-        <!--Download Docsets-->
+        <!--Main Docsets-->
         <scene sceneID="j1n-HE-PZF">
             <objects>
                 <tableViewController storyboardIdentifier="DHDocsetDownloader" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bVq-xA-3wd" customClass="DHDocsetDownloader" sceneMemberID="viewController">
@@ -451,7 +478,7 @@
                             <outlet property="delegate" destination="bVq-xA-3wd" id="kNS-Ag-j4A"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Download Docsets" id="9ic-mO-5WP">
+                    <navigationItem key="navigationItem" title="Main Docsets" id="9ic-mO-5WP">
                         <barButtonItem key="rightBarButtonItem" title="Update" id="rwQ-iw-bgR">
                             <connections>
                                 <action selector="updateButtonPressed:" destination="bVq-xA-3wd" id="KBw-7q-bpx"/>
@@ -475,7 +502,54 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2854" y="-1988"/>
+            <point key="canvasLocation" x="2468" y="-2621"/>
+        </scene>
+        <!--User Contributed Docsets-->
+        <scene sceneID="okr-5a-bHb">
+            <objects>
+                <tableViewController storyboardIdentifier="DHUserRepo" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Pl-oD-WzV" userLabel="User Contributed Docsets" customClass="DHUserRepo" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHUserRepoTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="o2K-Hn-pqx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" restorationIdentifier="UserRepoSearchBar" placeholder="Find docsets to download" id="frS-D7-CD1">
+                            <rect key="frame" x="0.0" y="64" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="7Pl-oD-WzV" id="G9T-Rt-21p"/>
+                            </connections>
+                        </searchBar>
+                        <connections>
+                            <outlet property="dataSource" destination="7Pl-oD-WzV" id="VGy-Sm-bWh"/>
+                            <outlet property="delegate" destination="7Pl-oD-WzV" id="PBv-CB-bY0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="User Contributed Docsets" id="7o6-m1-emM">
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="nLQ-uE-WPX">
+                            <connections>
+                                <action selector="updateButtonPressed:" destination="7Pl-oD-WzV" id="Ix3-Ob-twG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="frS-D7-CD1" id="faI-Fs-5RH"/>
+                        <outlet property="searchDisplayController" destination="PMB-N5-wGr" id="UiB-JZ-mBV"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DbY-qO-Frw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="NDK-Ah-hu2">
+                    <connections>
+                        <outlet property="delegate" destination="7Pl-oD-WzV" id="8Tv-80-sIu"/>
+                        <outlet property="searchBar" destination="frS-D7-CD1" id="L4k-b0-GNj"/>
+                        <outlet property="searchContentsController" destination="7Pl-oD-WzV" id="3mr-yZ-Dez"/>
+                        <outlet property="searchResultsDataSource" destination="7Pl-oD-WzV" id="dNb-KO-I0W"/>
+                        <outlet property="searchResultsDelegate" destination="7Pl-oD-WzV" id="hEh-mv-02t"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2468" y="-1951"/>
         </scene>
         <!--Transfer Docsets-->
         <scene sceneID="dSW-F9-RBB">
@@ -501,13 +575,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ar8-em-khk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2420" y="-1204"/>
+            <point key="canvasLocation" x="2468" y="-1204"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
             <objects>
                 <navigationController storyboardIdentifier="DHWebViewNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vC3-pB-5Vb" customClass="DHNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="DjV-YW-jjY">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -583,7 +657,7 @@
             <objects>
                 <navigationController storyboardIdentifier="DHTocBrowserNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="pJz-3h-N98" customClass="DHNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U01-gx-C7H">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="U01-gx-C7H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -600,11 +674,13 @@
     <resources>
         <image name="main_repo" width="28" height="28"/>
         <image name="transfer_repo" width="28" height="28"/>
+        <image name="user_repo" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BAb-G2-tNG"/>
-        <segue reference="ljv-Qq-slv"/>
-        <segue reference="vh9-ti-qTq"/>
         <segue reference="GKi-kA-LjT"/>
+        <segue reference="vh9-ti-qTq"/>
+        <segue reference="tZ0-kY-m9B"/>
+        <segue reference="BNM-LK-jE2"/>
+        <segue reference="ljv-Qq-slv"/>
     </inferredMetricsTieBreakers>
 </document>
