@@ -4,5 +4,7 @@
 <dict>
 	<key>AutomaticallyCheckForUpdates</key>
 	<true/>
+	<key>WebKitStoreWebDataForBackup</key>
+	<true/>
 </dict>
 </plist>

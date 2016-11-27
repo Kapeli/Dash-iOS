@@ -761,6 +761,8 @@
 
 - (void)viewDidLoad
 {
+    if(!self.navigationController)
+        return;
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
@@ -802,6 +804,10 @@
 {
     [super viewWillDisappear:animated];
     [UIApplication sharedApplication].idleTimerDisabled = NO;
+    if(self.searchController.isActive)
+    {
+        [self.searchController setActive:NO animated:YES];
+    }
 }
 
 - (NSString *)docsetInstallFolderName
@@ -927,6 +933,12 @@
         ++i;
     }
     return NSNotFound;
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [super decodeRestorableStateWithCoder:coder];
+    [self viewDidLoad];
 }
 
 @end

@@ -210,6 +210,33 @@
     return nil;
 }
 
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [super encodeRestorableStateWithCoder:coder];
+    [coder encodeObject:self.remote forKey:@"remote"];
+    [coder encodeObject:self.results forKey:@"results"];
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    if(selectedIndexPath != nil)
+    {
+        [coder encodeObject:selectedIndexPath forKey:@"selectedIndexPath"];
+    }
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [super decodeRestorableStateWithCoder:coder];
+    self.remote = [coder decodeObjectForKey:@"remote"];
+    [self.remote connect];
+    self.results = [coder decodeObjectForKey:@"results"];
+    NSIndexPath *selectedIndexPath = [coder decodeObjectForKey:@"selectedIndexPath"];
+    if(selectedIndexPath != nil)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        });
+    }
+}
+
 - (void)dealloc
 {
 

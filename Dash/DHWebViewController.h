@@ -51,6 +51,8 @@
 @property (assign) BOOL didLoadInitialRequest;
 @property (assign) BOOL didLoadOnce;
 @property (strong) NSString *urlToLoad;
+@property (assign) BOOL isRestoreScroll;
+@property (assign) CGPoint webViewOffset;
 
 + (instancetype)sharedWebViewController;
 - (void)loadURL:(NSString *)urlString;

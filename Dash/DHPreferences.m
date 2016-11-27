@@ -105,6 +105,7 @@
     }
     if(toPopTo)
     {
+        [(DHWebViewController *)toPopTo view].frame = rightNavController.view.bounds;
         [rightNavController popToViewController:toPopTo animated:YES];
     }
     else
@@ -267,6 +268,17 @@
     if(selectedIndexPath != nil)
     {
         [self.tableView selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
+    else
+        selectedIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    if (self.splitViewController.viewControllers.count == 2 && [selectedIndexPath compare:[NSIndexPath indexPathForRow:0 inSection:0]] == NSOrderedSame) {
+        UINavigationController *nav = [self.splitViewController.viewControllers lastObject];
+        if ([nav isKindOfClass:[UINavigationController class]] && ![nav.topViewController isKindOfClass:[DHDocsetDownloader class]]) {
+            NSMutableArray *newViewControllers = [NSMutableArray array];
+            [newViewControllers addObjectsFromArray:nav.viewControllers];
+            [newViewControllers addObject:[DHDocsetDownloader sharedDownloader]];
+            [nav setViewControllers:newViewControllers];
+        }
     }
 }
 
