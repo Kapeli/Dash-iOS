@@ -524,6 +524,7 @@
 {
     if(!isRegularHorizontalClass)
     {
+        [cell.titleLabel setRightDetailText:nil];
         return;
     }
     if(cell.feed.installed && !cell.feed.installing && cell.feed.size && cell.feed.size.length)
@@ -778,10 +779,12 @@
     if(isRegularHorizontalClass)
     {
         [self.navigationItem setHidesBackButton:YES animated:NO];
+        [self.tableView reloadData];
     }
     else
     {
         [self.navigationItem setHidesBackButton:NO animated:NO];
+        [self.tableView reloadData];
     }
 }
 

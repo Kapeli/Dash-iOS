@@ -62,6 +62,7 @@
         {
             UIViewController *controller = [[self.splitViewController.viewControllers lastObject] topViewController];
             NSString *controllerTitle = controller.navigationItem.title;
+            BOOL found = NO;
             for(NSInteger section = 0; section < self.tableView.numberOfSections; section++)
             {
                 for(NSInteger row = 0; row < [self.tableView numberOfRowsInSection:section]; row++)
@@ -71,9 +72,14 @@
                     if([cell.textLabel.text isEqualToString:controllerTitle])
                     {
                         [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+                        found = YES;
                         break;
                     }
                 }
+            }
+            if(!found)
+            {
+                [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
             }
         }
     }
