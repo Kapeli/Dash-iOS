@@ -515,6 +515,8 @@
     [feed prepareCell:cell];
     cell.titleLabel.maxRightDetailWidth = feed.maxRightDetailWidth;
     cell.titleLabel.rightDetailText = feed.detailString;
+    cell.titleLabel.subtitle = feed.authorLinkText;
+    cell.titleLabel.authorLinkHref = feed.authorLinkHref;
     [self setSizeLabelForCell:cell];
     [self setTitle:[feed docsetNameWithVersion:!feed.installing] forCell:cell];
     return cell;
