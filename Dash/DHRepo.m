@@ -477,7 +477,7 @@
             NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
             [paragraph setAlignment:NSTextAlignmentCenter];
             UIFont *font = [UIFont boldSystemFontOfSize:20];
-            cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Loading..." attributes:@{NSParagraphStyleAttributeName : paragraph, NSForegroundColorAttributeName: [UIColor colorWithWhite:0.8 alpha:1], NSFontAttributeName: font}];
+            cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:(self.loadingText) ? self.loadingText : @"Loading..." attributes:@{NSParagraphStyleAttributeName : paragraph, NSForegroundColorAttributeName: [UIColor colorWithWhite:0.8 alpha:1], NSFontAttributeName: font}];
         }
         else
         {

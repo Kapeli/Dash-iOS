@@ -34,6 +34,7 @@
 @property (weak) MRProgressOverlayView *updateOverlay;
 @property (assign) IBOutlet UISearchBar *searchBar;
 @property (assign) BOOL loading;
+@property (assign) NSString *loadingText;
 
 - (void)setUp;
 - (IBAction)downloadButtonPressed:(id)sender;

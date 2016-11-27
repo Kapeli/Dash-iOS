@@ -49,15 +49,44 @@ static id singleton = nil;
     if(!self.loading && (!self.lastListLoad || (!self.searchBar.text.length && [[NSDate date] timeIntervalSinceDate:self.lastListLoad] > 30)))
     {
         self.loading = YES;
+        BOOL shouldDelay = [self.loadingText contains:@"Retrying"];
+        self.loadingText = nil;
         self.searchBar.userInteractionEnabled = NO;
         self.searchBar.alpha = 0.5;
         self.searchBar.placeholder = @"Loading...";
         [self.tableView reloadData];
         dispatch_queue_t queue = dispatch_queue_create([[NSString stringWithFormat:@"%u", arc4random() % 100000] UTF8String], 0);
         dispatch_async(queue, ^{
+            if(shouldDelay)
+            {
+                [NSThread sleepForTimeInterval:1.0];
+            }
             [[DHUserRepoList sharedUserRepoList] reload];
-            NSArray *feeds = [[DHUserRepoList sharedUserRepoList] allUserDocsets];
-            NSLog(@"%@", feeds);
+            NSMutableArray *feeds = [[DHUserRepoList sharedUserRepoList] allUserDocsets];
+            [feeds sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                return [[obj1 name] localizedCaseInsensitiveCompare:[obj2 name]];
+            }];
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                if(feeds.count)
+                {
+                    self.lastListLoad = [NSDate date];
+                    self.searchBar.userInteractionEnabled = YES;
+                    self.searchBar.alpha = 1.0;
+                    self.searchBar.placeholder = @"Find docsets to download";
+                    self.loading = NO;
+                    self.feeds = feeds;
+                    [self.tableView reloadData];
+                }
+                else
+                {
+                    self.loadingText = @"Loading failed. Retrying...";
+                    [self.tableView reloadData];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        self.loading = NO;
+                        [self reloadUserDocsetsIfNeeded];
+                    });
+                }
+             });
         });
     }
 }

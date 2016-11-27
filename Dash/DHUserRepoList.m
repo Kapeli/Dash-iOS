@@ -70,7 +70,7 @@
 - (UIImage *)imageForEntry:(DHFeed *)entry
 {
     NSString *base64 = self.json[@"docsets"][entry.uniqueIdentifier][@"icon@2x"];
-    if(base64)
+    if(base64.length)
     {
         return [UIImage imageWithData:[[NSData alloc] initWithBase64EncodedString:base64 options:NSDataBase64DecodingIgnoreUnknownCharacters] scale:2];
     }

@@ -221,6 +221,10 @@
 
 - (NSString *)uniqueIdentifier // Used to find a corresponding feed from a installed docset
 {
+    if(self._uniqueIdentifier)
+    {
+        return self._uniqueIdentifier;
+    }
     return self.feedURL;
 }
 
