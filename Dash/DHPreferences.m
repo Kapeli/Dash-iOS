@@ -71,7 +71,7 @@
                     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
                     if([cell.textLabel.text isEqualToString:controllerTitle])
                     {
-                        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+                        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
                         found = YES;
                         break;
                     }
@@ -79,7 +79,7 @@
             }
             if(!found)
             {
-                [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+                [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
             }
         }
     }
@@ -158,6 +158,15 @@
             return @"DHUserRepoToDetailSegue";
         }
         return @"DHUserRepoToMasterSegue";
+    }
+    else if([title isEqualToString:@"Cheat Sheets"])
+    {
+        if(isRegularHorizontalClass)
+        {
+            // Also used by DHSplitViewController. Make sure identifiers end with "ToDetailSegue"
+            return @"DHCheatRepoToDetailSegue";
+        }
+        return @"DHCheatRepoToMasterSegue";
     }
     else if([title isEqualToString:@"Transfer Docsets"])
     {

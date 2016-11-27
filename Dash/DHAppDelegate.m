@@ -18,6 +18,7 @@
 #import "DHAppDelegate.h"
 #import "DHDocsetDownloader.h"
 #import "DHUserRepo.h"
+#import "DHCheatRepo.h"
 #import "DHDocsetTransferrer.h"
 #import "DHDocsetManager.h"
 #import "DHTarixProtocol.h"
@@ -85,6 +86,7 @@
     [DHDocsetDownloader sharedDownloader];
     [DHDocsetTransferrer sharedTransferrer];
     [DHUserRepo sharedUserRepo];
+    [DHCheatRepo sharedCheatRepo];
     [DHRemoteServer sharedServer];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clipboardChanged:) name:UIPasteboardChangedNotification object:nil];
     return YES;
@@ -144,6 +146,10 @@
             if(![[DHUserRepo sharedUserRepo] alertIfUpdatesAreScheduled])
             {
                 [[DHUserRepo sharedUserRepo] backgroundCheckForUpdatesIfNeeded];
+                if(![[DHCheatRepo sharedCheatRepo] alertIfUpdatesAreScheduled])
+                {
+                    [[DHCheatRepo sharedCheatRepo] backgroundCheckForUpdatesIfNeeded];
+                }
             }
         }
     }

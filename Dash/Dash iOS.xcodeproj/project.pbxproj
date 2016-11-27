@@ -36,6 +36,8 @@
 		4342C8A519E93FF200BE66A2 /* DHNestedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4342C8A419E93FF200BE66A2 /* DHNestedViewController.m */; };
 		434A77DC1BAE590C00CCF84B /* DHSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 434A77DB1BAE590C00CCF84B /* DHSplitViewController.m */; };
 		434AB15719C2738900791E07 /* DHRepoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 434AB15619C2738900791E07 /* DHRepoTableViewCell.m */; };
+		435145971DEB7035000874A8 /* DHCheatRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = 435145961DEB7035000874A8 /* DHCheatRepo.m */; };
+		4351459A1DEB7099000874A8 /* DHCheatRepoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 435145991DEB7099000874A8 /* DHCheatRepoList.m */; };
 		43573F781A997EC7000E6F2D /* DHRemoteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 43573F771A997EC7000E6F2D /* DHRemoteServer.m */; };
 		4361651D19CCF8500026F08E /* NSTimer+DHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4361651C19CCF8500026F08E /* NSTimer+DHUtils.m */; };
 		436DF78019FFA926008814F8 /* DHRepoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 436DF77F19FFA926008814F8 /* DHRepoTableView.m */; };
@@ -179,6 +181,10 @@
 		434A77DB1BAE590C00CCF84B /* DHSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSplitViewController.m; sourceTree = "<group>"; };
 		434AB15519C2738900791E07 /* DHRepoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHRepoTableViewCell.h; sourceTree = "<group>"; };
 		434AB15619C2738900791E07 /* DHRepoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHRepoTableViewCell.m; sourceTree = "<group>"; };
+		435145951DEB7035000874A8 /* DHCheatRepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHCheatRepo.h; sourceTree = "<group>"; };
+		435145961DEB7035000874A8 /* DHCheatRepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHCheatRepo.m; sourceTree = "<group>"; };
+		435145981DEB7099000874A8 /* DHCheatRepoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHCheatRepoList.h; sourceTree = "<group>"; };
+		435145991DEB7099000874A8 /* DHCheatRepoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHCheatRepoList.m; sourceTree = "<group>"; };
 		43573F761A997EC7000E6F2D /* DHRemoteServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHRemoteServer.h; sourceTree = "<group>"; };
 		43573F771A997EC7000E6F2D /* DHRemoteServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHRemoteServer.m; sourceTree = "<group>"; };
 		4361651B19CCF8500026F08E /* NSTimer+DHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+DHUtils.h"; sourceTree = "<group>"; };
@@ -457,6 +463,7 @@
 				43B0956B19BFD57500F8611B /* DHRepo.m */,
 				437699A319D8FD0B008B37F4 /* Downloader */,
 				43280F511DDE4A4C001C2062 /* User Contributed */,
+				435145941DEB701E000874A8 /* Cheat Sheets */,
 				437699A219D8FD00008B37F4 /* Transferrer */,
 				434AB15819C273A500791E07 /* Others */,
 			);
@@ -507,6 +514,17 @@
 				43EDD19C19C51E9F00A0EBEC /* Latency Tester */,
 			);
 			name = Others;
+			sourceTree = "<group>";
+		};
+		435145941DEB701E000874A8 /* Cheat Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				435145951DEB7035000874A8 /* DHCheatRepo.h */,
+				435145961DEB7035000874A8 /* DHCheatRepo.m */,
+				435145981DEB7099000874A8 /* DHCheatRepoList.h */,
+				435145991DEB7099000874A8 /* DHCheatRepoList.m */,
+			);
+			name = "Cheat Sheets";
 			sourceTree = "<group>";
 		};
 		43573F751A997EB0000E6F2D /* Remote */ = {
@@ -998,6 +1016,7 @@
 				4303A3BD19C6584F00A7CD85 /* FMDatabase.m in Sources */,
 				4398D34619BF55B500457CAF /* DHPreferences.m in Sources */,
 				437FE06619E2AC0D0022ADF4 /* DHTypeBrowser.m in Sources */,
+				435145971DEB7035000874A8 /* DHCheatRepo.m in Sources */,
 				43CF8AF119D5DA060010E698 /* NSURL+DHUtils.m in Sources */,
 				43EDD19F19C52E3400A0EBEC /* DHFeedResult.m in Sources */,
 				43FD2F0219BB8D87007E594D /* DHWebViewController.m in Sources */,
@@ -1047,6 +1066,7 @@
 				43573F781A997EC7000E6F2D /* DHRemoteServer.m in Sources */,
 				43EDD19B19C51E9C00A0EBEC /* DHLatencyTestResult.m in Sources */,
 				43D4F06D19E7E88400C22AF5 /* DHDBSearchController.m in Sources */,
+				4351459A1DEB7099000874A8 /* DHCheatRepoList.m in Sources */,
 				43D4F06419E7CEC500C22AF5 /* DHQueuedDB.m in Sources */,
 				4303A3BF19C6584F00A7CD85 /* FMResultSet.m in Sources */,
 				43FC34041DE784C40089F134 /* DHUserRepoList.m in Sources */,

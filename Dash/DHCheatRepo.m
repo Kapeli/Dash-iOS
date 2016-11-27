@@ -15,37 +15,37 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "DHUserRepo.h"
-#import "DHUserRepoList.h"
+#import "DHCheatRepo.h"
+#import "DHCheatRepoList.h"
 
-@implementation DHUserRepo
+@implementation DHCheatRepo
 
 static id singleton = nil;
 
-+ (instancetype)sharedUserRepo
++ (instancetype)sharedCheatRepo
 {
     if(singleton)
     {
         return singleton;
     }
-    id userRepo = [[DHAppDelegate mainStoryboard] instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
-    [userRepo setUp];
-    return userRepo;
+    id cheatRepo = [[DHAppDelegate mainStoryboard] instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
+    [cheatRepo setUp];
+    return cheatRepo;
 }
 
 - (void)setUp
 {
     [super setUp];
-    [self reloadUserDocsetsIfNeeded];
+    [self reloadCheatsheetsIfNeeded];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self reloadUserDocsetsIfNeeded];
+    [self reloadCheatsheetsIfNeeded];
 }
 
-- (void)reloadUserDocsetsIfNeeded
+- (void)reloadCheatsheetsIfNeeded
 {
     if(!self.loading && (!self.lastListLoad || (!self.searchBar.text.length && [[NSDate date] timeIntervalSinceDate:self.lastListLoad] > 300)))
     {
@@ -62,8 +62,8 @@ static id singleton = nil;
             {
                 [NSThread sleepForTimeInterval:1.0];
             }
-            [[DHUserRepoList sharedUserRepoList] reload];
-            NSMutableArray *feeds = [[DHUserRepoList sharedUserRepoList] allUserDocsets];
+            [[DHCheatRepoList sharedCheatRepoList] reload];
+            NSMutableArray *feeds = [[DHCheatRepoList sharedCheatRepoList] allCheatsheets];
             dispatch_sync(dispatch_get_main_queue(), ^{
                 if(feeds.count)
                 {
@@ -85,7 +85,7 @@ static id singleton = nil;
                     self.lastListLoad = [NSDate date];
                     self.searchBar.userInteractionEnabled = YES;
                     self.searchBar.alpha = 1.0;
-                    self.searchBar.placeholder = @"Find docsets to download";
+                    self.searchBar.placeholder = @"Find cheat sheets to download";
                     self.loading = NO;
                     self.feeds = feeds;
                     [self.tableView reloadData];
@@ -96,10 +96,10 @@ static id singleton = nil;
                     [self.tableView reloadData];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         self.loading = NO;
-                        [self reloadUserDocsetsIfNeeded];
+                        [self reloadCheatsheetsIfNeeded];
                     });
                 }
-             });
+            });
         });
     }
 }
@@ -287,33 +287,6 @@ static id singleton = nil;
                             [fileManager moveItemAtPath:tempFile toPath:docset.tarixPath error:nil];
                         }
                         
-                        NSString *iconPath = [docset.path stringByAppendingPathComponent:@"icon.png"];
-                        [fileManager removeItemAtPath:iconPath error:nil];
-                        NSString *icon2xPath = [docset.path stringByAppendingPathComponent:@"icon@2x.png"];
-                        [fileManager removeItemAtPath:icon2xPath error:nil];
-                        [fileManager removeItemAtPath:[docset.path stringByAppendingPathComponent:@"icon.tiff"] error:nil];
-                        NSString *base64 = [DHUserRepoList sharedUserRepoList].json[@"docsets"][feed.uniqueIdentifier][@"icon"];
-                        if(base64.length)
-                        {
-                            [[[NSData alloc] initWithBase64EncodedString:base64 options:NSDataBase64DecodingIgnoreUnknownCharacters] writeToFile:iconPath atomically:NO];
-                        }
-                        base64 = [DHUserRepoList sharedUserRepoList].json[@"docsets"][feed.uniqueIdentifier][@"icon@2x"];
-                        if(base64.length)
-                        {
-                            [[[NSData alloc] initWithBase64EncodedString:base64 options:NSDataBase64DecodingIgnoreUnknownCharacters] writeToFile:icon2xPath atomically:NO];
-                        }
-                        NSString *plistPath = [docset.path stringByAppendingPathComponent:@"Contents/Info.plist"];
-                        NSMutableDictionary *plist = [[NSDictionary dictionaryWithContentsOfFile:plistPath] mutableCopy];
-                        NSString *platform = [plist[@"DocSetPlatformFamily"] trimWhitespace];
-                        if(platform && platform.length)
-                        {
-                            plist[@"DashDocSetKeyword"] =  (plist[@"DashDocSetKeyword"]) ? plist[@"DashDocSetKeyword"] : platform;
-                            plist[@"DashDocSetPluginKeyword"] = (plist[@"DashDocSetPluginKeyword"]) ? plist[@"DashDocSetPluginKeyword"] : platform;
-                            plist[@"DashWebSearchKeyword"] = (plist[@"DashWebSearchKeyword"]) ? plist[@"DashWebSearchKeyword"] : platform;
-                            plist[@"DocSetPlatformFamily"] = [@"usercontrib" stringByAppendingString:feed.uniqueIdentifier];
-                            [plist writeToFile:plistPath atomically:NO];
-                        }
-                        
                         [DHDocsetIndexer indexerForDocset:docset delegate:feedResult];
                         [fileManager removeItemAtPath:docset.sqlPath error:nil];
                         [fileManager removeItemAtPath:[docset.sqlPath stringByAppendingString:@"-shm"] error:nil];
@@ -356,7 +329,7 @@ static id singleton = nil;
                 }
             }
         }
-        return @"Couldn't download docset.";
+        return @"Couldn't download cheat sheet.";
     }
     else
     {
@@ -368,7 +341,7 @@ static id singleton = nil;
 - (DHFeedResult *)loadFeed:(DHFeed *)feed error:(NSString **)returnError
 {
     DHFeedResult *feedResult = [[DHFeedResult alloc] init];
-    DHUserRepoList *list = [DHUserRepoList sharedUserRepoList];
+    DHCheatRepoList *list = [DHCheatRepoList sharedCheatRepoList];
     feedResult.downloadURLs = @[[list downloadURLForEntry:feed]];
     feedResult.version = [list versionForEntry:feed];
     return feedResult;
@@ -376,13 +349,13 @@ static id singleton = nil;
 
 - (NSString *)docsetInstallFolderName
 {
-    return @"User Contributed";
+    return @"Cheat Sheets";
 }
 
 - (void)showUpdateRequestForFeeds:(NSArray *)toUpdate count:(NSInteger)feedCount docsetList:(NSString *)docsetList
 {
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:[self defaultsScheduledUpdateKey]];
-    [UIAlertView showWithTitle:@"Updates Found" message:[NSString stringWithFormat:@"Updates are available for %ld %@:%@%@", (long)feedCount, (feedCount > 1) ? @"user contributed docsets" : @"user contributed docset", (feedCount > 1) ? @"\n\n" : @" ", docsetList] cancelButtonTitle:@"Maybe Later" otherButtonTitles:@[@"Update"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+    [UIAlertView showWithTitle:@"Updates Found" message:[NSString stringWithFormat:@"Updates are available for %ld %@:%@%@", (long)feedCount, (feedCount > 1) ? @"cheat sheets" : @"cheat sheet", (feedCount > 1) ? @"\n\n" : @" ", docsetList] cancelButtonTitle:@"Maybe Later" otherButtonTitles:@[@"Update"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
         if(buttonIndex != alertView.cancelButtonIndex)
         {
             if(toUpdate)
@@ -395,6 +368,13 @@ static id singleton = nil;
             }
         }
     }];
+}
+
+- (IBAction)errorButtonPressed:(id)sender
+{
+    NSUInteger row = [sender tag];
+    DHFeed *feed = [self activeFeeds][row];
+    [[[UIAlertView alloc] initWithTitle:@"Cheat Sheet Install Failed" message:[NSString stringWithFormat:@"%@ Please check your Internet connection and available free space and try again.", feed.error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 + (id)alloc
