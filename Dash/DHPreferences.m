@@ -120,7 +120,7 @@
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // prevent selection of rows that are already selected
-    if(isRegularHorizontalClass && tableView.indexPathForSelectedRow.row == indexPath.row)
+    if(isRegularHorizontalClass && [tableView.indexPathForSelectedRow isEqual:indexPath])
     {
         return nil;
     }

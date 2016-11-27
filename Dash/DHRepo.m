@@ -59,6 +59,11 @@
 
 - (IBAction)updateButtonPressed:(id)sender
 {
+    if(self.loading)
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Loading..." message:@"Wait for loading to complete and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        return;
+    }
     [self checkForUpdatesAndShowInterface:YES updateWithoutAsking:NO];
 }
 
@@ -92,6 +97,10 @@
     dispatch_queue_t queue = dispatch_queue_create([[NSString stringWithFormat:@"%u", arc4random() % 100000] UTF8String], 0);
     dispatch_async(queue, ^{
         if(withInterface)
+        {
+            [NSThread sleepForTimeInterval:1.0f];
+        }
+        while(self.loading)
         {
             [NSThread sleepForTimeInterval:1.0f];
         }

@@ -36,6 +36,7 @@ static id singleton = nil;
 - (void)setUp
 {
     [super setUp];
+    [self reloadUserDocsetsIfNeeded];
 }
 
 - (void)viewWillAppear:(BOOL)animated
