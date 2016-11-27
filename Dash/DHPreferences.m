@@ -60,7 +60,21 @@
         self.clearsSelectionOnViewWillAppear = NO;
         if(!self.tableView.indexPathForSelectedRow)
         {
-            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:([[[self.splitViewController.viewControllers lastObject] topViewController] isKindOfClass:[DHDocsetTransferrer class]]) ? 1 : 0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+            UIViewController *controller = [[self.splitViewController.viewControllers lastObject] topViewController];
+            NSString *controllerTitle = controller.navigationItem.title;
+            for(NSInteger section = 0; section < self.tableView.numberOfSections; section++)
+            {
+                for(NSInteger row = 0; row < [self.tableView numberOfRowsInSection:section]; row++)
+                {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+                    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+                    if([cell.textLabel.text isEqualToString:controllerTitle])
+                    {
+                        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+                        break;
+                    }
+                }
+            }
         }
     }
     else
