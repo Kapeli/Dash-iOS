@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="22" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x0P-fR-ekF" id="xkY-Bg-Jb1">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -117,17 +117,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="Download Docsets" id="5ll-Jq-5KZ">
+                            <tableViewSection headerTitle="Download" id="5ll-Jq-5KZ">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DHSettingsCell" textLabel="Ug3-nq-xyc" imageView="CfY-ch-rUA" style="IBUITableViewCellStyleDefault" id="r0i-wt-QAr">
-                                        <rect key="frame" x="0.0" y="55.333333333333336" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="56" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r0i-wt-QAr" id="x7u-4T-8E0">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Main Docsets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ug3-nq-xyc">
-                                                    <rect key="frame" x="58" y="0.0" width="341" height="43.666666666666664"/>
+                                                    <rect key="frame" x="58" y="0.0" width="341" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -140,15 +140,36 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DHSettingsCell" textLabel="tCo-zC-KEK" imageView="mGt-fn-iWH" style="IBUITableViewCellStyleDefault" id="Il7-Fa-eRd">
+                                        <rect key="frame" x="0.0" y="100" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Il7-Fa-eRd" id="ewh-53-hgF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Cheat Sheets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tCo-zC-KEK">
+                                                    <rect key="frame" x="58" y="0.0" width="341" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="cheat_repo" id="mGt-fn-iWH">
+                                                    <rect key="frame" x="15" y="7" width="28" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DHSettingsCell" textLabel="g0J-MY-Gyr" imageView="6px-e6-A4A" style="IBUITableViewCellStyleDefault" id="gTK-ia-7zI">
-                                        <rect key="frame" x="0.0" y="99.333333333333343" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="144" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gTK-ia-7zI" id="3LL-D8-sfE">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="User Contributed Docsets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g0J-MY-Gyr">
-                                                    <rect key="frame" x="58" y="0.0" width="341" height="43.666666666666664"/>
+                                                    <rect key="frame" x="58" y="0.0" width="341" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -163,17 +184,17 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Other Docset Sources" id="geA-nh-aJW">
+                            <tableViewSection headerTitle="Other Sources" id="geA-nh-aJW">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DHSettingsCell" textLabel="tH7-qh-OUH" imageView="hJO-jA-eBm" style="IBUITableViewCellStyleDefault" id="sda-gL-9CQ">
-                                        <rect key="frame" x="0.0" y="191.33333333333334" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="237" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sda-gL-9CQ" id="Wp8-gy-b2o">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Transfer Docsets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tH7-qh-OUH">
-                                                    <rect key="frame" x="58" y="0.0" width="341" height="43.666666666666664"/>
+                                                    <rect key="frame" x="58" y="0.0" width="341" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -191,14 +212,14 @@
                             <tableViewSection headerTitle="Update settings" footerTitle="Dash will notify you when docset updates are available.             " id="DSC-i5-noV">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="auto_updates" textLabel="L5q-QS-QhJ" style="IBUITableViewCellStyleDefault" id="NBw-o2-OgI">
-                                        <rect key="frame" x="0.0" y="290.66666666666669" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NBw-o2-OgI" id="P7F-Da-gdU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Automatic Updates" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L5q-QS-QhJ">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="43.666666666666664"/>
+                                                    <rect key="frame" x="15" y="0.0" width="384" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -250,6 +271,8 @@
                         <segue destination="bVq-xA-3wd" kind="push" identifier="DHDocsetDownloaderToMasterSegue" splitViewControllerTargetIndex="0" id="tZ0-kY-m9B"/>
                         <segue destination="7Pl-oD-WzV" kind="push" identifier="DHUserRepoToDetailSegue" splitViewControllerTargetIndex="1" id="UMU-KR-a0h"/>
                         <segue destination="7Pl-oD-WzV" kind="push" identifier="DHUserRepoToMasterSegue" splitViewControllerTargetIndex="0" id="BNM-LK-jE2"/>
+                        <segue destination="bSe-FO-aTh" kind="push" identifier="DHCheatRepoToDetailSegue" splitViewControllerTargetIndex="1" id="oW0-T5-9L9"/>
+                        <segue destination="bSe-FO-aTh" kind="push" identifier="DHCheatRepoToMasterSegue" splitViewControllerTargetIndex="0" id="z3k-ky-jyi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fmo-gt-gw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -277,7 +300,7 @@
                                 <rect key="frame" x="0.0" y="66" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H2Y-Rn-XFZ" id="kux-Q3-Ab3">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -339,7 +362,7 @@
                                 <rect key="frame" x="0.0" y="66" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VA8-am-q6Z" id="nIL-hj-vFk">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -392,7 +415,7 @@
                                 <rect key="frame" x="0.0" y="66" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gr3-qP-hfk" id="HWD-2S-7F9">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -436,7 +459,7 @@
                                 <rect key="frame" x="0.0" y="22" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="geM-gl-w4a" id="dRi-kM-G9B">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -502,7 +525,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2468" y="-2621"/>
+            <point key="canvasLocation" x="2445" y="-3288"/>
         </scene>
         <!--User Contributed Docsets-->
         <scene sceneID="okr-5a-bHb">
@@ -549,7 +572,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2468" y="-1951"/>
+            <point key="canvasLocation" x="2445" y="-2618"/>
         </scene>
         <!--Transfer Docsets-->
         <scene sceneID="dSW-F9-RBB">
@@ -615,7 +638,7 @@
                                 <rect key="frame" x="0.0" y="66" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uat-DW-uld" id="B7g-3q-qBW">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -670,17 +693,66 @@
             </objects>
             <point key="canvasLocation" x="1177" y="1202"/>
         </scene>
+        <!--Cheat Sheets-->
+        <scene sceneID="kGo-MS-1Iv">
+            <objects>
+                <tableViewController storyboardIdentifier="DHCheatRepo" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bSe-FO-aTh" userLabel="Cheat Sheets" customClass="DHCheatRepo" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DHCheatRepoTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9Wm-HT-qeH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" restorationIdentifier="CheatRepoSearchBar" placeholder="Find cheat sheets to download" id="0Tx-yl-ZpH">
+                            <rect key="frame" x="0.0" y="64" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="bSe-FO-aTh" id="tFS-Ty-amy"/>
+                            </connections>
+                        </searchBar>
+                        <connections>
+                            <outlet property="dataSource" destination="bSe-FO-aTh" id="ZXy-xZ-NcM"/>
+                            <outlet property="delegate" destination="bSe-FO-aTh" id="hUe-NY-iYK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Cheat Sheets" id="EeG-gR-3NH" userLabel="Cheat Sheets">
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="20V-ZH-ehJ">
+                            <connections>
+                                <action selector="updateButtonPressed:" destination="bSe-FO-aTh" id="OHn-dd-osM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="0Tx-yl-ZpH" id="pnt-J4-9nb"/>
+                        <outlet property="searchDisplayController" destination="PMB-N5-wGr" id="SJx-7j-3jo"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lpb-DD-g0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="gvn-dN-aaF">
+                    <connections>
+                        <outlet property="delegate" destination="bSe-FO-aTh" id="tNi-fL-tpC"/>
+                        <outlet property="searchBar" destination="0Tx-yl-ZpH" id="0qn-rZ-zFT"/>
+                        <outlet property="searchContentsController" destination="bSe-FO-aTh" id="q2m-lz-cUb"/>
+                        <outlet property="searchResultsDataSource" destination="bSe-FO-aTh" id="FR4-Tz-wfo"/>
+                        <outlet property="searchResultsDelegate" destination="bSe-FO-aTh" id="PLW-Zm-zsW"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2445" y="-1928"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="cheat_repo" width="28" height="28"/>
         <image name="main_repo" width="28" height="28"/>
         <image name="transfer_repo" width="28" height="28"/>
         <image name="user_repo" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GKi-kA-LjT"/>
-        <segue reference="vh9-ti-qTq"/>
-        <segue reference="tZ0-kY-m9B"/>
-        <segue reference="BNM-LK-jE2"/>
         <segue reference="ljv-Qq-slv"/>
+        <segue reference="UMU-KR-a0h"/>
+        <segue reference="tZ0-kY-m9B"/>
+        <segue reference="z3k-ky-jyi"/>
+        <segue reference="vh9-ti-qTq"/>
     </inferredMetricsTieBreakers>
 </document>

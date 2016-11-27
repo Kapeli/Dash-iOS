@@ -20,6 +20,7 @@
 #import "DHDBResult.h"
 #import "DHDocsetManager.h"
 #import "DHDocsetTransferrer.h"
+#import "DHCheatRepo.h"
 #import "DHRightDetailLabel.h"
 
 @implementation DHRepo
@@ -85,7 +86,7 @@
         }
         if(!found)
         {
-            [[[UIAlertView alloc] initWithTitle:@"Nothing to Update" message:@"You don't have any docsets installed. Download some!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            [[[UIAlertView alloc] initWithTitle:@"Nothing to Update" message:[NSString stringWithFormat:@"You don't have any %@ installed. Download some!", [self isKindOfClass:[DHCheatRepo class]] ? @"cheat sheets" : @"docsets"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
             return;
         }
         overlay = [MRProgressOverlayView showOverlayAddedTo:(isRegularHorizontalClass) ? self.splitViewController.view : self.navigationController.view title:@"Checking..." mode:MRProgressOverlayViewModeIndeterminate animated:YES stopBlock:^(MRProgressOverlayView *progressOverlayView) {

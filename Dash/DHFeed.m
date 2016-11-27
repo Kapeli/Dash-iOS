@@ -24,6 +24,7 @@
     DHFeed *feed = [[DHFeed alloc] init];
     feed._icon = icon;
     feed.name = name;
+    feed.platform = platform;
     return feed;
 }
 
@@ -50,6 +51,7 @@
 {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     dictionary[@"feed"] = self.feed ?: @"";
+    dictionary[@"platform"] = self.platform ?: @"";
     dictionary[@"name"] = self.name ?: @"";
     dictionary[@"feedURL"] = self.feedURL ?: @"";
     dictionary[@"_uniqueIdentifier"] = self._uniqueIdentifier ?: @"";
@@ -70,6 +72,7 @@
 {
     DHFeed *feed = [[DHFeed alloc] init];
     feed.detailString = @"";
+    feed.platform = dictionary[@"platform"];
     feed.name = dictionary[@"name"];
     feed.feed = dictionary[@"feed"];
     feed.feedURL = dictionary[@"feedURL"];
@@ -106,7 +109,7 @@
     {
         docsetName = @"Lodash";
     }
-    if(withVersion && self.installed)
+    if(withVersion && self.installed && ![self.platform isEqualToString:@"cheatsheet"])
     {
         NSString *version = self.installedVersion;
         version = [version substringToString:@"/"];

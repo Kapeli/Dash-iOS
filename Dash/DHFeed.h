@@ -28,12 +28,12 @@
 @property (strong) NSString *iconName;
 @property (strong) NSArray *aliases;
 @property (strong) NSString *size;
+@property (strong) NSString *platform;
 @property (strong) NSString *authorLinkText;
 @property (strong) NSString *authorLinkHref;
 @property (assign) BOOL doesNotHaveVersions;
 @property (assign) BOOL waiting;
 @property (assign) BOOL isCustom;
-
 @property (assign) BOOL progressShown;
 @property (assign) BOOL checkingForUpdates;
 @property (assign) BOOL installing, installed;
