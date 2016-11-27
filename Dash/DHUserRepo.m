@@ -47,7 +47,7 @@ static id singleton = nil;
 
 - (void)reloadUserDocsetsIfNeeded
 {
-    if(!self.loading && (!self.lastListLoad || (!self.searchBar.text.length && [[NSDate date] timeIntervalSinceDate:self.lastListLoad] > 30)))
+    if(!self.loading && (!self.lastListLoad || (!self.searchBar.text.length && [[NSDate date] timeIntervalSinceDate:self.lastListLoad] > 300)))
     {
         self.loading = YES;
         BOOL shouldDelay = [self.loadingText contains:@"Retrying"];

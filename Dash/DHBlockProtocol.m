@@ -37,6 +37,10 @@
     {
         return YES;
     }
+    if([url contains:@"kapeli.com/"])
+    {
+        return NO;
+    }
     if([[[request URL] scheme] hasCaseInsensitivePrefix:@"http"])
     {
         if(![[[request URL] host] length] || [[[request URL] host] hasSuffix:@"."])
