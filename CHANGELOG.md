@@ -1,5 +1,6 @@
 # Master
 
+* Added support for cheat sheets - [#22](https://github.com/Kapeli/Dash-iOS/pull/22)
 * Added support for user contributed docsets - [#20](https://github.com/Kapeli/Dash-iOS/pull/20)
 * Added state restoration support. Thanks to [@zhongwuzw](https://github.com/zhongwuzw) for the great work on this - [#18](https://github.com/Kapeli/Dash-iOS/pull/18)
 * Fixed Unity 3D docset bug which caused it to not remember the selected language. Thanks to [@hantengx](https://github.com/hantengx) for reporting the issue - [#17](https://github.com/Kapeli/Dash-iOS/issues/17)
