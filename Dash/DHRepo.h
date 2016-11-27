@@ -60,6 +60,9 @@
 - (NSInteger)numberOfEntriesBeingInstalled;
 - (NSInteger)indexOfFeedWithFeedURL:(NSString *)feedURL;
 - (void)startInstallingFeed:(DHFeed *)feed isAnUpdate:(BOOL)isAnUpdate;
+- (NSString *)defaultsScheduledUpdateKey;
+- (void)updateFeeds:(NSArray *)feeds;
+- (void)checkForUpdatesAndShowInterface:(BOOL)withInterface updateWithoutAsking:(BOOL)updateWithoutAsking;
 
 @end
 

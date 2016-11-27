@@ -141,6 +141,10 @@
         if(![[DHDocsetDownloader sharedDownloader] alertIfUpdatesAreScheduled])
         {
             [[DHDocsetDownloader sharedDownloader] backgroundCheckForUpdatesIfNeeded];
+            if(![[DHUserRepo sharedUserRepo] alertIfUpdatesAreScheduled])
+            {
+                [[DHUserRepo sharedUserRepo] backgroundCheckForUpdatesIfNeeded];
+            }
         }
     }
 }
