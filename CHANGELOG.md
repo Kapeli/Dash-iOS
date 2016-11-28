@@ -1,5 +1,9 @@
 # Master
 
+* No changes yet.
+
+# 1.6.0
+
 * Added support for cheat sheets - [#22](https://github.com/Kapeli/Dash-iOS/pull/22)
 * Added support for user contributed docsets - [#20](https://github.com/Kapeli/Dash-iOS/pull/20)
 * Added state restoration support. Thanks to [@zhongwuzw](https://github.com/zhongwuzw) for the great work on this - [#18](https://github.com/Kapeli/Dash-iOS/pull/18)
