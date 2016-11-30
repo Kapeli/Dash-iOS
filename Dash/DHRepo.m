@@ -827,8 +827,7 @@
 
 - (NSString *)docsetPathForFeed:(DHFeed *)feed
 {
-    NSString *filename = [[feed.feed lastPathComponent] stringByDeletingPathExtension];
-    return [[self docsetInstallFolderPath] stringByAppendingPathComponent:filename];
+    return [[self docsetInstallFolderPath] stringByAppendingPathComponent:feed.installFolderName];
 }
 
 - (NSString *)defaultsKey
