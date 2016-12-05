@@ -231,4 +231,9 @@
     return self.feedURL;
 }
 
+- (NSString *)installFolderName
+{
+    return (self._uniqueIdentifier) ? self._uniqueIdentifier.lastPathComponent : self.feed.lastPathComponent.stringByDeletingPathExtension;
+}
+
 @end

@@ -59,5 +59,6 @@
 - (void)adjustTitleLabelWidthBasedOnButtonsShown;
 - (UIImage *)icon;
 - (NSString *)uniqueIdentifier; // Used to find a corresponding feed from a installed docset
+- (NSString *)installFolderName;
 
 @end
