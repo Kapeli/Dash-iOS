@@ -223,9 +223,9 @@
                              @"DHWebViewController": @"620be6d",
                              @"DHWebPreferences": @"f3017eb",
                              @"DHDocsetDownloader": @"53f55ce",
-                             @"PlatformIcons": @"414bef0",
-                             @"DHTypes": @"4e990e4",
-                             @"Types": @"8661bda",
+                             @"PlatformIcons": @"f9b9083",
+                             @"DHTypes": @"8345e9e",
+                             @"Types": @"8345e9e",
                              @"CSS": @"e7a1182",
                              };
     [hashes enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
