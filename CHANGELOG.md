@@ -1,6 +1,6 @@
 # Master
 
-* No changes yet.
+* Fixed build products path. Thanks to [@RegalMedia](https://github.com/RegalMedia) for reporting the issue - [#28](https://github.com/Kapeli/Dash-iOS/issues/28)
 
 # 1.6.0
 
