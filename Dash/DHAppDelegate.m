@@ -215,14 +215,14 @@
 - (void)checkCommitHashes
 {
     NSDictionary *hashes = @{@"DHDBSearcher": @"ea3cca9",
-                             @"DHDBResult": @"c44cff7",
+                             @"DHDBResult": @"07b02e3",
                              @"DHDBUnifiedResult": @"b332793",
                              @"DHQueuedDB": @"0199255",
                              @"DHUnifiedQueuedDB": @"dd42266",
                              @"DHDBUnifiedOperation": @"1671a90",
-                             @"DHWebViewController": @"b3bb4a8",
+                             @"DHWebViewController": @"8b1c435",
                              @"DHWebPreferences": @"f3017eb",
-                             @"DHDocsetDownloader": @"d8b8f25",
+                             @"DHDocsetDownloader": @"995b73f",
                              @"PlatformIcons": @"d8b8f25",
                              @"DHTypes": @"8345e9e",
                              @"Types": @"8345e9e",
