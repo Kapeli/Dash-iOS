@@ -1,5 +1,6 @@
 # Master
 
+* Added support for receiving docsets using AirDrop. Thanks to [@vinayjn](https://github.com/vinayjn) for the great work on this - [#36](https://github.com/Kapeli/Dash-iOS/pull/36)
 * Added Pug docset. Removed Jade docset - [36fdff3](https://github.com/Kapeli/Dash-iOS/commit/36fdff3a2ac6d74bddb07ef8c430d46b19dd64d3)
 * Fixed build products path. Thanks to [@RegalMedia](https://github.com/RegalMedia) for reporting the issue - [#28](https://github.com/Kapeli/Dash-iOS/issues/28)
 * Fixed the display of included modules for Ruby docsets - [4416ccb](https://github.com/Kapeli/Dash-iOS/commit/4416ccbb7b78b0b4b0e72608f1ce5bd38a013b72)
