@@ -104,9 +104,28 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)actualURL sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:DHPrepareForURLSearch object:nil];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:DHPerformURLSearch object:[actualURL absoluteString]];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSError *regexError;
+        NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:@"Inbox/.+[\\.docset]$" options:0 error:&regexError];
+        NSArray *matches;
+        if (regexError) {
+            NSLog(@"%@", regexError.localizedDescription);
+        }else{
+            matches = [regex matchesInString:[actualURL absoluteString] options:0 range:NSMakeRange(0, [actualURL absoluteString].length)];
+        }
+        if (matches.count) {
+            [self moveInboxContentsToDocuments];
+        }
+        else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:DHPrepareForURLSearch object:nil];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:DHPerformURLSearch object:[actualURL absoluteString]];
+                });
+            });
+        }
     });
     return YES;
 }
@@ -245,6 +264,24 @@
     }
     self._window = [[DHWindow alloc] init];
     return self._window;
+}
+
+- (void)moveInboxContentsToDocuments {
+    
+    NSError *fileManagerError;
+    
+    NSString *inboxDirectory = [NSString stringWithFormat:@"%@/Inbox", transfersPath];
+    NSArray *inboxContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:inboxDirectory error:&fileManagerError];
+    
+    //move all the files over
+    for (int i = 0; i != [inboxContents count]; i++) {
+        NSString *oldPath = [NSString stringWithFormat:@"%@/%@", inboxDirectory, [inboxContents objectAtIndex:i]];
+        NSString *newPath = [NSString stringWithFormat:@"%@/%@", transfersPath, [inboxContents objectAtIndex:i]];
+        [[NSFileManager defaultManager] moveItemAtPath:oldPath toPath:newPath error:&fileManagerError];
+        if (fileManagerError) {
+            NSLog(@"%@",fileManagerError.localizedDescription);
+        }
+    }
 }
 
 @end

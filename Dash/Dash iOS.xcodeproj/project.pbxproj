@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26480C2B1E2E9ABB00E3145E /* docset_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 26480C2A1E2E9ABB00E3145E /* docset_icon.png */; };
 		4303A3BC19C6584F00A7CD85 /* whitespace_tokenizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 4303A3B119C6584F00A7CD85 /* whitespace_tokenizer.c */; };
 		4303A3BD19C6584F00A7CD85 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4303A3B319C6584F00A7CD85 /* FMDatabase.m */; };
 		4303A3BE19C6584F00A7CD85 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4303A3B519C6584F00A7CD85 /* FMDatabaseAdditions.m */; };
@@ -127,6 +128,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26480C2A1E2E9ABB00E3145E /* docset_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = docset_icon.png; sourceTree = "<group>"; };
 		4303A3B019C6584F00A7CD85 /* whitespace_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whitespace_tokenizer.h; sourceTree = "<group>"; };
 		4303A3B119C6584F00A7CD85 /* whitespace_tokenizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = whitespace_tokenizer.c; sourceTree = "<group>"; };
 		4303A3B219C6584F00A7CD85 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -743,6 +745,7 @@
 				433BDDB11DC3C3AC00B0B145 /* Settings.bundle */,
 				43BB045019ED48BD000FBC0D /* ClassRuby.png */,
 				43BB045119ED48BD000FBC0D /* ClassRubyRetina.png */,
+				26480C2A1E2E9ABB00E3145E /* docset_icon.png */,
 				43BB045219ED48BD000FBC0D /* ModuleRuby.png */,
 				43BB045319ED48BD000FBC0D /* ModuleRubyRetina.png */,
 			);
@@ -930,6 +933,7 @@
 				43BD91EE1AB31A9E001058C4 /* hash_change_notifier.js in Resources */,
 				43FD2EF019BB8D87007E594D /* InfoPlist.strings in Resources */,
 				43BB045719ED48BD000FBC0D /* ModuleRubyRetina.png in Resources */,
+				26480C2B1E2E9ABB00E3145E /* docset_icon.png in Resources */,
 				433BDDAE1DC3BE7700B0B145 /* ionicons.ttf in Resources */,
 				43BB045519ED48BD000FBC0D /* ClassRubyRetina.png in Resources */,
 				438E864A1D1D4A3C00FB6CD8 /* apple.js in Resources */,
