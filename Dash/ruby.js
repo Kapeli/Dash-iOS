@@ -74,7 +74,7 @@ if(documentation)
         {
             if(addedMultipleNamespaces)
             {
-                namespaceHTML = " Namespaces: <a href='#' onclick='this.outerHTML = \""+replaceAll(replaceAll(namespaceHTML, "'", "\""), '"', '\\"')+"\"'>Show</a>.";
+                namespaceHTML = " Namespaces: <a href='#' onclick='this.outerHTML = \""+replaceAll(replaceAll(namespaceHTML, "'", "\""), '"', '\\"')+"\"; return false;'>Show</a>.";
             }
             else
             {
@@ -115,7 +115,7 @@ if(documentation)
         {
             if(addedMultipleIncludes)
             {
-                includedHTML = "Included Modules: <a href='#' onclick='this.outerHTML = \""+replaceAll(replaceAll(namespaceHTML, "'", "\""), '"', '\\"')+"\"'>Show</a>.";
+                includedHTML = "Included Modules: <a href='#' onclick='this.outerHTML = \""+replaceAll(replaceAll(includedHTML, "'", "\""), '"', '\\"')+"\"; return false;'>Show</a>.";
             }
             else
             {
