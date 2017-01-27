@@ -21,18 +21,23 @@
 
 @interface DHFeed : NSObject
 
+@property (strong) NSString *name;
+@property (strong) NSString *_uniqueIdentifier;
 @property (strong) NSString *feed;
 @property (strong) NSString *feedURL;
 @property (strong) NSString *iconName;
 @property (strong) NSArray *aliases;
 @property (strong) NSString *size;
+@property (strong) NSString *platform;
+@property (strong) NSString *authorLinkText;
+@property (strong) NSString *authorLinkHref;
 @property (assign) BOOL doesNotHaveVersions;
 @property (assign) BOOL waiting;
 @property (assign) BOOL isCustom;
-
 @property (assign) BOOL progressShown;
 @property (assign) BOOL checkingForUpdates;
 @property (assign) BOOL installing, installed;
+@property (assign) BOOL _isMajorVersioned;
 @property (strong) NSString *installedVersion;
 @property (assign) float progress;
 @property (retain) NSString *detailString;
@@ -41,7 +46,9 @@
 @property (retain) NSObject *identifier;
 @property (weak) DHRepoTableViewCell *cell;
 @property (assign) CGFloat maxRightDetailWidth;
+@property (strong) UIImage *_icon;
 
++ (instancetype)entryWithName:(NSString *)name platform:(NSString *)platform icon:(UIImage *)icon;
 + (instancetype)feedWithFeed:(NSString *)aFeed icon:(NSString *)aIcon aliases:(id)someAliases doesNotHaveVersions:(BOOL)doesNotHaveVersions;
 + (DHFeed *)feedWithDictionaryRepresentation:(NSDictionary *)dictionary;
 - (NSDictionary *)dictionaryRepresentation;
@@ -52,5 +59,6 @@
 - (void)adjustTitleLabelWidthBasedOnButtonsShown;
 - (UIImage *)icon;
 - (NSString *)uniqueIdentifier; // Used to find a corresponding feed from a installed docset
+- (NSString *)installFolderName;
 
 @end

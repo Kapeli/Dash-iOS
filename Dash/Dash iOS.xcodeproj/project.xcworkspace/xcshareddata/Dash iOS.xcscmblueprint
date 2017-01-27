@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F5E17E5D12ABF060C985F6771FC999275B646DB4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "395522B8-D3D5-4330-ADA3-6704BFDEC894" : 0,
+    "F5E17E5D12ABF060C985F6771FC999275B646DB4" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C02C30F8-F308-43A9-A650-2CDC908CD42D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "395522B8-D3D5-4330-ADA3-6704BFDEC894" : "Dash iOS",
+    "F5E17E5D12ABF060C985F6771FC999275B646DB4" : "Dash%20iOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Dash iOS",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Dash iOS.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "file:\/\/\/Users\/bogdan\/Dropbox\/repos\/Dash%20iOS.git\/",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "395522B8-D3D5-4330-ADA3-6704BFDEC894"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/Users\/bogdan\/Dropbox\/repos\/Dash%20iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F5E17E5D12ABF060C985F6771FC999275B646DB4"
+    }
+  ]
+}

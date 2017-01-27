@@ -60,7 +60,27 @@
         self.clearsSelectionOnViewWillAppear = NO;
         if(!self.tableView.indexPathForSelectedRow)
         {
-            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:([[[self.splitViewController.viewControllers lastObject] topViewController] isKindOfClass:[DHDocsetTransferrer class]]) ? 1 : 0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+            UIViewController *controller = [[self.splitViewController.viewControllers lastObject] topViewController];
+            NSString *controllerTitle = controller.navigationItem.title;
+            BOOL found = NO;
+            for(NSInteger section = 0; section < self.tableView.numberOfSections; section++)
+            {
+                for(NSInteger row = 0; row < [self.tableView numberOfRowsInSection:section]; row++)
+                {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+                    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+                    if([cell.textLabel.text isEqualToString:controllerTitle])
+                    {
+                        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+                        found = YES;
+                        break;
+                    }
+                }
+            }
+            if(!found)
+            {
+                [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+            }
         }
     }
     else
@@ -85,6 +105,7 @@
     }
     if(toPopTo)
     {
+        [(DHWebViewController *)toPopTo view].frame = rightNavController.view.bounds;
         [rightNavController popToViewController:toPopTo animated:YES];
     }
     else
@@ -106,7 +127,7 @@
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // prevent selection of rows that are already selected
-    if(isRegularHorizontalClass && tableView.indexPathForSelectedRow.row == indexPath.row)
+    if(isRegularHorizontalClass && [tableView.indexPathForSelectedRow isEqual:indexPath])
     {
         return nil;
     }
@@ -117,39 +138,54 @@
     return indexPath;
 }
 
-- (NSString *)detailSegueIdentifierForRow:(NSInteger)row
+- (NSString *)segueIdentifierForIndexPath:(NSIndexPath *)indexPath
 {
-    // Also used by DHSplitViewController. Make sure identifiers end with "ToDetailSegue"
-    if(row == 0)
+    NSString *title = [[[self.tableView cellForRowAtIndexPath:indexPath] textLabel] text];
+    if([title isEqualToString:@"Main Docsets"])
     {
-        return @"DHDocsetDownloaderToDetailSegue";
+        if(isRegularHorizontalClass)
+        {
+            // Also used by DHSplitViewController. Make sure identifiers end with "ToDetailSegue"
+            return @"DHDocsetDownloaderToDetailSegue";
+        }
+        return @"DHDocsetDownloaderToMasterSegue";
     }
-    else if(row == 1)
+    else if([title isEqualToString:@"User Contributed Docsets"])
     {
-        return @"DHDocsetTransferrerToDetailSegue";
+        if(isRegularHorizontalClass)
+        {
+            // Also used by DHSplitViewController. Make sure identifiers end with "ToDetailSegue"
+            return @"DHUserRepoToDetailSegue";
+        }
+        return @"DHUserRepoToMasterSegue";
+    }
+    else if([title isEqualToString:@"Cheat Sheets"])
+    {
+        if(isRegularHorizontalClass)
+        {
+            // Also used by DHSplitViewController. Make sure identifiers end with "ToDetailSegue"
+            return @"DHCheatRepoToDetailSegue";
+        }
+        return @"DHCheatRepoToMasterSegue";
+    }
+    else if([title isEqualToString:@"Transfer Docsets"])
+    {
+        if(isRegularHorizontalClass)
+        {
+            // Also used by DHSplitViewController. Make sure identifiers end with "ToDetailSegue"
+            return @"DHDocsetTransferrerToDetailSegue";
+        }
+        return @"DHDocsetTransferrerToMasterSegue";
     }
     return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0)
+    NSString *segueIdentifier = [self segueIdentifierForIndexPath:indexPath];
+    if(segueIdentifier)
     {
-        if(isRegularHorizontalClass)
-        {
-            [self performSegueWithIdentifier:[self detailSegueIdentifierForRow:indexPath.row] sender:self];
-        }
-        else
-        {
-            if(indexPath.row == 0)
-            {
-                [self performSegueWithIdentifier:@"DHDocsetDownloaderToMasterSegue" sender:self];
-            }
-            else if(indexPath.row == 1)
-            {
-                [self performSegueWithIdentifier:@"DHDocsetTransferrerToMasterSegue" sender:self];
-            }
-        }
+        [self performSegueWithIdentifier:[self segueIdentifierForIndexPath:indexPath] sender:self];
     }
 }
 
@@ -241,6 +277,17 @@
     if(selectedIndexPath != nil)
     {
         [self.tableView selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
+    else
+        selectedIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    if (self.splitViewController.viewControllers.count == 2 && [selectedIndexPath compare:[NSIndexPath indexPathForRow:0 inSection:0]] == NSOrderedSame) {
+        UINavigationController *nav = [self.splitViewController.viewControllers lastObject];
+        if ([nav isKindOfClass:[UINavigationController class]] && ![nav.topViewController isKindOfClass:[DHDocsetDownloader class]]) {
+            NSMutableArray *newViewControllers = [NSMutableArray array];
+            [newViewControllers addObjectsFromArray:nav.viewControllers];
+            [newViewControllers addObject:[DHDocsetDownloader sharedDownloader]];
+            [nav setViewControllers:newViewControllers];
+        }
     }
 }
 

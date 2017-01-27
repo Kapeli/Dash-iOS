@@ -75,6 +75,7 @@
     }
     BOOL isHTML = [extension hasCaseInsensitivePrefix:@"htm"] || [mimeType contains:@"html"];
     BOOL isCSS = [extension hasCaseInsensitivePrefix:@"css"] || [mimeType contains:@"css"];
+    BOOL isJS = [extension hasCaseInsensitivePrefix:@"js"];
     if(isHTML && data)
     {
         DHWebViewController *webController = [DHWebViewController sharedWebViewController];
@@ -100,6 +101,19 @@
             {
                 [content replaceOccurrencesOfString:toRemove withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, content.length)];
             }
+            data = (id)[content dataUsingEncoding:NSUTF8StringEncoding];
+        }
+    }
+    else if(isJS && data && [path contains:@"Unity 3D.docset"])
+    {
+        // Use localStorage because cookie storage doesn't work because UIWebView can't handle the file:// scheme with a
+        // custom protocol so I'm forced to use the dash-tarix:// scheme, which causes UIWebView to ignore cookies because
+        // dash-tarix:// URLs aren't really valid. I can't make dash-tarix:// URLs to be valid because I need them to work
+        // like file:// URLs do (i.e. take advantage of relative paths)
+        NSMutableString *content = [[NSMutableString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        if(content)
+        {
+            [content replaceOccurrencesOfString:@"localstorageSupport(){return false;" withString:@"localstorageSupport(){" options:NSCaseInsensitiveSearch range:NSMakeRange(0, content.length)];
             data = (id)[content dataUsingEncoding:NSUTF8StringEncoding];
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26480C2B1E2E9ABB00E3145E /* docset_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 26480C2A1E2E9ABB00E3145E /* docset_icon.png */; };
 		4303A3BC19C6584F00A7CD85 /* whitespace_tokenizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 4303A3B119C6584F00A7CD85 /* whitespace_tokenizer.c */; };
 		4303A3BD19C6584F00A7CD85 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4303A3B319C6584F00A7CD85 /* FMDatabase.m */; };
 		4303A3BE19C6584F00A7CD85 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4303A3B519C6584F00A7CD85 /* FMDatabaseAdditions.m */; };
@@ -25,6 +26,7 @@
 		432321E21AA1BBF70045BA77 /* DHRemoteBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 432321E11AA1BBF70045BA77 /* DHRemoteBrowser.m */; };
 		43256F0719F7A6A8003919BA /* DHBrowserTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43256F0619F7A6A8003919BA /* DHBrowserTableView.m */; };
 		43256F0A19F7B4B9003919BA /* UITableView+DHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43256F0919F7B4B9003919BA /* UITableView+DHUtils.m */; };
+		43280F541DDE4A7B001C2062 /* DHUserRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = 43280F531DDE4A7B001C2062 /* DHUserRepo.m */; };
 		43328E3619EDA0D8000D44AE /* scroll_to_current_anchor.js in Resources */ = {isa = PBXBuildFile; fileRef = 43328E3419EDA0D8000D44AE /* scroll_to_current_anchor.js */; };
 		43352F6519C7A69900D4B1D8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 43352F6419C7A69900D4B1D8 /* libz.dylib */; };
 		4338AB601AAF70AF007B85DE /* DHWebProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4338AB5F1AAF70AF007B85DE /* DHWebProgressView.m */; };
@@ -35,6 +37,8 @@
 		4342C8A519E93FF200BE66A2 /* DHNestedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4342C8A419E93FF200BE66A2 /* DHNestedViewController.m */; };
 		434A77DC1BAE590C00CCF84B /* DHSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 434A77DB1BAE590C00CCF84B /* DHSplitViewController.m */; };
 		434AB15719C2738900791E07 /* DHRepoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 434AB15619C2738900791E07 /* DHRepoTableViewCell.m */; };
+		435145971DEB7035000874A8 /* DHCheatRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = 435145961DEB7035000874A8 /* DHCheatRepo.m */; };
+		4351459A1DEB7099000874A8 /* DHCheatRepoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 435145991DEB7099000874A8 /* DHCheatRepoList.m */; };
 		43573F781A997EC7000E6F2D /* DHRemoteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 43573F771A997EC7000E6F2D /* DHRemoteServer.m */; };
 		4361651D19CCF8500026F08E /* NSTimer+DHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4361651C19CCF8500026F08E /* NSTimer+DHUtils.m */; };
 		436DF78019FFA926008814F8 /* DHRepoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 436DF77F19FFA926008814F8 /* DHRepoTableView.m */; };
@@ -109,6 +113,7 @@
 		43F7527519CD31D100D76F58 /* DHRepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43F7527419CD31D100D76F58 /* DHRepoCell.xib */; };
 		43F760B219EA61B5002BD8A6 /* DHSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F760B119EA61B5002BD8A6 /* DHSearchDisplayController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		43F84A7619EEBD1A008FE85C /* DHTarixIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F84A7519EEBD1A008FE85C /* DHTarixIndex.m */; };
+		43FC34041DE784C40089F134 /* DHUserRepoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC34011DE784C40089F134 /* DHUserRepoList.m */; };
 		43FD2EE619BB8D87007E594D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FD2EE519BB8D87007E594D /* Foundation.framework */; };
 		43FD2EE819BB8D87007E594D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FD2EE719BB8D87007E594D /* CoreGraphics.framework */; };
 		43FD2EEA19BB8D87007E594D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FD2EE919BB8D87007E594D /* UIKit.framework */; };
@@ -119,11 +124,11 @@
 		43FD2EFF19BB8D87007E594D /* DHDocsetBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FD2EFE19BB8D87007E594D /* DHDocsetBrowser.m */; };
 		43FD2F0219BB8D87007E594D /* DHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FD2F0119BB8D87007E594D /* DHWebViewController.m */; };
 		43FD2F0419BB8D87007E594D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FD2F0319BB8D87007E594D /* Images.xcassets */; };
-		BBB3B8850811DF599E5B94B1 /* libPods-Dash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAA490E87044F567A335E75 /* libPods-Dash.a */; };
+		45D28F8ABD1FC392B1930467 /* libPods-Dash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2364AD2032B0714BCD2265 /* libPods-Dash.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2CAC7E81E329482ED9879D31 /* Pods-Dash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dash/Pods-Dash.debug.xcconfig"; sourceTree = "<group>"; };
+		26480C2A1E2E9ABB00E3145E /* docset_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = docset_icon.png; sourceTree = "<group>"; };
 		4303A3B019C6584F00A7CD85 /* whitespace_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whitespace_tokenizer.h; sourceTree = "<group>"; };
 		4303A3B119C6584F00A7CD85 /* whitespace_tokenizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = whitespace_tokenizer.c; sourceTree = "<group>"; };
 		4303A3B219C6584F00A7CD85 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -158,6 +163,8 @@
 		43256F0619F7A6A8003919BA /* DHBrowserTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBrowserTableView.m; sourceTree = "<group>"; };
 		43256F0819F7B4B9003919BA /* UITableView+DHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DHUtils.h"; sourceTree = "<group>"; };
 		43256F0919F7B4B9003919BA /* UITableView+DHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DHUtils.m"; sourceTree = "<group>"; };
+		43280F521DDE4A7B001C2062 /* DHUserRepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHUserRepo.h; sourceTree = "<group>"; };
+		43280F531DDE4A7B001C2062 /* DHUserRepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHUserRepo.m; sourceTree = "<group>"; };
 		43328E3419EDA0D8000D44AE /* scroll_to_current_anchor.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = scroll_to_current_anchor.js; sourceTree = "<group>"; };
 		43352F5F19C7A67200D4B1D8 /* archive_entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = archive_entry.h; sourceTree = "<group>"; };
 		43352F6019C7A67200D4B1D8 /* archive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = archive.h; sourceTree = "<group>"; };
@@ -176,6 +183,10 @@
 		434A77DB1BAE590C00CCF84B /* DHSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSplitViewController.m; sourceTree = "<group>"; };
 		434AB15519C2738900791E07 /* DHRepoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHRepoTableViewCell.h; sourceTree = "<group>"; };
 		434AB15619C2738900791E07 /* DHRepoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHRepoTableViewCell.m; sourceTree = "<group>"; };
+		435145951DEB7035000874A8 /* DHCheatRepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHCheatRepo.h; sourceTree = "<group>"; };
+		435145961DEB7035000874A8 /* DHCheatRepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHCheatRepo.m; sourceTree = "<group>"; };
+		435145981DEB7099000874A8 /* DHCheatRepoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHCheatRepoList.h; sourceTree = "<group>"; };
+		435145991DEB7099000874A8 /* DHCheatRepoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHCheatRepoList.m; sourceTree = "<group>"; };
 		43573F761A997EC7000E6F2D /* DHRemoteServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHRemoteServer.h; sourceTree = "<group>"; };
 		43573F771A997EC7000E6F2D /* DHRemoteServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHRemoteServer.m; sourceTree = "<group>"; };
 		4361651B19CCF8500026F08E /* NSTimer+DHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+DHUtils.h"; sourceTree = "<group>"; };
@@ -298,6 +309,8 @@
 		43F760B119EA61B5002BD8A6 /* DHSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSearchDisplayController.m; sourceTree = "<group>"; };
 		43F84A7419EEBD1A008FE85C /* DHTarixIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHTarixIndex.h; sourceTree = "<group>"; };
 		43F84A7519EEBD1A008FE85C /* DHTarixIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHTarixIndex.m; sourceTree = "<group>"; };
+		43FC34001DE784C40089F134 /* DHUserRepoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHUserRepoList.h; sourceTree = "<group>"; };
+		43FC34011DE784C40089F134 /* DHUserRepoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHUserRepoList.m; sourceTree = "<group>"; };
 		43FD2EE219BB8D87007E594D /* Dash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FD2EE519BB8D87007E594D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		43FD2EE719BB8D87007E594D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -314,8 +327,9 @@
 		43FD2F0019BB8D87007E594D /* DHWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHWebViewController.h; sourceTree = "<group>"; };
 		43FD2F0119BB8D87007E594D /* DHWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHWebViewController.m; sourceTree = "<group>"; };
 		43FD2F0319BB8D87007E594D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8A903FC979556D0CD8EA207B /* Pods-Dash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dash/Pods-Dash.release.xcconfig"; sourceTree = "<group>"; };
-		BAAA490E87044F567A335E75 /* libPods-Dash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E45E2662CBB7671D0D844A3 /* Pods-Dash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Dash/Pods-Dash.release.xcconfig"; sourceTree = "<group>"; };
+		9A2364AD2032B0714BCD2265 /* libPods-Dash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAE47FF5DEE33300EBFF9AEA /* Pods-Dash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Dash/Pods-Dash.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,7 +346,7 @@
 				43FD2EE819BB8D87007E594D /* CoreGraphics.framework in Frameworks */,
 				43FD2EEA19BB8D87007E594D /* UIKit.framework in Frameworks */,
 				43FD2EE619BB8D87007E594D /* Foundation.framework in Frameworks */,
-				BBB3B8850811DF599E5B94B1 /* libPods-Dash.a in Frameworks */,
+				45D28F8ABD1FC392B1930467 /* libPods-Dash.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +437,17 @@
 			name = Others;
 			sourceTree = "<group>";
 		};
+		43280F511DDE4A4C001C2062 /* User Contributed */ = {
+			isa = PBXGroup;
+			children = (
+				43280F521DDE4A7B001C2062 /* DHUserRepo.h */,
+				43280F531DDE4A7B001C2062 /* DHUserRepo.m */,
+				43FC34001DE784C40089F134 /* DHUserRepoList.h */,
+				43FC34011DE784C40089F134 /* DHUserRepoList.m */,
+			);
+			name = "User Contributed";
+			sourceTree = "<group>";
+		};
 		4338AB5D1AAF7091007B85DE /* Others */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,19 +464,21 @@
 				43B0956A19BFD57500F8611B /* DHRepo.h */,
 				43B0956B19BFD57500F8611B /* DHRepo.m */,
 				437699A319D8FD0B008B37F4 /* Downloader */,
+				43280F511DDE4A4C001C2062 /* User Contributed */,
+				435145941DEB701E000874A8 /* Cheat Sheets */,
 				437699A219D8FD00008B37F4 /* Transferrer */,
 				434AB15819C273A500791E07 /* Others */,
 			);
 			name = Repos;
 			sourceTree = "<group>";
 		};
-		4341A1F219BFE6CA00AD164A /* Settings */ = {
+		4341A1F219BFE6CA00AD164A /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
 				4398D34419BF55B500457CAF /* DHPreferences.h */,
 				4398D34519BF55B500457CAF /* DHPreferences.m */,
 			);
-			name = Settings;
+			name = Preferences;
 			sourceTree = "<group>";
 		};
 		4341A1F319BFE6D200AD164A /* Browser */ = {
@@ -489,6 +516,17 @@
 				43EDD19C19C51E9F00A0EBEC /* Latency Tester */,
 			);
 			name = Others;
+			sourceTree = "<group>";
+		};
+		435145941DEB701E000874A8 /* Cheat Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				435145951DEB7035000874A8 /* DHCheatRepo.h */,
+				435145961DEB7035000874A8 /* DHCheatRepo.m */,
+				435145981DEB7099000874A8 /* DHCheatRepoList.h */,
+				435145991DEB7099000874A8 /* DHCheatRepoList.m */,
+			);
+			name = "Cheat Sheets";
 			sourceTree = "<group>";
 		};
 		43573F751A997EB0000E6F2D /* Remote */ = {
@@ -707,6 +745,7 @@
 				433BDDB11DC3C3AC00B0B145 /* Settings.bundle */,
 				43BB045019ED48BD000FBC0D /* ClassRuby.png */,
 				43BB045119ED48BD000FBC0D /* ClassRubyRetina.png */,
+				26480C2A1E2E9ABB00E3145E /* docset_icon.png */,
 				43BB045219ED48BD000FBC0D /* ModuleRuby.png */,
 				43BB045319ED48BD000FBC0D /* ModuleRubyRetina.png */,
 			);
@@ -730,7 +769,7 @@
 				43FD2EEB19BB8D87007E594D /* Dash */,
 				43FD2EE419BB8D87007E594D /* Frameworks */,
 				43FD2EE319BB8D87007E594D /* Products */,
-				5CCEB4E0A4F487AD01CC0653 /* Pods */,
+				578166A9FCC162CE3E4A4980 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -753,7 +792,7 @@
 				43FD2EE519BB8D87007E594D /* Foundation.framework */,
 				43FD2EE719BB8D87007E594D /* CoreGraphics.framework */,
 				43FD2EE919BB8D87007E594D /* UIKit.framework */,
-				BAAA490E87044F567A335E75 /* libPods-Dash.a */,
+				9A2364AD2032B0714BCD2265 /* libPods-Dash.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -770,7 +809,7 @@
 				438525E919C1509A002BAFD1 /* Searcher */,
 				437AD41819E26F0A00BA0FE4 /* WebView */,
 				4341A1F319BFE6D200AD164A /* Browser */,
-				4341A1F219BFE6CA00AD164A /* Settings */,
+				4341A1F219BFE6CA00AD164A /* Preferences */,
 				4341A1F119BFE6B500AD164A /* Repos */,
 				43573F751A997EB0000E6F2D /* Remote */,
 				43B0956619BFD16C00F8611B /* Others */,
@@ -781,7 +820,7 @@
 				43FD2EF319BB8D87007E594D /* Dash-Prefix.pch */,
 				43FD2EED19BB8D87007E594D /* Dash-Info.plist */,
 			);
-			path = Dash;
+			name = Dash;
 			sourceTree = "<group>";
 		};
 		43FD2EEC19BB8D87007E594D /* Supporting Files */ = {
@@ -793,11 +832,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5CCEB4E0A4F487AD01CC0653 /* Pods */ = {
+		578166A9FCC162CE3E4A4980 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2CAC7E81E329482ED9879D31 /* Pods-Dash.debug.xcconfig */,
-				8A903FC979556D0CD8EA207B /* Pods-Dash.release.xcconfig */,
+				BAE47FF5DEE33300EBFF9AEA /* Pods-Dash.debug.xcconfig */,
+				7E45E2662CBB7671D0D844A3 /* Pods-Dash.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -809,16 +848,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43FD2F1A19BB8D87007E594D /* Build configuration list for PBXNativeTarget "Dash" */;
 			buildPhases = (
-				6CCF84649D760DDC8AB1C7EF /* [CP] Check Pods Manifest.lock */,
-				B48590048B008D0179E2CAB8 /* Check Pods Manifest.lock */,
+				74E707306BFB902C5388BE39 /* [CP] Check Pods Manifest.lock */,
 				43FD2EDE19BB8D87007E594D /* Sources */,
 				43FD2EDF19BB8D87007E594D /* Frameworks */,
 				43FD2EE019BB8D87007E594D /* Resources */,
 				43F760BF19EA8C57002BD8A6 /* Git Hashes */,
-				CC84690F1B6CD4E1B67FB35E /* [CP] Embed Pods Frameworks */,
-				F000B69EDF4FCF62531BDF4A /* [CP] Copy Pods Resources */,
-				3CB49A22D3F426694BD18A38 /* Embed Pods Frameworks */,
-				836C27CCB4B3EE864746C286 /* Copy Pods Resources */,
+				C71793A2EB8A6FB0EA63C3D3 /* [CP] Embed Pods Frameworks */,
+				988D171F13583CC36FBA7412 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -897,6 +933,7 @@
 				43BD91EE1AB31A9E001058C4 /* hash_change_notifier.js in Resources */,
 				43FD2EF019BB8D87007E594D /* InfoPlist.strings in Resources */,
 				43BB045719ED48BD000FBC0D /* ModuleRubyRetina.png in Resources */,
+				26480C2B1E2E9ABB00E3145E /* docset_icon.png in Resources */,
 				433BDDAE1DC3BE7700B0B145 /* ionicons.ttf in Resources */,
 				43BB045519ED48BD000FBC0D /* ClassRubyRetina.png in Resources */,
 				438E864A1D1D4A3C00FB6CD8 /* apple.js in Resources */,
@@ -908,21 +945,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3CB49A22D3F426694BD18A38 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dash/Pods-Dash-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		43F760BF19EA8C57002BD8A6 /* Git Hashes */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -937,7 +959,7 @@
 			shellPath = /bin/sh;
 			shellScript = "[ -d /Users/bogdan/Projects/Dash ] || exit 0;\n \nPLISTBUDDY=\"/usr/libexec/PlistBuddy\"\nINFOPLISTPATH=\"${TARGET_BUILD_DIR}/${EXECUTABLE_NAME}.app/Info.plist\"\n\ncd \"/Users/bogdan/Projects/Dash/Dash/\"\n\nDHDBSearcherCommit=$(git log -n 1 --pretty=format:%h -- DHDBSearcher.m)\n$PLISTBUDDY -c \"Set :DHDBSearcherCommit $DHDBSearcherCommit\" \"${INFOPLISTPATH}\"\nDHDBResultCommit=$(git log -n 1 --pretty=format:%h -- DHDBResult.m)\n$PLISTBUDDY -c \"Set :DHDBResultCommit $DHDBResultCommit\" \"${INFOPLISTPATH}\"\nDHDBUnifiedResultCommit=$(git log -n 1 --pretty=format:%h -- DHDBUnifiedResult.m)\n$PLISTBUDDY -c \"Set :DHDBUnifiedResultCommit $DHDBUnifiedResultCommit\" \"${INFOPLISTPATH}\"\nDHQueuedDBCommit=$(git log -n 1 --pretty=format:%h -- DHQueuedDB.m)\n$PLISTBUDDY -c \"Set :DHQueuedDBCommit $DHQueuedDBCommit\" \"${INFOPLISTPATH}\"\nDHUnifiedQueuedDBCommit=$(git log -n 1 --pretty=format:%h -- DHUnifiedQueuedDB.m)\n$PLISTBUDDY -c \"Set :DHUnifiedQueuedDBCommit $DHUnifiedQueuedDBCommit\" \"${INFOPLISTPATH}\"\nDHTypesCommit=$(git log -n 1 --pretty=format:%h -- DHTypes.m)\n$PLISTBUDDY -c \"Set :DHTypesCommit $DHTypesCommit\" \"${INFOPLISTPATH}\"\nDHDBUnifiedOperationCommit=$(git log -n 1 --pretty=format:%h -- DHDBUnifiedOperation.m)\n$PLISTBUDDY -c \"Set :DHDBUnifiedOperationCommit $DHDBUnifiedOperationCommit\" \"${INFOPLISTPATH}\"\nDHWebPreferencesCommit=$(git log -n 1 --pretty=format:%h -- DHWebPreferences.m)\n$PLISTBUDDY -c \"Set :DHWebPreferencesCommit $DHWebPreferencesCommit\" \"${INFOPLISTPATH}\"\nDHWebViewControllerCommit=$(git log -n 1 --pretty=format:%h -- DHWebViewController.m)\n$PLISTBUDDY -c \"Set :DHWebViewControllerCommit $DHWebViewControllerCommit\" \"${INFOPLISTPATH}\"\nDHDocsetDownloaderCommit=$(git log -n 1 --pretty=format:%h -- DHDocsetDownloader.m)\n$PLISTBUDDY -c \"Set :DHDocsetDownloaderCommit $DHDocsetDownloaderCommit\" \"${INFOPLISTPATH}\"\n\ncd \"/Users/bogdan/Projects/Dash/Resources/\"\n\nPlatformIconsCommit=$(git log -n 1 --pretty=format:%h -- PlatformIcons)\n$PLISTBUDDY -c \"Set :PlatformIconsCommit $PlatformIconsCommit\" \"${INFOPLISTPATH}\"\nTypesCommit=$(git log -n 1 --pretty=format:%h -- Types)\n$PLISTBUDDY -c \"Set :TypesCommit $TypesCommit\" \"${INFOPLISTPATH}\"\nCSSCommit=$(git log -n 1 --pretty=format:%h -- CSS)\n$PLISTBUDDY -c \"Set :CSSCommit $CSSCommit\" \"${INFOPLISTPATH}\"";
 		};
-		6CCF84649D760DDC8AB1C7EF /* [CP] Check Pods Manifest.lock */ = {
+		74E707306BFB902C5388BE39 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -952,52 +974,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		836C27CCB4B3EE864746C286 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dash/Pods-Dash-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B48590048B008D0179E2CAB8 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CC84690F1B6CD4E1B67FB35E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dash/Pods-Dash-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F000B69EDF4FCF62531BDF4A /* [CP] Copy Pods Resources */ = {
+		988D171F13583CC36FBA7412 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1009,7 +986,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dash/Pods-Dash-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Dash/Pods-Dash-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C71793A2EB8A6FB0EA63C3D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Dash/Pods-Dash-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1028,6 +1020,7 @@
 				4303A3BD19C6584F00A7CD85 /* FMDatabase.m in Sources */,
 				4398D34619BF55B500457CAF /* DHPreferences.m in Sources */,
 				437FE06619E2AC0D0022ADF4 /* DHTypeBrowser.m in Sources */,
+				435145971DEB7035000874A8 /* DHCheatRepo.m in Sources */,
 				43CF8AF119D5DA060010E698 /* NSURL+DHUtils.m in Sources */,
 				43EDD19F19C52E3400A0EBEC /* DHFeedResult.m in Sources */,
 				43FD2F0219BB8D87007E594D /* DHWebViewController.m in Sources */,
@@ -1077,8 +1070,11 @@
 				43573F781A997EC7000E6F2D /* DHRemoteServer.m in Sources */,
 				43EDD19B19C51E9C00A0EBEC /* DHLatencyTestResult.m in Sources */,
 				43D4F06D19E7E88400C22AF5 /* DHDBSearchController.m in Sources */,
+				4351459A1DEB7099000874A8 /* DHCheatRepoList.m in Sources */,
 				43D4F06419E7CEC500C22AF5 /* DHQueuedDB.m in Sources */,
 				4303A3BF19C6584F00A7CD85 /* FMResultSet.m in Sources */,
+				43FC34041DE784C40089F134 /* DHUserRepoList.m in Sources */,
+				43280F541DDE4A7B001C2062 /* DHUserRepo.m in Sources */,
 				43B0956919BFD19900F8611B /* DHNavigationAnimator.m in Sources */,
 				439051F919E684160083A55E /* DHEntryBrowser.m in Sources */,
 				431108D519C7AE6D0050174C /* DHUnarchiver.m in Sources */,
@@ -1161,6 +1157,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
 				SDKROOT = iphoneos;
+				SYMROOT = ../build;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wno-objc-designated-initializers";
 			};
@@ -1201,6 +1198,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "";
 				SDKROOT = iphoneos;
+				SYMROOT = ../build;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WARNING_CFLAGS = "-Wno-objc-designated-initializers";
@@ -1209,7 +1207,7 @@
 		};
 		43FD2F1B19BB8D87007E594D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CAC7E81E329482ED9879D31 /* Pods-Dash.debug.xcconfig */;
+			baseConfigurationReference = BAE47FF5DEE33300EBFF9AEA /* Pods-Dash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
@@ -1219,17 +1217,17 @@
 				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Dash/Dash-Prefix.pch";
+				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				IBC_NOTICES = NO;
 				IBC_WARNINGS = NO;
 				IBSC_NOTICES = NO;
 				IBSC_WARNINGS = NO;
-				INFOPLIST_FILE = "Dash/Dash-Info.plist";
+				INFOPLIST_FILE = "Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Dash",
+					"$(PROJECT_DIR)",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.dash.ios;
@@ -1241,7 +1239,7 @@
 		};
 		43FD2F1C19BB8D87007E594D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A903FC979556D0CD8EA207B /* Pods-Dash.release.xcconfig */;
+			baseConfigurationReference = 7E45E2662CBB7671D0D844A3 /* Pods-Dash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
@@ -1250,7 +1248,7 @@
 				DEVELOPMENT_TEAM = JP58VMK957;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Dash/Dash-Prefix.pch";
+				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -1261,11 +1259,11 @@
 				IBC_WARNINGS = NO;
 				IBSC_NOTICES = NO;
 				IBSC_WARNINGS = NO;
-				INFOPLIST_FILE = "Dash/Dash-Info.plist";
+				INFOPLIST_FILE = "Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Dash",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.dash.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";

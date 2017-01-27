@@ -39,7 +39,7 @@
         }
         else
         {
-            rect.origin.y += 3;
+            rect.origin.y += 15;
             rect.size.width -= 2;
             [self._rightDetailText drawInRect:rect withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12], NSParagraphStyleAttributeName: paragraph, NSForegroundColorAttributeName: [UIColor colorWithWhite:142.0/255.0 alpha:1.0]}];
         }
@@ -48,7 +48,21 @@
     {
         rect = self.bounds;
         rect.origin.y += 24;
-        [self.subtitle drawInRect:rect withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:11], NSForegroundColorAttributeName: [UIColor colorWithRed:142.0/255.0 green:142.0/255.0 blue:147.0/255.0 alpha:1.0]}];
+        NSString *subtitle = self.subtitle;
+        if(self.authorLinkHref)
+        {
+            subtitle = [@"Contributed by " stringByAppendingString:self.subtitle];
+            
+//            Make author part underlined, commented out because making author clickable is a bit hard, giving up for now
+//            NSMutableAttributedString *attributedSubtitle = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Contributed by %@", self.subtitle]];
+//            [attributedSubtitle setAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:11], NSForegroundColorAttributeName: [UIColor colorWithRed:142.0/255.0 green:142.0/255.0 blue:147.0/255.0 alpha:1.0]} range:NSMakeRange(0, attributedSubtitle.length)];
+//            [attributedSubtitle addAttributes:@{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)} range:NSMakeRange(@"Contributed by ".length, self.subtitle.length)];
+//            [attributedSubtitle drawInRect:rect];
+        }
+//        else
+//        {
+            [subtitle drawInRect:rect withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:11], NSForegroundColorAttributeName: [UIColor colorWithRed:142.0/255.0 green:142.0/255.0 blue:147.0/255.0 alpha:1.0]}];
+//        }
     }
 }
 

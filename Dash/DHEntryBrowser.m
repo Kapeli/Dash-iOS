@@ -48,7 +48,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if(!self.didLoad)
+    if(!self.didLoad && self.docset)
     {
         self.didLoad = YES;
         self.tableView.allowsSelection = NO;
@@ -211,6 +211,11 @@
     [coder encodeObject:self.type forKey:@"type"];
     [coder encodeObject:self.title forKey:@"title"];
     [coder encodeObject:self.entries forKey:@"entries"];
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    if(selectedIndexPath != nil)
+    {
+        [coder encodeObject:selectedIndexPath forKey:@"selectedIndexPath"];
+    }
     [self.searchController encodeRestorableStateWithCoder:coder];
     [super encodeRestorableStateWithCoder:coder];
 }
@@ -225,6 +230,22 @@
     [self viewDidLoad];
     self.isRestoring = NO;
     self.entries = [coder decodeObjectForKey:@"entries"];
+    for (int i = 0; i < self.entries.count; i++) {
+        if ([self.entries[i] isKindOfClass:[DHDBResult class]]) {
+            DHDBResult *result = (DHDBResult *)self.entries[i];
+            NSArray *components = [result.fullPath componentsSeparatedByString:@"/Library/Docsets"];
+            if (components.count == 2) {
+                result.fullPath = [@"file://" stringByAppendingFormat:@"%@%@%@",homePath,@"/Docsets",components[1]];
+            }
+        }
+    }
+    NSIndexPath *selectedIndexPath = [coder decodeObjectForKey:@"selectedIndexPath"];
+    if(selectedIndexPath != nil)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        });
+    }
     [self.searchController decodeRestorableStateWithCoder:coder];
     [super decodeRestorableStateWithCoder:coder];
 }

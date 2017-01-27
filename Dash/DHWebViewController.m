@@ -62,8 +62,6 @@ static id singleton = nil;
     self.progressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 
     [self.splitViewController setPreferredDisplayMode:UISplitViewControllerDisplayModeAllVisible];
-    self.splitViewController.preferredPrimaryColumnWidthFraction = (iPad) ? 0.39 : 0.35;
-    self.splitViewController.maximumPrimaryColumnWidth = 320;
     self.splitViewController.presentsWithGesture = NO;
     
     if(isRegularHorizontalClass)
@@ -297,6 +295,10 @@ static id singleton = nil;
     [self setUpScripts];
     [self setUpTOC];
     [self.progressView setProgress:1.0 animated:YES];
+    if (self.isRestoreScroll) {
+        [self.webView.scrollView setContentOffset:self.webViewOffset animated:NO];
+        self.isRestoreScroll = NO;
+    }
 }
 
 - (void)setUpTOC
@@ -738,15 +740,30 @@ static id singleton = nil;
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder
 {
     [super encodeRestorableStateWithCoder:coder];
+    [coder encodeObject:self.webView.request.URL.absoluteString forKey:@"webViewURL"];
+    [coder encodeObject:homePath forKey:@"homePath"];
+    [coder encodeCGPoint:self.webView.scrollView.contentOffset forKey:@"webViewOffset"];
 }
 
 - (void)decodeRestorableStateWithCoder:(NSCoder *)coder
 {
+    [super decodeRestorableStateWithCoder:coder];
+    NSString *loadURL = [coder decodeObjectForKey:@"webViewURL"];
+    NSString *lastHomePath = [coder decodeObjectForKey:@"homePath"];
+    self.webViewOffset = [coder decodeCGPointForKey:@"webViewOffset"];
+    if (lastHomePath) {
+        loadURL = [[loadURL stringByReplacingOccurrencesOfString:lastHomePath withString:homePath] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+    
     self.isRestoring = YES;
     [self viewDidLoad];
     self.isRestoring = NO;
     self.isDecoding = YES;
-    [super decodeRestorableStateWithCoder:coder];
+    [self loadURL:loadURL];
+    if (isRegularHorizontalClass) {
+        [self.splitViewController setPreferredDisplayMode:UISplitViewControllerDisplayModeAllVisible];
+    }
+    self.isRestoreScroll = YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -110,7 +110,6 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"HTML.xml" icon:@"html" aliases:@[@"mdn", @"mozilla developer network"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Ionic.xml" icon:@"ionic" aliases:@[@"ionic framework"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"iOS.xml" icon:@"iphone" aliases:@[@"iphone", @"ipad", @"xcode", @"apple", @"cocoa touch", @"objective-c", @"objc", @"swift"] doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"Jade.xml" icon:@"jade" aliases:@[@"node.js", @"nodejs"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Jasmine.xml" icon:@"jasmine" aliases:@[@"jasminejs", @"jasmine.js"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Java_EE6.xml" icon:@"jee6" aliases:@[@"javaee6"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Java_EE7.xml" icon:@"jee7" aliases:@[@"javaee7"] doesNotHaveVersions:YES],
@@ -171,6 +170,7 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"PostgreSQL.xml" icon:@"psql" aliases:@[@"psql"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Processing.xml" icon:@"processing" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"PrototypeJS.xml" icon:@"prototype" aliases:@[@"prototype.js"] doesNotHaveVersions:NO],
+                           [DHFeed feedWithFeed:@"Pug.xml" icon:@"pug" aliases:@[@"jade", @"node.js", @"nodejs"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Puppet.xml" icon:@"puppet" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Python_2.xml" icon:@"python" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Python_3.xml" icon:@"python" aliases:nil doesNotHaveVersions:NO],
@@ -238,7 +238,7 @@ static id singleton = nil;
     for(NSDictionary *feedDictionary in savedFeeds)
     {
         DHFeed *savedFeed = [DHFeed feedWithDictionaryRepresentation:feedDictionary];
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml"] containsObject:savedFeed.feedURL])
         {
             if(savedFeed.installed)
             {
@@ -254,7 +254,7 @@ static id singleton = nil;
             savedFeed.installed = NO;
             savedFeed.installedVersion = nil;
         }
-        if([@[@"http://kapeli.com/feeds/OS_X.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml"] containsObject:savedFeed.feedURL])
         {
             continue;
         }

@@ -23,6 +23,7 @@
 @property (assign, nonatomic) CGFloat maxRightDetailWidth;
 @property (assign) BOOL isBrowserCell;
 @property (strong) NSString *subtitle;
+@property (strong) NSString *authorLinkHref;
 
 - (void)setRightDetailText:(NSString *)rightDetailText;
 + (CGFloat)calculateMaxDetailWidthBasedOnLongestPossibleString:(NSString *)string;

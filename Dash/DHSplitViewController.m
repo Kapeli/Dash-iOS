@@ -28,6 +28,9 @@
 {
     [super viewDidLoad];
     self.delegate = (id)self;
+    self.preferredPrimaryColumnWidthFraction = (iPad) ? 0.39 : 0.35;
+    self.maximumPrimaryColumnWidth = 320;
+
 }
 
 - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UINavigationController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController
@@ -71,8 +74,8 @@
     if([[masterViewController topViewController] isKindOfClass:[DHPreferences class]] && ![[detailViewControllers lastObject] isKindOfClass:[DHRepo class]])
     {
         DHPreferences *preferences = (id)[masterViewController topViewController];
-        NSInteger row = (preferences.tableView.indexPathForSelectedRow) ? preferences.tableView.indexPathForSelectedRow.row : 0;
-        NSString *identifier = [[preferences detailSegueIdentifierForRow:row] substringToString:@"ToDetailSegue"];
+        NSIndexPath *indexPath = (preferences.tableView.indexPathForSelectedRow) ? preferences.tableView.indexPathForSelectedRow : [NSIndexPath indexPathForRow:0 inSection:0];
+        NSString *identifier = [[preferences segueIdentifierForIndexPath:indexPath] substringToString:@"ToDetailSegue"];
         id viewController = [[DHAppDelegate mainStoryboard] instantiateViewControllerWithIdentifier:identifier];
         [detailViewControllers addObject:viewController];
     }
