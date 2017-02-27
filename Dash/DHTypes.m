@@ -150,6 +150,8 @@ static DHTypes *_types = nil;
     [orderedTypeObjects addObject:[DHType typeWithHumanType:@"Operator" humanPlural:@"Operators" aliases:@[@"opfunc"]]];
     [orderedTypeObjects addObject:[DHType typeWithHumanType:@"Statement" humanPlural:@"Statements"]];
     [orderedTypeObjects addObject:[DHType typeWithHumanType:@"Alias" humanPlural:@"Aliases"]];
+    [orderedTypeObjects addObject:[DHType typeWithHumanType:@"Node" humanPlural:@"Nodes"]];
+    [orderedTypeObjects addObject:[DHType typeWithHumanType:@"Flag" humanPlural:@"Flags"]];
     [orderedTypeObjects addObject:[DHType typeWithHumanType:@"Sender" humanPlural:@"Senders"]];
     [orderedTypeObjects addObject:[DHType typeWithHumanType:@"Reference" humanPlural:@"References"]];
     [orderedTypeObjects addObject:[DHType typeWithHumanType:@"Guide" humanPlural:@"Guides" aliases:@[@"doc"]]];
