@@ -47,7 +47,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet (from `Modified Pods/DZNEmptyDataSet/DZNEmptyDataSet.podspec`)
   - GZIP
   - JGMethodSwizzler
-  - KissXML
+  - KissXML (~> 5.1.2)
   - MRProgress (from `Modified Pods/MRProgress/MRProgress.podspec`)
   - NSTimer-Blocks
   - Reachability
@@ -77,6 +77,6 @@ SPEC CHECKSUMS:
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
 
-PODFILE CHECKSUM: 2076b3f35757958391dd52baeb847f21ef4d6d06
+PODFILE CHECKSUM: 078890cfa742b9866ed6825f1ee87b83ba9f5702
 
 COCOAPODS: 1.1.1
