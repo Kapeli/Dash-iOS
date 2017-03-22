@@ -243,8 +243,8 @@
                              @"DHWebViewController": @"7704db9",
                              @"DHWebPreferences": @"8a62071",
                              @"DHDocsetDownloader": @"0863f2d",
-                             @"PlatformIcons": @"62c6f29",
-                             @"DHTypes": @"d567e07",
+                             @"PlatformIcons": @"006c55f",
+                             @"DHTypes": @"db8874c",
                              @"Types": @"d567e07",
                              @"CSS": @"a43a406",
                              };
