@@ -17,7 +17,7 @@ All you need to do is:
 1. Open "Dash iOS.xcworkspace" in Xcode
 1. Go to Xcode's Preferences > Accounts and add your Apple ID
 1. In Xcode's sidebar select "Dash iOS" and go to General > Identity. Append a word at the end of the *Bundle Identifier* e.g. com.kapeli.dash.ios*.name* so it's unique. Select your Apple ID in Signing > Team
-1. Connect your iPad or iPhone and select it in Xcode's Product menu > Destination
+1. Connect your iPad or iPhone using USB and select it in Xcode's Product menu > Destination
 1. Press CMD+R or Product > Run to install Dash
 1. If you install using a free (non-developer) account, make sure to rebuild Dash every 7 days, otherwise it will quit at launch when your certificate expires
 
