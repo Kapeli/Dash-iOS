@@ -27,7 +27,9 @@
 #import "DHWebViewController.h"
 #import "DHAppUpdateChecker.h"
 #import "DHDocsetBrowser.h"
-//#import <HockeySDK/HockeySDK.h>
+#ifdef APP_STORE
+#import <HockeySDK/HockeySDK.h>
+#endif
 #import "DHRemoteServer.h"
 #import "DHRemoteProtocol.h"
 
@@ -55,12 +57,14 @@
         [[NSFileManager defaultManager] removeItemAtPath:[cacheDir stringByAppendingPathComponent:@"com.apple.nsurlsessiond/Downloads"] error:nil];
     }
     
-//#ifndef DEBUG
-//    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"3b2036819813be1b22bb086f00eea499"];
-//    [[BITHockeyManager sharedHockeyManager].crashManager setCrashManagerStatus:BITCrashManagerStatusAutoSend];
-//    [[BITHockeyManager sharedHockeyManager] startManager];
-//    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
-//#endif
+#ifdef APP_STORE
+#ifndef DEBUG
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"3b2036819813be1b22bb086f00eea499"];
+    [[BITHockeyManager sharedHockeyManager].crashManager setCrashManagerStatus:BITCrashManagerStatusAutoSend];
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
+#endif
+#endif
     
 #ifdef DEBUG
     [self checkCommitHashes];
