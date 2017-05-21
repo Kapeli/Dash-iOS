@@ -1,7 +1,5 @@
 GZIP
 
-Version 1.1.1, July 24th, 2015
-
 Copyright (C) 2012 Charcoal Design
 
 This software is provided 'as-is', without any express or implied

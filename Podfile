@@ -12,7 +12,6 @@ target "Dash" do
     pod 'UIAlertView+Blocks'
     pod 'UIActionSheet+Blocks'
     pod 'AutoCoding'
-#    pod 'HockeySDK'
     pod 'DZNEmptyDataSet', :path => 'Modified Pods/DZNEmptyDataSet/DZNEmptyDataSet.podspec'
     # Some changes in terms of repositioning after orientation change
     pod 'JGMethodSwizzler'
@@ -25,6 +24,9 @@ target "Dash" do
     pod 'SAMKeychain'
     pod 'NSTimer-Blocks'
     pod 'GZIP'
+    target "Dash App Store" do
+        pod 'HockeySDK'
+    end
 end
 
 post_install do | installer |
