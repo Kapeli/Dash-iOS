@@ -133,7 +133,7 @@
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
+{    
     if(self.isRestoring)
     {
         self.displayController.searchResultsTableView.allowsSelection = YES;
@@ -168,11 +168,11 @@
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView
 {
-
 }
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView
 {
+
     [self.searcher cancelSearch];
     self.searcher = nil;
 }
