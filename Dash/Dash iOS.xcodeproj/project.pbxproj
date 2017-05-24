@@ -361,7 +361,7 @@
 		43A6D9C819E0D69700780BC8 /* DHDocsetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHDocsetManager.m; sourceTree = "<group>"; };
 		43AAB7801AAE776800DB76F3 /* DHRemoteProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHRemoteProtocol.h; sourceTree = "<group>"; };
 		43AAB7811AAE776800DB76F3 /* DHRemoteProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHRemoteProtocol.m; sourceTree = "<group>"; };
-		43AB65B21ED19D2F00A6EC18 /* Dash App Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dash App Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43AB65B21ED19D2F00A6EC18 /* Dash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43AC700019E4530400E0DB43 /* home.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = home.html; sourceTree = "<group>"; };
 		43AF0E131D1861C600F0D8A0 /* DHAppleActiveLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHAppleActiveLanguage.h; sourceTree = "<group>"; };
 		43AF0E141D1861CE00F0D8A0 /* DHAppleActiveLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHAppleActiveLanguage.m; sourceTree = "<group>"; };
@@ -916,7 +916,7 @@
 			isa = PBXGroup;
 			children = (
 				43FD2EE219BB8D87007E594D /* Dash.app */,
-				43AB65B21ED19D2F00A6EC18 /* Dash App Store.app */,
+				43AB65B21ED19D2F00A6EC18 /* Dash.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1005,7 +1005,7 @@
 			);
 			name = "Dash App Store";
 			productName = Dash;
-			productReference = 43AB65B21ED19D2F00A6EC18 /* Dash App Store.app */;
+			productReference = 43AB65B21ED19D2F00A6EC18 /* Dash.app */;
 			productType = "com.apple.product-type.application";
 		};
 		43FD2EE119BB8D87007E594D /* Dash */ = {
@@ -1496,7 +1496,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.dash.ios;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Dash;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
@@ -1535,7 +1535,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.dash.ios;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Dash;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
