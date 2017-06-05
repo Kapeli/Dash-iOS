@@ -1,6 +1,7 @@
 # Master
 
 * Fixed an iPad-only crash which occurred in Settings while pressing Done with the search field active - [e87a069](https://github.com/Kapeli/Dash-iOS/commit/e87a069b6a94f31d9fac91be9ac6ca4569bcf251)
+* Fixed an issue in the User Contributed repo which caused author names to not be truncated when there's not enough space - [3482d8f](https://github.com/Kapeli/Dash-iOS/commit/3482d8f7cd0f6e19b1a42c80a69f09783565522a)
 
 # 1.6.1
 
