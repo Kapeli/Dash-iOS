@@ -46,8 +46,11 @@
     }
     if(self.subtitle.length)
     {
+        NSMutableParagraphStyle *paragraph = NSMutableParagraphStyle.new;
+        paragraph.lineBreakMode = NSLineBreakByTruncatingTail;
         rect = self.bounds;
         rect.origin.y += 24;
+        rect.size.width -= self.maxRightDetailWidth;
         NSString *subtitle = self.subtitle;
         if(self.authorLinkHref)
         {
@@ -61,7 +64,7 @@
         }
 //        else
 //        {
-            [subtitle drawInRect:rect withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:11], NSForegroundColorAttributeName: [UIColor colorWithRed:142.0/255.0 green:142.0/255.0 blue:147.0/255.0 alpha:1.0]}];
+            [subtitle drawInRect:rect withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:11], NSParagraphStyleAttributeName: paragraph, NSForegroundColorAttributeName: [UIColor colorWithRed:142.0/255.0 green:142.0/255.0 blue:147.0/255.0 alpha:1.0]}];
 //        }
     }
 }
