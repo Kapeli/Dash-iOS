@@ -1,6 +1,6 @@
 # Master
 
-* No changes yet
+* Fixed an iPad-only crash which occurred in Settings while pressing Done with the search field active - [e87a069](https://github.com/Kapeli/Dash-iOS/commit/e87a069b6a94f31d9fac91be9ac6ca4569bcf251)
 
 # 1.6.1
 
