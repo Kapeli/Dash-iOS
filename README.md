@@ -8,7 +8,7 @@ Also please check out [Dash for macOS](https://kapeli.com/dash).
 
 ## Installation Instructions
 
-The recommended way of installing Dash is through the [App Store](https://itunes.apple.com/us/app/dash-offline-api-docs/id1239167694).
+The recommended way of installing Dash is through the [App Store](https://itunes.apple.com/us/app/dash-offline-api-docs/id1239167694?mt=8).
 
 Alternatively, you can use Xcode 8 to install Dash on your iOS device using just your Apple ID.
 
