@@ -328,7 +328,16 @@ static id singleton = nil;
         {
             methods = json[@"entries_swift"];
         }
-        self.currentMethods = methods;
+        NSMutableArray *actualMethods = [NSMutableArray array];
+        for(NSDictionary *method in methods)
+        {
+            if([method[@"isSpacer"] boolValue])
+            {
+                continue;
+            }
+            [actualMethods addObject:method];
+        }
+        self.currentMethods = actualMethods;
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"tocMenu"] style:UIBarButtonItemStylePlain target:self action:@selector(tocButtonPressed:)];
         if(json[@"title"] && [[json[@"title"] trimWhitespace] length])
         {
