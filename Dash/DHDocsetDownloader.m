@@ -33,9 +33,7 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"ActionScript.xml" icon:@"actionscript" aliases:@[@"adobe flash as3"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Akka.xml" icon:@"akka" aliases:@[@"scala"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Android.xml" icon:@"android" aliases:@[@"java"] doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"Angular.dart.xml" icon:@"angulardart" aliases:@[@"angular.io angular for dartlang", @"angulardart.js", @"angulardartjs", @"angulardartlang", @"angulardart.js lang", @"angulardart lang", @"angulardartjs lang", @"angular.dart.js", @"angular.dartjs", @"angular.dartlang", @"angular.dart.js lang", @"angular.dart lang", @"angular.dartjs lang", @"angular2", @"angular 2", @"angulardart 2", @"angular.dart 2", @"angularjs 2", @"angular.js 2"] doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"AngularJS.xml" icon:@"angularjs" aliases:@[@"google angularjs", @"angular.io angular for javascript angular for js", @"google angular.js", @"angular2", @"angular 2", @"angularjs 2", @"angular.js 2"] doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"AngularTS.xml" icon:@"angularts" aliases:@[@"google angularjs", @"google angular.js", @"angular2", @"angular 2", @"angularjs 2", @"angular.js 2", @"google angularts", @"angular.io angular for typescript angular for ts angular.typescript angular.ts angulartypescript", @"google angular.ts", @"angular2", @"angular 2", @"angularts 2", @"angular.ts 2"] doesNotHaveVersions:NO],
+                           [DHFeed feedWithFeed:@"Angular.xml" icon:@"angular" aliases:@[@"google angularjs", @"google angular.js", @"angular2", @"angular 2", @"angularjs 2", @"angular.js 2", @"google angularts", @"angular.io angular for typescript angular for ts angular.typescript angular.ts angulartypescript", @"google angular.ts", @"angular2", @"angular 2", @"angularts 2", @"angular.ts 2"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Ansible.xml" icon:@"ansible" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Apache_HTTP_Server.xml" icon:@"apache" aliases:@[@"httpd"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Appcelerator_Titanium.xml" icon:@"titanium" aliases:@[@"Appcelerator Platform"] doesNotHaveVersions:NO],
@@ -237,7 +235,7 @@ static id singleton = nil;
     for(NSDictionary *feedDictionary in savedFeeds)
     {
         DHFeed *savedFeed = [DHFeed feedWithDictionaryRepresentation:feedDictionary];
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularJS.xml", @"http://kapeli.com/feeds/AngularTS.xml"] containsObject:savedFeed.feedURL])
         {
             if(savedFeed.installed)
             {
@@ -253,7 +251,7 @@ static id singleton = nil;
             savedFeed.installed = NO;
             savedFeed.installedVersion = nil;
         }
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularJS.xml", @"http://kapeli.com/feeds/AngularTS.xml"] containsObject:savedFeed.feedURL])
         {
             continue;
         }
