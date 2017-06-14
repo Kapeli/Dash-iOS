@@ -1,5 +1,9 @@
 # Master
 
+* No changes yet.
+
+# 1.6.2
+
 * Fixed an issue which caused the iOS remote feature to sometimes not pair correctly - [9f9dd6c](https://github.com/Kapeli/Dash-iOS/commit/9f9dd6c8b5761b28899dcae01f828888ab9011d8)
 * Consolidated all Angular docsets into one - [56fda1b](https://github.com/Kapeli/Dash-iOS/commit/56fda1b4fa94fa910e377004ba7988ecc5e389eb)
 * Fixed an issue which caused empty rows to sometimes appear in the table of contents - [097197c](https://github.com/Kapeli/Dash-iOS/commit/097197c828db9e1b1524f46da41a0db92e7376cf)
