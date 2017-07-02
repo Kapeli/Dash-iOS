@@ -33,14 +33,11 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"ActionScript.xml" icon:@"actionscript" aliases:@[@"adobe flash as3"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Akka.xml" icon:@"akka" aliases:@[@"scala"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Android.xml" icon:@"android" aliases:@[@"java"] doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"Angular.dart.xml" icon:@"angulardart" aliases:@[@"angular.io angular for dartlang", @"angulardart.js", @"angulardartjs", @"angulardartlang", @"angulardart.js lang", @"angulardart lang", @"angulardartjs lang", @"angular.dart.js", @"angular.dartjs", @"angular.dartlang", @"angular.dart.js lang", @"angular.dart lang", @"angular.dartjs lang", @"angular2", @"angular 2", @"angulardart 2", @"angular.dart 2", @"angularjs 2", @"angular.js 2"] doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"AngularJS.xml" icon:@"angularjs" aliases:@[@"google angularjs", @"angular.io angular for javascript angular for js", @"google angular.js", @"angular2", @"angular 2", @"angularjs 2", @"angular.js 2"] doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"AngularTS.xml" icon:@"angularts" aliases:@[@"google angularjs", @"google angular.js", @"angular2", @"angular 2", @"angularjs 2", @"angular.js 2", @"google angularts", @"angular.io angular for typescript angular for ts angular.typescript angular.ts angulartypescript", @"google angular.ts", @"angular2", @"angular 2", @"angularts 2", @"angular.ts 2"] doesNotHaveVersions:NO],
+                           [DHFeed feedWithFeed:@"Angular.xml" icon:@"angular" aliases:@[@"google angularjs", @"google angular.js", @"angular2", @"angular 2", @"angularjs 2", @"angular.js 2", @"google angularts", @"angular.io angular for typescript angular for ts angular.typescript angular.ts angulartypescript", @"google angular.ts", @"angular2", @"angular 2", @"angularts 2", @"angular.ts 2"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Ansible.xml" icon:@"ansible" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Apache_HTTP_Server.xml" icon:@"apache" aliases:@[@"httpd"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Appcelerator_Titanium.xml" icon:@"titanium" aliases:@[@"Appcelerator Platform"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Apple_API_Reference.xml" icon:@"apple" aliases:@[@"leopard", @"snow leopard", @"lion", @"mountain lion", @"mavericks", @"yosemite", @"macos sierra", @"10.10", @"10.8", @"10.6", @"mac osx", @"10.7", @"10.9", @"10.5", @"xcode", @"apple", @"cocoa", @"objective-c", @"objc", @"macosx", @"macos x", @"swift", @"iphone", @"ipad", @"cocoa touch", @"tvos", @"tvservices", @"apple tv", @"ios", @"iphoneos", @"watchkit"] doesNotHaveVersions:YES],
-                           [DHFeed feedWithFeed:@"Apple_Guides_and_Sample_Code.xml" icon:@"apple" aliases:@[@"leopard", @"snow leopard", @"lion", @"mountain lion", @"mavericks", @"yosemite", @"macos sierra", @"10.10", @"10.8", @"10.6", @"mac osx", @"10.7", @"10.9", @"10.5", @"xcode", @"apple", @"cocoa", @"objective-c", @"objc", @"macosx", @"macos x", @"swift", @"iphone", @"ipad", @"cocoa touch", @"tvos", @"tvservices", @"apple tv", @"ios", @"iphoneos", @"watchkit"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"AppleScript.xml" icon:@"applescript" aliases:nil doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Arduino.xml" icon:@"arduino" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"AWS_JavaScript.xml" icon:@"awsjs" aliases:@[@"aws nodejs", @"aws node.js", @"amazon"] doesNotHaveVersions:NO],
@@ -238,7 +235,7 @@ static id singleton = nil;
     for(NSDictionary *feedDictionary in savedFeeds)
     {
         DHFeed *savedFeed = [DHFeed feedWithDictionaryRepresentation:feedDictionary];
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularJS.xml", @"http://kapeli.com/feeds/AngularTS.xml"] containsObject:savedFeed.feedURL])
         {
             if(savedFeed.installed)
             {
@@ -254,7 +251,7 @@ static id singleton = nil;
             savedFeed.installed = NO;
             savedFeed.installedVersion = nil;
         }
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularJS.xml", @"http://kapeli.com/feeds/AngularTS.xml"] containsObject:savedFeed.feedURL])
         {
             continue;
         }
@@ -711,11 +708,6 @@ static id singleton = nil;
     {
         title = @"Apple API Reference";
         message = @"To install the Apple API Reference docset you need to:\n\n1. Use Dash for macOS to install the Apple API Reference docset from Preferences > Downloads\n2. Go to Preferences > Docsets, right click the Apple API Reference docset and select \"Generate iOS Compatible Docset\"\n3. Transfer the resulting docset using iTunes File Sharing";
-    }
-    else if([feed.feedURL isEqualToString:@"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml"])
-    {
-        title = @"Apple Guides and Sample Code";
-        message = @"To install the Apple Guides and Sample Code docset you need to:\n\n1. Download the docset in Xcode 8's Preferences > Components > Documentation\n2.Transfer it to Dash for iOS using iTunes File Sharing";
     }
     else if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/macOS.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml"] containsObject:feed.feedURL])
     {

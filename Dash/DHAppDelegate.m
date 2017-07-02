@@ -27,7 +27,9 @@
 #import "DHWebViewController.h"
 #import "DHAppUpdateChecker.h"
 #import "DHDocsetBrowser.h"
-//#import <HockeySDK/HockeySDK.h>
+#ifdef APP_STORE
+#import <HockeySDK/HockeySDK.h>
+#endif
 #import "DHRemoteServer.h"
 #import "DHRemoteProtocol.h"
 
@@ -55,12 +57,14 @@
         [[NSFileManager defaultManager] removeItemAtPath:[cacheDir stringByAppendingPathComponent:@"com.apple.nsurlsessiond/Downloads"] error:nil];
     }
     
-//#ifndef DEBUG
-//    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"3b2036819813be1b22bb086f00eea499"];
-//    [[BITHockeyManager sharedHockeyManager].crashManager setCrashManagerStatus:BITCrashManagerStatusAutoSend];
-//    [[BITHockeyManager sharedHockeyManager] startManager];
-//    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
-//#endif
+#ifdef APP_STORE
+#ifndef DEBUG
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"40091a11e4b749fcb7808992057b165a"];
+    [[BITHockeyManager sharedHockeyManager].crashManager setCrashManagerStatus:BITCrashManagerStatusAutoSend];
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
+#endif
+#endif
     
 #ifdef DEBUG
     [self checkCommitHashes];
@@ -104,10 +108,30 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)actualURL sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:DHPrepareForURLSearch object:nil];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:DHPerformURLSearch object:[actualURL absoluteString]];
-    });
+    if([[actualURL absoluteString] hasCaseInsensitivePrefix:@"dash://"] || [[actualURL absoluteString] hasCaseInsensitivePrefix:@"dash-plugin://"])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:DHPrepareForURLSearch object:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:DHPerformURLSearch object:[actualURL absoluteString]];
+        });
+    }
+    else
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            NSError *regexError;
+            NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:@"Inbox/.+[\\.docset]$" options:0 error:&regexError];
+            NSArray *matches;
+            if (regexError) {
+                NSLog(@"%@", regexError.localizedDescription);
+            }else{
+                matches = [regex matchesInString:[actualURL absoluteString] options:0 range:NSMakeRange(0, [actualURL absoluteString].length)];
+            }
+            if (matches.count) {
+                [self moveInboxContentsToDocuments];
+            }
+        });
+    }
     return YES;
 }
 
@@ -214,19 +238,19 @@
 
 - (void)checkCommitHashes
 {
-    NSDictionary *hashes = @{@"DHDBSearcher": @"ea3cca9",
-                             @"DHDBResult": @"07b02e3",
-                             @"DHDBUnifiedResult": @"b332793",
-                             @"DHQueuedDB": @"0199255",
-                             @"DHUnifiedQueuedDB": @"dd42266",
-                             @"DHDBUnifiedOperation": @"1671a90",
-                             @"DHWebViewController": @"8b1c435",
-                             @"DHWebPreferences": @"f3017eb",
-                             @"DHDocsetDownloader": @"995b73f",
-                             @"PlatformIcons": @"d8b8f25",
-                             @"DHTypes": @"8345e9e",
-                             @"Types": @"8345e9e",
-                             @"CSS": @"e7a1182",
+    NSDictionary *hashes = @{@"DHDBSearcher": @"ea3cca93",
+                             @"DHDBResult": @"cd091ec9",
+                             @"DHDBUnifiedResult": @"b332793c",
+                             @"DHQueuedDB": @"0199255c",
+                             @"DHUnifiedQueuedDB": @"dd42266b",
+                             @"DHDBUnifiedOperation": @"1671a905",
+                             @"DHWebViewController": @"e14ef5a7",
+                             @"DHWebPreferences": @"cd091ec9",
+                             @"DHDocsetDownloader": @"0f962902",
+                             @"PlatformIcons": @"c1cf2c6d",
+                             @"DHTypes": @"fe8fc727",
+                             @"Types": @"fe8fc727",
+                             @"CSS": @"b32c0412",
                              };
     [hashes enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSString *plistHash = [[NSBundle mainBundle] infoDictionary][[key stringByAppendingString:@"Commit"]];
@@ -245,6 +269,24 @@
     }
     self._window = [[DHWindow alloc] init];
     return self._window;
+}
+
+- (void)moveInboxContentsToDocuments {
+    
+    NSError *fileManagerError;
+    
+    NSString *inboxDirectory = [NSString stringWithFormat:@"%@/Inbox", transfersPath];
+    NSArray *inboxContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:inboxDirectory error:&fileManagerError];
+    
+    //move all the files over
+    for (int i = 0; i != [inboxContents count]; i++) {
+        NSString *oldPath = [NSString stringWithFormat:@"%@/%@", inboxDirectory, [inboxContents objectAtIndex:i]];
+        NSString *newPath = [NSString stringWithFormat:@"%@/%@", transfersPath, [inboxContents objectAtIndex:i]];
+        [[NSFileManager defaultManager] moveItemAtPath:oldPath toPath:newPath error:&fileManagerError];
+        if (fileManagerError) {
+            NSLog(@"%@",fileManagerError.localizedDescription);
+        }
+    }
 }
 
 @end

@@ -74,6 +74,11 @@ body
     overflow:visible !important;
 }
 
+body.docs-theme--influxdb
+{
+    overflow: auto !important;
+}
+
 div#leave_feedback, div#xcode_leave_feedback
 {
     display:none !important;

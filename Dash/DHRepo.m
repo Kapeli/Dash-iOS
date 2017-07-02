@@ -779,6 +779,10 @@
     {
         [super traitCollectionDidChange:previousTraitCollection];
     }
+    if(self.searchController.isActive)
+    {
+        [self.searchController setActive:NO animated:YES];
+    }
     if(isRegularHorizontalClass)
     {
         [self.navigationItem setHidesBackButton:YES animated:NO];
@@ -803,10 +807,6 @@
 {
     [super viewWillDisappear:animated];
     [UIApplication sharedApplication].idleTimerDisabled = NO;
-    if(self.searchController.isActive)
-    {
-        [self.searchController setActive:NO animated:YES];
-    }
 }
 
 - (NSString *)docsetInstallFolderName

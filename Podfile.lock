@@ -2,7 +2,10 @@ PODS:
   - AutoCoding (2.2.2)
   - DTBonjour (1.1.1)
   - DZNEmptyDataSet (1.4.1)
-  - GZIP (1.1.1)
+  - GZIP (1.2)
+  - HockeySDK (4.1.5):
+    - HockeySDK/DefaultLib (= 4.1.5)
+  - HockeySDK/DefaultLib (4.1.5)
   - JGMethodSwizzler (2.0.1)
   - KissXML (5.1.2):
     - KissXML/Core (= 5.1.2)
@@ -46,8 +49,9 @@ DEPENDENCIES:
   - DTBonjour (from `Modified Pods/DTBonjour/DTBonjour.podspec`)
   - DZNEmptyDataSet (from `Modified Pods/DZNEmptyDataSet/DZNEmptyDataSet.podspec`)
   - GZIP
+  - HockeySDK
   - JGMethodSwizzler
-  - KissXML
+  - KissXML (~> 5.1.2)
   - MRProgress (from `Modified Pods/MRProgress/MRProgress.podspec`)
   - NSTimer-Blocks
   - Reachability
@@ -67,7 +71,8 @@ SPEC CHECKSUMS:
   AutoCoding: 56fa46dbfa89d44189a26ce64e6a470ed8ff4661
   DTBonjour: f221ef5500b109de0eb8cf0f6700c10a27cc8eb0
   DZNEmptyDataSet: b6d8ef0e69a4347b70c642148453174dbf8817f1
-  GZIP: f8beb59597f651e6970a45b816508a9c6d700b77
+  GZIP: 1c1c898472f4ac8054888b9d8006b925963fcf17
+  HockeySDK: 606b537bbfbe454ee440e92cc93bc634b3c77151
   JGMethodSwizzler: e0ea5c1c6c55304ec4ef3f54e441400c6735c899
   KissXML: 246c842586bb77110e04fb88e19376d96245c856
   MRProgress: ae0bff676bc83d62cfd5567bba3325f4617c7215
@@ -77,6 +82,6 @@ SPEC CHECKSUMS:
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
 
-PODFILE CHECKSUM: 2076b3f35757958391dd52baeb847f21ef4d6d06
+PODFILE CHECKSUM: 8016da142cf5f9ebe5ce2a022d9688014725fb7c
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.1
