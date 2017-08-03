@@ -115,6 +115,63 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:DHPerformURLSearch object:[actualURL absoluteString]];
         });
     }
+	else if([[actualURL pathExtension] caseInsensitiveCompare:@".docset"])
+	{
+		//** Code added by Niklas Buelow (@insightmind, twitter: @fforger) for handling files from iCloud (Files.app)'openInMenu' [08.02.2017] **//
+		
+		//declare variable for error
+		NSError *error;
+		
+		//get the path for the DocumentsDirectory
+		NSURL *copyToURL = [NSURL fileURLWithPath:transfersPath];
+		
+		//get the fileName of the URL
+		NSString *fileName = [[actualURL URLByDeletingPathExtension] lastPathComponent];
+		
+		//Add requested file name to path
+		copyToURL = [copyToURL URLByAppendingPathComponent:fileName isDirectory:NO];
+		
+		
+		//check if file is already in DocumentsDirectory
+		if ([[NSFileManager defaultManager] fileExistsAtPath:copyToURL.path])
+		{
+			
+			// Duplicate path
+			NSURL *duplicateURL = copyToURL;
+			// Remove the filename extension
+			copyToURL = [copyToURL URLByDeletingPathExtension];
+			// Filename no extension
+			NSString *fileNameWithoutExtension = [copyToURL lastPathComponent];
+			// File extension
+			NSString *fileExtension = [actualURL pathExtension];
+			
+			int i=1;
+			while ([[NSFileManager defaultManager] fileExistsAtPath:duplicateURL.path]) {
+				
+				// Delete the last path component
+				copyToURL = [copyToURL URLByDeletingLastPathComponent];
+				// Update URL with new name
+				copyToURL=[copyToURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@–%i",fileNameWithoutExtension,i]];
+				// Add back the file extension
+				copyToURL =[copyToURL URLByAppendingPathExtension:fileExtension];
+				// Copy path to duplicate
+				duplicateURL = copyToURL;
+				i++;
+				
+			}
+		}
+		
+		//Move file to DocumentsDirectory
+		[[NSFileManager defaultManager] moveItemAtURL:actualURL toURL:copyToURL error:&error];
+		
+		//check if an error occurred
+		if (error)
+		{
+			NSLog(@"Cannot add file to documentsDirectory");
+		}
+		
+		//**END**//
+	}
     else
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

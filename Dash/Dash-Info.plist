@@ -11,8 +11,12 @@
 		<dict>
 			<key>CFBundleTypeIconFile</key>
 			<string>docset_icon.png</string>
+			<key>CFBundleTypeIconFiles</key>
+			<array/>
 			<key>CFBundleTypeName</key>
 			<string>Docset File Type Handler</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
@@ -148,7 +152,29 @@
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
-				<string>docset</string>
+				<array>
+					<string>docset</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Docset File Type Handler</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.kapeli.dash.ios.docset</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>docset</string>
+				</array>
 			</dict>
 		</dict>
 	</array>
