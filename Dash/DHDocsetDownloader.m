@@ -223,7 +223,6 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"Xamarin.xml" icon:@"xamarin" aliases:@[@"xamarin.ios", @"xamarin.mac", @"xamarin.android", @"xamarin.osx", @"xamarin ios", @"xamarin mac", @"xamarin android", @"xamarin osx", @"xamarin for ios", @"xamarin for mac", @"xamarin for android", @"xamarin for osx"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Xojo.xml" icon:@"xojo" aliases:@[@"realbasic", @"real basic", @"real studio", @"realstudio"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"XSLT.xml" icon:@"xslt" aliases:@[@"mdn", @"mozilla developer network", @"exslt", @"xpath"] doesNotHaveVersions:YES],
-                           [DHFeed feedWithFeed:@"XUL.xml" icon:@"xul" aliases:@[@"mdn", @"mozilla developer network"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Yii.xml" icon:@"yii" aliases:@"yii framework yii2 framework php" doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"YUI.xml" icon:@"yui" aliases:@"yui library" doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Zend_Framework_1.xml" icon:@"zend" aliases:@[@"zf1"] doesNotHaveVersions:NO],
