@@ -1,5 +1,9 @@
 # Master
 
+* No changes yet.
+
+# 1.6.3
+
 * Fixed an iPad-only crash which occurred in Settings while going into split view mode with the search field active - [36cf36d](https://github.com/Kapeli/Dash-iOS/commit/36cf36df40619ebfae903e39af4ea836e26fdc42)
 
 # 1.6.2
