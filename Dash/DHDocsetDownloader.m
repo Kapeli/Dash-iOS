@@ -93,7 +93,6 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"GLib.xml" icon:@"glib" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Go.xml" icon:@"go" aliases:@[@"google golang"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Gradle_DSL.xml" icon:@"gradle" aliases:nil doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"Gradle_Groovy_API.xml" icon:@"gradle" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Gradle_Java_API.xml" icon:@"gradle" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Gradle_User_Guide.xml" icon:@"gradle" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Grails.xml" icon:@"grails" aliases:@[@"java"] doesNotHaveVersions:NO],
@@ -234,7 +233,7 @@ static id singleton = nil;
     for(NSDictionary *feedDictionary in savedFeeds)
     {
         DHFeed *savedFeed = [DHFeed feedWithDictionaryRepresentation:feedDictionary];
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularJS.xml", @"http://kapeli.com/feeds/AngularTS.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularJS.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml"] containsObject:savedFeed.feedURL])
         {
             if(savedFeed.installed)
             {
@@ -250,7 +249,7 @@ static id singleton = nil;
             savedFeed.installed = NO;
             savedFeed.installedVersion = nil;
         }
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularJS.xml", @"http://kapeli.com/feeds/AngularTS.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularJS.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml"] containsObject:savedFeed.feedURL])
         {
             continue;
         }

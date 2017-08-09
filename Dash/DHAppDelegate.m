@@ -246,7 +246,7 @@
                              @"DHDBUnifiedOperation": @"1671a905",
                              @"DHWebViewController": @"85fe239e",
                              @"DHWebPreferences": @"cd091ec9",
-                             @"DHDocsetDownloader": @"46e607d7",
+                             @"DHDocsetDownloader": @"fc9b664f",
                              @"PlatformIcons": @"c09e3857",
                              @"DHTypes": @"fe8fc727",
                              @"Types": @"fe8fc727",
