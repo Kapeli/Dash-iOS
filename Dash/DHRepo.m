@@ -781,7 +781,10 @@
     }
     if(self.searchController.isActive)
     {
-        [self.searchController setActive:NO animated:YES];
+        @try {
+            [self.searchController setActive:NO animated:NO];
+        } @catch (NSException *exception) {
+        }
     }
     if(isRegularHorizontalClass)
     {

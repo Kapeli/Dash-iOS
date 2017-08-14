@@ -36,7 +36,6 @@
 + (NSString *)viewportContent:(CGRect)frame
 {
     NSString *content = [NSString stringWithFormat:@"width=%ld", (long)frame.size.width];
-    
     return [content stringByAppendingString:@", initial-scale=1"];
 }
 

@@ -2,6 +2,10 @@
 
 * No changes yet.
 
+# 1.6.3
+
+* Fixed an iPad-only crash which occurred in Settings while going into split view mode with the search field active - [36cf36d](https://github.com/Kapeli/Dash-iOS/commit/36cf36df40619ebfae903e39af4ea836e26fdc42)
+
 # 1.6.2
 
 * Fixed an issue which caused the iOS remote feature to sometimes not pair correctly - [9f9dd6c](https://github.com/Kapeli/Dash-iOS/commit/9f9dd6c8b5761b28899dcae01f828888ab9011d8)
