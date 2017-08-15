@@ -233,7 +233,7 @@ static id singleton = nil;
     for(NSDictionary *feedDictionary in savedFeeds)
     {
         DHFeed *savedFeed = [DHFeed feedWithDictionaryRepresentation:feedDictionary];
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularJS.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularJS.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml"] containsObject:savedFeed.feedURL])
         {
             if(savedFeed.installed)
             {
@@ -249,7 +249,7 @@ static id singleton = nil;
             savedFeed.installed = NO;
             savedFeed.installedVersion = nil;
         }
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularJS.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularJS.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml"] containsObject:savedFeed.feedURL])
         {
             continue;
         }
