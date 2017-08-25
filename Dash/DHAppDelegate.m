@@ -92,6 +92,7 @@
     [DHUserRepo sharedUserRepo];
     [DHCheatRepo sharedCheatRepo];
     [DHRemoteServer sharedServer];
+    [self startWebThread];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clipboardChanged:) name:UIPasteboardChangedNotification object:nil];
     return YES;
 }
@@ -287,6 +288,15 @@
             NSLog(@"%@",fileManagerError.localizedDescription);
         }
     }
+}
+
+// start web thread in advance
+- (void)startWebThread
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+        [webView loadHTMLString:@"" baseURL:nil];
+    });
 }
 
 @end
