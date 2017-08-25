@@ -156,7 +156,7 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"macOS.xml" icon:@"Mac" aliases:@[@"leopard", @"snow leopard", @"lion", @"mountain lion", @"mavericks", @"yosemite", @"10.10", @"10.8", @"10.6", @"mac osx", @"mac os x", @"10.7", @"10.9", @"10.5", @"xcode", @"apple", @"cocoa", @"macosx", @"macos x", @"objective-c", @"objc", @"swift"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Pandas.xml" icon:@"pandas" aliases:@[@"python"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Perl.xml" icon:@"perl" aliases:nil doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"Phalcon.xml" icon:@"phalcon" aliases:@"php" doesNotHaveVersions:NO],
+                           [DHFeed feedWithFeed:@"Phalcon.xml" icon:@"phalcon" aliases:@[@"cphalcon", @"php"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"PhoneGap.xml" icon:@"phonegap" aliases:@"Apache Cordova adobe phonegap" doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"PHP.xml" icon:@"php" aliases:nil doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"PHPUnit.xml" icon:@"phpunit" aliases:nil doesNotHaveVersions:NO],
