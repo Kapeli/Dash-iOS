@@ -1,6 +1,6 @@
 # Master
 
-* No changes yet.
+* Fixed an AirDrop issue - [#61](https://github.com/Kapeli/Dash-iOS/pull/61)
 
 # 1.6.3
 
