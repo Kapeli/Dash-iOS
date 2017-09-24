@@ -18,6 +18,7 @@
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.kapeli.dash.ios.docset</string>
+				<string>com.apple.xcode.docset</string>
 			</array>
 		</dict>
 	</array>
