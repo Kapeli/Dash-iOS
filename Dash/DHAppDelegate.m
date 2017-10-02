@@ -164,11 +164,29 @@
 		//Move file to DocumentsDirectory
 		[[NSFileManager defaultManager] moveItemAtURL:actualURL toURL:copyToURL error:&error];
 		
+        
+        
+        
 		//check if an error occurred
 		if (error)
 		{
+            //Create a UIAlertController to inform the User that the import was not successfull
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Import failed!" message:@"Could not properly import the DocSet. Please try again!" preferredStyle: UIAlertControllerStyleAlert];
+            UIAlertAction *done = [UIAlertAction actionWithTitle: @"Done" style: UIAlertActionStyleDestructive handler: nil];
+            [alert addAction:done];
 			NSLog(@"Cannot add file to documentsDirectory");
+            UIViewController *top = [self topViewController];
+            [top presentViewController: alert animated:YES completion:nil];
 		}
+        else
+        {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Import successfull!" message:@"You can find the DocSet in the Transfer Docset Section" preferredStyle: UIAlertControllerStyleAlert];
+            UIAlertAction *done = [UIAlertAction actionWithTitle: @"Done" style: UIAlertActionStyleDefault handler: nil];
+            [alert addAction:done];
+            NSLog(@"Docset successfully imported");
+            UIViewController *top = [self topViewController];
+            [top presentViewController: alert animated:YES completion:nil];
+        }
 		
 		//**END**//
 	}
@@ -344,6 +362,26 @@
             NSLog(@"%@",fileManagerError.localizedDescription);
         }
     }
+}
+
+- (UIViewController *)topViewController{
+    return [self topViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+}
+
+- (UIViewController *)topViewController:(UIViewController *)rootViewController
+{
+    if (rootViewController.presentedViewController == nil) {
+        return rootViewController;
+    }
+    
+    if ([rootViewController.presentedViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navigationController = (UINavigationController *)rootViewController.presentedViewController;
+        UIViewController *lastViewController = [[navigationController viewControllers] lastObject];
+        return [self topViewController:lastViewController];
+    }
+    
+    UIViewController *presentedViewController = (UIViewController *)rootViewController.presentedViewController;
+    return [self topViewController:presentedViewController];
 }
 
 @end
