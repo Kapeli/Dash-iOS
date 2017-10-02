@@ -171,16 +171,16 @@
 		if (error)
 		{
             //Create a UIAlertController to inform the User that the import was not successfull
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Import failed!" message:@"Could not properly import the DocSet. Please try again!" preferredStyle: UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Import failed!" message:@"Could not properly import the docset. Please try again!" preferredStyle: UIAlertControllerStyleAlert];
             UIAlertAction *done = [UIAlertAction actionWithTitle: @"Done" style: UIAlertActionStyleDestructive handler: nil];
             [alert addAction:done];
-			NSLog(@"Cannot add file to documentsDirectory");
+            NSLog(@"%@", error.localizedDescription);
             UIViewController *top = [self topViewController];
             [top presentViewController: alert animated:YES completion:nil];
 		}
         else
         {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Import successfull!" message:@"You can find the DocSet in the Transfer Docset Section" preferredStyle: UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Import successfull!" message:@"You can find the docset in the Transfer-Docset section" preferredStyle: UIAlertControllerStyleAlert];
             UIAlertAction *done = [UIAlertAction actionWithTitle: @"Done" style: UIAlertActionStyleDefault handler: nil];
             [alert addAction:done];
             NSLog(@"Docset successfully imported");
