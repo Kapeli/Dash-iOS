@@ -115,8 +115,8 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:DHPerformURLSearch object:[actualURL absoluteString]];
         });
     }
-	else if([[actualURL pathExtension] caseInsensitiveCompare:@".docset"])
-	{
+    else if([[actualURL pathExtension] caseInsensitiveCompare:@".docset"])
+    {
         NSError *regexError;
         NSString *fileName = [[actualURL URLByDeletingPathExtension] lastPathComponent];
         NSURL *copyToURL = [[NSURL fileURLWithPath:transfersPath] URLByAppendingPathComponent:fileName isDirectory:NO];
@@ -151,7 +151,7 @@
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle: UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle: @"Done" style: UIAlertActionStyleDestructive handler: nil]];
         [[self topViewController] presentViewController: alert animated:YES completion:nil];
-	}
+    }
     else
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -160,7 +160,9 @@
             NSArray *matches;
             if (regexError) {
                 NSLog(@"%@", regexError.localizedDescription);
-            }else{
+            }
+	    else
+	    {
                 matches = [regex matchesInString:[actualURL absoluteString] options:0 range:NSMakeRange(0, [actualURL absoluteString].length)];
             }
             if (matches.count) {
