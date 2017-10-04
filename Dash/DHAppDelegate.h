@@ -26,6 +26,4 @@
 + (DHAppDelegate *)sharedDelegate;
 + (UIStoryboard *)mainStoryboard;
 
-
-
 @end
