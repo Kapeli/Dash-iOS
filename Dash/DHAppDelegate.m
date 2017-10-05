@@ -238,16 +238,16 @@
 
 - (void)checkCommitHashes
 {
-    NSDictionary *hashes = @{@"DHDBSearcher": @"ea3cca93",
+    NSDictionary *hashes = @{@"DHDBSearcher": @"f3a251f7",
                              @"DHDBResult": @"cd091ec9",
                              @"DHDBUnifiedResult": @"b332793c",
                              @"DHQueuedDB": @"0199255c",
                              @"DHUnifiedQueuedDB": @"dd42266b",
                              @"DHDBUnifiedOperation": @"1671a905",
-                             @"DHWebViewController": @"85fe239e",
+                             @"DHWebViewController": @"b2c622af",
                              @"DHWebPreferences": @"cd091ec9",
-                             @"DHDocsetDownloader": @"59741498",
-                             @"PlatformIcons": @"c09e3857",
+                             @"DHDocsetDownloader": @"20471843",
+                             @"PlatformIcons": @"20471843",
                              @"DHTypes": @"fe8fc727",
                              @"Types": @"fe8fc727",
                              @"CSS": @"b32c0412",
