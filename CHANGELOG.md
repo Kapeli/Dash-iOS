@@ -1,5 +1,6 @@
 # Master
 
+* Added Java SE9 docset - [#7c727c2](https://github.com/Kapeli/Dash-iOS/commit/7c727c2d30d41c0f37a4588510a804e4300b8c61)
 * Added Java EE8 docset - [#61e2df7](https://github.com/Kapeli/Dash-iOS/commit/61e2df74f955bcf22ff6611be1ff0f6e45f6024a)
 * Fixed an AirDrop issue - [#61](https://github.com/Kapeli/Dash-iOS/pull/61)
 
