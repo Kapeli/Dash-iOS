@@ -113,6 +113,7 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"Java_SE6.xml" icon:@"java" aliases:@[@"javase6"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Java_SE7.xml" icon:@"java" aliases:@[@"javase7"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Java_SE8.xml" icon:@"java" aliases:@[@"javase8"] doesNotHaveVersions:YES],
+                           [DHFeed feedWithFeed:@"Java_SE9.xml" icon:@"java" aliases:@[@"javase9"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"JavaFX.xml" icon:@"javafx" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"JavaScript.xml" icon:@"javascript" aliases:@[@"mdn", @"mozilla developer network", @"dom events", @"canvas", @"js"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Jekyll.xml" icon:@"jekyll" aliases:@[@"jekyllrb jekyll.rb jekyll ruby"] doesNotHaveVersions:NO],
