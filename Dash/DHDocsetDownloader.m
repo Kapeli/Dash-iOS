@@ -34,6 +34,7 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"Akka.xml" icon:@"akka" aliases:@[@"scala"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Android.xml" icon:@"android" aliases:@[@"java"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Angular.xml" icon:@"angular" aliases:@[@"google angularjs", @"google angular.js", @"angular2", @"angular 2", @"angularjs 2", @"angular.js 2", @"google angularts", @"angular.io angular for typescript angular for ts angular.typescript angular.ts angulartypescript", @"google angular.ts", @"angular2", @"angular 2", @"angularts 2", @"angular.ts 2"] doesNotHaveVersions:NO],
+                           [DHFeed feedWithFeed:@"AngularJS.xml" icon:@"angularjs" aliases:@[@"google angularjs", @"google angular.js", @"angular", @"angularjs", @"angular.js"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Ansible.xml" icon:@"ansible" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Apache_HTTP_Server.xml" icon:@"apache" aliases:@[@"httpd"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Appcelerator_Titanium.xml" icon:@"titanium" aliases:@[@"Appcelerator Platform"] doesNotHaveVersions:NO],
