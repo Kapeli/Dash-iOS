@@ -209,7 +209,7 @@ static id singleton = nil;
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
     
-    NSString *text = @"You can transfer docsets using iTunes File Sharing.\n\nFor best results, docsets that are available for download should always be downloaded instead of transferred.";
+    NSString *text = @"You can transfer docsets using iTunes File Sharing or AirDrop.\n\nFor best results, docsets that are available for download should always be downloaded instead of transferred.";
     NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
     paragraph.alignment = NSTextAlignmentCenter;

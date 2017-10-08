@@ -708,7 +708,7 @@ static id singleton = nil;
     else if([feed.feedURL isEqualToString:@"http://kapeli.com/feeds/Apple_API_Reference.xml"])
     {
         title = @"Apple API Reference";
-        message = @"To install the Apple API Reference docset you need to:\n\n1. Use Dash for macOS to install the Apple API Reference docset from Preferences > Downloads\n2. Go to Preferences > Docsets, right click the Apple API Reference docset and select \"Generate iOS Compatible Docset\"\n3. Transfer the resulting docset using iTunes File Sharing";
+        message = @"To install the Apple API Reference docset you need to:\n\n1. Use Dash for macOS to install the Apple API Reference docset from Preferences > Downloads\n2. Go to Preferences > Docsets, right click the Apple API Reference docset and select \"Generate iOS Compatible Docset\"\n3. Transfer the resulting docset using iTunes File Sharing or AirDrop";
     }
     else if([feed.feedURL isEqualToString:@"http://kapeli.com/feeds/Swift.xml"])
     {
@@ -719,7 +719,7 @@ static id singleton = nil;
     {
         title = @"Apple API Reference";
         NSString *name = [[[feed.feedURL lastPathComponent] stringByDeletingPathExtension] stringByReplacingOccurrencesOfString:@"_" withString:@" "];
-        message = [NSString stringWithFormat:@"There is no %@ docset. The documentation for %@ can be found inside the Apple API Reference docset. \n\nTo install the Apple API Reference docset you need to:\n\n1. Use Dash for macOS to install the docset from Preferences > Downloads\n2. Go to Preferences > Docsets, right click the Apple API Reference docset and select \"Generate iOS-compatible Docset\"\n3. Transfer the resulting docset using iTunes File Sharing", name, name];
+        message = [NSString stringWithFormat:@"There is no %@ docset. The documentation for %@ can be found inside the Apple API Reference docset. \n\nTo install the Apple API Reference docset you need to:\n\n1. Use Dash for macOS to install the docset from Preferences > Downloads\n2. Go to Preferences > Docsets, right click the Apple API Reference docset and select \"Generate iOS-compatible Docset\"\n3. Transfer the resulting docset using iTunes File Sharing or AirDrop", name, name];
     }
     
     if(title && message)

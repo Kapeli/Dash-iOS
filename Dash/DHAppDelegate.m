@@ -115,60 +115,30 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:DHPerformURLSearch object:[actualURL absoluteString]];
         });
     }
-    else if([[actualURL pathExtension] caseInsensitiveCompare:@".docset"])
+    else if([[actualURL pathExtension] isCaseInsensitiveEqual:@"docset"])
     {
-        NSError *regexError;
-        NSString *fileName = [[actualURL URLByDeletingPathExtension] lastPathComponent];
+        NSError *error;
+        NSString *fileName = [actualURL lastPathComponent];
         NSURL *copyToURL = [[NSURL fileURLWithPath:transfersPath] URLByAppendingPathComponent:fileName isDirectory:NO];
-        if ([[NSFileManager defaultManager] fileExistsAtPath:copyToURL.path])
-        {
-            NSURL *duplicateURL = copyToURL;
-            copyToURL = [copyToURL URLByDeletingPathExtension];
-            NSString *fileNameWithoutExtension = [copyToURL lastPathComponent];
-            NSString *fileExtension = [actualURL pathExtension];
-            for (int i = 1; [[NSFileManager defaultManager] fileExistsAtPath:duplicateURL.path]; i++)
-            {
-                copyToURL=[[copyToURL URLByDeletingLastPathComponent] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@–%i",fileNameWithoutExtension,i]];
-                copyToURL =[copyToURL URLByAppendingPathExtension:fileExtension];
-                duplicateURL = copyToURL;
-            }
-        }
-        [[NSFileManager defaultManager] moveItemAtURL:actualURL toURL:copyToURL error:&regexError];
+        [[NSFileManager defaultManager] removeItemAtPath:copyToURL.path error:nil];
+        [[NSFileManager defaultManager] moveItemAtURL:actualURL toURL:copyToURL error:&error];
         NSString *title;
         NSString *message;
-        if (regexError)
+        if(error)
         {
-            title = @"Import failed!";
-            message = @"Could not properly import the docset. Please try again!";
-            NSLog(@"%@", regexError.localizedDescription);
+            title = @"Import Failed";
+            message = @"Could not import the docset. Please try again!";
+            NSLog(@"%@", error.localizedDescription);
         }
         else
         {
-            title = @"Import successfull!";
-            message = @"You can find the docset in the Transfer-Docset section";
+            title = @"Import Successful";
+            message = @"You can find the docset in Settings, under the Transfer Docsets section.";
             NSLog(@"Docset successfully imported");
         }
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle: UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle: @"Done" style: UIAlertActionStyleDestructive handler: nil]];
-        [[self topViewController] presentViewController: alert animated:YES completion:nil];
-    }
-    else
-    {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSError *regexError;
-            NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:@"Inbox/.+[\\.docset]$" options:0 error:&regexError];
-            NSArray *matches;
-            if (regexError) {
-                NSLog(@"%@", regexError.localizedDescription);
-            }
-	    else
-	    {
-                matches = [regex matchesInString:[actualURL absoluteString] options:0 range:NSMakeRange(0, [actualURL absoluteString].length)];
-            }
-            if (matches.count) {
-                [self moveInboxContentsToDocuments];
-            }
-        });
+        [alert addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
+        [[self topViewController] presentViewController:alert animated:YES completion:nil];
     }
     return YES;
 }
@@ -307,22 +277,6 @@
     }
     self._window = [[DHWindow alloc] init];
     return self._window;
-}
-
-- (void)moveInboxContentsToDocuments
-{
-    NSError *fileManagerError;
-    NSString *inboxDirectory = [NSString stringWithFormat:@"%@/Inbox", transfersPath];
-    NSArray *inboxContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:inboxDirectory error:&fileManagerError];
-    for (int i = 0; i != [inboxContents count]; i++)
-    {
-        NSString *oldPath = [NSString stringWithFormat:@"%@/%@", inboxDirectory, [inboxContents objectAtIndex:i]];
-        NSString *newPath = [NSString stringWithFormat:@"%@/%@", transfersPath, [inboxContents objectAtIndex:i]];
-        [[NSFileManager defaultManager] moveItemAtPath:oldPath toPath:newPath error:&fileManagerError];
-        if (fileManagerError) {
-            NSLog(@"%@",fileManagerError.localizedDescription);
-        }
-    }
 }
 
 - (UIViewController *)topViewController
