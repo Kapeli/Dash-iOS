@@ -224,7 +224,7 @@
 
 - (NSString *)uniqueIdentifier // Used to find a corresponding feed from a installed docset
 {
-    if(self._uniqueIdentifier)
+    if(self._uniqueIdentifier.length)
     {
         return self._uniqueIdentifier;
     }
@@ -233,7 +233,7 @@
 
 - (NSString *)installFolderName
 {
-    return (self._uniqueIdentifier) ? self._uniqueIdentifier.lastPathComponent : self.feed.lastPathComponent.stringByDeletingPathExtension;
+    return (self._uniqueIdentifier.length) ? self._uniqueIdentifier.lastPathComponent : self.feed.lastPathComponent.stringByDeletingPathExtension;
 }
 
 @end
