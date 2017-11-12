@@ -1,7 +1,7 @@
 //
 //  AutoCoding.h
 //
-//  Version 2.2.2
+//  Version 2.2.3
 //
 //  Created by Nick Lockwood on 19/11/2011.
 //  Copyright (c) 2011 Charcoal Design
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  * being used to load it, an exception will be thrown (to avoid this, call the
  * method on `NSObject` instead of a specific subclass).
  */
-+ (instancetype)objectWithContentsOfFile:(NSString *)path;
++ (nullable instancetype)objectWithContentsOfFile:(NSString *)path;
 
 /**
  * Attempts to write the file to disk. This method is overridden by the
