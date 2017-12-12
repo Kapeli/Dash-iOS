@@ -33,7 +33,6 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self grabTitleBarItemAttributedStringTemplate];
     self.clearsSelectionOnViewWillAppear = NO;
     self.searchController = [DHDBSearchController searchControllerWithDocsets:nil typeLimit:nil viewController:self];
     
@@ -59,6 +58,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
         [self reload:nil];
     }
     [self.searchController viewDidAppear];
+    [self grabTitleBarItemAttributedStringTemplate];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -625,19 +625,27 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 - (void)grabTitleBarItemAttributedStringTemplate
 {
+    if(_titleBarItemAttributedStringTemplate)
+    {
+        return;
+    }
     @try {
-        for(id view in self.navigationController.navigationBar.subviews)
+        for(UIView *view in self.navigationController.navigationBar.subviews)
         {
-            if([view isKindOfClass:NSClassFromString(@"UINavigationItemView")])
+            for(UILabel *label in view.subviews)
             {
-                for(id label in [view subviews])
+                if([label isKindOfClass:[UILabel class]])
                 {
-                    if([label isKindOfClass:[UILabel class]])
+                    if([label.text isEqualToString:self.navigationItem.title])
                     {
-                        _titleBarItemAttributedStringTemplate = [[label attributedText] copy];
+                        _titleBarItemAttributedStringTemplate = [label.attributedText copy];
                         break;
                     }
                 }
+            }
+            if(_titleBarItemAttributedStringTemplate)
+            {
+                break;
             }
         }
     }

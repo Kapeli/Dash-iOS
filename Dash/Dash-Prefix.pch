@@ -15,6 +15,7 @@
     #import <Foundation/Foundation.h>
 #define iPad ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
 #define isRetina (UIScreen.mainScreen.scale > 1.0)
+#define isIOS11 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0)
 #define isRegularHorizontalClass ([DHAppDelegate sharedDelegate].window.rootViewController.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular)
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
