@@ -149,10 +149,7 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"NodeJS.xml" icon:@"nodejs" aliases:@[@"node.js"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"NumPy.xml" icon:@"numpy" aliases:@[@"scipy", @"sci.py", @"num.py", @"python"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"OCaml.xml" icon:@"ocaml" aliases:nil doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"OpenCV_C.xml" icon:@"cvc" aliases:nil doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"OpenCV_C++.xml" icon:@"cvcpp" aliases:nil doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"OpenCV_Java.xml" icon:@"cvj" aliases:nil doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"OpenCV_Python.xml" icon:@"cvp" aliases:nil doesNotHaveVersions:NO],
+                           [DHFeed feedWithFeed:@"OpenCV.xml" icon:@"opencv" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"OpenGL_2.xml" icon:@"gl2" aliases:@[@"opengl"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"OpenGL_3.xml" icon:@"gl3" aliases:@[@"opengl"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"OpenGL_4.xml" icon:@"gl4" aliases:@[@"opengl glsl openglsl"] doesNotHaveVersions:YES],
@@ -236,7 +233,7 @@ static id singleton = nil;
     for(NSDictionary *feedDictionary in savedFeeds)
     {
         DHFeed *savedFeed = [DHFeed feedWithDictionaryRepresentation:feedDictionary];
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/Swift.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/Swift.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml", @"http://kapeli.com/feeds/OpenCV_C.xml", @"http://kapeli.com/feeds/OpenCV_C++.xml", @"http://kapeli.com/feeds/OpenCV_Java.xml", @"http://kapeli.com/feeds/OpenCV_Python.xml"] containsObject:savedFeed.feedURL])
         {
             if(savedFeed.installed)
             {
@@ -252,7 +249,7 @@ static id singleton = nil;
             savedFeed.installed = NO;
             savedFeed.installedVersion = nil;
         }
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml", @"http://kapeli.com/feeds/OpenCV_C.xml", @"http://kapeli.com/feeds/OpenCV_C++.xml", @"http://kapeli.com/feeds/OpenCV_Java.xml", @"http://kapeli.com/feeds/OpenCV_Python.xml"] containsObject:savedFeed.feedURL])
         {
             continue;
         }

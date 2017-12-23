@@ -3,9 +3,9 @@ PODS:
   - DTBonjour (1.1.1)
   - DZNEmptyDataSet (1.4.1)
   - GZIP (1.2.1)
-  - HockeySDK (5.0.0):
-    - HockeySDK/DefaultLib (= 5.0.0)
-  - HockeySDK/DefaultLib (5.0.0)
+  - HockeySDK (5.1.1):
+    - HockeySDK/DefaultLib (= 5.1.1)
+  - HockeySDK/DefaultLib (5.1.1)
   - JGMethodSwizzler (2.0.1)
   - KissXML (5.1.2):
     - KissXML/Core (= 5.1.2)
@@ -72,7 +72,7 @@ SPEC CHECKSUMS:
   DTBonjour: f221ef5500b109de0eb8cf0f6700c10a27cc8eb0
   DZNEmptyDataSet: b6d8ef0e69a4347b70c642148453174dbf8817f1
   GZIP: 7ee835f989fb3c6ea79005fc90b8fa6af710a70d
-  HockeySDK: 82bf8dcbe1af3c87c24dc98924fcf2e2ba5be8c4
+  HockeySDK: a240b3c62ac6b8ccd4301ee65cf25a8e5c9c0556
   JGMethodSwizzler: e0ea5c1c6c55304ec4ef3f54e441400c6735c899
   KissXML: 246c842586bb77110e04fb88e19376d96245c856
   MRProgress: ae0bff676bc83d62cfd5567bba3325f4617c7215
