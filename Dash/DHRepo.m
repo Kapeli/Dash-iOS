@@ -552,6 +552,10 @@
     NSRange range;
     NSInteger offset = 0;
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:cell.titleLabel.attributedText];
+    for(NSString *key in [DHDBResult highlightDictionary])
+    {
+        [string removeAttribute:key range:NSMakeRange(0, string.length)];
+    }
     NSString *substring = [[string string] copy];
     BOOL didAddAttributes = NO;
     while((range = [substring rangeOfString:self.filterQuery options:NSCaseInsensitiveSearch]).location != NSNotFound)

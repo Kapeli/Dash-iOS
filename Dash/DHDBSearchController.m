@@ -305,6 +305,10 @@
 {
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:cell.textLabel.attributedText];
     BOOL didAddAttributes = NO;
+    for(NSString *key in [DHDBResult highlightDictionary])
+    {
+        [string removeAttribute:key range:NSMakeRange(0, string.length)];
+    }
     for(NSValue *highlightRangeValue in result.highlightRanges)
     {
         NSRange highlightRange = [highlightRangeValue rangeValue];
