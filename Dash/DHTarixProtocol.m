@@ -81,7 +81,10 @@
         DHWebViewController *webController = [DHWebViewController sharedWebViewController];
         NSString *cssString = [NSString stringWithFormat:@"<head><style>%@</style>", [DHCSS currentCSSStringWithTextModifier]];
         
-        NSString *viewportString = [NSString stringWithFormat:@"<meta id='dash_viewport' name='viewport' content='%@'/></head>", [DHWebView viewportContent:webController.webView.frame]];
+        __block NSString *viewportString = @"";
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            viewportString = [NSString stringWithFormat:@"<meta id='dash_viewport' name='viewport' content='%@'/></head>", [DHWebView viewportContent:webController.webView.frame]];
+        });
         NSMutableString *content = [[NSMutableString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         if(content)
         {
