@@ -6,7 +6,6 @@
 * Fixed an issue which caused search results to not be highlighted correctly - [aea602e](https://github.com/Kapeli/Dash-iOS/commit/aea602e9b5292c110f6cb934f892349a3290689d)
 * Fixed access to UI on background thread - [90b1875](https://github.com/Kapeli/Dash-iOS/commit/90b1875f3728f5ca4485693ec8209cf8342cecfe)
 * Fixed an issue which caused extra table row separators to appear above the search results table - [313893d](https://github.com/Kapeli/Dash-iOS/commit/313893ddeddb10b029d7bb2c324867a09a127946)
-* Centered transfer docsets empty view - [a573704](https://github.com/Kapeli/Dash-iOS/commit/a57370421e61d5cb4518482a7936467d20acb156)
 * Consolidated the OpenCV C, C++, Python and Java docsets into a single OpenCV docset - [9af12ee](https://github.com/Kapeli/Dash-iOS/commit/9af12ee33f4d60de14d4bbb0a0741be61296e2b0)
 
 # 1.7.0
