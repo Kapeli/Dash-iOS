@@ -221,17 +221,12 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 - (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
 {
-    return YES;
+    return NO;
 }
 
 - (CGFloat)spaceHeightForEmptyDataSet:(UIScrollView *)scrollView
 {
     return 24;
-}
-
-- (CGPoint)offsetForEmptyDataSet:(UIScrollView *)scrollView
-{
-    return CGPointMake(0, 16);
 }
 
 - (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView

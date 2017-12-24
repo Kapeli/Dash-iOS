@@ -232,7 +232,7 @@ static id singleton = nil;
 
 - (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
 {
-    return YES;
+    return NO;
 }
 
 - (CGFloat)spaceHeightForEmptyDataSet:(UIScrollView *)scrollView
@@ -240,9 +240,9 @@ static id singleton = nil;
     return 24;
 }
 
-- (CGPoint)offsetForEmptyDataSet:(UIScrollView *)scrollView
+- (void)emptyDataSetWillAppear:(UIScrollView *)scrollView
 {
-    return CGPointMake(0, -40);
+    [self.tableView setContentOffset:CGPointMake(0, -self.tableView.contentInset.top)];
 }
 
 - (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView

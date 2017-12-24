@@ -12,8 +12,7 @@ target "Dash" do
     pod 'UIAlertView+Blocks'
     pod 'UIActionSheet+Blocks'
     pod 'AutoCoding'
-    pod 'DZNEmptyDataSet', :path => 'Modified Pods/DZNEmptyDataSet/DZNEmptyDataSet.podspec'
-    # Some changes in terms of repositioning after orientation change
+    pod 'DZNEmptyDataSet'
     pod 'JGMethodSwizzler'
     pod 'DTBonjour', :path => 'Modified Pods/DTBonjour/DTBonjour.podspec'
     # Modified to add originating IP address support to DTBonjourDataConnection
