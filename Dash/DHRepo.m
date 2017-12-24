@@ -588,6 +588,13 @@
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
+    if(isIOS11)
+    {
+        if(@available(iOS 11.0, *))
+        {
+            tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+    }
     [controller.searchResultsTableView registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
     [controller.searchResultsTableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
     tableView.allowsSelection = NO;

@@ -88,6 +88,13 @@
 {
     self.loading = YES;
     tableView.allowsSelection = NO;
+    if(isIOS11)
+    {
+        if(@available(iOS 11.0, *))
+        {
+            tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+    }
     [tableView registerNib:[UINib nibWithNibName:@"DHBrowserCell" bundle:nil] forCellReuseIdentifier:@"DHBrowserCell"];
     [tableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
 }

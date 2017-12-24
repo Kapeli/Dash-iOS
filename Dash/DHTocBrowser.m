@@ -147,6 +147,13 @@
 - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
     self.searchController = controller;
+    if(isIOS11)
+    {
+        if(@available(iOS 11.0, *))
+        {
+            tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+    }
     tableView.rowHeight = 44;
     tableView.separatorInset = UIEdgeInsetsMake(0, DHHeaderSeparatorInset, 0, 0);
     if(iPad && isRegularHorizontalClass)
