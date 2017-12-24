@@ -242,7 +242,7 @@ static id singleton = nil;
 
 - (CGPoint)offsetForEmptyDataSet:(UIScrollView *)scrollView
 {
-    return CGPointMake(0, 16);
+    return CGPointMake(0, -40);
 }
 
 - (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView
