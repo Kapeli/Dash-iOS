@@ -175,11 +175,18 @@
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView
 {
-
+    if([self.viewController isKindOfClass:[UITableViewController class]])
+    {
+        [(UITableViewController*)self.viewController tableView].separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
 }
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView
 {
+    if([self.viewController isKindOfClass:[UITableViewController class]])
+    {
+        [(UITableViewController*)self.viewController tableView].separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }
     [self.searcher cancelSearch];
     self.searcher = nil;
 }
