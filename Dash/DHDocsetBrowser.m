@@ -69,6 +69,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self.navigationItem.leftBarButtonItem setEnabled:YES];
     [super viewWillAppear:animated];
     if(!self.isEditing)
     {
@@ -567,6 +568,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
         [self performSegueWithIdentifier:@"DHDocsetDownloaderToDetailSegue" sender:self];
         [[self.splitViewController.viewControllers.lastObject navigationItem] setHidesBackButton:YES];
     }
+    [self.navigationItem.leftBarButtonItem setEnabled:NO];
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
