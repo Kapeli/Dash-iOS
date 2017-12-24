@@ -1,7 +1,7 @@
 PODS:
   - AutoCoding (2.2.3)
   - DTBonjour (1.1.1)
-  - DZNEmptyDataSet (1.8.1)
+  - DZNEmptyDataSet (1.7.3)
   - GZIP (1.2.1)
   - HockeySDK (5.1.1):
     - HockeySDK/DefaultLib (= 5.1.1)
@@ -47,7 +47,7 @@ PODS:
 DEPENDENCIES:
   - AutoCoding
   - DTBonjour (from `Modified Pods/DTBonjour/DTBonjour.podspec`)
-  - DZNEmptyDataSet
+  - DZNEmptyDataSet (from `https://github.com/benrudhart/DZNEmptyDataSet.git`)
   - GZIP
   - HockeySDK
   - JGMethodSwizzler
@@ -62,13 +62,20 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   DTBonjour:
     :path: Modified Pods/DTBonjour/DTBonjour.podspec
+  DZNEmptyDataSet:
+    :git: https://github.com/benrudhart/DZNEmptyDataSet.git
   MRProgress:
     :path: Modified Pods/MRProgress/MRProgress.podspec
+
+CHECKOUT OPTIONS:
+  DZNEmptyDataSet:
+    :commit: 7b9c2734aa5832606099fb1dee7b3ed188d627d4
+    :git: https://github.com/benrudhart/DZNEmptyDataSet.git
 
 SPEC CHECKSUMS:
   AutoCoding: 90ca3cbc0d77a37cfff75167d705b44148c5fc51
   DTBonjour: f221ef5500b109de0eb8cf0f6700c10a27cc8eb0
-  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  DZNEmptyDataSet: dd7cca17c1d07dfa78956859b1e70a52505678ef
   GZIP: 7ee835f989fb3c6ea79005fc90b8fa6af710a70d
   HockeySDK: a240b3c62ac6b8ccd4301ee65cf25a8e5c9c0556
   JGMethodSwizzler: e0ea5c1c6c55304ec4ef3f54e441400c6735c899
@@ -80,6 +87,6 @@ SPEC CHECKSUMS:
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
 
-PODFILE CHECKSUM: 5ba0697a35cf69d0d42c28694abaefeef551ef60
+PODFILE CHECKSUM: b354afbf9c3de7e9a13a0a27f4fd3feba596fe18
 
 COCOAPODS: 1.3.1

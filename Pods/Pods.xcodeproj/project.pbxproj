@@ -348,12 +348,12 @@
 		030C611F5E824D16083FA17A98E0146C /* GZIP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GZIP.h; path = GZIP/GZIP.h; sourceTree = "<group>"; };
 		03210C72612931BF28D4C13E7FD7789F /* UIActionSheet+Blocks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks-dummy.m"; sourceTree = "<group>"; };
 		044507925772D9B901651F1D9C2B84C8 /* DTBonjourServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTBonjourServer.m; path = Core/Source/DTBonjourServer.m; sourceTree = "<group>"; };
-		04C0C2A5D189766EFAC0608308CA7FCE /* libReachability.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReachability.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		04C0C2A5D189766EFAC0608308CA7FCE /* libReachability.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libReachability.a; path = libReachability.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C0FE377BF9675E2A8D3719F7AB0D9E /* MRIconView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MRIconView.h; path = src/Components/MRIconView.h; sourceTree = "<group>"; };
 		072E81170AE7279B5F9402A37755CC3B /* UIActionSheet+Blocks.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIActionSheet+Blocks.xcconfig"; sourceTree = "<group>"; };
 		07E3087A87E279611B4B8EF0B3CE39B8 /* NSScanner+DTBonjour.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSScanner+DTBonjour.m"; path = "Core/Source/NSScanner+DTBonjour.m"; sourceTree = "<group>"; };
 		084D201A6855DCEC6395849F50DE4D92 /* buttonRoundedRegularHighlighted.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = buttonRoundedRegularHighlighted.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/buttonRoundedRegularHighlighted.png"; sourceTree = "<group>"; };
-		09BC90AA718BA73700BFBE6DC94E4AFD /* libSAMKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSAMKeychain.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		09BC90AA718BA73700BFBE6DC94E4AFD /* libSAMKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSAMKeychain.a; path = libSAMKeychain.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C3996DFD6CA79E3FAA2BD4CB7B7BA2D /* MRBlurView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MRBlurView.m; path = src/Blur/MRBlurView.m; sourceTree = "<group>"; };
 		1068322F27101DEB7A65593D2AA709C0 /* JGMethodSwizzler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGMethodSwizzler.h; path = JGMethodSwizzler/JGMethodSwizzler.h; sourceTree = "<group>"; };
 		111DCA0E215404B364A727C3CCA014DE /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
@@ -362,33 +362,33 @@
 		1F3E6793F28CC9D005456886BB21CD2A /* MRStopableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MRStopableView.h; path = src/Components/MRStopableView.h; sourceTree = "<group>"; };
 		20C9311F510CFC8579EE337AB8583386 /* SAMKeychain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SAMKeychain.m; path = Sources/SAMKeychain.m; sourceTree = "<group>"; };
 		216A07F1025F90ED5CFA30DFA18B4D2D /* DDXMLElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDXMLElement.h; path = KissXML/DDXMLElement.h; sourceTree = "<group>"; };
-		217753954CFB58A86EC562D835B9849E /* libMRProgress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMRProgress.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		217753954CFB58A86EC562D835B9849E /* libMRProgress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMRProgress.a; path = libMRProgress.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		24515BBE263308EA23C06C6ADD48314B /* DTBonjourDataConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTBonjourDataConnection.m; path = Core/Source/DTBonjourDataConnection.m; sourceTree = "<group>"; };
 		2480648A783778B056EDCF4FC4713EA5 /* MRProgress.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MRProgress.xcconfig; sourceTree = "<group>"; };
 		263A035D1A87573CE7D88C51C54BB9D6 /* Pods-Dash-Dash App Store-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Dash-Dash App Store-resources.sh"; sourceTree = "<group>"; };
 		279403D523941CAD9E34FB210CE3DB8D /* NSData+GZIP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+GZIP.h"; path = "GZIP/NSData+GZIP.h"; sourceTree = "<group>"; };
-		29173BF30373781F53795965BB99C4B1 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HockeySDKResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A4C40E7F022AC8F62BA17F077F525B8 /* hu.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = hu.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/hu.lproj"; sourceTree = "<group>"; };
+		29173BF30373781F53795965BB99C4B1 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = HockeySDKResources.bundle; path = HockeySDKResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A4C40E7F022AC8F62BA17F077F525B8 /* hu.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = hu.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/hu.lproj"; sourceTree = "<group>"; };
 		2A68C8FDFB5B2429586FF5EFF1B876FB /* iconCamera@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "iconCamera@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/iconCamera@2x.png"; sourceTree = "<group>"; };
 		2A6C6BC1CF7B02547F4A4640F79FEC17 /* KissXML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KissXML.xcconfig; sourceTree = "<group>"; };
 		2ADF772269945129B056D0AE37CDB31F /* Pods-Dash-Dash App Store-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Dash-Dash App Store-acknowledgements.plist"; sourceTree = "<group>"; };
-		2AF62D17EC17728996657E2662BAD6A1 /* pt-PT.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "pt-PT.lproj"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/pt-PT.lproj"; sourceTree = "<group>"; };
-		2C5355A72FC6C612A09FFD227A951F13 /* nb.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = nb.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/nb.lproj"; sourceTree = "<group>"; };
+		2AF62D17EC17728996657E2662BAD6A1 /* pt-PT.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "pt-PT.lproj"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/pt-PT.lproj"; sourceTree = "<group>"; };
+		2C5355A72FC6C612A09FFD227A951F13 /* nb.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nb.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/nb.lproj"; sourceTree = "<group>"; };
 		2D08586B96F510BEDDC971E5E5155D13 /* Cancel@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Cancel@3x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Cancel@3x.png"; sourceTree = "<group>"; };
 		2D3CA18D180D486E88A65CC9F5642618 /* DTBonjour-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DTBonjour-dummy.m"; sourceTree = "<group>"; };
 		2E31FE5397293D5EA4C841A8F1CBE8EE /* Rectangle@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Rectangle@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Rectangle@2x.png"; sourceTree = "<group>"; };
 		302E5E0CD33CB30E047208D21464907F /* Cancel.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Cancel.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Cancel.png"; sourceTree = "<group>"; };
 		30A682094EF85215E80C0AA858590D5A /* Pods-Dash-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Dash-resources.sh"; sourceTree = "<group>"; };
 		315C51660B69EA97A8A0247EAAAFD481 /* Ok@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Ok@3x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Ok@3x.png"; sourceTree = "<group>"; };
-		324DA85A06070EA903A0648077F56859 /* libJGMethodSwizzler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJGMethodSwizzler.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		324DA85A06070EA903A0648077F56859 /* libJGMethodSwizzler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libJGMethodSwizzler.a; path = libJGMethodSwizzler.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A0141EAB674C158159C4A834AB33DC /* DDXMLElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDXMLElement.m; path = KissXML/DDXMLElement.m; sourceTree = "<group>"; };
 		34A89F38E659B427D61EBAF21818EA78 /* JGMethodSwizzler-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JGMethodSwizzler-dummy.m"; sourceTree = "<group>"; };
 		35F5A79A9D4F7043E633AC35921E85D7 /* DTBonjourDataChunk.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTBonjourDataChunk.m; path = Core/Source/DTBonjourDataChunk.m; sourceTree = "<group>"; };
-		36E0BEE9ABEB1EF56DF693173D748789 /* libDZNEmptyDataSet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDZNEmptyDataSet.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		36E0BEE9ABEB1EF56DF693173D748789 /* libDZNEmptyDataSet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libDZNEmptyDataSet.a; path = libDZNEmptyDataSet.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3782B59C6F7716B398DBB1B53C697DA4 /* Arrow@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Arrow@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Arrow@2x.png"; sourceTree = "<group>"; };
-		3822CD697D48AD9FB642A7ADF0FAE9A1 /* fa.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = fa.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/fa.lproj"; sourceTree = "<group>"; };
-		38DD8544E86570AA5D842195CC487719 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = de.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/de.lproj"; sourceTree = "<group>"; };
-		3A196ADBC65193C679C590B963125064 /* libPods-Dash-Dash App Store.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dash-Dash App Store.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3822CD697D48AD9FB642A7ADF0FAE9A1 /* fa.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fa.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/fa.lproj"; sourceTree = "<group>"; };
+		38DD8544E86570AA5D842195CC487719 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = de.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/de.lproj"; sourceTree = "<group>"; };
+		3A196ADBC65193C679C590B963125064 /* libPods-Dash-Dash App Store.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Dash-Dash App Store.a"; path = "libPods-Dash-Dash App Store.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BEFC68B77FDC518AFD94409B09B6AEC /* Ok@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Ok@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Ok@2x.png"; sourceTree = "<group>"; };
 		3E531164633FB25AF4591712A3E2040B /* Pods-Dash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dash.release.xcconfig"; sourceTree = "<group>"; };
 		40782AF2779003DAA03A1896486648A1 /* SAMKeychain.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SAMKeychain.xcconfig; sourceTree = "<group>"; };
@@ -398,7 +398,7 @@
 		454DB4214790301067BD2958AB01DBBF /* NSString+DDXML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+DDXML.m"; path = "KissXML/Categories/NSString+DDXML.m"; sourceTree = "<group>"; };
 		45A2F1CD28D070D35DF6AA3B57C679AB /* MRStopButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MRStopButton.m; path = src/Components/MRStopButton.m; sourceTree = "<group>"; };
 		45C1AFF24F314CB5182847A0144F8365 /* IconGradient.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = IconGradient.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/IconGradient.png"; sourceTree = "<group>"; };
-		46F3802168BE64B48A6B241A3D21B668 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = pt.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/pt.lproj"; sourceTree = "<group>"; };
+		46F3802168BE64B48A6B241A3D21B668 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pt.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/pt.lproj"; sourceTree = "<group>"; };
 		4BDDDA9801ED8E936ECCEB03CE42CCC1 /* Pods-Dash-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Dash-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4BFA4FF11CEB2CF007186E50667C6C91 /* UIAlertView+Blocks.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIAlertView+Blocks.xcconfig"; sourceTree = "<group>"; };
 		4CC78E2DB32F2D17A9C8860D3AED91B0 /* MRProgressHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MRProgressHelper.h; path = src/Utils/MRProgressHelper.h; sourceTree = "<group>"; };
@@ -406,14 +406,14 @@
 		526AA1350F6ED62BAC8A65AB6ED165B4 /* buttonRoundedDeleteHighlighted@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "buttonRoundedDeleteHighlighted@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted@2x.png"; sourceTree = "<group>"; };
 		529AC7984E527A5C5BEB46075713F5D9 /* Arrow.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Arrow.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Arrow.png"; sourceTree = "<group>"; };
 		535CFEBA0E93EED92713314F2FEB113D /* DTBonjour.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DTBonjour.xcconfig; sourceTree = "<group>"; };
-		54ADE04B24F2E547FECEDA6027478BC9 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = it.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/it.lproj"; sourceTree = "<group>"; };
+		54ADE04B24F2E547FECEDA6027478BC9 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = it.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/it.lproj"; sourceTree = "<group>"; };
 		5712EEAE4D2BF1AAB587D434533C7B9A /* MRProgressOverlayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MRProgressOverlayView.h; path = src/Components/MRProgressOverlayView.h; sourceTree = "<group>"; };
 		5958A6BB8B341444EFE128BD697C5126 /* SAMKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SAMKeychain.h; path = Sources/SAMKeychain.h; sourceTree = "<group>"; };
-		59E0CA62B79121B660F5D231DC539EA0 /* libDTBonjour.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDTBonjour.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A910EA811E4E0FCDADEBB37322527DB /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = nl.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/nl.lproj"; sourceTree = "<group>"; };
+		59E0CA62B79121B660F5D231DC539EA0 /* libDTBonjour.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libDTBonjour.a; path = libDTBonjour.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A910EA811E4E0FCDADEBB37322527DB /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nl.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/nl.lproj"; sourceTree = "<group>"; };
 		5D443F669D699C40E98291C34074CF15 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+EmptyDataSet.m"; path = "Source/UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
-		5DDAE0349023EF3CAE24E32C5F4FD058 /* libNSTimer-Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libNSTimer-Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5EEF3B4BE703E870894D13839DD9BA7D /* libKissXML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKissXML.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DDAE0349023EF3CAE24E32C5F4FD058 /* libNSTimer-Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libNSTimer-Blocks.a"; path = "libNSTimer-Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EEF3B4BE703E870894D13839DD9BA7D /* libKissXML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libKissXML.a; path = libKissXML.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF60D7A2A09C1E0F6B6110E65872025 /* DDXMLDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDXMLDocument.h; path = KissXML/DDXMLDocument.h; sourceTree = "<group>"; };
 		5EF8CC25C4AF762DA94D4BC3C49DCBA1 /* Pods-Dash-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Dash-frameworks.sh"; sourceTree = "<group>"; };
 		6141018485D33D6EACB4D9F12C05A8B4 /* Rectangle.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Rectangle.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Rectangle.png"; sourceTree = "<group>"; };
@@ -425,27 +425,27 @@
 		661374B79EC670068F20A4CA20BC32D9 /* MRProgress.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MRProgress.h; path = src/MRProgress.h; sourceTree = "<group>"; };
 		66639E4AB0B9D5ECA2025DF1EB14DCDC /* DDXMLPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDXMLPrivate.h; path = KissXML/Private/DDXMLPrivate.h; sourceTree = "<group>"; };
 		674BEE8DF6B3F75E6529AE0F0C2EA643 /* MRBlurView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MRBlurView.h; path = src/Blur/MRBlurView.h; sourceTree = "<group>"; };
-		68EAC6E40AAAD0000480DDDA362A159E /* libUIAlertView+Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUIAlertView+Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68EAC6E40AAAD0000480DDDA362A159E /* libUIAlertView+Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libUIAlertView+Blocks.a"; path = "libUIAlertView+Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6935DCAD114636838AE00D29F42B65EC /* MRProgress-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MRProgress-dummy.m"; sourceTree = "<group>"; };
-		6C8FBA6A370C42FE63ADDFE87F5B5901 /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = es.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/es.lproj"; sourceTree = "<group>"; };
+		6C8FBA6A370C42FE63ADDFE87F5B5901 /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = es.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/es.lproj"; sourceTree = "<group>"; };
 		6D3AEDD86C58C7203FBB0D2BAB642ADE /* NSTimer-Blocks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSTimer-Blocks-dummy.m"; sourceTree = "<group>"; };
 		6D917854C3CC7861E1B6FA1F9AB0EDFB /* UIImage+MRImageEffects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MRImageEffects.m"; path = "src/Blur/UIImage+MRImageEffects.m"; sourceTree = "<group>"; };
 		6F444652B26090413DB1B3A39D60635D /* feedbackActivity@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "feedbackActivity@3x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/feedbackActivity@3x.png"; sourceTree = "<group>"; };
 		6FB6E03AAC5B29A62FC4572E35C3DFA5 /* Arrow@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Arrow@3x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Arrow@3x.png"; sourceTree = "<group>"; };
 		7083AE4B09F2A83953471EB9AA73DEBA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		70EE4890D2D09FBE4ECCD548B4D186C3 /* hr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = hr.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/hr.lproj"; sourceTree = "<group>"; };
+		70EE4890D2D09FBE4ECCD548B4D186C3 /* hr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = hr.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/hr.lproj"; sourceTree = "<group>"; };
 		729DFAE1293D7006E08BDC51559A135D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		72ADEFAA760A24C349E74BFE3A2356EA /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+EmptyDataSet.h"; path = "Source/UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		72FE596C22C7B8E1993B93C33F94F7BD /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
 		73FC0BFFD1ED9DB968A2881BE528C162 /* Pods-Dash-Dash App Store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dash-Dash App Store.release.xcconfig"; sourceTree = "<group>"; };
 		77CD3F0BBDCDB52C6E980131B9A7AFF7 /* Pods-Dash-Dash App Store-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Dash-Dash App Store-frameworks.sh"; sourceTree = "<group>"; };
-		7E452FB1472EADCEDF1CD6EC66B780CB /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ja.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/ja.lproj"; sourceTree = "<group>"; };
+		7E452FB1472EADCEDF1CD6EC66B780CB /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ja.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/ja.lproj"; sourceTree = "<group>"; };
 		7EBC0B5282DF01BACB6FDFEB988F2289 /* MRProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MRProgressView.m; path = src/Components/MRProgressView.m; sourceTree = "<group>"; };
 		7F35AB0A4E7080CC7FAAF98FA324EEA7 /* authorize_denied@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "authorize_denied@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/authorize_denied@2x.png"; sourceTree = "<group>"; };
 		81A7C9AF0A1A8CD9D704DD7D1E16ABBE /* Cancel@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Cancel@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Cancel@2x.png"; sourceTree = "<group>"; };
 		857FB6A7FFD058E0EC174767734C3427 /* UIImage+MRImageEffects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MRImageEffects.h"; path = "src/Blur/UIImage+MRImageEffects.h"; sourceTree = "<group>"; };
 		85F309ED19371CF96FC00895E39B9F36 /* feedbackActivity@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "feedbackActivity@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/feedbackActivity@2x.png"; sourceTree = "<group>"; };
-		867C841B125096FCDF131C19B901C818 /* libPods-Dash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		867C841B125096FCDF131C19B901C818 /* libPods-Dash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Dash.a"; path = "libPods-Dash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8768BBD75FDA76DF504E0F380873AC7E /* buttonRoundedDeleteHighlighted.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = buttonRoundedDeleteHighlighted.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted.png"; sourceTree = "<group>"; };
 		8E6B2607556F6FC1D83B76AC5603EF4D /* Reachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		9009D796C61EA9224F9D0BFA14278DEA /* NSData+GZIP.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+GZIP.m"; path = "GZIP/NSData+GZIP.m"; sourceTree = "<group>"; };
@@ -455,7 +455,7 @@
 		927CD3750B8AB6346B2A471C093C1B94 /* IconGradient@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "IconGradient@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/IconGradient@2x.png"; sourceTree = "<group>"; };
 		92AC527247F958F8FBDBB86916894EE4 /* AutoCoding-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AutoCoding-dummy.m"; sourceTree = "<group>"; };
 		93781367DDCE18315802819FBE7E729A /* Reachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		951B26CA93BDEC7E994B07C6D8841E3B /* AppIconPlaceHolder.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = AppIconPlaceHolder.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/AppIconPlaceHolder.png"; sourceTree = "<group>"; };
 		9596046122E11E6180DB77503DE58765 /* MRActivityIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MRActivityIndicatorView.h; path = src/Components/MRActivityIndicatorView.h; sourceTree = "<group>"; };
 		960F253F2089F866421AAA2DD656F75B /* ResourceBundle-HockeySDKResources-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-HockeySDKResources-Info.plist"; sourceTree = "<group>"; };
@@ -469,19 +469,19 @@
 		9B77247F1314CB5F5B21473B53747751 /* DDXMLNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDXMLNode.m; path = KissXML/DDXMLNode.m; sourceTree = "<group>"; };
 		9C83948038D00DDF3A7A6E8AF9E43F44 /* DDXMLElementAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDXMLElementAdditions.m; path = KissXML/Additions/DDXMLElementAdditions.m; sourceTree = "<group>"; };
 		9F770D66C2492F1F4702D218A29A93C4 /* authorize_denied@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "authorize_denied@3x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/authorize_denied@3x.png"; sourceTree = "<group>"; };
-		A138FFAC7D20EB29F4ACAF69287BB614 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/en.lproj"; sourceTree = "<group>"; };
+		A138FFAC7D20EB29F4ACAF69287BB614 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/en.lproj"; sourceTree = "<group>"; };
 		A56D2ABFC19E85F91CCECE2402164B8F /* MRNavigationBarProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MRNavigationBarProgressView.h; path = src/Components/MRNavigationBarProgressView.h; sourceTree = "<group>"; };
 		A5AD81B28CEE7821416EE29C257DC6BE /* Reachability-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Reachability-prefix.pch"; sourceTree = "<group>"; };
 		A5CC2CA50C2FBA42609AE5BC159F017D /* FeedbackPlaceholder.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = FeedbackPlaceholder.png; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/FeedbackPlaceholder.png"; sourceTree = "<group>"; };
 		A6D7A2A15862C1716B7A138D83BFEC35 /* DZNEmptyDataSet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DZNEmptyDataSet-dummy.m"; sourceTree = "<group>"; };
 		A734D425F4D80E0AC3799C36B2AB4905 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
 		A8577EBCE4B4F6FA9026C96DD05D5CDF /* AutoCoding-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AutoCoding-prefix.pch"; sourceTree = "<group>"; };
-		AC77E62A01EB04501B9B09B7335670F6 /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ru.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/ru.lproj"; sourceTree = "<group>"; };
+		AC77E62A01EB04501B9B09B7335670F6 /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ru.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/ru.lproj"; sourceTree = "<group>"; };
 		AE1EFD1813DC82F6460D4D66E683A9CF /* DZNEmptyDataSet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DZNEmptyDataSet-prefix.pch"; sourceTree = "<group>"; };
 		AE5BAEE99B3D1EFC3E4B872D8FA255A5 /* SAMKeychain.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SAMKeychain.bundle; path = Support/SAMKeychain.bundle; sourceTree = "<group>"; };
-		AF70967756880AC91C8DA0BC8E2A97CC /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hans.lproj"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/zh-Hans.lproj"; sourceTree = "<group>"; };
+		AF70967756880AC91C8DA0BC8E2A97CC /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/zh-Hans.lproj"; sourceTree = "<group>"; };
 		B008634E98AB32A4ED2BCB61AFA82F1B /* NSScanner+DTBonjour.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSScanner+DTBonjour.h"; path = "Core/Source/NSScanner+DTBonjour.h"; sourceTree = "<group>"; };
-		B25214F3E114BDA5BA36EA702CB3BE8A /* libUIActionSheet+Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUIActionSheet+Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B25214F3E114BDA5BA36EA702CB3BE8A /* libUIActionSheet+Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libUIActionSheet+Blocks.a"; path = "libUIActionSheet+Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B262117B4FBF2EECF8B79840F12D5E62 /* UIActionSheet+Blocks-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks-prefix.pch"; sourceTree = "<group>"; };
 		B422A00F0FA3E9587AE9BF4260E4FB10 /* DTBonjourDataChunk.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTBonjourDataChunk.h; path = Core/Source/DTBonjourDataChunk.h; sourceTree = "<group>"; };
 		B56AEDB51018EA10B10FA740548A2E29 /* MRProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MRProgressView.h; path = src/Components/MRProgressView.h; sourceTree = "<group>"; };
@@ -490,18 +490,18 @@
 		B6F235F3E87F30CDC1AB2EED0B2FF14B /* Pods-Dash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dash.debug.xcconfig"; sourceTree = "<group>"; };
 		B72E9B277BBA4224515107FE5B775282 /* Pods-Dash-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Dash-dummy.m"; sourceTree = "<group>"; };
 		B7F8D73EF73FF675B9541CF7B7BD97E8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		BAA2B2F7C3BD3753EEC450DF3C8EECC2 /* libAutoCoding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAutoCoding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAA2B2F7C3BD3753EEC450DF3C8EECC2 /* libAutoCoding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAutoCoding.a; path = libAutoCoding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF26E1E211D593A56F8E1554D511EDC5 /* Blur@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Blur@2x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Blur@2x.png"; sourceTree = "<group>"; };
 		BFDF824F36DFFB6F90C8157DAC66BA75 /* Pods-Dash-Dash App Store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dash-Dash App Store.debug.xcconfig"; sourceTree = "<group>"; };
 		C521215BB4396A3EF35F641BE78193BC /* KissXML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KissXML-dummy.m"; sourceTree = "<group>"; };
 		C6280AA4B5DF0C64EF2458D8672CAF5D /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		C94B7302D2FE7EE5E817AE3288E3AF4A /* Reachability-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Reachability-dummy.m"; sourceTree = "<group>"; };
-		CBF0C4FA239B714486B8EE03FAFE35B3 /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = tr.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/tr.lproj"; sourceTree = "<group>"; };
+		CBF0C4FA239B714486B8EE03FAFE35B3 /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = tr.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/tr.lproj"; sourceTree = "<group>"; };
 		CC15D28AFAA0B8E461F46C35578ECD0B /* AutoCoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AutoCoding.m; path = AutoCoding/AutoCoding.m; sourceTree = "<group>"; };
 		CD829656404BA7AC38AC01B58500FFFA /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDXMLElementAdditions.h; path = KissXML/Additions/DDXMLElementAdditions.h; sourceTree = "<group>"; };
 		D0994D751A2F144A7DAD6CC2C61BC8AD /* JGMethodSwizzler-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JGMethodSwizzler-prefix.pch"; sourceTree = "<group>"; };
 		D16E72DC006FF2EFF1A3A3E949A59BF2 /* MRCircularProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MRCircularProgressView.h; path = src/Components/MRCircularProgressView.h; sourceTree = "<group>"; };
-		D211E9A06736B5BEA3AA80A9F98EB83E /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = fr.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/fr.lproj"; sourceTree = "<group>"; };
+		D211E9A06736B5BEA3AA80A9F98EB83E /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fr.lproj; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/fr.lproj"; sourceTree = "<group>"; };
 		D4FA83442F024D818111760254662029 /* NSTimer-Blocks-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSTimer-Blocks-prefix.pch"; sourceTree = "<group>"; };
 		D5F3E178ED8F5184F49E30009CF57338 /* SAMKeychain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SAMKeychain-dummy.m"; sourceTree = "<group>"; };
 		D648FC57EFEC5B1DE1D1CC9EBABD7C8D /* DTBonjourServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTBonjourServer.h; path = Core/Source/DTBonjourServer.h; sourceTree = "<group>"; };
@@ -522,7 +522,7 @@
 		E9186F0537692FE921C3A9D91121CEDF /* MRIconView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MRIconView.m; path = src/Components/MRIconView.m; sourceTree = "<group>"; };
 		ED96CFC0671BD7AA7F5A5CC0C5B77312 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		EDC4C65D357BE91000CC8276C3FC81D5 /* Rectangle@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Rectangle@3x.png"; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDKResources.bundle/Rectangle@3x.png"; sourceTree = "<group>"; };
-		EFD885182661C25C80626B9A19250C7E /* libGZIP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGZIP.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFD885182661C25C80626B9A19250C7E /* libGZIP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libGZIP.a; path = libGZIP.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C14F0B0C87E929D045BF18FC651FEA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		F0E409DCFE40B89D7044376537E203F2 /* Pods-Dash-Dash App Store-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Dash-Dash App Store-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F17E1B5C84B382CEF31087E0A6802C97 /* DTBonjour-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DTBonjour-prefix.pch"; sourceTree = "<group>"; };
@@ -783,6 +783,7 @@
 				72FE596C22C7B8E1993B93C33F94F7BD /* UIActionSheet+Blocks.m */,
 				2AAE6D714FD592E70B3F4986FB3B8DC2 /* Support Files */,
 			);
+			name = "UIActionSheet+Blocks";
 			path = "UIActionSheet+Blocks";
 			sourceTree = "<group>";
 		};
@@ -793,6 +794,7 @@
 				CC15D28AFAA0B8E461F46C35578ECD0B /* AutoCoding.m */,
 				4DC08A303C02B852A7A5CE240064E95B /* Support Files */,
 			);
+			name = AutoCoding;
 			path = AutoCoding;
 			sourceTree = "<group>";
 		};
@@ -954,6 +956,7 @@
 				066FDFA97D9936F126CBCFD0255D428A /* DefaultLib */,
 				1A8DA31437F255839A6192A1BE6A7B39 /* Support Files */,
 			);
+			name = HockeySDK;
 			path = HockeySDK;
 			sourceTree = "<group>";
 		};
@@ -964,6 +967,7 @@
 				9210106ADB8C8E58F9348AAFE26139E5 /* NSTimer+Blocks.m */,
 				8221E54E6C89738CDDBFD24B42EBCF20 /* Support Files */,
 			);
+			name = "NSTimer-Blocks";
 			path = "NSTimer-Blocks";
 			sourceTree = "<group>";
 		};
@@ -982,6 +986,7 @@
 				C6280AA4B5DF0C64EF2458D8672CAF5D /* UIAlertView+Blocks.m */,
 				F98DE93D25D59F796049AC78DA381A6D /* Support Files */,
 			);
+			name = "UIAlertView+Blocks";
 			path = "UIAlertView+Blocks";
 			sourceTree = "<group>";
 		};
@@ -1026,6 +1031,7 @@
 				DBEF076A23F58E98750E156715F2864E /* JGMethodSwizzler.m */,
 				93DEFF8EFF771C3584A43E87E5EF7185 /* Support Files */,
 			);
+			name = JGMethodSwizzler;
 			path = JGMethodSwizzler;
 			sourceTree = "<group>";
 		};
@@ -1082,6 +1088,7 @@
 				39C56EA165C1F8BF59B6FC5C3531EC2C /* Resources */,
 				FEFDE390B108F1FB4A19BD45BEF8A5C6 /* Support Files */,
 			);
+			name = SAMKeychain;
 			path = SAMKeychain;
 			sourceTree = "<group>";
 		};
@@ -1198,6 +1205,7 @@
 				5D443F669D699C40E98291C34074CF15 /* UIScrollView+EmptyDataSet.m */,
 				442DB586AD297BD8C71FD3056C95078A /* Support Files */,
 			);
+			name = DZNEmptyDataSet;
 			path = DZNEmptyDataSet;
 			sourceTree = "<group>";
 		};
@@ -1207,6 +1215,7 @@
 				5582AE7D57B55F945291A55808A36359 /* Core */,
 				83228BE79D395A15383C1CAEEDBD1152 /* Support Files */,
 			);
+			name = KissXML;
 			path = KissXML;
 			sourceTree = "<group>";
 		};
@@ -1235,6 +1244,7 @@
 				93781367DDCE18315802819FBE7E729A /* Reachability.m */,
 				31B98BC5F83C9230825DDF5D68638FDA /* Support Files */,
 			);
+			name = Reachability;
 			path = Reachability;
 			sourceTree = "<group>";
 		};
@@ -1257,6 +1267,7 @@
 				9009D796C61EA9224F9D0BFA14278DEA /* NSData+GZIP.m */,
 				1C0C8369316ED8E6CF52EE924B055997 /* Support Files */,
 			);
+			name = GZIP;
 			path = GZIP;
 			sourceTree = "<group>";
 		};
@@ -1681,7 +1692,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";

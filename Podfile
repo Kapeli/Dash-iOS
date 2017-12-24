@@ -12,7 +12,7 @@ target "Dash" do
     pod 'UIAlertView+Blocks'
     pod 'UIActionSheet+Blocks'
     pod 'AutoCoding'
-    pod 'DZNEmptyDataSet'
+    pod 'DZNEmptyDataSet', :git => 'https://github.com/benrudhart/DZNEmptyDataSet.git'
     pod 'JGMethodSwizzler'
     pod 'DTBonjour', :path => 'Modified Pods/DTBonjour/DTBonjour.podspec'
     # Modified to add originating IP address support to DTBonjourDataConnection

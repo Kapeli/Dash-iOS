@@ -4,7 +4,7 @@
 //  https://github.com/dzenbot/DZNEmptyDataSet
 //
 //  Created by Ignacio Romero Zurbuchen on 6/20/14.
-//  Copyright (c) 2016 DZN Labs. All rights reserved.
+//  Copyright (c) 2014 DZN Labs. All rights reserved.
 //  Licence: MIT-Licence
 //
 
@@ -14,14 +14,6 @@
 @interface UIView (DZNConstraintBasedLayoutExtensions)
 
 - (NSLayoutConstraint *)equallyRelatedConstraintWithView:(UIView *)view attribute:(NSLayoutAttribute)attribute;
-
-@end
-
-@interface DZNWeakObjectContainer : NSObject
-
-@property (nonatomic, readonly, weak) id weakObject;
-
-- (instancetype)initWithWeakObject:(id)object;
 
 @end
 
@@ -64,14 +56,12 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
 
 - (id<DZNEmptyDataSetSource>)emptyDataSetSource
 {
-    DZNWeakObjectContainer *container = objc_getAssociatedObject(self, kEmptyDataSetSource);
-    return container.weakObject;
+    return objc_getAssociatedObject(self, kEmptyDataSetSource);
 }
 
 - (id<DZNEmptyDataSetDelegate>)emptyDataSetDelegate
 {
-    DZNWeakObjectContainer *container = objc_getAssociatedObject(self, kEmptyDataSetDelegate);
-    return container.weakObject;
+    return objc_getAssociatedObject(self, kEmptyDataSetDelegate);
 }
 
 - (BOOL)isEmptyDataSetVisible
@@ -117,45 +107,36 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
 {
     NSInteger items = 0;
     
-    // UIScollView doesn't respond to 'dataSource' so let's exit
     if (![self respondsToSelector:@selector(dataSource)]) {
         return items;
     }
     
-    // UITableView support
     if ([self isKindOfClass:[UITableView class]]) {
         
+        id <UITableViewDataSource> dataSource = [self performSelector:@selector(dataSource)];
         UITableView *tableView = (UITableView *)self;
-        id <UITableViewDataSource> dataSource = tableView.dataSource;
         
         NSInteger sections = 1;
-        
-        if (dataSource && [dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
+        if ([dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
             sections = [dataSource numberOfSectionsInTableView:tableView];
         }
         
-        if (dataSource && [dataSource respondsToSelector:@selector(tableView:numberOfRowsInSection:)]) {
-            for (NSInteger section = 0; section < sections; section++) {
-                items += [dataSource tableView:tableView numberOfRowsInSection:section];
-            }
+        for (NSInteger i = 0; i < sections; i++) {
+            items += [dataSource tableView:tableView numberOfRowsInSection:i];
         }
     }
-    // UICollectionView support
     else if ([self isKindOfClass:[UICollectionView class]]) {
         
+        id <UICollectionViewDataSource> dataSource = [self performSelector:@selector(dataSource)];
         UICollectionView *collectionView = (UICollectionView *)self;
-        id <UICollectionViewDataSource> dataSource = collectionView.dataSource;
-
-        NSInteger sections = 1;
         
-        if (dataSource && [dataSource respondsToSelector:@selector(numberOfSectionsInCollectionView:)]) {
+        NSInteger sections = 1;
+        if ([dataSource respondsToSelector:@selector(numberOfSectionsInCollectionView:)]) {
             sections = [dataSource numberOfSectionsInCollectionView:collectionView];
         }
         
-        if (dataSource && [dataSource respondsToSelector:@selector(collectionView:numberOfItemsInSection:)]) {
-            for (NSInteger section = 0; section < sections; section++) {
-                items += [dataSource collectionView:collectionView numberOfItemsInSection:section];
-            }
+        for (NSInteger i = 0; i < sections; i++) {
+            items += [dataSource collectionView:collectionView numberOfItemsInSection:i];
         }
     }
     
@@ -169,7 +150,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
 {
     if (self.emptyDataSetSource && [self.emptyDataSetSource respondsToSelector:@selector(titleForEmptyDataSet:)]) {
         NSAttributedString *string = [self.emptyDataSetSource titleForEmptyDataSet:self];
-        if (string) NSAssert([string isKindOfClass:[NSAttributedString class]], @"You must return a valid NSAttributedString object for -titleForEmptyDataSet:");
+        if (string) NSAssert([string isKindOfClass:[NSAttributedString class]], @"You must return a valid NSAttributedString object -titleForEmptyDataSet:");
         return string;
     }
     return nil;
@@ -179,7 +160,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
 {
     if (self.emptyDataSetSource && [self.emptyDataSetSource respondsToSelector:@selector(descriptionForEmptyDataSet:)]) {
         NSAttributedString *string = [self.emptyDataSetSource descriptionForEmptyDataSet:self];
-        if (string) NSAssert([string isKindOfClass:[NSAttributedString class]], @"You must return a valid NSAttributedString object for -descriptionForEmptyDataSet:");
+        if (string) NSAssert([string isKindOfClass:[NSAttributedString class]], @"You must return a valid NSAttributedString object -descriptionForEmptyDataSet:");
         return string;
     }
     return nil;
@@ -195,11 +176,11 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
     return nil;
 }
 
-- (CAAnimation *)dzn_imageAnimation
+- (CAAnimation *) dzn_imageAnimation
 {
     if (self.emptyDataSetSource && [self.emptyDataSetSource respondsToSelector:@selector(imageAnimationForEmptyDataSet:)]) {
         CAAnimation *imageAnimation = [self.emptyDataSetSource imageAnimationForEmptyDataSet:self];
-        if (imageAnimation) NSAssert([imageAnimation isKindOfClass:[CAAnimation class]], @"You must return a valid CAAnimation object for -imageAnimationForEmptyDataSet:");
+        if (imageAnimation) NSAssert([imageAnimation isKindOfClass:[CAAnimation class]], @"You must return a valid UIImage object for -imageForEmptyDataSet:");
         return imageAnimation;
     }
     return nil;
@@ -209,7 +190,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
 {
     if (self.emptyDataSetSource && [self.emptyDataSetSource respondsToSelector:@selector(imageTintColorForEmptyDataSet:)]) {
         UIColor *color = [self.emptyDataSetSource imageTintColorForEmptyDataSet:self];
-        if (color) NSAssert([color isKindOfClass:[UIColor class]], @"You must return a valid UIColor object for -imageTintColorForEmptyDataSet:");
+        if (color) NSAssert([color isKindOfClass:[UIColor class]], @"You must return a valid UIColor object -imageTintColorForEmptyDataSet:");
         return color;
     }
     return nil;
@@ -249,7 +230,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
 {
     if (self.emptyDataSetSource && [self.emptyDataSetSource respondsToSelector:@selector(backgroundColorForEmptyDataSet:)]) {
         UIColor *color = [self.emptyDataSetSource backgroundColorForEmptyDataSet:self];
-        if (color) NSAssert([color isKindOfClass:[UIColor class]], @"You must return a valid UIColor object for -backgroundColorForEmptyDataSet:");
+        if (color) NSAssert([color isKindOfClass:[UIColor class]], @"You must return a valid UIColor object -backgroundColorForEmptyDataSet:");
         return color;
     }
     return [UIColor clearColor];
@@ -301,14 +282,6 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
     return YES;
 }
 
-- (BOOL)dzn_shouldBeForcedToDisplay
-{
-    if (self.emptyDataSetDelegate && [self.emptyDataSetDelegate respondsToSelector:@selector(emptyDataSetShouldBeForcedToDisplay:)]) {
-        return [self.emptyDataSetDelegate emptyDataSetShouldBeForcedToDisplay:self];
-    }
-    return NO;
-}
-
 - (BOOL)dzn_isTouchAllowed
 {
     if (self.emptyDataSetDelegate && [self.emptyDataSetDelegate respondsToSelector:@selector(emptyDataSetShouldAllowTouch:)]) {
@@ -325,7 +298,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
     return NO;
 }
 
-- (BOOL)dzn_isImageViewAnimateAllowed
+- (BOOL)dzn_isImageViewAnimateAllow
 {
     if (self.emptyDataSetDelegate && [self.emptyDataSetDelegate respondsToSelector:@selector(emptyDataSetShouldAnimateImageView:)]) {
         return [self.emptyDataSetDelegate emptyDataSetShouldAnimateImageView:self];
@@ -396,7 +369,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         [self dzn_invalidate];
     }
     
-    objc_setAssociatedObject(self, kEmptyDataSetSource, [[DZNWeakObjectContainer alloc] initWithWeakObject:datasource], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, kEmptyDataSetSource, datasource, OBJC_ASSOCIATION_ASSIGN);
     
     // We add method sizzling for injecting -dzn_reloadData implementation to the native -reloadData implementation
     [self swizzleIfPossible:@selector(reloadData)];
@@ -413,7 +386,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         [self dzn_invalidate];
     }
     
-    objc_setAssociatedObject(self, kEmptyDataSetDelegate, [[DZNWeakObjectContainer alloc] initWithWeakObject:delegate], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, kEmptyDataSetDelegate, delegate, OBJC_ASSOCIATION_ASSIGN);
 }
 
 
@@ -441,7 +414,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         return;
     }
     
-    if (([self dzn_shouldDisplay] && [self dzn_itemsCount] == 0) || [self dzn_shouldBeForcedToDisplay])
+    if ([self dzn_shouldDisplay] && [self dzn_itemsCount] == 0)
     {
         // Notifies that the empty dataset view will appear
         [self dzn_willAppear];
@@ -449,13 +422,15 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         DZNEmptyDataSetView *view = self.emptyDataSetView;
         
         if (!view.superview) {
+            [self addSubview:view];
+
             // Send the view all the way to the back, in case a header and/or footer is present, as well as for sectionHeaders or any other content
-            if (([self isKindOfClass:[UITableView class]] || [self isKindOfClass:[UICollectionView class]]) && self.subviews.count > 1) {
-                [self insertSubview:view atIndex:0];
-            }
-            else {
-                [self addSubview:view];
-            }
+            [self sendSubviewToBack:view];
+
+            // make sure the y origin of view is 0. adding it to a scrollView may have changed it
+            CGRect frame = view.frame;
+            frame.origin.y = 0;
+            view.frame = frame;
         }
         
         // Removing view resetting the view and its constraints it very important to guarantee a good state
@@ -531,16 +506,13 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         view.fadeInOnDisplay = [self dzn_shouldFadeIn];
         
         [view setupConstraints];
-        
-        [UIView performWithoutAnimation:^{
-            [view layoutIfNeeded];            
-        }];
+        [view layoutIfNeeded];
         
         // Configure scroll permission
         self.scrollEnabled = [self dzn_isScrollAllowed];
         
         // Configure image view animation
-        if ([self dzn_isImageViewAnimateAllowed])
+        if ([self dzn_isImageViewAnimateAllow])
         {
             CAAnimation *animation = [self dzn_imageAnimation];
             
@@ -592,8 +564,7 @@ static NSString *const DZNSwizzleInfoSelectorKey = @"selector";
 void dzn_original_implementation(id self, SEL _cmd)
 {
     // Fetch original implementation from lookup table
-    Class baseClass = dzn_baseClassToSwizzleForTarget(self);
-    NSString *key = dzn_implementationKey(baseClass, _cmd);
+    NSString *key = dzn_implementationKey(self, _cmd);
     
     NSDictionary *swizzleInfo = [_impLookupTable objectForKey:key];
     NSValue *impValue = [swizzleInfo valueForKey:DZNSwizzleInfoPointerKey];
@@ -610,31 +581,22 @@ void dzn_original_implementation(id self, SEL _cmd)
     }
 }
 
-NSString *dzn_implementationKey(Class class, SEL selector)
+NSString *dzn_implementationKey(id target, SEL selector)
 {
-    if (!class || !selector) {
+    if (!target || !selector) {
         return nil;
     }
     
-    NSString *className = NSStringFromClass([class class]);
+    Class baseClass;
+    if ([target isKindOfClass:[UITableView class]]) baseClass = [UITableView class];
+    else if ([target isKindOfClass:[UICollectionView class]]) baseClass = [UICollectionView class];
+    else if ([target isKindOfClass:[UIScrollView class]]) baseClass = [UIScrollView class];
+    else return nil;
+    
+    NSString *className = NSStringFromClass([baseClass class]);
     
     NSString *selectorName = NSStringFromSelector(selector);
     return [NSString stringWithFormat:@"%@_%@",className,selectorName];
-}
-
-Class dzn_baseClassToSwizzleForTarget(id target)
-{
-    if ([target isKindOfClass:[UITableView class]]) {
-        return [UITableView class];
-    }
-    else if ([target isKindOfClass:[UICollectionView class]]) {
-        return [UICollectionView class];
-    }
-    else if ([target isKindOfClass:[UIScrollView class]]) {
-        return [UIScrollView class];
-    }
-    
-    return nil;
 }
 
 - (void)swizzleIfPossible:(SEL)selector
@@ -646,7 +608,7 @@ Class dzn_baseClassToSwizzleForTarget(id target)
     
     // Create the lookup table
     if (!_impLookupTable) {
-        _impLookupTable = [[NSMutableDictionary alloc] initWithCapacity:3]; // 3 represent the supported base classes
+        _impLookupTable = [[NSMutableDictionary alloc] initWithCapacity:2];
     }
     
     // We make sure that setImplementation is called once per class kind, UITableView or UICollectionView.
@@ -661,21 +623,20 @@ Class dzn_baseClassToSwizzleForTarget(id target)
         }
     }
     
-    Class baseClass = dzn_baseClassToSwizzleForTarget(self);
-    NSString *key = dzn_implementationKey(baseClass, selector);
+    NSString *key = dzn_implementationKey(self, selector);
     NSValue *impValue = [[_impLookupTable objectForKey:key] valueForKey:DZNSwizzleInfoPointerKey];
     
     // If the implementation for this class already exist, skip!!
-    if (impValue || !key || !baseClass) {
+    if (impValue || !key) {
         return;
     }
     
     // Swizzle by injecting additional implementation
-    Method method = class_getInstanceMethod(baseClass, selector);
+    Method method = class_getInstanceMethod([self class], selector);
     IMP dzn_newImplementation = method_setImplementation(method, (IMP)dzn_original_implementation);
     
     // Store the new implementation in the lookup table
-    NSDictionary *swizzledInfo = @{DZNSwizzleInfoOwnerKey: baseClass,
+    NSDictionary *swizzledInfo = @{DZNSwizzleInfoOwnerKey: [self class],
                                    DZNSwizzleInfoSelectorKey: NSStringFromSelector(selector),
                                    DZNSwizzleInfoPointerKey: [NSValue valueWithPointer:dzn_newImplementation]};
     
@@ -857,7 +818,7 @@ Class dzn_baseClassToSwizzleForTarget(id target)
 - (BOOL)canShowButton
 {
     if ([_button attributedTitleForState:UIControlStateNormal].string.length > 0 || [_button imageForState:UIControlStateNormal]) {
-        return (_button.superview != nil);
+        return (_button.superview != nil) ? YES : NO;
     }
     return NO;
 }
@@ -933,6 +894,8 @@ Class dzn_baseClassToSwizzleForTarget(id target)
     
     // If applicable, set the custom view's constraints
     if (_customView) {
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[contentView]|" options:0 metrics:nil views:@{@"contentView": self.contentView}]];
+        
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[customView]|" options:0 metrics:nil views:@{@"customView":_customView}]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[customView]|" options:0 metrics:nil views:@{@"customView":_customView}]];
     }
@@ -1054,21 +1017,6 @@ Class dzn_baseClassToSwizzleForTarget(id target)
                                         attribute:attribute
                                        multiplier:1.0
                                          constant:0.0];
-}
-
-@end
-
-#pragma mark - DZNWeakObjectContainer
-
-@implementation DZNWeakObjectContainer
-
-- (instancetype)initWithWeakObject:(id)object
-{
-    self = [super init];
-    if (self) {
-        _weakObject = object;
-    }
-    return self;
 }
 
 @end
