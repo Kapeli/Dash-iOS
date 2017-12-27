@@ -1,5 +1,9 @@
 # Master
 
+* No changes yet.
+
+# 1.8.0
+
 * Fixed docset index page button on iOS 11 - [7fd09e8](https://github.com/Kapeli/Dash-iOS/commit/7fd09e8cae3b981aa75662ef3d19111a3ab2039a)
 * Fixed an issue which caused the Swift docset to still appear in Dash, although it was removed - [ca9c9f6](https://github.com/Kapeli/Dash-iOS/commit/ca9c9f64daf9eac30c4dcc000f99240a424bb123)
 * Fixed an issue which caused the search results table to be inset on iOS 11 - [d022d88](https://github.com/Kapeli/Dash-iOS/commit/d022d888e21a37e54a9960239689cac54bb7ef5b)
