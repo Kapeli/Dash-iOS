@@ -525,13 +525,13 @@
 
 - (void)setSizeLabelForCell:(DHRepoTableViewCell *)cell
 {
-    if(!isRegularHorizontalClass)
-    {
-        [cell.titleLabel setRightDetailText:nil];
-        return;
-    }
     if(cell.feed.installed && !cell.feed.installing && cell.feed.size && cell.feed.size.length)
     {
+        if(!isRegularHorizontalClass)
+        {
+            [cell.titleLabel setRightDetailText:nil];
+            return;
+        }
         NSString *label = [cell.feed.size stringByAppendingString:@""];
         cell.titleLabel.maxRightDetailWidth = [DHRightDetailLabel calculateMaxDetailWidthBasedOnLongestPossibleString:label];
         [cell.titleLabel setRightDetailText:label];
