@@ -23,6 +23,7 @@
 #import "DHDocsetManager.h"
 #import "DHTarixProtocol.h"
 #import "DHBlockProtocol.h"
+#import "DHAppleAPIProtocol.h"
 #import "DHCSS.h"
 #import "DHWebViewController.h"
 #import "DHAppUpdateChecker.h"
@@ -78,6 +79,7 @@
     [sharedCache removeAllCachedResponses];
     [NSURLCache setSharedURLCache:sharedCache];
     [NSURLProtocol registerClass:[DHTarixProtocol class]];
+    [NSURLProtocol registerClass:[DHAppleAPIProtocol class]];
     [NSURLProtocol registerClass:[DHRemoteProtocol class]];
     [NSURLProtocol registerClass:[DHBlockProtocol class]];
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];

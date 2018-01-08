@@ -713,7 +713,7 @@ static id singleton = nil;
     {
         return NO;
     }
-    if([[self mainFrameURL] rangeOfString:@"file://"].location != NSNotFound || [[self mainFrameURL] hasPrefix:@"dash-stack://"] || [[self mainFrameURL] hasPrefix:@"dash-tarix://"])
+    if([[self mainFrameURL] rangeOfString:@"file://"].location != NSNotFound || [[self mainFrameURL] hasPrefix:@"dash-stack://"] || [[self mainFrameURL] hasPrefix:@"dash-apple-api://"] || [[self mainFrameURL] hasPrefix:@"dash-tarix://"])
     {
         return YES;
     }

@@ -71,6 +71,11 @@
 		4390520019E692D90083A55E /* DHDBResultSorter.m in Sources */ = {isa = PBXBuildFile; fileRef = 439051FF19E692D90083A55E /* DHDBResultSorter.m */; };
 		43915EE919C5D2FD002806FF /* UIView+DHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43915EE819C5D2FD002806FF /* UIView+DHUtils.m */; };
 		4398D34619BF55B500457CAF /* DHPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4398D34519BF55B500457CAF /* DHPreferences.m */; };
+		43A1C2642001700600512DB3 /* Apple_Docs_Framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43A1C2632001700600512DB3 /* Apple_Docs_Framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		43A1C269200175B900512DB3 /* DHAppleAPIProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C268200175B900512DB3 /* DHAppleAPIProtocol.m */; };
+		43A1C26A200175B900512DB3 /* DHAppleAPIProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C268200175B900512DB3 /* DHAppleAPIProtocol.m */; };
+		43A1C26D200175E500512DB3 /* Apple_Docs_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A1C2632001700600512DB3 /* Apple_Docs_Framework.framework */; };
+		43A1C26E200175E500512DB3 /* Apple_Docs_Framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43A1C2632001700600512DB3 /* Apple_Docs_Framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		43A356CB19FFCE4D0073D143 /* UIViewController+DHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A356CA19FFCE4D0073D143 /* UIViewController+DHUtils.m */; };
 		43A6D9C919E0D69700780BC8 /* DHDocsetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A6D9C819E0D69700780BC8 /* DHDocsetManager.m */; };
 		43AAB7821AAE776800DB76F3 /* DHRemoteProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 43AAB7811AAE776800DB76F3 /* DHRemoteProtocol.m */; };
@@ -245,6 +250,31 @@
 		45D28F8ABD1FC392B1930467 /* libPods-Dash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2364AD2032B0714BCD2265 /* libPods-Dash.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		43A1C24E200161D100512DB3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				43A1C2642001700600512DB3 /* Apple_Docs_Framework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43A1C26F200175E500512DB3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				43A1C26E200175E500512DB3 /* Apple_Docs_Framework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		26480C2A1E2E9ABB00E3145E /* docset_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = docset_icon.png; sourceTree = "<group>"; };
 		4303A3B019C6584F00A7CD85 /* whitespace_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whitespace_tokenizer.h; sourceTree = "<group>"; };
@@ -355,6 +385,9 @@
 		43915EE819C5D2FD002806FF /* UIView+DHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DHUtils.m"; sourceTree = "<group>"; };
 		4398D34419BF55B500457CAF /* DHPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHPreferences.h; sourceTree = "<group>"; };
 		4398D34519BF55B500457CAF /* DHPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHPreferences.m; sourceTree = "<group>"; };
+		43A1C2632001700600512DB3 /* Apple_Docs_Framework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apple_Docs_Framework.framework; path = ../Frameworks/Apple_Docs_Framework.framework; sourceTree = "<group>"; };
+		43A1C267200175B900512DB3 /* DHAppleAPIProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHAppleAPIProtocol.h; sourceTree = "<group>"; };
+		43A1C268200175B900512DB3 /* DHAppleAPIProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHAppleAPIProtocol.m; sourceTree = "<group>"; };
 		43A356C919FFCE4D0073D143 /* UIViewController+DHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DHUtils.h"; sourceTree = "<group>"; };
 		43A356CA19FFCE4D0073D143 /* UIViewController+DHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DHUtils.m"; sourceTree = "<group>"; };
 		43A6D9C719E0D69700780BC8 /* DHDocsetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHDocsetManager.h; sourceTree = "<group>"; };
@@ -486,6 +519,7 @@
 				43FD2EEA19BB8D87007E594D /* UIKit.framework in Frameworks */,
 				43FD2EE619BB8D87007E594D /* Foundation.framework in Frameworks */,
 				45D28F8ABD1FC392B1930467 /* libPods-Dash.a in Frameworks */,
+				43A1C26D200175E500512DB3 /* Apple_Docs_Framework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +536,7 @@
 				4303A3C619C6590000A7CD85 /* DHDocset.m */,
 				4303A3CB19C65E6A00A7CD85 /* DHDocsetIndexer.h */,
 				4303A3CC19C65E6A00A7CD85 /* DHDocsetIndexer.m */,
+				43A1C2662001757700512DB3 /* Apple API Docs */,
 				4303A3CE19C668B500A7CD85 /* Types */,
 				431173D919DA3503007E238E /* Others */,
 			);
@@ -813,6 +848,15 @@
 			name = Others;
 			sourceTree = "<group>";
 		};
+		43A1C2662001757700512DB3 /* Apple API Docs */ = {
+			isa = PBXGroup;
+			children = (
+				43A1C267200175B900512DB3 /* DHAppleAPIProtocol.h */,
+				43A1C268200175B900512DB3 /* DHAppleAPIProtocol.m */,
+			);
+			name = "Apple API Docs";
+			sourceTree = "<group>";
+		};
 		43AC6FFF19E452D100E0DB43 /* Web Pages */ = {
 			isa = PBXGroup;
 			children = (
@@ -924,6 +968,7 @@
 		43FD2EE419BB8D87007E594D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43A1C2632001700600512DB3 /* Apple_Docs_Framework.framework */,
 				43BB043E19ED0B19000FBC0D /* JavaScriptCore.framework */,
 				430C768C19E55E6E006F0DE0 /* MobileCoreServices.framework */,
 				437FE06719E2B4010022ADF4 /* WebKit.framework */,
@@ -992,12 +1037,14 @@
 			buildConfigurationList = 43AB65AF1ED19D2F00A6EC18 /* Build configuration list for PBXNativeTarget "Dash App Store" */;
 			buildPhases = (
 				43AB65321ED19D2F00A6EC18 /* [CP] Check Pods Manifest.lock */,
+				43A1C24E200161D100512DB3 /* Embed Frameworks */,
 				43AB65331ED19D2F00A6EC18 /* Sources */,
 				43AB65821ED19D2F00A6EC18 /* Frameworks */,
 				43AB658D1ED19D2F00A6EC18 /* Resources */,
 				43AB65AC1ED19D2F00A6EC18 /* Git Hashes */,
 				43AB65AD1ED19D2F00A6EC18 /* [CP] Embed Pods Frameworks */,
 				43AB65AE1ED19D2F00A6EC18 /* [CP] Copy Pods Resources */,
+				43A1C2652001708700512DB3 /* Strip Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1019,6 +1066,8 @@
 				43F760BF19EA8C57002BD8A6 /* Git Hashes */,
 				C71793A2EB8A6FB0EA63C3D3 /* [CP] Embed Pods Frameworks */,
 				988D171F13583CC36FBA7412 /* [CP] Copy Pods Resources */,
+				43A1C26F200175E500512DB3 /* Embed Frameworks */,
+				43A1C270200175F700512DB3 /* Strip Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1150,6 +1199,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		43A1C2652001708700512DB3 /* Strip Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Strip Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "################################################################################\n#\n# Copyright 2015 Realm Inc.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n# http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\n################################################################################\n\n# This script strips all non-valid architectures from dynamic libraries in\n# the application's `Frameworks` directory.\n#\n# The following environment variables are required:\n#\n# BUILT_PRODUCTS_DIR\n# FRAMEWORKS_FOLDER_PATH\n# VALID_ARCHS\n# EXPANDED_CODE_SIGN_IDENTITY\n\n\n# Signs a framework with the provided identity\ncode_sign() {\n    # Use the current code_sign_identitiy\n    echo \"Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\n    echo \"/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements $1\"\n    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\"\n}\n\necho \"Stripping frameworks\"\ncd \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\nfor file in $(find . -type f -perm +111); do\n# Skip non-dynamic libraries\nif ! [[ \"$(file \"$file\")\" == *\"dynamically linked shared library\"* ]]; then\ncontinue\nfi\n# Get architectures for current file\narchs=\"$(lipo -info \"${file}\" | rev | cut -d ':' -f1 | rev)\"\nstripped=\"\"\nfor arch in $archs; do\nif ! [[ \"${VALID_ARCHS}\" == *\"$arch\"* ]]; then\n# Strip non-valid architectures in-place\nlipo -remove \"$arch\" -output \"$file\" \"$file\" || exit 1\nstripped=\"$stripped $arch\"\nfi\ndone\nif [[ \"$stripped\" != \"\" ]]; then\necho \"Stripped $file of architectures:$stripped\"\nif [ \"${CODE_SIGNING_REQUIRED}\" == \"YES\" ]; then\ncode_sign \"${file}\"\nfi\nfi\ndone\n";
+		};
+		43A1C270200175F700512DB3 /* Strip Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Strip Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "################################################################################\n#\n# Copyright 2015 Realm Inc.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n# http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\n################################################################################\n\n# This script strips all non-valid architectures from dynamic libraries in\n# the application's `Frameworks` directory.\n#\n# The following environment variables are required:\n#\n# BUILT_PRODUCTS_DIR\n# FRAMEWORKS_FOLDER_PATH\n# VALID_ARCHS\n# EXPANDED_CODE_SIGN_IDENTITY\n\n\n# Signs a framework with the provided identity\ncode_sign() {\n    # Use the current code_sign_identitiy\n    echo \"Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\n    echo \"/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements $1\"\n    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\"\n}\n\necho \"Stripping frameworks\"\ncd \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\nfor file in $(find . -type f -perm +111); do\n# Skip non-dynamic libraries\nif ! [[ \"$(file \"$file\")\" == *\"dynamically linked shared library\"* ]]; then\ncontinue\nfi\n# Get architectures for current file\narchs=\"$(lipo -info \"${file}\" | rev | cut -d ':' -f1 | rev)\"\nstripped=\"\"\nfor arch in $archs; do\nif ! [[ \"${VALID_ARCHS}\" == *\"$arch\"* ]]; then\n# Strip non-valid architectures in-place\nlipo -remove \"$arch\" -output \"$file\" \"$file\" || exit 1\nstripped=\"$stripped $arch\"\nfi\ndone\nif [[ \"$stripped\" != \"\" ]]; then\necho \"Stripped $file of architectures:$stripped\"\nif [ \"${CODE_SIGNING_REQUIRED}\" == \"YES\" ]; then\ncode_sign \"${file}\"\nfi\nfi\ndone\n";
+		};
 		43AB65321ED19D2F00A6EC18 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1356,6 +1433,7 @@
 				43AB65751ED19D2F00A6EC18 /* DHEntryBrowser.m in Sources */,
 				43AB65761ED19D2F00A6EC18 /* DHUnarchiver.m in Sources */,
 				43AB65771ED19D2F00A6EC18 /* DHDocsetIndexer.m in Sources */,
+				43A1C26A200175B900512DB3 /* DHAppleAPIProtocol.m in Sources */,
 				43AB65781ED19D2F00A6EC18 /* DHRightDetailLabel.m in Sources */,
 				43AB65791ED19D2F00A6EC18 /* DHTarixIndex.m in Sources */,
 				43AB657A1ED19D2F00A6EC18 /* DHJavaScript.m in Sources */,
@@ -1441,6 +1519,7 @@
 				439051F919E684160083A55E /* DHEntryBrowser.m in Sources */,
 				431108D519C7AE6D0050174C /* DHUnarchiver.m in Sources */,
 				4303A3CD19C65E6A00A7CD85 /* DHDocsetIndexer.m in Sources */,
+				43A1C269200175B900512DB3 /* DHAppleAPIProtocol.m in Sources */,
 				436F3E4319D4F617007BBC25 /* DHRightDetailLabel.m in Sources */,
 				43F84A7619EEBD1A008FE85C /* DHTarixIndex.m in Sources */,
 				43BB043919ED07DD000FBC0D /* DHJavaScript.m in Sources */,
@@ -1488,6 +1567,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JP58VMK957;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/HockeySDK/HockeySDK-iOS/HockeySDK.embeddedframework\"",
+					"$(PROJECT_DIR)/**",
+					"\"$(SRCROOT)/../Frameworks\"/**",
+				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
@@ -1503,6 +1588,7 @@
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = "Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1528,6 +1614,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JP58VMK957;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/HockeySDK/HockeySDK-iOS/HockeySDK.embeddedframework\"",
+					"$(PROJECT_DIR)/**",
+					"\"$(SRCROOT)/../Frameworks\"/**",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1543,6 +1635,7 @@
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = "Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1600,7 +1693,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
 				SDKROOT = iphoneos;
@@ -1648,7 +1741,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_CFLAGS = "";
 				SDKROOT = iphoneos;
 				SYMROOT = ../build;
@@ -1679,6 +1772,7 @@
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = "Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1717,6 +1811,7 @@
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = "Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2016  Kapeli
+//  Copyright (C) 2018  Kapeli
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -17,20 +17,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DHDocsetManager : NSObject
-
-@property (strong) NSMutableArray *docsets;
-
-+ (DHDocsetManager *)sharedManager;
-- (void)addDocset:(DHDocset *)docset andRemoveOthers:(BOOL)shouldRemove removeOnlyEqualPaths:(BOOL)removeOnlyEqualPaths;
-- (void)removeDocsetsInFolder:(NSString *)path;
-- (void)moveDocsetAtIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex;
-- (DHDocset *)docsetForDocumentationPage:(NSString *)url;
-- (NSMutableArray *)enabledDocsets;
-- (void)saveDefaults;
-- (DHDocset *)docsetWithRelativePath:(NSString *)relativePath;
-- (DHDocset *)appleAPIReferenceDocset;
+@interface DHAppleAPIProtocol : NSURLProtocol
 
 @end
-
-#define DHDocsetsChangedNotification @"DHDocsetsChangedNotification"
