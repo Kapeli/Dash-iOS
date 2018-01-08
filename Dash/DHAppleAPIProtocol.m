@@ -19,6 +19,8 @@
 #import <Apple_Docs_Framework/Apple_Docs_Framework.h>
 #import "DHDocsetManager.h"
 #import "DHLatencyTester.h"
+#import "DHWebViewController.h"
+#import "DHTocBrowser.h"
 
 @implementation DHAppleAPIProtocol
 
@@ -57,10 +59,12 @@
                 parser.ownPath = toolPath;
                 NSString *bestMirror = [DHLatencyTester sharedLatency].bestMirror;
                 bestMirror = (bestMirror) ? bestMirror : @"https://kapeli.com/feeds/";
+                viewer.isIOS = YES;
                 parser.bestMirror = bestMirror;
                 viewer.url = url;
                 parser.dashBuildNumber = 450;
                 data = [[viewer htmlOutput] dataUsingEncoding:NSUTF8StringEncoding];
+                [self setUpTOC:viewer];
                 [DHXcodeHelper cleanUp];
                 [DHViewer cleanUp];
             }
@@ -69,6 +73,28 @@
         [[self client] URLProtocol:self didLoadData:data];
         [[self client] URLProtocolDidFinishLoading:self];
     }
+}
+
+- (void)setUpTOC:(DHViewer *)viewer
+{
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        DHWebViewController *controller = [DHWebViewController sharedWebViewController];
+        if(iPad && isRegularHorizontalClass)
+        {
+            if(controller.methodsPopover.popoverVisible)
+            {
+                [controller.methodsPopover dismissPopoverAnimated:YES];
+            }
+        }
+        else
+        {
+            [[controller.actualTOCBrowser searchDisplayController] setActive:NO animated:NO];
+            [[controller.actualTOCBrowser presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+        }
+        controller.lastTocBrowser = nil;
+        controller.currentMethods = viewer.tocEntries.count ? viewer.tocEntries : nil;
+        controller.navigationItem.rightBarButtonItem = (viewer.tocEntries.count) ? [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"tocMenu"] style:UIBarButtonItemStylePlain target:controller action:@selector(tocButtonPressed:)] : nil;
+    });
 }
 
 - (void)stopLoading

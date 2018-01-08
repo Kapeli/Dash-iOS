@@ -16,6 +16,7 @@
 @property (assign) BOOL isPreviewing;
 @property (strong) NSMutableSet *previewedSymbolIds;
 @property (strong) NSString *type;
+@property (assign) BOOL isIOS;
 
 + (DHViewer *)sharedViewer;
 - (NSString *)htmlOutput;

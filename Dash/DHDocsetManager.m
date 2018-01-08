@@ -129,6 +129,10 @@
 
 - (DHDocset *)docsetForDocumentationPage:(NSString *)url
 {
+    if([url hasPrefix:@"dash-apple-api://"])
+    {
+        return [self appleAPIReferenceDocset];
+    }
     url = [[url stringByDeletingPathFragment] stringByReplacingPercentEscapes];
     for(DHDocset *docset in [NSArray arrayWithArray:self.docsets])
     {

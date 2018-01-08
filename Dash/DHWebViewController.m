@@ -303,7 +303,7 @@ static id singleton = nil;
 
 - (void)setUpTOC
 {
-    if([DHRemoteServer sharedServer].connectedRemote)
+    if([DHRemoteServer sharedServer].connectedRemote || [[self loadedURL] hasPrefix:@"dash-apple-api://"])
     {
         return;
     }
