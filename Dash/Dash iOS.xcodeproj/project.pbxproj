@@ -211,6 +211,7 @@
 		43BB045519ED48BD000FBC0D /* ClassRubyRetina.png in Resources */ = {isa = PBXBuildFile; fileRef = 43BB045119ED48BD000FBC0D /* ClassRubyRetina.png */; };
 		43BB045619ED48BD000FBC0D /* ModuleRuby.png in Resources */ = {isa = PBXBuildFile; fileRef = 43BB045219ED48BD000FBC0D /* ModuleRuby.png */; };
 		43BB045719ED48BD000FBC0D /* ModuleRubyRetina.png in Resources */ = {isa = PBXBuildFile; fileRef = 43BB045319ED48BD000FBC0D /* ModuleRubyRetina.png */; };
+		43BCC3E4200442CA00DE24FE /* Apple_Docs_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A1C2632001700600512DB3 /* Apple_Docs_Framework.framework */; };
 		43BD6BF41DCE379B0005A1E7 /* DHAppUpdateChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BD6BF31DCE379B0005A1E7 /* DHAppUpdateChecker.m */; };
 		43BD91EE1AB31A9E001058C4 /* hash_change_notifier.js in Resources */ = {isa = PBXBuildFile; fileRef = 43BD91ED1AB31A9E001058C4 /* hash_change_notifier.js */; };
 		43CF8AF119D5DA060010E698 /* NSURL+DHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CF8AF019D5DA060010E698 /* NSURL+DHUtils.m */; };
@@ -502,6 +503,7 @@
 				43AB658A1ED19D2F00A6EC18 /* UIKit.framework in Frameworks */,
 				43AB658B1ED19D2F00A6EC18 /* Foundation.framework in Frameworks */,
 				3A2F71C185D6471649E8F3A7 /* libPods-Dash-Dash App Store.a in Frameworks */,
+				43BCC3E4200442CA00DE24FE /* Apple_Docs_Framework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1060,13 +1062,13 @@
 			buildConfigurationList = 43FD2F1A19BB8D87007E594D /* Build configuration list for PBXNativeTarget "Dash" */;
 			buildPhases = (
 				74E707306BFB902C5388BE39 /* [CP] Check Pods Manifest.lock */,
+				43A1C26F200175E500512DB3 /* Embed Frameworks */,
 				43FD2EDE19BB8D87007E594D /* Sources */,
 				43FD2EDF19BB8D87007E594D /* Frameworks */,
 				43FD2EE019BB8D87007E594D /* Resources */,
 				43F760BF19EA8C57002BD8A6 /* Git Hashes */,
 				C71793A2EB8A6FB0EA63C3D3 /* [CP] Embed Pods Frameworks */,
 				988D171F13583CC36FBA7412 /* [CP] Copy Pods Resources */,
-				43A1C26F200175E500512DB3 /* Embed Frameworks */,
 				43A1C270200175F700512DB3 /* Strip Frameworks */,
 			);
 			buildRules = (
@@ -1570,8 +1572,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/HockeySDK/HockeySDK-iOS/HockeySDK.embeddedframework\"",
-					"$(PROJECT_DIR)/**",
-					"\"$(SRCROOT)/../Frameworks\"/**",
+					"\"$(SRCROOT)/../Frameworks\"",
 				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1617,8 +1618,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/HockeySDK/HockeySDK-iOS/HockeySDK.embeddedframework\"",
-					"$(PROJECT_DIR)/**",
-					"\"$(SRCROOT)/../Frameworks\"/**",
+					"\"$(SRCROOT)/../Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
@@ -1762,6 +1762,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JP58VMK957;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../Frameworks\"";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
@@ -1797,6 +1798,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JP58VMK957;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
