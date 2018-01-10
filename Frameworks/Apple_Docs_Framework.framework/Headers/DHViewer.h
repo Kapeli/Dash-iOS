@@ -29,6 +29,8 @@
 
 @end
 
+// Also add these to encodedToHumanJSONMappings!
+
 #define kAbstract @"a"
 #define kAdopted_By @"ab"
 #define kAlternative_Text @"al"
@@ -70,6 +72,7 @@
 #define kRelated_Project_Link @"du"
 #define kOperator_Fixity @"of"
 #define kOptional @"op"
+#define kRequired @"rq"
 #define kPlatform @"p"
 #define kParent @"pa"
 #define kProtocol_Implementation @"pm"
@@ -86,6 +89,8 @@
 #define kTable @"tb"
 #define kUSR @"u"
 #define kURL @"ur"
+#define kHasDefaultImplementation @"dc"
+#define kReallyHasDefaultImplementation @"hc"
 #define kApp_Extension_Availability @"v"
 #define kValue @"vl"
 #define kWidth @"w"

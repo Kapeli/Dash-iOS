@@ -12,3 +12,5 @@ FOUNDATION_EXPORT const unsigned char Apple_Docs_FrameworkVersionString[];
 #import <Apple_Docs_Framework/DHViewerHelper.h>
 #import <Apple_Docs_Framework/DHXcodeHelper.h>
 #import <Apple_Docs_Framework/DHCommandLineParser.h>
+#import <Apple_Docs_Framework/DHTester.h>
+

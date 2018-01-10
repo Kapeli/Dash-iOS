@@ -33,6 +33,8 @@
 - (NSString *)nameForRequestKey:(NSString *)requestKey;
 - (NSString *)requestKeyForUSR:(NSString *)usr;
 - (NSString *)xcodeCacheDBPath;
+- (NSString *)cacheDBPath;
+- (NSString *)mapDBPath;
 - (NSString *)xcodeMapDBPath;
 - (void)addIndexesToDatabasesAtPath:(NSString *)path;
 - (NSString *)fsFolderPath;
