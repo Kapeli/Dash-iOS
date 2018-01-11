@@ -2,6 +2,10 @@
 
 * No changes yet.
 
+# 1.8.1
+
+* Fixed Apple API Reference docset transfer issues - [#66](https://github.com/Kapeli/Dash-iOS/issues/66)
+
 # 1.8.0
 
 * Fixed docset index page button on iOS 11 - [7fd09e8](https://github.com/Kapeli/Dash-iOS/commit/7fd09e8cae3b981aa75662ef3d19111a3ab2039a)
