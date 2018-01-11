@@ -2,6 +2,10 @@
 
 * No changes yet.
 
+# 1.8.2
+
+* Fixed crash at launch for release build - [c0d2582](https://github.com/Kapeli/Dash-iOS/commit/c0d2582e70dbeec560c03781727fd8dcf95b9e7d)
+
 # 1.8.1
 
 * Fixed Apple API Reference docset transfer issues - [#66](https://github.com/Kapeli/Dash-iOS/issues/66)
