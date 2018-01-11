@@ -1092,7 +1092,7 @@
 				TargetAttributes = {
 					43AB65311ED19D2F00A6EC18 = {
 						DevelopmentTeam = JP58VMK957;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					43FD2EE119BB8D87007E594D = {
 						DevelopmentTeam = JP58VMK957;
@@ -1567,9 +1567,9 @@
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				CLANG_WARN_UNREACHABLE_CODE = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Bogdan Popescu (JP58VMK957)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bogdan Popescu (JP58VMK957)";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = JP58VMK957;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1598,9 +1598,12 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.dash.ios;
 				PRODUCT_NAME = Dash;
-				PROVISIONING_PROFILE = "bd4361d6-6efe-41b1-8028-af25dbcb1014";
-				PROVISIONING_PROFILE_SPECIFIER = "Dash iOS App Store Distribution";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
+				STRIP_SWIFT_SYMBOLS = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1613,9 +1616,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				CLANG_WARN_UNREACHABLE_CODE = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bogdan Popescu (JP58VMK957)";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = JP58VMK957;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1645,9 +1649,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.dash.ios;
 				PRODUCT_NAME = Dash;
-				PROVISIONING_PROFILE = "bd4361d6-6efe-41b1-8028-af25dbcb1014";
-				PROVISIONING_PROFILE_SPECIFIER = "Dash iOS App Store Distribution";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
+				STRIP_SWIFT_SYMBOLS = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1787,6 +1794,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
+				STRIP_SWIFT_SYMBOLS = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1800,6 +1810,7 @@
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bogdan Popescu (JB3QRP5DC5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = JP58VMK957;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../Frameworks\"";
@@ -1827,6 +1838,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
+				STRIP_SWIFT_SYMBOLS = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
