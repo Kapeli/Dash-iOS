@@ -209,10 +209,41 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Alphabetizing" id="o2t-VJ-no4">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alphabetizing" textLabel="j8z-O0-bgo" style="IBUITableViewCellStyleDefault" id="qBR-gw-pYW">
+                                        <rect key="frame" x="0.0" y="327.33333333333337" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qBR-gw-pYW" id="1cz-0u-7TA">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Alphabetizing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j8z-O0-bgo">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wrv-Ov-oob">
+                                                    <rect key="frame" x="345" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="alphabetizingSwitchValueChanged:" destination="LN4-2N-5f1" eventType="valueChanged" id="uRX-cV-Fn1"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Wrv-Ov-oob" firstAttribute="centerY" secondItem="j8z-O0-bgo" secondAttribute="centerY" id="aQw-Zc-KSP"/>
+                                                <constraint firstItem="Wrv-Ov-oob" firstAttribute="trailing" secondItem="j8z-O0-bgo" secondAttribute="trailing" id="df9-KI-7WX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="Update settings" footerTitle="Dash will notify you when docset updates are available.             " id="DSC-i5-noV">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="auto_updates" textLabel="L5q-QS-QhJ" style="IBUITableViewCellStyleDefault" id="NBw-o2-OgI">
-                                        <rect key="frame" x="0.0" y="337" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="426.66666666666669" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NBw-o2-OgI" id="P7F-Da-gdU">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -264,6 +295,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="alphabetizingSwitch" destination="Wrv-Ov-oob" id="xXQ-YN-OMD"/>
                         <outlet property="updatesSwitch" destination="hvT-X0-nTG" id="uqh-Ew-FYx"/>
                         <segue destination="bVq-xA-3wd" kind="push" identifier="DHDocsetDownloaderToDetailSegue" splitViewControllerTargetIndex="1" id="078-Zd-cbO"/>
                         <segue destination="KZf-iV-yPx" kind="push" identifier="DHDocsetTransferrerToMasterSegue" splitViewControllerTargetIndex="0" id="vh9-ti-qTq"/>
