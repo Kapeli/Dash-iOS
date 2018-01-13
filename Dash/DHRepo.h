@@ -68,3 +68,5 @@
 @end
 
 NSInteger compareFeeds(id feed1, id feed2, void *context);
+
+#define DHSettingsChangedNotification @"DHSettingsChangedNotification"

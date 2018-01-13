@@ -33,6 +33,7 @@
 {
     [super viewWillAppear:animated];
     [self.updatesSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:[[DHDocsetDownloader sharedDownloader] defaultsAutomaticallyCheckForUpdatesKey]]];
+    [self.alphabetizingSwitch setOn:[NSUserDefaults.standardUserDefaults boolForKey:DHDocsetDownloader.defaultsAlphabetizingKey]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -236,6 +237,12 @@
 {
     [[NSUserDefaults standardUserDefaults] setBool:[sender isOn] forKey:[DHDocsetDownloader sharedDownloader].defaultsAutomaticallyCheckForUpdatesKey];
     [self updateUpdatesSwitchFooterView:nil];
+}
+
+- (IBAction)alphabetizingSwitchValueChanged:(id)sender
+{
+    [[NSUserDefaults standardUserDefaults] setBool:[sender isOn] forKey:DHDocsetDownloader.defaultsAlphabetizingKey];
+    [NSNotificationCenter.defaultCenter postNotificationName:DHSettingsChangedNotification object:DHDocsetDownloader.defaultsAlphabetizingKey];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UITableViewHeaderFooterView *)view forSection:(NSInteger)section

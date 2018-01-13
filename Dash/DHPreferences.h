@@ -20,6 +20,7 @@
 @interface DHPreferences : UITableViewController
 
 @property (assign) IBOutlet UISwitch *updatesSwitch;
+@property (assign) IBOutlet UISwitch *alphabetizingSwitch;
 @property (assign) BOOL didSetUpdateLabelBefore;
 
 - (IBAction)updatesSwitchValueChanged:(id)sender;
