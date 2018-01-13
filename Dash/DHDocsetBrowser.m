@@ -29,6 +29,10 @@
 
 static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
+@interface DHDocsetBrowser ()
+@property (nonatomic, strong) DHDocsetBrowserViewModel *viewModel;
+@end
+
 @implementation DHDocsetBrowser
 
 - (NSArray<DHDocset *> *)shownDocsets {
@@ -42,6 +46,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.viewModel = [[DHDocsetBrowserViewModel alloc] init];
     self.clearsSelectionOnViewWillAppear = NO;
     self.searchController = [DHDBSearchController searchControllerWithDocsets:nil typeLimit:nil viewController:self];
     
@@ -273,21 +278,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 - (void)updateSections:(BOOL)withTitleUpdate
 {
-    NSMutableArray *sections = [NSMutableArray array];
-    if([DHRemoteServer sharedServer].remotes.count)
-    {
-        if(!self.isEditing && !self.isSearching)
-        {
-            [sections addObject:[DHRemoteServer sharedServer].remotes];
-        }
-    }
-    NSMutableArray *docsets = (self.isEditing) ? [DHDocsetManager sharedManager].docsets : (self.keyDocsets) ? self.keyDocsets : [DHDocsetManager sharedManager].enabledDocsets;
-    self.shownDocsets = docsets;
-    if(docsets.count)
-    {
-        [sections addObject:docsets];
-    }
-    self.sections = sections;
+    [self.viewModel updateSectionsForEditing:self.isEditing andSearching:self.isSearching];
     if(withTitleUpdate)
     {
         [self updateTitle];
