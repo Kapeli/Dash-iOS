@@ -386,8 +386,8 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     }
 
     //    NSArray *current = self.shownDocsets;
-    NSMutableArray *new = [DHDocsetManager sharedManager].docsets;
-    self.shownDocsets = new;
+    NSArray *new = [self.viewModel docsetsForEditing:YES];
+    self.viewModel.shownDocsets = new;
     NSMutableArray *toInsert = [NSMutableArray array];
     for(NSInteger i = 0; i < new.count; i++)
     {
@@ -419,7 +419,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 - (void)tableViewDidEndEditing:(UITableView *)tableView
 {
     NSArray *current = self.shownDocsets;
-    self.shownDocsets = [DHDocsetManager sharedManager].enabledDocsets;
+    self.viewModel.shownDocsets = [self.viewModel docsetsForEditing:NO];
     NSMutableArray *toDelete = [NSMutableArray array];
     BOOL docsetsShouldBeShown = NO;
     for(int i = 0; i < current.count; i++)
