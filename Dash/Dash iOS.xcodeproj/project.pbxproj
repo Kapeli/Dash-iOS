@@ -249,6 +249,7 @@
 		43FD2F0219BB8D87007E594D /* DHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FD2F0119BB8D87007E594D /* DHWebViewController.m */; };
 		43FD2F0419BB8D87007E594D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FD2F0319BB8D87007E594D /* Images.xcassets */; };
 		45D28F8ABD1FC392B1930467 /* libPods-Dash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2364AD2032B0714BCD2265 /* libPods-Dash.a */; };
+		F5C39C00200A836D00734571 /* DHDocsetBrowserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C39BFF200A836D00734571 /* DHDocsetBrowserViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -486,6 +487,8 @@
 		9A2364AD2032B0714BCD2265 /* libPods-Dash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FB91D369AD27465BED375AD /* libPods-Dash-Dash App Store.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dash-Dash App Store.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE47FF5DEE33300EBFF9AEA /* Pods-Dash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Dash/Pods-Dash.debug.xcconfig"; sourceTree = "<group>"; };
+		F5C39BFE200A836D00734571 /* DHDocsetBrowserViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHDocsetBrowserViewModel.h; sourceTree = "<group>"; };
+		F5C39BFF200A836D00734571 /* DHDocsetBrowserViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHDocsetBrowserViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -664,6 +667,8 @@
 				438D58C119E575D600012881 /* DHLoadingCell.xib */,
 				43FD2EFD19BB8D87007E594D /* DHDocsetBrowser.h */,
 				43FD2EFE19BB8D87007E594D /* DHDocsetBrowser.m */,
+				F5C39BFE200A836D00734571 /* DHDocsetBrowserViewModel.h */,
+				F5C39BFF200A836D00734571 /* DHDocsetBrowserViewModel.m */,
 				437FE06419E2AC0D0022ADF4 /* DHTypeBrowser.h */,
 				437FE06519E2AC0D0022ADF4 /* DHTypeBrowser.m */,
 				439051F719E684160083A55E /* DHEntryBrowser.h */,
@@ -1473,6 +1478,7 @@
 				43F25F9C19EBDEF30025CDC4 /* DHBlockProtocol.m in Sources */,
 				43B0956C19BFD57500F8611B /* DHRepo.m in Sources */,
 				43D7E4F01BB4C62E00FC1DEF /* DHWindow.m in Sources */,
+				F5C39C00200A836D00734571 /* DHDocsetBrowserViewModel.m in Sources */,
 				43BD6BF41DCE379B0005A1E7 /* DHAppUpdateChecker.m in Sources */,
 				439051FC19E68FE20083A55E /* NSString+GTM.m in Sources */,
 				43D4F06719E7D68100C22AF5 /* DHDBSearcher.m in Sources */,
