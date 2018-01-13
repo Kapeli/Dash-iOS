@@ -25,10 +25,19 @@
 #import "DHDocsetDownloader.h"
 #import "DHRemoteBrowser.h"
 #import "DHWebView.h"
+#import "DHDocsetBrowserViewModel.h"
 
 static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 @implementation DHDocsetBrowser
+
+- (NSArray<DHDocset *> *)shownDocsets {
+    return self.viewModel.shownDocsets;
+}
+
+- (NSArray *)sections {
+    return self.viewModel.sections;
+}
 
 - (void)viewDidLoad
 {
@@ -179,7 +188,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.00 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if(keywordDocsets.count)
             {
-                self.keyDocsets = [NSMutableArray arrayWithArray:[keywordDocsets array]];
+                self.viewModel.keyDocsets = [NSMutableArray arrayWithArray:[keywordDocsets array]];
             }
             [self.searchDisplayController setActive:YES animated:NO];
             self.searchDisplayController.searchBar.text = query;
@@ -455,7 +464,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
 {
-    if(self.keyDocsets)
+    if(self.viewModel.keyDocsets)
     {
         [self reload:nil];
     }
@@ -478,9 +487,9 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
 {
     self.isSearching = NO;
-    if(self.needsToReloadWhenDoneSearching || self.keyDocsets)
+    if(self.needsToReloadWhenDoneSearching || self.viewModel.keyDocsets)
     {
-        self.keyDocsets = nil;
+        self.viewModel.keyDocsets = nil;
         self.needsToReloadWhenDoneSearching = NO;
         [self reload:nil];
     }
