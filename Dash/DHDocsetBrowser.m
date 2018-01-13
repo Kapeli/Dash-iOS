@@ -335,7 +335,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    return self.viewModel.canMoveRows;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
