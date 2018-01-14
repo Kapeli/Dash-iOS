@@ -232,6 +232,7 @@
 		43EE932A19CD079600FFF30C /* libarchive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EE932919CD079600FFF30C /* libarchive.a */; };
 		43EED91C1B607DB800F3DC35 /* on_page_load.js in Resources */ = {isa = PBXBuildFile; fileRef = 43EED91B1B607DB800F3DC35 /* on_page_load.js */; };
 		43F25F9C19EBDEF30025CDC4 /* DHBlockProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F25F9B19EBDEF30025CDC4 /* DHBlockProtocol.m */; };
+		43F31AAE200BB52F0082066C /* DHDocsetBrowserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C39BFF200A836D00734571 /* DHDocsetBrowserViewModel.m */; };
 		43F70AC019CBBD20000849C8 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43F70ABF19CBBD20000849C8 /* Defaults.plist */; };
 		43F7527319CD1C2000D76F58 /* UIButton+DHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F7527219CD1C2000D76F58 /* UIButton+DHUtils.m */; };
 		43F7527519CD31D100D76F58 /* DHRepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43F7527419CD31D100D76F58 /* DHRepoCell.xib */; };
@@ -1373,6 +1374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43F31AAE200BB52F0082066C /* DHDocsetBrowserViewModel.m in Sources */,
 				43AB65341ED19D2F00A6EC18 /* DHAppDelegate.m in Sources */,
 				43AB65351ED19D2F00A6EC18 /* DHType.m in Sources */,
 				43AB65361ED19D2F00A6EC18 /* UIViewController+DHUtils.m in Sources */,
