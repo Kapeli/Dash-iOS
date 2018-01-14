@@ -1,6 +1,6 @@
 # Master
 
-* No changes yet.
+* Added support for sorting docsets alphabetically in the docset browser. Thanks to [@waffleboot](https://github.com/waffleboot) for the great work on this - [#69](https://github.com/Kapeli/Dash-iOS/pull/69)
 
 # 1.8.2
 
