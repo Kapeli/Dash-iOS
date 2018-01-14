@@ -25,12 +25,10 @@
 
 @property (assign) BOOL didFirstReload;
 @property (strong) DHDBSearchController *searchController;
-@property (strong) NSMutableArray *shownDocsets;
-@property (strong) NSArray *sections;
+@property (strong, readonly) NSArray<DHDocset *> *shownDocsets;
 @property (assign) BOOL didLoad;
 @property (assign) BOOL isSearching;
 @property (assign) BOOL needsToReloadWhenDoneSearching;
-@property (strong) NSMutableArray *keyDocsets;
 
 - (IBAction)openSettings:(id)sender;
 + (NSAttributedString *)titleBarItemAttributedStringTemplate;

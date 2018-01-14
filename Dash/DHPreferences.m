@@ -33,6 +33,11 @@
 {
     [super viewWillAppear:animated];
     [self.updatesSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:[[DHDocsetDownloader sharedDownloader] defaultsAutomaticallyCheckForUpdatesKey]]];
+    [self.alphabetizingSwitch setOn:[NSUserDefaults.standardUserDefaults boolForKey:DHDocsetDownloader.defaultsAlphabetizingKey]];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self updateAlphabetizingSwitchFooterView:nil];
+        [self updateUpdatesSwitchFooterView:nil];
+    });
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -238,16 +243,37 @@
     [self updateUpdatesSwitchFooterView:nil];
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UITableViewHeaderFooterView *)view forSection:(NSInteger)section
+- (IBAction)alphabetizingSwitchValueChanged:(id)sender
 {
-    [self updateUpdatesSwitchFooterView:view];
+    [[NSUserDefaults standardUserDefaults] setBool:[sender isOn] forKey:DHDocsetDownloader.defaultsAlphabetizingKey];
+    [NSNotificationCenter.defaultCenter postNotificationName:DHSettingsChangedNotification object:DHDocsetDownloader.defaultsAlphabetizingKey];
+    [self updateAlphabetizingSwitchFooterView:nil];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UITableViewHeaderFooterView *)footer forSection:(NSInteger)section
+{
+    if(section == [tableView indexPathForCell:self.updatesCell].section)
+    {
+        [self updateUpdatesSwitchFooterView:footer];
+    }
+    else if(section == [tableView indexPathForCell:self.alphabetizingCell].section)
+    {
+        [self updateAlphabetizingSwitchFooterView:footer];
+    }
 }
 
 - (void)updateUpdatesSwitchFooterView:(UITableViewHeaderFooterView *)footer
 {
-    footer = (footer) ?: [self.tableView footerViewForSection:1];
-    [footer textLabel].text = [NSString stringWithFormat:@"Dash %@ notify you when docset updates are available.         ", (self.updatesSwitch.isOn) ? @"will" : @"won't"];
-    
+    footer = (footer) ? footer : [self.tableView footerViewForSection:[self.tableView indexPathForCell:self.updatesCell].section];
+    [footer textLabel].text = [NSString stringWithFormat:@"Dash %@ notify you when docset updates are available.", (self.updatesSwitch.isOn) ? @"will" : @"won't"];
+    [[footer textLabel] sizeToFit];
+}
+
+- (void)updateAlphabetizingSwitchFooterView:(UITableViewHeaderFooterView *)footer
+{
+    footer = (footer) ? footer : [self.tableView footerViewForSection:[self.tableView indexPathForCell:self.alphabetizingCell].section];
+    [footer textLabel].text = [NSString stringWithFormat:@"Docsets %@ be sorted alphabetically in the docset browser.", (self.alphabetizingSwitch.isOn) ? @"will" : @"won't"];
+    [[footer textLabel] sizeToFit];
 }
 
 - (void)prepareForURLSearch:(id)sender
