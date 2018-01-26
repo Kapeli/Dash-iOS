@@ -1,5 +1,9 @@
 # Master
 
+No changes yet.
+
+# 1.8.3
+
 * Added support for sorting docsets alphabetically in the docset browser. Thanks to [@waffleboot](https://github.com/waffleboot) for the great work on this - [#69](https://github.com/Kapeli/Dash-iOS/pull/69)
 * Added support for Xcode 9.3 docs - [73cadfb](https://github.com/Kapeli/Dash-iOS/commit/73cadfbcbb6e172ec8d12c2ef222a64160e4e42d)
 
