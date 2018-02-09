@@ -19,7 +19,7 @@
 
 - (NSArray *)sort:(NSArray *)array {
     if (self.alphabetizing) {
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
         array = [array sortedArrayUsingDescriptors:@[sortDescriptor]];
     }
     return array;
