@@ -1,5 +1,6 @@
 # Master
 
+* Fixed an issue which caused the Apple API Reference to not be able to display some pages. Thanks to [@philosopherdog](https://github.com/philosopherdog) for reporting the issue - [#71](https://github.com/Kapeli/Dash-iOS/issues/71)
 * Fixed an issue which caused sorting docsets alphabetically to be case-sensitive. Thanks to [@ewalkie](https://github.com/ewalkie) for reporting the issue - [#72](https://github.com/Kapeli/Dash-iOS/issues/72)
 
 # 1.8.3
