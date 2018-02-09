@@ -1,0 +1,14 @@
+language: objective-c
+osx_image: xcode7.3
+
+script:
+  - pod install --project-directory=./Tests/Mac --no-repo-update
+  - pod install --project-directory=./Tests/iOS --no-repo-update
+  - pod install --project-directory=./Tests/iOS-static --no-repo-update
+  - pod install --project-directory=./Tests/Swift --no-repo-update
+  - pod install --project-directory=./Tests/Swift-iOS --no-repo-update
+  - xctool -workspace ./Tests/Mac/KissXML.xcworkspace -scheme KissXMLTests -sdk macosx -arch x86_64 test
+  - xctool -workspace ./Tests/iOS/KissXML.xcworkspace -scheme KissXMLTests -sdk iphonesimulator -arch x86_64 test
+  - xctool -workspace ./Tests/iOS-static/KissXML.xcworkspace -scheme KissXMLTests -sdk iphonesimulator -arch x86_64 test
+  - xctool -workspace ./Tests/Swift/KissXML.xcworkspace -scheme KissXMLSwiftTests -sdk macosx -arch x86_64 test
+  - xctool -workspace ./Tests/Swift-iOS/KissXML.xcworkspace -scheme KissXMLSwiftTests -sdk iphonesimulator -arch x86_64 test

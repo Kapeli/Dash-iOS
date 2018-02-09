@@ -697,6 +697,10 @@
 	DDXMLNotZombieAssert();
 #endif
 	
+    if([child _hasParent])
+    {
+        [child detach];
+    }
 	// NSXML version uses these same assertions
 	DDXMLAssert([child _hasParent] == NO, @"Cannot add a child that has a parent; detach or copy first");
 	DDXMLAssert(IsXmlNodePtr(child->genericPtr),

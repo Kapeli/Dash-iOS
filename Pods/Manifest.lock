@@ -51,7 +51,7 @@ DEPENDENCIES:
   - GZIP
   - HockeySDK
   - JGMethodSwizzler
-  - KissXML (~> 5.1.2)
+  - KissXML (from `Modified Pods/KissXML-5.1.2/KissXML.podspec`)
   - MRProgress (from `Modified Pods/MRProgress/MRProgress.podspec`)
   - NSTimer-Blocks
   - Reachability
@@ -64,6 +64,8 @@ EXTERNAL SOURCES:
     :path: Modified Pods/DTBonjour/DTBonjour.podspec
   DZNEmptyDataSet:
     :git: https://github.com/benrudhart/DZNEmptyDataSet.git
+  KissXML:
+    :path: Modified Pods/KissXML-5.1.2/KissXML.podspec
   MRProgress:
     :path: Modified Pods/MRProgress/MRProgress.podspec
 
@@ -79,7 +81,7 @@ SPEC CHECKSUMS:
   GZIP: 7ee835f989fb3c6ea79005fc90b8fa6af710a70d
   HockeySDK: 38b7e2726af1ea86ae97ce4b5de33ab0817e3500
   JGMethodSwizzler: e0ea5c1c6c55304ec4ef3f54e441400c6735c899
-  KissXML: 246c842586bb77110e04fb88e19376d96245c856
+  KissXML: 7d52dbfb2cfecb02ee2db9308bc5a714be8f3da6
   MRProgress: f772175ff3d21908d6f5149768d9f919cf5aa9ae
   NSTimer-Blocks: 88faf9aef5f250ead087f3f67ae642517083bf36
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
@@ -87,6 +89,6 @@ SPEC CHECKSUMS:
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
 
-PODFILE CHECKSUM: b354afbf9c3de7e9a13a0a27f4fd3feba596fe18
+PODFILE CHECKSUM: 70a8dd77fbb2aad2f2f1bf1a4d6c3efa0fdd0a69
 
 COCOAPODS: 1.4.0

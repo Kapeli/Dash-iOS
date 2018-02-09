@@ -1,0 +1,18 @@
+PODS:
+  - KissXML/Core (5.1.0)
+  - KissXML/SwiftNSXML (5.1.0):
+    - KissXML/Core
+
+DEPENDENCIES:
+  - KissXML/SwiftNSXML (from `../../`)
+
+EXTERNAL SOURCES:
+  KissXML:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  KissXML: ca3d22281d71d6591bf9d251625ffd3f11cf3297
+
+PODFILE CHECKSUM: a8fd308fffe037f416290d2559daad4c1335fa7b
+
+COCOAPODS: 1.0.1
