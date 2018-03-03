@@ -254,7 +254,7 @@
                              @"DHQueuedDB": @"0199255c",
                              @"DHUnifiedQueuedDB": @"dd42266b",
                              @"DHDBUnifiedOperation": @"1671a905",
-                             @"DHWebViewController": @"ad74d437",
+                             @"DHWebViewController": @"3e212244",
                              @"DHWebPreferences": @"cd091ec9",
                              @"DHDocsetDownloader": @"f07d3770",
                              @"PlatformIcons": @"80cd6eb0",
