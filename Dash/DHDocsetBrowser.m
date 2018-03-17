@@ -25,15 +25,28 @@
 #import "DHDocsetDownloader.h"
 #import "DHRemoteBrowser.h"
 #import "DHWebView.h"
+#import "DHDocsetBrowserViewModel.h"
 
 static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
+@interface DHDocsetBrowser ()
+@property (nonatomic, strong) DHDocsetBrowserViewModel *viewModel;
+@end
+
 @implementation DHDocsetBrowser
+
+- (NSArray<DHDocset *> *)shownDocsets {
+    return self.viewModel.shownDocsets;
+}
+
+- (NSArray *)sections {
+    return self.viewModel.sections;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self grabTitleBarItemAttributedStringTemplate];
+    self.viewModel = [[DHDocsetBrowserViewModel alloc] init];
     self.clearsSelectionOnViewWillAppear = NO;
     self.searchController = [DHDBSearchController searchControllerWithDocsets:nil typeLimit:nil viewController:self];
     
@@ -41,6 +54,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:DHDocsetsChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:DHRemotesChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:DHSettingsChangedNotification object:nil];
     self.tableView.rowHeight = 44;
     self.navigationController.delegate = self;
     self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
@@ -59,6 +73,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
         [self reload:nil];
     }
     [self.searchController viewDidAppear];
+    [self grabTitleBarItemAttributedStringTemplate];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -69,6 +84,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self.navigationItem.leftBarButtonItem setEnabled:YES];
     [super viewWillAppear:animated];
     if(!self.isEditing)
     {
@@ -178,7 +194,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.00 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if(keywordDocsets.count)
             {
-                self.keyDocsets = [NSMutableArray arrayWithArray:[keywordDocsets array]];
+                self.viewModel.keyDocsets = [NSMutableArray arrayWithArray:[keywordDocsets array]];
             }
             [self.searchDisplayController setActive:YES animated:NO];
             self.searchDisplayController.searchBar.text = query;
@@ -221,17 +237,12 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 - (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
 {
-    return YES;
+    return NO;
 }
 
 - (CGFloat)spaceHeightForEmptyDataSet:(UIScrollView *)scrollView
 {
     return 24;
-}
-
-- (CGPoint)offsetForEmptyDataSet:(UIScrollView *)scrollView
-{
-    return CGPointMake(0, 16);
 }
 
 - (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView
@@ -268,21 +279,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 - (void)updateSections:(BOOL)withTitleUpdate
 {
-    NSMutableArray *sections = [NSMutableArray array];
-    if([DHRemoteServer sharedServer].remotes.count)
-    {
-        if(!self.isEditing && !self.isSearching)
-        {
-            [sections addObject:[DHRemoteServer sharedServer].remotes];
-        }
-    }
-    NSMutableArray *docsets = (self.isEditing) ? [DHDocsetManager sharedManager].docsets : (self.keyDocsets) ? self.keyDocsets : [DHDocsetManager sharedManager].enabledDocsets;
-    self.shownDocsets = docsets;
-    if(docsets.count)
-    {
-        [sections addObject:docsets];
-    }
-    self.sections = sections;
+    [self.viewModel updateSectionsForEditing:self.isEditing andSearching:self.isSearching];
     if(withTitleUpdate)
     {
         [self updateTitle];
@@ -339,7 +336,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    return self.viewModel.canMoveRows;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -390,8 +387,8 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     }
 
     //    NSArray *current = self.shownDocsets;
-    NSMutableArray *new = [DHDocsetManager sharedManager].docsets;
-    self.shownDocsets = new;
+    NSArray *new = [self.viewModel docsetsForEditing:YES];
+    self.viewModel.shownDocsets = new;
     NSMutableArray *toInsert = [NSMutableArray array];
     for(NSInteger i = 0; i < new.count; i++)
     {
@@ -423,7 +420,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 - (void)tableViewDidEndEditing:(UITableView *)tableView
 {
     NSArray *current = self.shownDocsets;
-    self.shownDocsets = [DHDocsetManager sharedManager].enabledDocsets;
+    self.viewModel.shownDocsets = [self.viewModel docsetsForEditing:NO];
     NSMutableArray *toDelete = [NSMutableArray array];
     BOOL docsetsShouldBeShown = NO;
     for(int i = 0; i < current.count; i++)
@@ -459,7 +456,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
 {
-    if(self.keyDocsets)
+    if(self.viewModel.keyDocsets)
     {
         [self reload:nil];
     }
@@ -482,9 +479,9 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
 {
     self.isSearching = NO;
-    if(self.needsToReloadWhenDoneSearching || self.keyDocsets)
+    if(self.needsToReloadWhenDoneSearching || self.viewModel.keyDocsets)
     {
-        self.keyDocsets = nil;
+        self.viewModel.keyDocsets = nil;
         self.needsToReloadWhenDoneSearching = NO;
         [self reload:nil];
     }
@@ -572,6 +569,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
         [self performSegueWithIdentifier:@"DHDocsetDownloaderToDetailSegue" sender:self];
         [[self.splitViewController.viewControllers.lastObject navigationItem] setHidesBackButton:YES];
     }
+    [self.navigationItem.leftBarButtonItem setEnabled:NO];
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
@@ -625,19 +623,27 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 - (void)grabTitleBarItemAttributedStringTemplate
 {
+    if(_titleBarItemAttributedStringTemplate)
+    {
+        return;
+    }
     @try {
-        for(id view in self.navigationController.navigationBar.subviews)
+        for(UIView *view in self.navigationController.navigationBar.subviews)
         {
-            if([view isKindOfClass:NSClassFromString(@"UINavigationItemView")])
+            for(UILabel *label in view.subviews)
             {
-                for(id label in [view subviews])
+                if([label isKindOfClass:[UILabel class]])
                 {
-                    if([label isKindOfClass:[UILabel class]])
+                    if([label.text isEqualToString:self.navigationItem.title])
                     {
-                        _titleBarItemAttributedStringTemplate = [[label attributedText] copy];
+                        _titleBarItemAttributedStringTemplate = [label.attributedText copy];
                         break;
                     }
                 }
+            }
+            if(_titleBarItemAttributedStringTemplate)
+            {
+                break;
             }
         }
     }

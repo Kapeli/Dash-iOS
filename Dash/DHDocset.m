@@ -393,7 +393,7 @@ static NSConditionLock *_stepLock = nil;
     {
         if(indexFile.length > 0)
         {
-            if([indexFile hasPrefix:@"http://"] || [indexFile hasPrefix:@"https://"])
+            if([indexFile hasPrefix:@"http://"] || [indexFile hasPrefix:@"https://"] || [indexFile hasPrefix:@"dash-apple-api://"])
             {
                 return indexFile;
             }

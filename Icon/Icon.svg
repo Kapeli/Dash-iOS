@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1024 1024"
+	 enable-background="new 0 0 1024 1024" xml:space="preserve">
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="230.5309" y1="325.919" x2="232.785" y2="843.7146" gradientTransform="matrix(2 0 0 -3.6782 49 2529.5928)">
+	<stop  offset="2.252384e-02" style="stop-color:#2537AC"/>
+	<stop  offset="1" style="stop-color:#CA79D6"/>
+</linearGradient>
+<rect x="-2" y="-1.2" fill="url(#SVGID_1_)" width="1028" height="1026.4"/>
+<title>1024</title>
+<desc>Created with Sketch.</desc>
+<g transform="translate(256.431943, 255.513836) rotate(9.000000) translate(-256.431943, -255.513836) " sketch:type="MSShapeGroup">
+	<path id="path-4" fill="#FFFFFF" d="M512.8,346.7c48.1-4.1,124.6-3,147,87.5c18.3,73.5-16.6,139.3-113.4,158.7l-34.1-205.2
+		l-146.5,23.9l54.5,342.1c0,0,254.6,23.6,353.5-147.3c31.9-55.2,43.6-121.3,30.6-197.5c-14.4-84.2-53.9-145.2-116.4-179.7
+		c-51.7-28.4-107.3-40.5-187.4-29.9c-16.1,2-268.8,42.7-270.8,43.2l109.6,131.4C339.7,373.7,498.6,347.9,512.8,346.7z"/>
+</g>
+</svg>

@@ -71,6 +71,11 @@
 		4390520019E692D90083A55E /* DHDBResultSorter.m in Sources */ = {isa = PBXBuildFile; fileRef = 439051FF19E692D90083A55E /* DHDBResultSorter.m */; };
 		43915EE919C5D2FD002806FF /* UIView+DHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43915EE819C5D2FD002806FF /* UIView+DHUtils.m */; };
 		4398D34619BF55B500457CAF /* DHPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4398D34519BF55B500457CAF /* DHPreferences.m */; };
+		43A1C2642001700600512DB3 /* Apple_Docs_Framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43A1C2632001700600512DB3 /* Apple_Docs_Framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		43A1C269200175B900512DB3 /* DHAppleAPIProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C268200175B900512DB3 /* DHAppleAPIProtocol.m */; };
+		43A1C26A200175B900512DB3 /* DHAppleAPIProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C268200175B900512DB3 /* DHAppleAPIProtocol.m */; };
+		43A1C26D200175E500512DB3 /* Apple_Docs_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A1C2632001700600512DB3 /* Apple_Docs_Framework.framework */; };
+		43A1C26E200175E500512DB3 /* Apple_Docs_Framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43A1C2632001700600512DB3 /* Apple_Docs_Framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		43A356CB19FFCE4D0073D143 /* UIViewController+DHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A356CA19FFCE4D0073D143 /* UIViewController+DHUtils.m */; };
 		43A6D9C919E0D69700780BC8 /* DHDocsetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A6D9C819E0D69700780BC8 /* DHDocsetManager.m */; };
 		43AAB7821AAE776800DB76F3 /* DHRemoteProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 43AAB7811AAE776800DB76F3 /* DHRemoteProtocol.m */; };
@@ -206,6 +211,7 @@
 		43BB045519ED48BD000FBC0D /* ClassRubyRetina.png in Resources */ = {isa = PBXBuildFile; fileRef = 43BB045119ED48BD000FBC0D /* ClassRubyRetina.png */; };
 		43BB045619ED48BD000FBC0D /* ModuleRuby.png in Resources */ = {isa = PBXBuildFile; fileRef = 43BB045219ED48BD000FBC0D /* ModuleRuby.png */; };
 		43BB045719ED48BD000FBC0D /* ModuleRubyRetina.png in Resources */ = {isa = PBXBuildFile; fileRef = 43BB045319ED48BD000FBC0D /* ModuleRubyRetina.png */; };
+		43BCC3E4200442CA00DE24FE /* Apple_Docs_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A1C2632001700600512DB3 /* Apple_Docs_Framework.framework */; };
 		43BD6BF41DCE379B0005A1E7 /* DHAppUpdateChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BD6BF31DCE379B0005A1E7 /* DHAppUpdateChecker.m */; };
 		43BD91EE1AB31A9E001058C4 /* hash_change_notifier.js in Resources */ = {isa = PBXBuildFile; fileRef = 43BD91ED1AB31A9E001058C4 /* hash_change_notifier.js */; };
 		43CF8AF119D5DA060010E698 /* NSURL+DHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CF8AF019D5DA060010E698 /* NSURL+DHUtils.m */; };
@@ -226,6 +232,7 @@
 		43EE932A19CD079600FFF30C /* libarchive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EE932919CD079600FFF30C /* libarchive.a */; };
 		43EED91C1B607DB800F3DC35 /* on_page_load.js in Resources */ = {isa = PBXBuildFile; fileRef = 43EED91B1B607DB800F3DC35 /* on_page_load.js */; };
 		43F25F9C19EBDEF30025CDC4 /* DHBlockProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F25F9B19EBDEF30025CDC4 /* DHBlockProtocol.m */; };
+		43F31AAE200BB52F0082066C /* DHDocsetBrowserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C39BFF200A836D00734571 /* DHDocsetBrowserViewModel.m */; };
 		43F70AC019CBBD20000849C8 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43F70ABF19CBBD20000849C8 /* Defaults.plist */; };
 		43F7527319CD1C2000D76F58 /* UIButton+DHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F7527219CD1C2000D76F58 /* UIButton+DHUtils.m */; };
 		43F7527519CD31D100D76F58 /* DHRepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43F7527419CD31D100D76F58 /* DHRepoCell.xib */; };
@@ -243,7 +250,33 @@
 		43FD2F0219BB8D87007E594D /* DHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FD2F0119BB8D87007E594D /* DHWebViewController.m */; };
 		43FD2F0419BB8D87007E594D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FD2F0319BB8D87007E594D /* Images.xcassets */; };
 		45D28F8ABD1FC392B1930467 /* libPods-Dash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2364AD2032B0714BCD2265 /* libPods-Dash.a */; };
+		F5C39C00200A836D00734571 /* DHDocsetBrowserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C39BFF200A836D00734571 /* DHDocsetBrowserViewModel.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		43A1C24E200161D100512DB3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				43A1C2642001700600512DB3 /* Apple_Docs_Framework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43A1C26F200175E500512DB3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				43A1C26E200175E500512DB3 /* Apple_Docs_Framework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		26480C2A1E2E9ABB00E3145E /* docset_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = docset_icon.png; sourceTree = "<group>"; };
@@ -355,6 +388,9 @@
 		43915EE819C5D2FD002806FF /* UIView+DHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DHUtils.m"; sourceTree = "<group>"; };
 		4398D34419BF55B500457CAF /* DHPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHPreferences.h; sourceTree = "<group>"; };
 		4398D34519BF55B500457CAF /* DHPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHPreferences.m; sourceTree = "<group>"; };
+		43A1C2632001700600512DB3 /* Apple_Docs_Framework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apple_Docs_Framework.framework; path = ../Frameworks/Apple_Docs_Framework.framework; sourceTree = "<group>"; };
+		43A1C267200175B900512DB3 /* DHAppleAPIProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHAppleAPIProtocol.h; sourceTree = "<group>"; };
+		43A1C268200175B900512DB3 /* DHAppleAPIProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHAppleAPIProtocol.m; sourceTree = "<group>"; };
 		43A356C919FFCE4D0073D143 /* UIViewController+DHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DHUtils.h"; sourceTree = "<group>"; };
 		43A356CA19FFCE4D0073D143 /* UIViewController+DHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DHUtils.m"; sourceTree = "<group>"; };
 		43A6D9C719E0D69700780BC8 /* DHDocsetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHDocsetManager.h; sourceTree = "<group>"; };
@@ -452,6 +488,8 @@
 		9A2364AD2032B0714BCD2265 /* libPods-Dash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FB91D369AD27465BED375AD /* libPods-Dash-Dash App Store.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dash-Dash App Store.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE47FF5DEE33300EBFF9AEA /* Pods-Dash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Dash/Pods-Dash.debug.xcconfig"; sourceTree = "<group>"; };
+		F5C39BFE200A836D00734571 /* DHDocsetBrowserViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHDocsetBrowserViewModel.h; sourceTree = "<group>"; };
+		F5C39BFF200A836D00734571 /* DHDocsetBrowserViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHDocsetBrowserViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,6 +507,7 @@
 				43AB658A1ED19D2F00A6EC18 /* UIKit.framework in Frameworks */,
 				43AB658B1ED19D2F00A6EC18 /* Foundation.framework in Frameworks */,
 				3A2F71C185D6471649E8F3A7 /* libPods-Dash-Dash App Store.a in Frameworks */,
+				43BCC3E4200442CA00DE24FE /* Apple_Docs_Framework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +525,7 @@
 				43FD2EEA19BB8D87007E594D /* UIKit.framework in Frameworks */,
 				43FD2EE619BB8D87007E594D /* Foundation.framework in Frameworks */,
 				45D28F8ABD1FC392B1930467 /* libPods-Dash.a in Frameworks */,
+				43A1C26D200175E500512DB3 /* Apple_Docs_Framework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +542,7 @@
 				4303A3C619C6590000A7CD85 /* DHDocset.m */,
 				4303A3CB19C65E6A00A7CD85 /* DHDocsetIndexer.h */,
 				4303A3CC19C65E6A00A7CD85 /* DHDocsetIndexer.m */,
+				43A1C2662001757700512DB3 /* Apple API Docs */,
 				4303A3CE19C668B500A7CD85 /* Types */,
 				431173D919DA3503007E238E /* Others */,
 			);
@@ -627,6 +668,8 @@
 				438D58C119E575D600012881 /* DHLoadingCell.xib */,
 				43FD2EFD19BB8D87007E594D /* DHDocsetBrowser.h */,
 				43FD2EFE19BB8D87007E594D /* DHDocsetBrowser.m */,
+				F5C39BFE200A836D00734571 /* DHDocsetBrowserViewModel.h */,
+				F5C39BFF200A836D00734571 /* DHDocsetBrowserViewModel.m */,
 				437FE06419E2AC0D0022ADF4 /* DHTypeBrowser.h */,
 				437FE06519E2AC0D0022ADF4 /* DHTypeBrowser.m */,
 				439051F719E684160083A55E /* DHEntryBrowser.h */,
@@ -813,6 +856,15 @@
 			name = Others;
 			sourceTree = "<group>";
 		};
+		43A1C2662001757700512DB3 /* Apple API Docs */ = {
+			isa = PBXGroup;
+			children = (
+				43A1C267200175B900512DB3 /* DHAppleAPIProtocol.h */,
+				43A1C268200175B900512DB3 /* DHAppleAPIProtocol.m */,
+			);
+			name = "Apple API Docs";
+			sourceTree = "<group>";
+		};
 		43AC6FFF19E452D100E0DB43 /* Web Pages */ = {
 			isa = PBXGroup;
 			children = (
@@ -924,6 +976,7 @@
 		43FD2EE419BB8D87007E594D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43A1C2632001700600512DB3 /* Apple_Docs_Framework.framework */,
 				43BB043E19ED0B19000FBC0D /* JavaScriptCore.framework */,
 				430C768C19E55E6E006F0DE0 /* MobileCoreServices.framework */,
 				437FE06719E2B4010022ADF4 /* WebKit.framework */,
@@ -992,12 +1045,14 @@
 			buildConfigurationList = 43AB65AF1ED19D2F00A6EC18 /* Build configuration list for PBXNativeTarget "Dash App Store" */;
 			buildPhases = (
 				43AB65321ED19D2F00A6EC18 /* [CP] Check Pods Manifest.lock */,
+				43A1C24E200161D100512DB3 /* Embed Frameworks */,
 				43AB65331ED19D2F00A6EC18 /* Sources */,
 				43AB65821ED19D2F00A6EC18 /* Frameworks */,
 				43AB658D1ED19D2F00A6EC18 /* Resources */,
 				43AB65AC1ED19D2F00A6EC18 /* Git Hashes */,
 				43AB65AD1ED19D2F00A6EC18 /* [CP] Embed Pods Frameworks */,
 				43AB65AE1ED19D2F00A6EC18 /* [CP] Copy Pods Resources */,
+				43A1C2652001708700512DB3 /* Strip Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1013,12 +1068,14 @@
 			buildConfigurationList = 43FD2F1A19BB8D87007E594D /* Build configuration list for PBXNativeTarget "Dash" */;
 			buildPhases = (
 				74E707306BFB902C5388BE39 /* [CP] Check Pods Manifest.lock */,
+				43A1C26F200175E500512DB3 /* Embed Frameworks */,
 				43FD2EDE19BB8D87007E594D /* Sources */,
 				43FD2EDF19BB8D87007E594D /* Frameworks */,
 				43FD2EE019BB8D87007E594D /* Resources */,
 				43F760BF19EA8C57002BD8A6 /* Git Hashes */,
 				C71793A2EB8A6FB0EA63C3D3 /* [CP] Embed Pods Frameworks */,
 				988D171F13583CC36FBA7412 /* [CP] Copy Pods Resources */,
+				43A1C270200175F700512DB3 /* Strip Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1041,6 +1098,7 @@
 				TargetAttributes = {
 					43AB65311ED19D2F00A6EC18 = {
 						DevelopmentTeam = JP58VMK957;
+						ProvisioningStyle = Automatic;
 					};
 					43FD2EE119BB8D87007E594D = {
 						DevelopmentTeam = JP58VMK957;
@@ -1150,19 +1208,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		43AB65321ED19D2F00A6EC18 /* [CP] Check Pods Manifest.lock */ = {
+		43A1C2652001708700512DB3 /* Strip Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "Strip Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "################################################################################\n#\n# Copyright 2015 Realm Inc.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n# http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\n################################################################################\n\n# This script strips all non-valid architectures from dynamic libraries in\n# the application's `Frameworks` directory.\n#\n# The following environment variables are required:\n#\n# BUILT_PRODUCTS_DIR\n# FRAMEWORKS_FOLDER_PATH\n# VALID_ARCHS\n# EXPANDED_CODE_SIGN_IDENTITY\n\n\n# Signs a framework with the provided identity\ncode_sign() {\n    # Use the current code_sign_identitiy\n    echo \"Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\n    echo \"/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements $1\"\n    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\"\n}\n\necho \"Stripping frameworks\"\ncd \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\nfor file in $(find . -type f -perm +111); do\n# Skip non-dynamic libraries\nif ! [[ \"$(file \"$file\")\" == *\"dynamically linked shared library\"* ]]; then\ncontinue\nfi\n# Get architectures for current file\narchs=\"$(lipo -info \"${file}\" | rev | cut -d ':' -f1 | rev)\"\nstripped=\"\"\nfor arch in $archs; do\nif ! [[ \"${VALID_ARCHS}\" == *\"$arch\"* ]]; then\n# Strip non-valid architectures in-place\nlipo -remove \"$arch\" -output \"$file\" \"$file\" || exit 1\nstripped=\"$stripped $arch\"\nfi\ndone\nif [[ \"$stripped\" != \"\" ]]; then\necho \"Stripped $file of architectures:$stripped\"\nif [ \"${CODE_SIGNING_REQUIRED}\" == \"YES\" ]; then\ncode_sign \"${file}\"\nfi\nfi\ndone\n";
+		};
+		43A1C270200175F700512DB3 /* Strip Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Strip Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "################################################################################\n#\n# Copyright 2015 Realm Inc.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n# http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\n################################################################################\n\n# This script strips all non-valid architectures from dynamic libraries in\n# the application's `Frameworks` directory.\n#\n# The following environment variables are required:\n#\n# BUILT_PRODUCTS_DIR\n# FRAMEWORKS_FOLDER_PATH\n# VALID_ARCHS\n# EXPANDED_CODE_SIGN_IDENTITY\n\n\n# Signs a framework with the provided identity\ncode_sign() {\n    # Use the current code_sign_identitiy\n    echo \"Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\n    echo \"/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements $1\"\n    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\"\n}\n\necho \"Stripping frameworks\"\ncd \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\nfor file in $(find . -type f -perm +111); do\n# Skip non-dynamic libraries\nif ! [[ \"$(file \"$file\")\" == *\"dynamically linked shared library\"* ]]; then\ncontinue\nfi\n# Get architectures for current file\narchs=\"$(lipo -info \"${file}\" | rev | cut -d ':' -f1 | rev)\"\nstripped=\"\"\nfor arch in $archs; do\nif ! [[ \"${VALID_ARCHS}\" == *\"$arch\"* ]]; then\n# Strip non-valid architectures in-place\nlipo -remove \"$arch\" -output \"$file\" \"$file\" || exit 1\nstripped=\"$stripped $arch\"\nfi\ndone\nif [[ \"$stripped\" != \"\" ]]; then\necho \"Stripped $file of architectures:$stripped\"\nif [ \"${CODE_SIGNING_REQUIRED}\" == \"YES\" ]; then\ncode_sign \"${file}\"\nfi\nfi\ndone\n";
+		};
+		43AB65321ED19D2F00A6EC18 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dash-Dash App Store-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		43AB65AC1ED19D2F00A6EC18 /* Git Hashes */ = {
@@ -1200,9 +1289,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-Dash-Dash App Store/Pods-Dash-Dash App Store-resources.sh",
+				"${PODS_ROOT}/SAMKeychain/Support/SAMKeychain.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/HockeySDK/HockeySDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SAMKeychain.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HockeySDKResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1229,13 +1323,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dash-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		988D171F13583CC36FBA7412 /* [CP] Copy Pods Resources */ = {
@@ -1244,9 +1341,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-Dash/Pods-Dash-resources.sh",
+				"${PODS_ROOT}/SAMKeychain/Support/SAMKeychain.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SAMKeychain.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1275,6 +1375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43F31AAE200BB52F0082066C /* DHDocsetBrowserViewModel.m in Sources */,
 				43AB65341ED19D2F00A6EC18 /* DHAppDelegate.m in Sources */,
 				43AB65351ED19D2F00A6EC18 /* DHType.m in Sources */,
 				43AB65361ED19D2F00A6EC18 /* UIViewController+DHUtils.m in Sources */,
@@ -1343,6 +1444,7 @@
 				43AB65751ED19D2F00A6EC18 /* DHEntryBrowser.m in Sources */,
 				43AB65761ED19D2F00A6EC18 /* DHUnarchiver.m in Sources */,
 				43AB65771ED19D2F00A6EC18 /* DHDocsetIndexer.m in Sources */,
+				43A1C26A200175B900512DB3 /* DHAppleAPIProtocol.m in Sources */,
 				43AB65781ED19D2F00A6EC18 /* DHRightDetailLabel.m in Sources */,
 				43AB65791ED19D2F00A6EC18 /* DHTarixIndex.m in Sources */,
 				43AB657A1ED19D2F00A6EC18 /* DHJavaScript.m in Sources */,
@@ -1379,6 +1481,7 @@
 				43F25F9C19EBDEF30025CDC4 /* DHBlockProtocol.m in Sources */,
 				43B0956C19BFD57500F8611B /* DHRepo.m in Sources */,
 				43D7E4F01BB4C62E00FC1DEF /* DHWindow.m in Sources */,
+				F5C39C00200A836D00734571 /* DHDocsetBrowserViewModel.m in Sources */,
 				43BD6BF41DCE379B0005A1E7 /* DHAppUpdateChecker.m in Sources */,
 				439051FC19E68FE20083A55E /* NSString+GTM.m in Sources */,
 				43D4F06719E7D68100C22AF5 /* DHDBSearcher.m in Sources */,
@@ -1428,6 +1531,7 @@
 				439051F919E684160083A55E /* DHEntryBrowser.m in Sources */,
 				431108D519C7AE6D0050174C /* DHUnarchiver.m in Sources */,
 				4303A3CD19C65E6A00A7CD85 /* DHDocsetIndexer.m in Sources */,
+				43A1C269200175B900512DB3 /* DHAppleAPIProtocol.m in Sources */,
 				436F3E4319D4F617007BBC25 /* DHRightDetailLabel.m in Sources */,
 				43F84A7619EEBD1A008FE85C /* DHTarixIndex.m in Sources */,
 				43BB043919ED07DD000FBC0D /* DHJavaScript.m in Sources */,
@@ -1471,11 +1575,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				CLANG_WARN_UNREACHABLE_CODE = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Bogdan Popescu (JB3QRP5DC5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bogdan Popescu (JP58VMK957)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JP58VMK957;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/HockeySDK/HockeySDK-iOS/HockeySDK.embeddedframework\"",
+					"\"$(SRCROOT)/../Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1490,6 +1599,7 @@
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = "Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1497,8 +1607,12 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.dash.ios;
 				PRODUCT_NAME = Dash;
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
+				STRIP_SWIFT_SYMBOLS = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1511,10 +1625,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				CLANG_WARN_UNREACHABLE_CODE = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Bogdan Popescu (JB3QRP5DC5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JP58VMK957;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/HockeySDK/HockeySDK-iOS/HockeySDK.embeddedframework\"",
+					"\"$(SRCROOT)/../Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1523,6 +1643,7 @@
 					NDEBUG,
 					"APP_STORE=1",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				IBC_NOTICES = NO;
 				IBC_WARNINGS = NO;
@@ -1530,14 +1651,19 @@
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = "Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.dash.ios;
 				PRODUCT_NAME = Dash;
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
+				STRIP_SWIFT_SYMBOLS = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1587,7 +1713,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
 				SDKROOT = iphoneos;
@@ -1635,7 +1761,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_CFLAGS = "";
 				SDKROOT = iphoneos;
 				SYMROOT = ../build;
@@ -1656,6 +1782,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JP58VMK957;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../Frameworks\"";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
@@ -1666,6 +1793,7 @@
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = "Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1675,6 +1803,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
+				STRIP_SWIFT_SYMBOLS = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1688,8 +1819,10 @@
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bogdan Popescu (JB3QRP5DC5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = JP58VMK957;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dash-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1697,6 +1830,7 @@
 					"COCOAPODS=1",
 					NDEBUG,
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				IBC_NOTICES = NO;
 				IBC_WARNINGS = NO;
@@ -1704,6 +1838,7 @@
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = "Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1712,6 +1847,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
+				STRIP_SWIFT_SYMBOLS = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

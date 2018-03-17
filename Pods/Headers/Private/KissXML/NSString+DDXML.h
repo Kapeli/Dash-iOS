@@ -1,1 +1,1 @@
-../../../KissXML/KissXML/Categories/NSString+DDXML.h
+../../../../Modified Pods/KissXML-5.1.2/KissXML/Categories/NSString+DDXML.h

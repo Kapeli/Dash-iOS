@@ -296,17 +296,23 @@
             self.title = self.docset.name;
         }
     }
-    else if(!self.navigationItem.titleView && NSClassFromString(@"UINavigationItemView") && ![[self.docset indexFilePath] isCaseInsensitiveEqual:[[NSBundle mainBundle] pathForResource:@"home" ofType:@"html"]] && [DHDocsetBrowser titleBarItemAttributedStringTemplate])
+    else if(!self.navigationItem.titleView && ![[self.docset indexFilePath] isCaseInsensitiveEqual:[[NSBundle mainBundle] pathForResource:@"home" ofType:@"html"]] && [DHDocsetBrowser titleBarItemAttributedStringTemplate])
     {
         @try {
-            UILabel *titleLabel = nil;
             UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
             NSMutableAttributedString *title = [[DHDocsetBrowser titleBarItemAttributedStringTemplate] mutableCopy];
             [title.mutableString setString:[NSString stringWithFormat:@"%@  ", self.docset.name]];
-            [title addAttributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor], NSFontAttributeName: [UIFont fontWithName:@"Ionicons" size:20], NSBaselineOffsetAttributeName: @(-2)} range:NSMakeRange(title.mutableString.length-1, 1)];
+            [title addAttributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor], NSFontAttributeName: [UIFont fontWithName:@"Ionicons" size:20]} range:NSMakeRange(title.mutableString.length-1, 1)];
+            if(isIOS11)
+            {
+                [title addAttributes:@{NSBaselineOffsetAttributeName: @(2)} range:NSMakeRange(0, title.mutableString.length-2)];
+            }
+            else
+            {
+                [title addAttributes:@{NSBaselineOffsetAttributeName: @(-2)} range:NSMakeRange(title.mutableString.length-1, 1)];
+            }
             [button setAttributedTitle:title forState:UIControlStateNormal];
             [button addTarget:self action:@selector(smartTitleBarButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-            button.frame = titleLabel.frame;
             self.navigationItem.titleView = button;
         }
         @catch(NSException *exception) { NSLog(@"%@ %@", exception, [exception callStackSymbols]); }

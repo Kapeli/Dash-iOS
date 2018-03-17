@@ -23,6 +23,7 @@
 #import "DHDocsetManager.h"
 #import "DHTarixProtocol.h"
 #import "DHBlockProtocol.h"
+#import "DHAppleAPIProtocol.h"
 #import "DHCSS.h"
 #import "DHWebViewController.h"
 #import "DHAppUpdateChecker.h"
@@ -78,6 +79,7 @@
     [sharedCache removeAllCachedResponses];
     [NSURLCache setSharedURLCache:sharedCache];
     [NSURLProtocol registerClass:[DHTarixProtocol class]];
+    [NSURLProtocol registerClass:[DHAppleAPIProtocol class]];
     [NSURLProtocol registerClass:[DHRemoteProtocol class]];
     [NSURLProtocol registerClass:[DHBlockProtocol class]];
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
@@ -115,22 +117,30 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:DHPerformURLSearch object:[actualURL absoluteString]];
         });
     }
-    else
+    else if([[actualURL pathExtension] isCaseInsensitiveEqual:@"docset"])
     {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            
-            NSError *regexError;
-            NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:@"Inbox/.+[\\.docset]$" options:0 error:&regexError];
-            NSArray *matches;
-            if (regexError) {
-                NSLog(@"%@", regexError.localizedDescription);
-            }else{
-                matches = [regex matchesInString:[actualURL absoluteString] options:0 range:NSMakeRange(0, [actualURL absoluteString].length)];
-            }
-            if (matches.count) {
-                [self moveInboxContentsToDocuments];
-            }
-        });
+        NSError *error;
+        NSString *fileName = [actualURL lastPathComponent];
+        NSURL *copyToURL = [[NSURL fileURLWithPath:transfersPath] URLByAppendingPathComponent:fileName isDirectory:NO];
+        [[NSFileManager defaultManager] removeItemAtPath:copyToURL.path error:nil];
+        [[NSFileManager defaultManager] moveItemAtURL:actualURL toURL:copyToURL error:&error];
+        NSString *title;
+        NSString *message;
+        if(error)
+        {
+            title = @"Import Failed";
+            message = @"Could not import the docset. Please try again!";
+            NSLog(@"%@", error.localizedDescription);
+        }
+        else
+        {
+            title = @"Import Successful";
+            message = @"You can find the docset in Settings, under the Transfer Docsets section.";
+            NSLog(@"Docset successfully imported");
+        }
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle: UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
+        [[self topViewController] presentViewController:alert animated:YES completion:nil];
     }
     return YES;
 }
@@ -190,7 +200,7 @@
     NSLog(@"did receive memory warning");
 }
 
-- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler
 {
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         completionHandler();
@@ -238,19 +248,19 @@
 
 - (void)checkCommitHashes
 {
-    NSDictionary *hashes = @{@"DHDBSearcher": @"ea3cca93",
+    NSDictionary *hashes = @{@"DHDBSearcher": @"f3a251f7",
                              @"DHDBResult": @"cd091ec9",
                              @"DHDBUnifiedResult": @"b332793c",
                              @"DHQueuedDB": @"0199255c",
                              @"DHUnifiedQueuedDB": @"dd42266b",
                              @"DHDBUnifiedOperation": @"1671a905",
-                             @"DHWebViewController": @"85fe239e",
+                             @"DHWebViewController": @"3e212244",
                              @"DHWebPreferences": @"cd091ec9",
-                             @"DHDocsetDownloader": @"59741498",
-                             @"PlatformIcons": @"c09e3857",
-                             @"DHTypes": @"fe8fc727",
-                             @"Types": @"fe8fc727",
-                             @"CSS": @"b32c0412",
+                             @"DHDocsetDownloader": @"f07d3770",
+                             @"PlatformIcons": @"80cd6eb0",
+                             @"DHTypes": @"5ed28f56",
+                             @"Types": @"5ed28f56",
+                             @"CSS": @"0f4ac701",
                              };
     [hashes enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSString *plistHash = [[NSBundle mainBundle] infoDictionary][[key stringByAppendingString:@"Commit"]];
@@ -271,22 +281,25 @@
     return self._window;
 }
 
-- (void)moveInboxContentsToDocuments {
-    
-    NSError *fileManagerError;
-    
-    NSString *inboxDirectory = [NSString stringWithFormat:@"%@/Inbox", transfersPath];
-    NSArray *inboxContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:inboxDirectory error:&fileManagerError];
-    
-    //move all the files over
-    for (int i = 0; i != [inboxContents count]; i++) {
-        NSString *oldPath = [NSString stringWithFormat:@"%@/%@", inboxDirectory, [inboxContents objectAtIndex:i]];
-        NSString *newPath = [NSString stringWithFormat:@"%@/%@", transfersPath, [inboxContents objectAtIndex:i]];
-        [[NSFileManager defaultManager] moveItemAtPath:oldPath toPath:newPath error:&fileManagerError];
-        if (fileManagerError) {
-            NSLog(@"%@",fileManagerError.localizedDescription);
-        }
+- (UIViewController *)topViewController
+{
+    return [self topViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+}
+
+- (UIViewController *)topViewController:(UIViewController *)rootViewController
+{
+    if (rootViewController.presentedViewController == nil)
+    {
+        return rootViewController;
     }
+    if ([rootViewController.presentedViewController isKindOfClass:[UINavigationController class]])
+    {
+        UINavigationController *navigationController = (UINavigationController *)rootViewController.presentedViewController;
+        UIViewController *lastViewController = [[navigationController viewControllers] lastObject];
+        return [self topViewController:lastViewController];
+    }
+    UIViewController *presentedViewController = (UIViewController *)rootViewController.presentedViewController;
+    return [self topViewController:presentedViewController];
 }
 
 @end

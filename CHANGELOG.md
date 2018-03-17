@@ -1,6 +1,45 @@
 # Master
 
-* No changes yet.
+No changes yet.
+
+# 1.8.4
+
+* Fixed an issue which caused the Apple API Reference docset to not be able to display some pages. Thanks to [@philosopherdog](https://github.com/philosopherdog) for reporting the issue - [#71](https://github.com/Kapeli/Dash-iOS/issues/71)
+* Fixed an issue which caused docset alphabetical sorting to be case-sensitive. Thanks to [@ewalkie](https://github.com/ewalkie) for reporting the issue - [#72](https://github.com/Kapeli/Dash-iOS/issues/72)
+
+# 1.8.3
+
+* Added support for sorting docsets alphabetically in the docset browser. Thanks to [@waffleboot](https://github.com/waffleboot) for the great work on this - [#69](https://github.com/Kapeli/Dash-iOS/pull/69)
+* Added support for Xcode 9.3 docs - [73cadfb](https://github.com/Kapeli/Dash-iOS/commit/73cadfbcbb6e172ec8d12c2ef222a64160e4e42d)
+
+# 1.8.2
+
+* Fixed crash at launch for release build - [c0d2582](https://github.com/Kapeli/Dash-iOS/commit/c0d2582e70dbeec560c03781727fd8dcf95b9e7d)
+
+# 1.8.1
+
+* Fixed Apple API Reference docset transfer issues - [#66](https://github.com/Kapeli/Dash-iOS/issues/66)
+
+# 1.8.0
+
+* Fixed docset index page button on iOS 11 - [7fd09e8](https://github.com/Kapeli/Dash-iOS/commit/7fd09e8cae3b981aa75662ef3d19111a3ab2039a)
+* Fixed an issue which caused the Swift docset to still appear in Dash, although it was removed - [ca9c9f6](https://github.com/Kapeli/Dash-iOS/commit/ca9c9f64daf9eac30c4dcc000f99240a424bb123)
+* Fixed an issue which caused the search results table to be inset on iOS 11 - [d022d88](https://github.com/Kapeli/Dash-iOS/commit/d022d888e21a37e54a9960239689cac54bb7ef5b)
+* Fixed an issue which caused search results to not be highlighted correctly - [aea602e](https://github.com/Kapeli/Dash-iOS/commit/aea602e9b5292c110f6cb934f892349a3290689d)
+* Fixed access to UI on background thread - [90b1875](https://github.com/Kapeli/Dash-iOS/commit/90b1875f3728f5ca4485693ec8209cf8342cecfe)
+* Fixed an issue which caused extra table row separators to appear above the search results table - [313893d](https://github.com/Kapeli/Dash-iOS/commit/313893ddeddb10b029d7bb2c324867a09a127946)
+* Fixed Settings button sometimes appearing faded - [2bb42fe](https://github.com/Kapeli/Dash-iOS/commit/2bb42fe2ee51a3fabadb921100da6b0c7674efbc)
+* Consolidated the OpenCV C, C++, Python and Java docsets into a single OpenCV docset - [9af12ee](https://github.com/Kapeli/Dash-iOS/commit/9af12ee33f4d60de14d4bbb0a0741be61296e2b0)
+
+# 1.7.0
+
+* Added support for adding docsets using the "Open in..." menu. Thanks to [@insightmind](https://github.com/insightmind) for the great work on this - [#52](https://github.com/Kapeli/Dash-iOS/pull/52)
+* Added Java SE9 docset - [7c727c2](https://github.com/Kapeli/Dash-iOS/commit/7c727c2d30d41c0f37a4588510a804e4300b8c61)
+* Added Java EE8 docset - [61e2df7](https://github.com/Kapeli/Dash-iOS/commit/61e2df74f955bcf22ff6611be1ff0f6e45f6024a)
+* Added AngularJS docset (now separate from the Angular docset) - [b0ef193](https://github.com/Kapeli/Dash-iOS/commit/b0ef1936b71b026baa92e76371331be26c1f32dd)
+* Removed Swift docset. Swift docs can be found in the Apple API Reference docset - [88913a6](https://github.com/Kapeli/Dash-iOS/commit/88913a6236c8c3c3874da63b300930496658637e)
+* Fixed an AirDrop issue. Thanks to [@ClementPadovani](https://github.com/ClementPadovani) for the fix - [#61](https://github.com/Kapeli/Dash-iOS/pull/61)
+* Added Glossary, Control Structure, Expression, Handler, Iterator, Widget, Block, Template types - [a94006b](https://github.com/Kapeli/Dash-iOS/commit/a94006bc39996c69d168f9c2d8f94b0e37c31ac6)
 
 # 1.6.3
 

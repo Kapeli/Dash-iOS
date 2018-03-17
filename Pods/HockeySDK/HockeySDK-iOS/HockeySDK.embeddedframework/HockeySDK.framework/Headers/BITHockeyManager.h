@@ -191,19 +191,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)startManager;
 
-/**
- Starts the manager and runs all modules from a Xamarin environment. This is intended to be used by the HockeySDK-Xamarin.
- We now need to make a difference as BITCrashManager needs to setup PLCrashReporter differently for Xamarin apps.
- 
- @warning Do not use this API from within a native iOS app.
- 
- Call this after configuring the manager and setting up all modules.
- 
- @see configureWithIdentifier:delegate:
- @see configureWithBetaIdentifier:liveIdentifier:delegate:
- */
-- (void)startManagerInXamarinEnvironment;
-
 #pragma mark - Public Properties
 
 ///-----------------------------------------------------------------------------
@@ -239,7 +226,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @warning This property needs to be set before calling `startManager`
  */
-@property (nonatomic, strong) NSString *serverURL;
+@property (nonatomic, copy) NSString *serverURL;
 
 
 #if HOCKEYSDK_FEATURE_CRASH_REPORTER
@@ -446,7 +433,7 @@ NS_ASSUME_NONNULL_BEGIN
  This is not identical to the `[ASIdentifierManager advertisingIdentifier]` or
  the `[UIDevice identifierForVendor]`!
  */
-@property (nonatomic, readonly) NSString *installString;
+@property (nonatomic, readonly, copy) NSString *installString;
 
 
 /**

@@ -133,7 +133,7 @@ static NSDictionary *highlightDictionary;
         
         if(!isOnlineGuide)
         {
-            if([self.path hasPrefix:@"http://"] || [self.path hasPrefix:@"https://"] || self.isSO)
+            if([self.path hasPrefix:@"http://"] || [self.path hasPrefix:@"https://"] || self.isSO || [self.path hasPrefix:@"dash-apple-api://"])
             {
                 self.isHTTP = YES;
                 self.fullPath = self.path;
