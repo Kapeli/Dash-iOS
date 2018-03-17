@@ -20,6 +20,12 @@
 #import "DHFeedResult.h"
 @import CoreSpotlight;
 
+NSString * const kDHDocsetIndexerDashSearchScheme = @"dash-core-spotlight";
+
+NSString * const kDHDocsetIndexerDashSearchItemIdentifier = @"itemIdentifier";
+
+NSString * const kDHDocsetIndexerDashSearchItemRequestKey = @"request_key";
+
 @implementation DHDocsetIndexer
 
 + (DHDocsetIndexer *)indexerForDocset:(DHDocset *)docset delegate:(id)delegate
@@ -307,6 +313,8 @@
     
     FMResultSet *result = [database executeQuery: @"SELECT * FROM searchIndex WHERE type = \"Class\" GROUP BY name"];
 
+    NSCharacterSet *URLPathCharacterSet = [NSCharacterSet URLFragmentAllowedCharacterSet];
+    
     while ([result next]) {
 
         NSDictionary <NSString *, id> *itemDictionary = [result resultDictionary];
@@ -331,7 +339,7 @@
         if (![itemName isKindOfClass: [NSString class]])
             continue;
         
-        itemURLString = [itemURLString URLEncodedString_ch];
+        itemURLString = [itemURLString stringByAddingPercentEncodingWithAllowedCharacters: URLPathCharacterSet];
         
         NSURL *itemURL = [NSURL URLWithString: itemURLString];
         
@@ -345,36 +353,55 @@
         [itemAttributes setDisplayName: itemName];
         
         NSString *itemIdentifier = ({
-            NSString *identifier = nil;
+//            NSString *identifier = nil;
+//
+//            NSURLComponents *itemComponents = [NSURLComponents componentsWithURL: itemURL resolvingAgainstBaseURL: NO];
+//
+//            NSArray <NSURLQueryItem *> *queryItems = [itemComponents queryItems];
+//
+//            NSURLQueryItem *queryItem = ({
+//                NSURLQueryItem *_item = nil;
+//
+//                for (NSURLQueryItem *anItem in queryItems)
+//                {
+//                    if ([[anItem name] isEqualToString: @"request_key"])
+//                    {
+//                        _item = anItem;
+//                        break;
+//                    }
+//                }
+//
+//                _item;
+//            });
+//
+//            if (queryItem)
+//            {
+//                identifier = [queryItem value];
+//            }
+//
+//            identifier;
             
-            NSURLComponents *itemComponents = [NSURLComponents componentsWithURL: itemURL resolvingAgainstBaseURL: NO];
-            
-            NSArray <NSURLQueryItem *> *queryItems = [itemComponents queryItems];
-            
-            NSURLQueryItem *queryItem = ({
-                NSURLQueryItem *_item = nil;
-                
-                for (NSURLQueryItem *anItem in queryItems)
-                {
-                    if ([[anItem name] isEqualToString: @"request_key"])
-                    {
-                        _item = anItem;
-                        break;
-                    }
-                }
-                
-                _item;
-            });
-            
-            if (queryItem)
-            {
-                identifier = [queryItem value];
-            }
-            
-            identifier;
+            itemURLString;
         });
         
-        CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier: itemIdentifier
+        NSString *actualIdentifier = ({
+            NSURLComponents *URLComponents = [[NSURLComponents alloc] init];
+
+            [URLComponents setScheme: kDHDocsetIndexerDashSearchScheme];
+
+            NSURLQueryItem *itemIdentifierQueryItem = [NSURLQueryItem queryItemWithName: kDHDocsetIndexerDashSearchItemIdentifier value: currentDocsetIdentifier];
+            
+            NSURLQueryItem *itemRequestURLQueryItem = [NSURLQueryItem queryItemWithName: kDHDocsetIndexerDashSearchItemRequestKey value: itemIdentifier];
+
+            [URLComponents setQueryItems: @[itemIdentifierQueryItem, itemRequestURLQueryItem]];
+            
+            [URLComponents string];
+        });
+        
+        if (!actualIdentifier)
+            continue; //we don't want the default item identifier
+        
+        CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier: actualIdentifier
                                                                    domainIdentifier: currentDocsetIdentifier
                                                                        attributeSet: itemAttributes];
         

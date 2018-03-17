@@ -33,6 +33,7 @@
 #endif
 #import "DHRemoteServer.h"
 #import "DHRemoteProtocol.h"
+@import CoreSpotlight;
 
 @implementation DHAppDelegate
 
@@ -142,6 +143,97 @@
         [alert addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
         [[self topViewController] presentViewController:alert animated:YES completion:nil];
     }
+    return YES;
+}
+
+- (BOOL) application: (UIApplication *) application continueUserActivity: (NSUserActivity *) userActivity restorationHandler: (void (^)(NSArray * _Nullable)) restorationHandler
+{
+    if ([[userActivity activityType] isEqualToString: CSSearchableItemActionType])
+    {
+        NSString *itemURLString = [userActivity userInfo][CSSearchableItemActivityIdentifier];
+        
+        if (!itemURLString)
+            return NO;
+        
+        NSURL *spotlightItemURL = [NSURL URLWithString: itemURLString];
+        
+        if (!spotlightItemURL)
+            return NO;
+
+        NSString *docsetBundleIdentifier = ({
+            NSString *_identifier = nil;
+            
+            NSURLComponents *spotlightItemURLComponents = [NSURLComponents componentsWithURL: spotlightItemURL resolvingAgainstBaseURL: NO];
+            
+            for (NSURLQueryItem *aQueryItem in [spotlightItemURLComponents queryItems])
+            {
+                if ([[aQueryItem name] isEqualToString: kDHDocsetIndexerDashSearchItemIdentifier])
+                {
+                    _identifier = [aQueryItem value];
+                    break;
+                }
+            }
+            
+            _identifier;
+        });
+        
+        NSString *itemIdentifier = ({
+            NSString *_identifier = nil;
+            
+            NSURLComponents *spotlightItemURLComponents = [NSURLComponents componentsWithURL: spotlightItemURL resolvingAgainstBaseURL: NO];
+            
+            for (NSURLQueryItem *aQueryItem in [spotlightItemURLComponents queryItems])
+            {
+                if ([[aQueryItem name] isEqualToString: kDHDocsetIndexerDashSearchItemRequestKey])
+                {
+                    _identifier = [aQueryItem value];
+                    break;
+                }
+            }
+
+            _identifier = [_identifier stringByRemovingPercentEncoding];
+            
+            _identifier;
+        });
+        
+        if (!docsetBundleIdentifier)
+            return NO;
+        
+        DHDocset *matchedDocset = nil;
+        
+        NSArray <DHDocset *> *enabledDocsets = [[DHDocsetManager sharedManager] enabledDocsets];
+        
+        for (DHDocset *aDocset in enabledDocsets)
+        {
+            if ([[aDocset bundleIdentifier] isEqualToString: docsetBundleIdentifier])
+            {
+                matchedDocset = aDocset;
+                break;
+            }
+        }
+        
+        if (!matchedDocset)
+            return NO;
+        
+        FMDatabase *docsetDatabase = [FMDatabase databaseWithPath: [matchedDocset optimisedIndexPath]];
+        
+        if (![docsetDatabase open])
+            return NO;
+
+        NSString *query = [NSString stringWithFormat: @"SELECT * FROM searchIndex WHERE path = \"%@\"", itemIdentifier];
+        
+        FMResultSet *result = [docsetDatabase executeQuery: query];
+        
+        if (![result next])
+            return NO;
+        
+        DHDBResult *result = [DHDBResult resultWithDocset: matchedDocset resultSet: result];
+        
+        DHWebViewController *webViewController = nil;
+        
+        NSLog(@"");
+    }
+    
     return YES;
 }
 

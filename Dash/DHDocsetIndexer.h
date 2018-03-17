@@ -17,6 +17,12 @@
 
 #import <Foundation/Foundation.h>
 
+FOUNDATION_EXPORT NSString * const kDHDocsetIndexerDashSearchScheme;
+
+FOUNDATION_EXPORT NSString * const kDHDocsetIndexerDashSearchItemIdentifier;
+
+FOUNDATION_EXPORT NSString * const kDHDocsetIndexerDashSearchItemRequestKey;
+
 @interface DHDocsetIndexer : NSObject
 
 @property (weak) id delegate;
