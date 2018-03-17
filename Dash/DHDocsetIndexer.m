@@ -18,6 +18,7 @@
 #import "DHDocsetIndexer.h"
 #import "DHTypes.h"
 #import "DHFeedResult.h"
+@import CoreSpotlight;
 
 @implementation DHDocsetIndexer
 
@@ -88,6 +89,9 @@
                     NSString *platform = self.docset.platform;
                     BOOL isMacOSX = [platform isEqualToString:@"macosx"] || [platform isEqualToString:@"osx"];
                     BOOL isApple = isMacOSX || [platform isEqualToString:@"ios"] || [platform isEqualToString:@"iphoneos"] || [platform isEqualToString:@"watchos"] || [platform isEqualToString:@"tvos"];
+                    
+                    BOOL isNewAppleDocset = [platform isEqualToString: @"apple"];
+                    
                     NSString *indexQuery = (isDash) ? @"SELECT path, 1, name, type, rowid FROM searchIndex " : @"SELECT f.ZPATH, m.ZANCHOR, t.ZTOKENNAME, ty.ZTYPENAME, t.rowid FROM ZTOKEN t, ZTOKENTYPE ty, ZFILEPATH f, ZTOKENMETAINFORMATION m WHERE ty.Z_PK = t.ZTOKENTYPE AND f.Z_PK = m.ZFILE AND m.ZTOKEN = t.Z_PK ";
                     BOOL hasTOKENUSR = NO;
                     if(!isDash && isApple)
@@ -103,6 +107,7 @@
                     {
                         indexQuery = [indexQuery stringByReplacingOccurrencesOfString:@" ORDER BY " withString:@" ORDER BY f.ZPATH is NULL, "];
                     }
+                    
                     [self checkIfCancelled];
 
                     FMResultSet *rs = [db executeQuery:indexQuery];
@@ -252,6 +257,25 @@
                     [indexDB executeUpdate:[NSString stringWithFormat:@"INSERT INTO queryIndex(queryIndex) VALUES('optimize');"]];
                     [self checkIfCancelled];
                     [indexDB commit];
+                    
+                    if (isNewAppleDocset)
+                    {
+                        if ([CSSearchableIndex isIndexingAvailable])
+                        {
+                            NSArray <CSSearchableItem *> *searchableItems = [self startIndexingAppleDocumentationSetWithDatabase: indexDB];
+                            
+                            [[CSSearchableIndex defaultSearchableIndex] indexSearchableItems: searchableItems
+                                                                           completionHandler: ^(NSError * _Nullable error) {
+                                                                               if (error)
+                                                                               {
+                                                                                   NSLog(@"failed to index items with error: %@", error);
+                                                                                   
+                                                                                   return ;
+                                                                               }
+                                                                           }];
+                        }
+                        
+                    }
                 } readOnly:YES lockCondition:DHLockDontLock optimisedIndex:NO];
             } readOnly:NO lockCondition:DHLockDontLock optimisedIndex:YES];
         }
@@ -273,6 +297,91 @@
             }
         }
     }
+}
+
+- (NSArray <CSSearchableItem *> *) startIndexingAppleDocumentationSetWithDatabase: (FMDatabase *) database
+{
+    NSMutableArray <CSSearchableItem *> *_searchableItems = [NSMutableArray array];
+    
+    NSString *currentDocsetIdentifier = [[self docset] bundleIdentifier];
+    
+    FMResultSet *result = [database executeQuery: @"SELECT * FROM searchIndex WHERE type = \"Class\" GROUP BY name"];
+
+    while ([result next]) {
+
+        NSDictionary <NSString *, id> *itemDictionary = [result resultDictionary];
+        
+        CSSearchableItemAttributeSet *itemAttributes = [[CSSearchableItemAttributeSet alloc] initWithItemContentType: @"com.apple.xcode.docset"];
+        
+        NSString *itemRowID = itemDictionary[@"rowid"];
+        
+        NSString *itemURLString = itemDictionary[@"path"];
+        
+        NSString *itemName = itemDictionary[@"name"];
+        
+        if ([itemRowID isKindOfClass: [NSNumber class]])
+            itemRowID = [(NSNumber *) itemRowID stringValue];
+        
+        if (![itemRowID isKindOfClass: [NSString class]])
+            continue;
+
+        if (![itemURLString isKindOfClass: [NSString class]])
+            continue;
+        
+        if (![itemName isKindOfClass: [NSString class]])
+            continue;
+        
+        itemURLString = [itemURLString URLEncodedString_ch];
+        
+        NSURL *itemURL = [NSURL URLWithString: itemURLString];
+        
+        if (!itemURL)
+            continue;
+
+        [itemAttributes setIdentifier: itemRowID];
+        
+        [itemAttributes setURL: itemURL];
+        
+        [itemAttributes setDisplayName: itemName];
+        
+        NSString *itemIdentifier = ({
+            NSString *identifier = nil;
+            
+            NSURLComponents *itemComponents = [NSURLComponents componentsWithURL: itemURL resolvingAgainstBaseURL: NO];
+            
+            NSArray <NSURLQueryItem *> *queryItems = [itemComponents queryItems];
+            
+            NSURLQueryItem *queryItem = ({
+                NSURLQueryItem *_item = nil;
+                
+                for (NSURLQueryItem *anItem in queryItems)
+                {
+                    if ([[anItem name] isEqualToString: @"request_key"])
+                    {
+                        _item = anItem;
+                        break;
+                    }
+                }
+                
+                _item;
+            });
+            
+            if (queryItem)
+            {
+                identifier = [queryItem value];
+            }
+            
+            identifier;
+        });
+        
+        CSSearchableItem *item = [[CSSearchableItem alloc] initWithUniqueIdentifier: itemIdentifier
+                                                                   domainIdentifier: currentDocsetIdentifier
+                                                                       attributeSet: itemAttributes];
+        
+        [_searchableItems addObject: item];
+    }
+    
+    return _searchableItems;
 }
 
 - (void)incrementProgressBy:(NSUInteger)increment;
