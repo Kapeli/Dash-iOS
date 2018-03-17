@@ -18,6 +18,7 @@
 #import "DHDocsetTransferrer.h"
 #import "DHAppDelegate.h"
 #import "DHTransferFeed.h"
+@import CoreSpotlight;
 
 @implementation DHDocsetTransferrer
 
@@ -95,6 +96,16 @@ static id singleton = nil;
 
 - (void)feedDidUninstall:(DHTransferFeed *)feed
 {
+    [[CSSearchableIndex defaultSearchableIndex] deleteSearchableItemsWithDomainIdentifiers: @[[[feed docset] bundleIdentifier]]
+                                                                         completionHandler: ^(NSError * _Nullable error) {
+                                                                             if (error)
+                                                                             {
+                                                                                 NSLog(@"failed to delete feed (%@) with error: %@", [[feed docset] bundleIdentifier], error);
+                                                                                 
+                                                                                 return;
+                                                                             }
+                                                                         }];
+    
     NSInteger row = [self.feeds indexOfObjectIdenticalTo:feed];
     if(row != NSNotFound)
     {
