@@ -8,7 +8,8 @@ target "Dash" do
     # MRStopButton has support for whole sizes (their calculations ended up with non-integral frames)
     # Also overwrote pointInside: for MRCircularProgressView...
     # Removed AccessibilityValueChangeNotify because it causes VoiceOver to stall
-    pod 'KissXML', '~> 5.1.2'
+    pod 'KissXML', :path => 'Modified Pods/KissXML-5.1.2/KissXML.podspec'
+    # Modified to make addChild: remove parent
     pod 'UIAlertView+Blocks'
     pod 'UIActionSheet+Blocks'
     pod 'AutoCoding'

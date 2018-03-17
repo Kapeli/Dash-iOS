@@ -864,6 +864,10 @@
     return @"AutomaticallyCheckForUpdates";
 }
 
++ (NSString *)defaultsAlphabetizingKey {
+    return @"DocSetAlphabetizing";
+}
+
 - (NSString *)defaultsUpdateLastCheckDateKey
 {
     return [[self defaultsKey] stringByAppendingString:@"LastUpdateCheck"];

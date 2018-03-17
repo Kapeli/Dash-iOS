@@ -1,6 +1,20 @@
 # Master
 
-* No changes yet.
+No changes yet.
+
+# 1.8.4
+
+* Fixed an issue which caused the Apple API Reference docset to not be able to display some pages. Thanks to [@philosopherdog](https://github.com/philosopherdog) for reporting the issue - [#71](https://github.com/Kapeli/Dash-iOS/issues/71)
+* Fixed an issue which caused docset alphabetical sorting to be case-sensitive. Thanks to [@ewalkie](https://github.com/ewalkie) for reporting the issue - [#72](https://github.com/Kapeli/Dash-iOS/issues/72)
+
+# 1.8.3
+
+* Added support for sorting docsets alphabetically in the docset browser. Thanks to [@waffleboot](https://github.com/waffleboot) for the great work on this - [#69](https://github.com/Kapeli/Dash-iOS/pull/69)
+* Added support for Xcode 9.3 docs - [73cadfb](https://github.com/Kapeli/Dash-iOS/commit/73cadfbcbb6e172ec8d12c2ef222a64160e4e42d)
+
+# 1.8.2
+
+* Fixed crash at launch for release build - [c0d2582](https://github.com/Kapeli/Dash-iOS/commit/c0d2582e70dbeec560c03781727fd8dcf95b9e7d)
 
 # 1.8.1
 

@@ -1,0 +1,347 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1FB55F4C9A619D81B2B6D5F9 /* Pods_KissXMLSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C05E6813A1A077F1A35E5F /* Pods_KissXMLSwiftTests.framework */; };
+		D9DB387C1C5845BA003E55FB /* KissXMLSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DB387B1C5845BA003E55FB /* KissXMLSwiftTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D9F98E4E9274E7FE7236211 /* Pods-KissXMLSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KissXMLSwiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KissXMLSwiftTests/Pods-KissXMLSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
+		45C05E6813A1A077F1A35E5F /* Pods_KissXMLSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KissXMLSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		489CB490979AD956670153FB /* Pods-KissXMLSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KissXMLSwiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KissXMLSwiftTests/Pods-KissXMLSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D9DB38791C5845BA003E55FB /* KissXMLSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KissXMLSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9DB387B1C5845BA003E55FB /* KissXMLSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KissXMLSwiftTests.swift; sourceTree = "<group>"; };
+		D9DB387D1C5845BA003E55FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9DB38761C5845BA003E55FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FB55F4C9A619D81B2B6D5F9 /* Pods_KissXMLSwiftTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CAF7F0EA91C35E08F4C76441 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				489CB490979AD956670153FB /* Pods-KissXMLSwiftTests.debug.xcconfig */,
+				1D9F98E4E9274E7FE7236211 /* Pods-KissXMLSwiftTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D88E11315861A1E4686DB829 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45C05E6813A1A077F1A35E5F /* Pods_KissXMLSwiftTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9AA72491C56EE9D00002BEE = {
+			isa = PBXGroup;
+			children = (
+				D9DB387A1C5845BA003E55FB /* KissXMLSwiftTests */,
+				D9AA72551C56EEF500002BEE /* Products */,
+				CAF7F0EA91C35E08F4C76441 /* Pods */,
+				D88E11315861A1E4686DB829 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D9AA72551C56EEF500002BEE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9DB38791C5845BA003E55FB /* KissXMLSwiftTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9DB387A1C5845BA003E55FB /* KissXMLSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				D9DB387B1C5845BA003E55FB /* KissXMLSwiftTests.swift */,
+				D9DB387D1C5845BA003E55FB /* Info.plist */,
+			);
+			path = KissXMLSwiftTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9DB38781C5845BA003E55FB /* KissXMLSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9DB38801C5845BA003E55FB /* Build configuration list for PBXNativeTarget "KissXMLSwiftTests" */;
+			buildPhases = (
+				7F06356A51F464385261A193 /* [CP] Check Pods Manifest.lock */,
+				D9DB38751C5845BA003E55FB /* Sources */,
+				D9DB38761C5845BA003E55FB /* Frameworks */,
+				D9DB38771C5845BA003E55FB /* Resources */,
+				B80AC4DC07455D15D9429DBB /* [CP] Embed Pods Frameworks */,
+				B93F80DD70215412261A5B21 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KissXMLSwiftTests;
+			productName = KissXMLSwiftTests;
+			productReference = D9DB38791C5845BA003E55FB /* KissXMLSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9AA724A1C56EE9D00002BEE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				TargetAttributes = {
+					D9DB38781C5845BA003E55FB = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = D9AA724D1C56EE9D00002BEE /* Build configuration list for PBXProject "KissXML" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D9AA72491C56EE9D00002BEE;
+			productRefGroup = D9AA72551C56EEF500002BEE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9DB38781C5845BA003E55FB /* KissXMLSwiftTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9DB38771C5845BA003E55FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7F06356A51F464385261A193 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B80AC4DC07455D15D9429DBB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KissXMLSwiftTests/Pods-KissXMLSwiftTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B93F80DD70215412261A5B21 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KissXMLSwiftTests/Pods-KissXMLSwiftTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9DB38751C5845BA003E55FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9DB387C1C5845BA003E55FB /* KissXMLSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D9AA724E1C56EE9D00002BEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		D9AA724F1C56EE9D00002BEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		D9DB387E1C5845BA003E55FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 489CB490979AD956670153FB /* Pods-KissXMLSwiftTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = KissXMLSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/KissXML\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.ballinger.KissXMLSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D9DB387F1C5845BA003E55FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D9F98E4E9274E7FE7236211 /* Pods-KissXMLSwiftTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = KissXMLSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/KissXML\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.ballinger.KissXMLSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9AA724D1C56EE9D00002BEE /* Build configuration list for PBXProject "KissXML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9AA724E1C56EE9D00002BEE /* Debug */,
+				D9AA724F1C56EE9D00002BEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9DB38801C5845BA003E55FB /* Build configuration list for PBXNativeTarget "KissXMLSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9DB387E1C5845BA003E55FB /* Debug */,
+				D9DB387F1C5845BA003E55FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D9AA724A1C56EE9D00002BEE /* Project object */;
+}
