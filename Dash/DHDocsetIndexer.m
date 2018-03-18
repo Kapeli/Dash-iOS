@@ -341,6 +341,8 @@ NSString * const kDHDocsetIndexerDashSearchItemRequestKey = @"request_key";
         
         itemURLString = [itemURLString stringByAddingPercentEncodingWithAllowedCharacters: URLPathCharacterSet];
         
+//        itemURLString = [itemURLString stringByDeletingPathFragment];
+        
         NSURL *itemURL = [NSURL URLWithString: itemURLString];
         
         if (!itemURL)
@@ -353,36 +355,42 @@ NSString * const kDHDocsetIndexerDashSearchItemRequestKey = @"request_key";
         [itemAttributes setDisplayName: itemName];
         
         NSString *itemIdentifier = ({
-//            NSString *identifier = nil;
-//
-//            NSURLComponents *itemComponents = [NSURLComponents componentsWithURL: itemURL resolvingAgainstBaseURL: NO];
-//
-//            NSArray <NSURLQueryItem *> *queryItems = [itemComponents queryItems];
-//
-//            NSURLQueryItem *queryItem = ({
-//                NSURLQueryItem *_item = nil;
-//
-//                for (NSURLQueryItem *anItem in queryItems)
-//                {
-//                    if ([[anItem name] isEqualToString: @"request_key"])
-//                    {
-//                        _item = anItem;
-//                        break;
-//                    }
-//                }
-//
-//                _item;
-//            });
-//
-//            if (queryItem)
-//            {
-//                identifier = [queryItem value];
-//            }
-//
-//            identifier;
+            NSString *identifier = nil;
+
+            NSURLComponents *itemComponents = [NSURLComponents componentsWithURL: itemURL resolvingAgainstBaseURL: NO];
+
+            NSArray <NSURLQueryItem *> *queryItems = [itemComponents queryItems];
+
+            NSURLQueryItem *queryItem = ({
+                NSURLQueryItem *_item = nil;
+
+                for (NSURLQueryItem *anItem in queryItems)
+                {
+                    if ([[anItem name] isEqualToString: @"request_key"])
+                    {
+                        _item = anItem;
+                        break;
+                    }
+                }
+
+                _item;
+            });
+
+            if (queryItem)
+            {
+                identifier = [queryItem value];
+            }
+
+//            if (identifier)
+//                identifier = [NSString stringWithFormat: @"dash-apple-api://load?%@", identifier];
+
+            identifier = [itemComponents string];
             
-            itemURLString;
+            identifier;
         });
+
+        if (!itemIdentifier)
+            continue;
         
         NSString *actualIdentifier = ({
             NSURLComponents *URLComponents = [[NSURLComponents alloc] init];
@@ -390,11 +398,11 @@ NSString * const kDHDocsetIndexerDashSearchItemRequestKey = @"request_key";
             [URLComponents setScheme: kDHDocsetIndexerDashSearchScheme];
 
             NSURLQueryItem *itemIdentifierQueryItem = [NSURLQueryItem queryItemWithName: kDHDocsetIndexerDashSearchItemIdentifier value: currentDocsetIdentifier];
-            
+
             NSURLQueryItem *itemRequestURLQueryItem = [NSURLQueryItem queryItemWithName: kDHDocsetIndexerDashSearchItemRequestKey value: itemIdentifier];
 
             [URLComponents setQueryItems: @[itemIdentifierQueryItem, itemRequestURLQueryItem]];
-            
+
             [URLComponents string];
         });
         

@@ -160,6 +160,8 @@
         if (!spotlightItemURL)
             return NO;
 
+//        itemURLString = [itemURLString stringByRemovingPercentEncoding];
+        
         NSString *docsetBundleIdentifier = ({
             NSString *_identifier = nil;
             
@@ -227,9 +229,13 @@
         if (![result next])
             return NO;
         
-        DHDBResult *result = [DHDBResult resultWithDocset: matchedDocset resultSet: result];
+        DHDBResult *databaseResult = [DHDBResult resultWithDocset: matchedDocset resultSet: result];
         
-        DHWebViewController *webViewController = nil;
+        DHWebViewController *webViewController = [[[self class] mainStoryboard] instantiateViewControllerWithIdentifier: @"DHWebViewController"];
+        
+        [webViewController loadResult: databaseResult];
+        
+        [[self topViewController] presentViewController: [webViewController navigationController] animated: YES completion: NULL];
         
         NSLog(@"");
     }
