@@ -16,7 +16,8 @@
 @property (strong) NSMutableDictionary *inheritancesCache;
 @property (strong) NSMutableDictionary *dataCache;
 @property (strong) NSMutableDictionary *topicIdCache;
-@property (assign) BOOL isXcode9;
+@property (strong) NSNumber *_isXcode9;
+@property (strong) NSNumber *_usrInSearchIndex;
 
 + (DHXcodeHelper *)sharedXcodeHelper;
 - (NSString *)xcodeDocsVersion;
@@ -40,5 +41,6 @@
 - (NSString *)fsFolderPath;
 - (NSString *)xcodeFSFolderPath;
 + (void)cleanUp;
+- (BOOL)isXcode9;
 
 @end

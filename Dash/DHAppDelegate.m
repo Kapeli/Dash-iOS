@@ -254,13 +254,13 @@
                              @"DHQueuedDB": @"0199255c",
                              @"DHUnifiedQueuedDB": @"dd42266b",
                              @"DHDBUnifiedOperation": @"1671a905",
-                             @"DHWebViewController": @"3e212244",
-                             @"DHWebPreferences": @"cd091ec9",
+                             @"DHWebViewController": @"b8feaee9",
+                             @"DHWebPreferences": @"1f358da2",
                              @"DHDocsetDownloader": @"f07d3770",
                              @"PlatformIcons": @"80cd6eb0",
                              @"DHTypes": @"5ed28f56",
                              @"Types": @"5ed28f56",
-                             @"CSS": @"0f4ac701",
+                             @"CSS": @"1f358da2",
                              };
     [hashes enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSString *plistHash = [[NSBundle mainBundle] infoDictionary][[key stringByAppendingString:@"Commit"]];

@@ -29,6 +29,10 @@
 
 @end
 
+#ifndef DHXMLOptions
+#define DHXMLOptions NSXMLNodePreserveNamespaceOrder|NSXMLNodePreserveAttributeOrder|NSXMLNodePreserveEntities|NSXMLNodePreservePrefixes|NSXMLNodePreserveCDATA|NSXMLNodePreserveEmptyElements|NSXMLNodePreserveQuotes|NSXMLNodePreserveWhitespace|NSXMLNodePreserveDTD
+#endif
+
 // Also add these to encodedToHumanJSONMappings!
 
 #define kAbstract @"a"
