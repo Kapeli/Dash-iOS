@@ -2,6 +2,11 @@
 
 No changes yet.
 
+# 1.8.6
+
+* Fixed an issue with the Apple API Reference docset which caused some pages to not load - [bac544a](https://github.com/Kapeli/Dash-iOS/commit/bac544af11f3823bb246989201623b3bee3b8a39)
+* Updated Stylus docset icon - [0ad39d3](https://github.com/Kapeli/Dash-iOS/commit/0ad39d3363ead03d430f2cd8dcfa1007c93e5697)
+
 # 1.8.5
 
 * Added Apple API Reference docset support for Xcode 9.3 - [c585578](https://github.com/Kapeli/Dash-iOS/commit/c585578d0ab965dd3481f4c06aff6c320873d5f3)
