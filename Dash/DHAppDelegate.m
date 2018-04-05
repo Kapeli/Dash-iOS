@@ -256,11 +256,11 @@
                              @"DHDBUnifiedOperation": @"1671a905",
                              @"DHWebViewController": @"b8feaee9",
                              @"DHWebPreferences": @"1f358da2",
-                             @"DHDocsetDownloader": @"f07d3770",
-                             @"PlatformIcons": @"80cd6eb0",
+                             @"DHDocsetDownloader": @"24249fa8",
+                             @"PlatformIcons": @"dd07b6ef",
                              @"DHTypes": @"5ed28f56",
                              @"Types": @"5ed28f56",
-                             @"CSS": @"1f358da2",
+                             @"CSS": @"00239752",
                              };
     [hashes enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSString *plistHash = [[NSBundle mainBundle] infoDictionary][[key stringByAppendingString:@"Commit"]];

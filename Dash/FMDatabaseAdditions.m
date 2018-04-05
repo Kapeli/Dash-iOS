@@ -95,7 +95,7 @@ return ret;
 }
 
 
-- (BOOL)columnExists:(NSString*)tableName columnName:(NSString*)columnName {
+- (BOOL)columnExists:(NSString*)columnName inTableWithName:(NSString*)tableName {
     
     BOOL returnBool = NO;
     
@@ -106,7 +106,7 @@ return ret;
     
     //check if column is present in table schema
     while ([rs next]) {
-        if ([[[rs stringForColumn:@"name"] lowercaseString] isEqualToString: columnName]) {
+        if ([[[rs stringForColumn:@"name"] lowercaseString] isEqualToString:columnName]) {
             returnBool = YES;
             break;
         }
