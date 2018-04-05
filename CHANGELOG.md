@@ -2,6 +2,10 @@
 
 No changes yet.
 
+# 1.8.5
+
+* Added Apple API Reference docset support for Xcode 9.3 - [c585578](https://github.com/Kapeli/Dash-iOS/commit/c585578d0ab965dd3481f4c06aff6c320873d5f3)
+
 # 1.8.4
 
 * Fixed an issue which caused the Apple API Reference docset to not be able to display some pages. Thanks to [@philosopherdog](https://github.com/philosopherdog) for reporting the issue - [#71](https://github.com/Kapeli/Dash-iOS/issues/71)
