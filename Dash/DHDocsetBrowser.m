@@ -190,12 +190,27 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     }
 }
 
+/****  START: EMPTY DOCUMENT SET ****/
+// DmytriE: Display the "Empty Docset" image.
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"placeholder_docsets"];
+}
+
+/* DmytriE: Display the message "No Docsets" on the initial
+ * and subsequent segues to the screen until a document set
+ * has been downloaded.
+ */
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
     NSString *text = @"No Docsets";
     return [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:22.0], NSForegroundColorAttributeName: [UIColor colorWithWhite:201.0/255.0 alpha:1.0]}];
 }
 
+/* DmytriE: Displays a message which tells the user to download
+ * document sets in the settings menu.  This does NOT affect the
+ * message "No Docsets" or the image above it.
+ */
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
     
     NSString *text = @"You can download some in Settings.";
@@ -203,15 +218,16 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
     paragraph.alignment = NSTextAlignmentCenter;
     paragraph.lineSpacing = 4.0;
+    
+    // Defines how the message below the "No Docsets" image and captions appears
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:13.0], NSForegroundColorAttributeName: [UIColor colorWithWhite:207.0/255.0 alpha:1.0], NSParagraphStyleAttributeName: paragraph};
+    
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
-- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
-{
-    return [UIImage imageNamed:@"placeholder_docsets"];
-}
-
+/* DmytriE: Provides a button for the user to segue to the settings
+ * menu to start downloading documentation.
+ */
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
 {
     NSString *text = @"Open Settings";
@@ -238,6 +254,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 {
     [self openSettings:self];
 }
+/****  END: EMPTY DOCUMENT SET ****/
 
 - (void)reload:(NSNotification *)notification
 {
