@@ -115,7 +115,7 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"Java_SE7.xml" icon:@"java" aliases:@[@"javase7"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Java_SE8.xml" icon:@"java" aliases:@[@"javase8"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Java_SE9.xml" icon:@"java" aliases:@[@"javase9"] doesNotHaveVersions:YES],
-                           [DHFeed feedWithFeed:@"JavaFX.xml" icon:@"javafx" aliases:nil doesNotHaveVersions:NO],
+                           [DHFeed feedWithFeed:@"Java_SE10.xml" icon:@"java" aliases:@[@"javase9"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"JavaScript.xml" icon:@"javascript" aliases:@[@"mdn", @"mozilla developer network", @"dom events", @"canvas", @"js"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Jekyll.xml" icon:@"jekyll" aliases:@[@"jekyllrb jekyll.rb jekyll ruby"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Jinja.xml" icon:@"jinja" aliases:@[@"python jinja2 template engine jinja 2 template engine"] doesNotHaveVersions:NO],
@@ -233,7 +233,7 @@ static id singleton = nil;
     for(NSDictionary *feedDictionary in savedFeeds)
     {
         DHFeed *savedFeed = [DHFeed feedWithDictionaryRepresentation:feedDictionary];
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/Swift.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml", @"http://kapeli.com/feeds/OpenCV_C.xml", @"http://kapeli.com/feeds/OpenCV_C++.xml", @"http://kapeli.com/feeds/OpenCV_Java.xml", @"http://kapeli.com/feeds/OpenCV_Python.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/JavaFX.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/Swift.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml", @"http://kapeli.com/feeds/OpenCV_C.xml", @"http://kapeli.com/feeds/OpenCV_C++.xml", @"http://kapeli.com/feeds/OpenCV_Java.xml", @"http://kapeli.com/feeds/OpenCV_Python.xml"] containsObject:savedFeed.feedURL])
         {
             if(savedFeed.installed)
             {
@@ -249,7 +249,7 @@ static id singleton = nil;
             savedFeed.installed = NO;
             savedFeed.installedVersion = nil;
         }
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml", @"http://kapeli.com/feeds/OpenCV_C.xml", @"http://kapeli.com/feeds/OpenCV_C++.xml", @"http://kapeli.com/feeds/OpenCV_Java.xml", @"http://kapeli.com/feeds/OpenCV_Python.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/JavaFX.xml", @"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml", @"http://kapeli.com/feeds/OpenCV_C.xml", @"http://kapeli.com/feeds/OpenCV_C++.xml", @"http://kapeli.com/feeds/OpenCV_Java.xml", @"http://kapeli.com/feeds/OpenCV_Python.xml"] containsObject:savedFeed.feedURL])
         {
             continue;
         }
