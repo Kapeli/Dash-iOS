@@ -1,6 +1,7 @@
 # Master
 
-No changes yet.
+* Added Java SE10 docset - [c9d62b1](https://github.com/Kapeli/Dash-iOS/commit/c9d62b169fe9aa8945d8d0af7034e57928473741)
+* Removed JavaFX docset as it's now part of the Java SE docset - [c9d62b1](https://github.com/Kapeli/Dash-iOS/commit/c9d62b169fe9aa8945d8d0af7034e57928473741)
 
 # 1.8.6
 
