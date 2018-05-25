@@ -401,9 +401,13 @@ static NSConditionLock *_stepLock = nil;
             {
                 indexFile = [indexFile stringByReplacingOccurrencesOfString:@".html" withString:@"1742.html"];
             }
-            NSString *fullPath = [docsetPath stringByAppendingPathComponent:indexFile];
+            NSString *fullPath = [docsetPath stringByAppendingPathComponent:[indexFile substringToString:@"#"]];
             if([fileManager fileExistsAtPathOrInIndex:fullPath])
             {
+                if([indexFile contains:@"#"])
+                {
+                    fullPath = [fullPath stringByAppendingFormat:@"#%@", [indexFile substringFromString:@"#"]];
+                }
                 return fullPath;
             }
         }
