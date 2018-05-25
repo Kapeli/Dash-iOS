@@ -254,12 +254,12 @@
                              @"DHQueuedDB": @"0199255c",
                              @"DHUnifiedQueuedDB": @"dd42266b",
                              @"DHDBUnifiedOperation": @"1671a905",
-                             @"DHWebViewController": @"93901dff",
+                             @"DHWebViewController": @"b1c46bd0",
                              @"DHWebPreferences": @"1f358da2",
                              @"DHDocsetDownloader": @"9ec14e35",
                              @"PlatformIcons": @"dd07b6ef",
-                             @"DHTypes": @"5ed28f56",
-                             @"Types": @"5ed28f56",
+                             @"DHTypes": @"1ec6d1a4",
+                             @"Types": @"1ec6d1a4",
                              @"CSS": @"00239752",
                              };
     [hashes enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
