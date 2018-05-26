@@ -1,5 +1,6 @@
 # Master
 
+* Improved the way Dash selects the best server to connect to - [e122d05](https://github.com/Kapeli/Dash-iOS/commit/e122d05120aab70b2545f5300806a564276ee6d8)
 * Added Java SE10 docset - [c9d62b1](https://github.com/Kapeli/Dash-iOS/commit/c9d62b169fe9aa8945d8d0af7034e57928473741)
 * Removed JavaFX docset as it's now part of the Java SE docset - [c9d62b1](https://github.com/Kapeli/Dash-iOS/commit/c9d62b169fe9aa8945d8d0af7034e57928473741)
 * Docset index pages can now scroll to a specific section within the page - [091f04a](https://github.com/Kapeli/Dash-iOS/commit/091f04a10754a4256bd5e35545b3532440e63571)
