@@ -1166,8 +1166,8 @@ found:
 
 - (NSString *)httpDomain
 {
-    NSRange secondSlash = [self rangeOfString:@"/" options:NSLiteralSearch range:NSMakeRange(@"http://".length, self.length-@"http://".length)];
-    return (secondSlash.location != NSNotFound) ? [self substringToDashIndex:secondSlash.location] : self;
+    NSString *domain = [[self substringFromStringReturningNil:@"://"] substringToString:@"/"];
+    return (domain) ? domain : self;
 }
 
 - (NSArray *)rangesOfString:(NSString *)aString

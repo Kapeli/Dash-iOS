@@ -121,7 +121,7 @@ static NSDictionary *highlightDictionary;
                 self.fullPath = self.path;
                 self.relativePath = self.path;
             }
-            else if([self.path hasPrefix:@"ghttp://"])
+            else if([self.path hasPrefix:@"ghttp://"] || [self.path hasPrefix:@"ghttps://"])
             {
                 self.isAGuide = YES;
                 isOnlineGuide = YES;

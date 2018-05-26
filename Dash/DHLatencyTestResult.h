@@ -28,7 +28,8 @@
 + (DHLatencyTestResult *)resultWithDictionaryRepresentation:(NSDictionary *)dictionary;
 + (DHLatencyTestResult *)resultWithHost:(NSString *)host latency:(double)latency;
 - (NSDictionary *)dictionaryRepresentation;
-- (BOOL)performTest;
+- (void)performTest;
+- (BOOL)shouldPerformTest;
 - (double)adaptiveLatency;
 
 @end

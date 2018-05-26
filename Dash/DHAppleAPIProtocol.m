@@ -57,7 +57,7 @@
                 DHViewer *viewer = [DHViewer sharedViewer];
                 DHCommandLineParser *parser = [DHCommandLineParser sharedParser];
                 parser.ownPath = toolPath;
-                NSString *bestMirror = [DHLatencyTester sharedLatency].bestMirror;
+                NSString *bestMirror = [[DHLatencyTester sharedLatency].bestMirror stringByConvertingKapeliHttpURLToHttps];
                 bestMirror = (bestMirror) ? bestMirror : @"https://kapeli.com/feeds/";
                 viewer.isIOS = YES;
                 parser.bestMirror = bestMirror;

@@ -18,7 +18,6 @@
 #import "DHLatencyTester.h"
 #import "DHLatencyTestResult.h"
 
-
 @implementation DHLatencyTester
 
 + (DHLatencyTester *)sharedLatency
@@ -36,15 +35,45 @@
 - (BOOL)performTests:(BOOL)forcePerform
 {
     BOOL didPerform = NO;
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"didPerformLatencyTestsBefore"];
     @synchronized(self)
     {
+        if(!self.queue)
+        {
+            self.queue = [[NSOperationQueue alloc] init] ;
+            [self.queue setMaxConcurrentOperationCount:1];
+        }
         for(DHLatencyTestResult *result in self.results)
         {
             if(forcePerform)
             {
                 result.lastTestDate = nil;
             }
-            didPerform |= [result performTest];
+            if([result shouldPerformTest])
+            {
+                didPerform = YES;
+                [self.queue addOperationWithBlock:^{
+                    __block BOOL done = NO;
+                    dispatch_queue_t queue = dispatch_queue_create([[NSString stringWithFormat:@"%u", arc4random() % 100000] UTF8String], 0);
+                    dispatch_async(queue, ^{
+                        [result performTest];
+                        done = YES;
+                    });
+                    NSDate *startDate = [NSDate date];
+                    while(!done && [[NSDate date] timeIntervalSinceDate:startDate] < 15 && (!result.startTestDate || [[NSDate date] timeIntervalSinceDate:result.startTestDate] < 3))
+                    {
+                        [NSThread sleepForTimeInterval:0.03];
+                    }
+                }];
+            }
+        }
+        if(didPerform)
+        {
+            [self.queue addOperationWithBlock:^{
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [self saveDefaults];
+                });
+            }];
         }
     }
     return didPerform;
@@ -52,41 +81,54 @@
 
 - (void)setUp
 {
-    NSMutableArray *defaultResults = [NSMutableArray array];
+    self.resultsAllowedInUserDefaults = [NSMutableArray array];
+    self.defaultResults = [NSMutableArray array];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL didPerformTestsBefore = [defaults boolForKey:@"didPerformLatencyTestsBefore"];
+    self.results = [NSMutableArray array];
+    NSMutableArray *resultsTemp = [NSMutableArray array];
     for(NSDictionary *resultDict in [defaults objectForKey:@"latencyTestResults"])
     {
-        [defaultResults addObject:[DHLatencyTestResult resultWithDictionaryRepresentation:resultDict]];
+        [self.defaultResults addObject:[DHLatencyTestResult resultWithDictionaryRepresentation:resultDict]];
+        [resultsTemp addObject:self.defaultResults.lastObject];
     }
-    self.results = [NSMutableArray array];
-    NSArray *defaultHosts = @[@"http://newyork.kapeli.com/feeds/", @"http://sanfrancisco.kapeli.com/feeds/", @"http://london.kapeli.com/feeds/"];
-    for(NSString *host in defaultHosts)
+    for(NSString *host in @[@"http://sanfrancisco.kapeli.com/feeds/", @"http://newyork.kapeli.com/feeds/", @"http://london.kapeli.com/feeds/"])
     {
         DHLatencyTestResult *result = [DHLatencyTestResult resultWithHost:host latency:10000.0];
-        NSInteger defaultIndex = [defaultResults indexOfObject:result];
-        if(defaultIndex != NSNotFound)
+        [self.resultsAllowedInUserDefaults addObject:result];
+        if(![resultsTemp containsObject:result])
         {
-            [result setLatency:[defaultResults[defaultIndex] latency]];
+            [resultsTemp addObject:result];
         }
-        [self.results addObject:result];
     }
-    [self saveDefaults];
+    [self sortLatencyTestResults:resultsTemp];
+    self.results = [NSMutableArray arrayWithArray:resultsTemp];
+    if(didPerformTestsBefore)
+    {
+        [self performTests:NO];
+    }
 }
 
 - (void)saveDefaults
 {
+    if(![NSThread isMainThread])
+    {
+        [self performSelectorOnMainThread:@selector(saveDefaults) withObject:nil waitUntilDone:YES];
+        return;
+    }
     NSMutableArray *array = [NSMutableArray array];
     @synchronized(self)
     {
         for(DHLatencyTestResult *result in self.results)
         {
-            [array addObject:[result dictionaryRepresentation]];
+            if(result.latency < 60 && [self.resultsAllowedInUserDefaults containsObject:result])
+            {
+                [array addObject:[result dictionaryRepresentation]];
+            }
         }
     }
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults removeObjectForKey:@"latencyTestResults"];
     [defaults setObject:array forKey:@"latencyTestResults"];
-    [defaults synchronize];
 }
 
 - (NSString *)bestMirrorReturningNil
@@ -95,9 +137,7 @@
     {
         return nil;
     }
-    NSMutableArray *results = [NSMutableArray arrayWithArray:self.results];
-    [self sortLatencyTestResults:results];
-    return [results[0] host];
+    return [[self sortedTestResults][0] host];
 }
 
 - (NSString *)secondBestMirrorReturningNil
@@ -106,9 +146,14 @@
     {
         return nil;
     }
+    return [[self sortedTestResults][1] host];
+}
+
+- (NSMutableArray *)sortedTestResults
+{
     NSMutableArray *results = [NSMutableArray arrayWithArray:self.results];
     [self sortLatencyTestResults:results];
-    return [results[1] host];
+    return results;
 }
 
 - (void)sortLatencyTestResults:(NSMutableArray *)results
@@ -116,19 +161,6 @@
     [results sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         double myLatency = [obj1 adaptiveLatency];
         double theirLatency = [obj2 adaptiveLatency];
-        double delta = fabs(myLatency-theirLatency);
-        if(delta < 0.03)
-        {
-            NSUInteger r = arc4random_uniform(2);
-            if(r == 0)
-            {
-                return NSOrderedDescending;
-            }
-            else
-            {
-                return NSOrderedAscending;
-            }
-        }
         if(myLatency < theirLatency)
         {
             return NSOrderedAscending;
@@ -167,19 +199,6 @@
     [urls sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         double myLatency = [self latencyForURL:obj1];
         double theirLatency = [self latencyForURL:obj2];
-        double delta = fabs(myLatency-theirLatency);
-        if(delta < 0.03)
-        {
-            NSUInteger r = arc4random_uniform(2);
-            if(r == 0)
-            {
-                return NSOrderedDescending;
-            }
-            else
-            {
-                return NSOrderedAscending;
-            }
-        }
         if(myLatency < theirLatency)
         {
             return NSOrderedAscending;
@@ -211,32 +230,21 @@
 {
     @synchronized(self)
     {
-        for(DHLatencyTestResult *result in self.results)
-        {
-            NSInteger i = 0;
-            NSInteger found = NSNotFound;
-            for(NSString *mirror in mirrors)
-            {
-                if([result.host isCaseInsensitiveEqual:mirror])
-                {
-                    found = i;
-                    break;
-                }
-                ++i;
-            }
-            if(found != NSNotFound)
-            {
-                [mirrors removeObjectAtIndex:found];
-            }
-        }
         if(mirrors.count)
         {
             for(NSString *mirror in mirrors)
             {
                 DHLatencyTestResult *result = [DHLatencyTestResult resultWithHost:mirror latency:10000.0];
-                [self.results addObject:result];
-                [result performTest];
+                if(![self.results containsObject:result])
+                {
+                    [self.results addObject:result];
+                }
+                if(![self.resultsAllowedInUserDefaults containsObject:result])
+                {
+                    [self.resultsAllowedInUserDefaults addObject:result];
+                }
             }
+            [self performTests:NO];
         }
     }
 }

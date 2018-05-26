@@ -96,7 +96,7 @@
     {
         return nil;
     }
-    return [[[DHLatencyTester sharedLatency] bestMirror] stringByAppendingFormat:@"zzz/cheatsheets/%@.tgz", entry.uniqueIdentifier];
+    return [[[[DHLatencyTester sharedLatency] bestMirror] stringByAppendingFormat:@"zzz/cheatsheets/%@.tgz", entry.uniqueIdentifier] stringByConvertingKapeliHttpURLToHttps];
 }
 
 @end

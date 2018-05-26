@@ -128,7 +128,7 @@
     {
         return nil;
     }
-    return [[[DHLatencyTester sharedLatency] bestMirror] stringByAppendingFormat:@"zzz/user_contributed/build/%@/%@", entry.uniqueIdentifier, self.json[@"docsets"][entry.uniqueIdentifier][@"archive"]];
+    return [[[[DHLatencyTester sharedLatency] bestMirror] stringByAppendingFormat:@"zzz/user_contributed/build/%@/%@", entry.uniqueIdentifier, self.json[@"docsets"][entry.uniqueIdentifier][@"archive"]] stringByConvertingKapeliHttpURLToHttps];
 }
 
 - (NSString *)downloadURLForVersionedEntry:(DHFeed *)versionedEntry parentEntry:(DHFeed *)parentEntry
@@ -137,7 +137,7 @@
     {
         if([[specificVersion[@"version"] substringToString:@"/"] isEqualToString:versionedEntry.uniqueIdentifier])
         {
-            return [[[DHLatencyTester sharedLatency] bestMirror] stringByAppendingFormat:@"zzz/user_contributed/build/%@/%@", parentEntry.uniqueIdentifier, specificVersion[@"archive"]];
+            return [[[[DHLatencyTester sharedLatency] bestMirror] stringByAppendingFormat:@"zzz/user_contributed/build/%@/%@", parentEntry.uniqueIdentifier, specificVersion[@"archive"]] stringByConvertingKapeliHttpURLToHttps];
         }
     }
     return nil;
