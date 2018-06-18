@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>17E202</string>
+	<string>17F77</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -34,9 +34,9 @@
 	<key>DTSDKName</key>
 	<string>iphonesimulator11.4</string>
 	<key>DTXcode</key>
-	<string>0940</string>
+	<string>0941</string>
 	<key>DTXcodeBuild</key>
-	<string>9F1027a</string>
+	<string>9F2000</string>
 	<key>MinimumOSVersion</key>
 	<string>9.0</string>
 	<key>UIDeviceFamily</key>
