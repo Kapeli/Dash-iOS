@@ -1,5 +1,9 @@
 # Master
 
+Nothing yet.
+
+# 1.8.8
+
 * Apple API Reference docset: added support for Xcode 9.4 and Xcode 10 - [f29d3f0](https://github.com/Kapeli/Dash-iOS/commit/f29d3f01bb2030b81e311f74e45f5743568e53e6) and [0acc05c](https://github.com/Kapeli/Dash-iOS/commit/0acc05c01aadb427a51579c2b7a048a32e825bdf)
 
 # 1.8.7
