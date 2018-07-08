@@ -20,7 +20,13 @@
 
 @interface DHBrowserTableViewCell : UITableViewCell
 
+
 @property (assign) UIImageView *typeImageView;
+
+/** This property is linked to the entry label.  It holds the entry's label, and the image associated with the programming language.
+ * @property titleLabel: The name associated with the image used
+ * @property platformImageView: The image defining the type of language and/or category (functions, guides, classes, etc)
+ */
 @property (weak) IBOutlet DHRightDetailLabel *titleLabel;
 @property (assign) IBOutlet UIImageView *platformImageView;
 

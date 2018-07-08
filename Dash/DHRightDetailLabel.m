@@ -35,6 +35,7 @@
             {
                 rect.origin.y -= 0.5;                
             }
+            // Defines the right most text.  This does not alter the Chevron!!
             [self._rightDetailText drawInRect:rect withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16], NSParagraphStyleAttributeName: paragraph, NSForegroundColorAttributeName: [UIColor colorWithRed:142.0/255.0 green:142.0/255.0 blue:147.0/255.0 alpha:1.0]}];
         }
         else
@@ -52,6 +53,7 @@
     }
 }
 
+/* TODO: DmytriE: Shifts the text eastward */
 - (void)drawTextInRect:(CGRect)rect
 {
     if(self._rightDetailText.length)
@@ -70,13 +72,17 @@
     [self setRightDetailText:rightDetailText];
     if(adjustWidth)
     {
-        self.maxRightDetailWidth = [rightDetailText attributedSizeWithFont:[UIFont systemFontOfSize:(self.isBrowserCell) ? 16 : 12]].width;
+        // Defines the font size based on whether it is a browser cell.  If it is
+        // then the size if 20 otherwise it's 12.
+        self.maxRightDetailWidth = [rightDetailText attributedSizeWithFont:[UIFont systemFontOfSize:(self.isBrowserCell) ? 20 : 12]].width;
     }
 }
 
 - (void)setRightDetailText:(NSString *)rightDetailText
 {
     self._rightDetailText = rightDetailText;
+    
+    // Removes the right pointed chevron
     if(!rightDetailText.length)
     {
         self.maxRightDetailWidth = 0.0;

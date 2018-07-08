@@ -31,7 +31,9 @@ static NSConditionLock *_stepLock = nil;
 
 + (DHDocset *)docsetWithDictionaryRepresentation:(NSDictionary *)dictionary
 {
+    // Allocate and initialize the Docset
     DHDocset *docset = [[DHDocset alloc] init];
+    
     docset.relativePath = dictionary[@"relativePath"];
     docset.name = dictionary[@"name"];
     docset.bundleIdentifier = dictionary[@"bundleIdentifier"];
@@ -97,6 +99,8 @@ static NSConditionLock *_stepLock = nil;
         bundle = @"";
     }
     docset.bundleIdentifier = bundle;
+    
+    // Define the platform the program runs on.
     NSString *platform = plist[@"DocSetPlatformFamily"];
     if([platform isEqualToString:@"macosx"])
     {
@@ -111,21 +115,28 @@ static NSConditionLock *_stepLock = nil;
         platform = @"tvos";
     }
     docset.platform = platform ? platform : @"unknown";
+    
+    
     NSString *parseFamily = plist[@"DashDocSetFamily"];
     if(parseFamily)
     {
         docset.parseFamily = parseFamily;
     }
+    
+    
     NSString *nameShorteningFamily = plist[@"DashDocSetNameShorteningFamily"];
     if(nameShorteningFamily)
     {
         docset.nameShorteningFamily = nameShorteningFamily;
     }
+    
+    // TODO: Determine what 'DeclaredInStyle" means
     NSString *declaredInStyle = plist[@"DashDocSetDeclaredInStyle"];
     if(declaredInStyle)
     {
         docset.declaredInStyle = declaredInStyle;
     }
+    
     NSNumber *isJavaScriptEnabled = plist[@"isJavaScriptEnabled"];
     BOOL isPlatformJavaScriptEnabled = [platform isEqualToString:@"doxy"] || [parseFamily isEqualToString:@"doxy"] || [platform isEqualToString:@"doxygen"] || [parseFamily isEqualToString:@"doxygen"];
     BOOL isJSEnabled = [isJavaScriptEnabled boolValue] || isPlatformJavaScriptEnabled;
@@ -408,7 +419,13 @@ static NSConditionLock *_stepLock = nil;
             }
         }
     }
+    
+    /* DmytriE: Sets the paths to which points to the approved docsets */
     NSMutableArray *pathsToTry = [NSMutableArray arrayWithObjects:@"dash-browse-index.html", @"prototypejs/index.html", @"sqlite/index.html", @"documentation/Cocoa/Reference/Foundation/ObjC_classic/_index.html", @"documentation/ToolsLanguages/Conceptual/Xcode_User_Guide/000-About_Xcode/about.html", @"documentation/IDEs/Conceptual/xcode_quick_start/index.html", @"package-detail.html", @"docs/reference/packages.html", @"Arduino/index.html", @"output/en.cppreference.com/w/cpp.html", @"output/en/cpp.html", @"clojure/api-index.html", @"developer.anscamobile.com/reference/index.html", @"docs.coronalabs.com/api/index.html", @"developer.mozilla.org/en/CSS/CSS_Reference.html",  @"developer.mozilla.org/en-US/docs/CSS/CSS_Reference.html", @"api/overview-summary.html", @"haskell/index.html", @"developer.mozilla.org/en/HTML/HTML5.html", @"developer.mozilla.org/en/JavaScript/Reference.html", @"developer.mozilla.org/en/JavaScript/Reference.html", @"www.lua.org/manual/5.2/index.html", @"www.lua.org/manual/5.1/index.html", @"www.lua.org/manual/5.3/index.html", @"nodejs/api/documentation.html", @"nodejs/api/api/documentation.html", @"perldoc-html/index-functions-by-cat.html", @"res/index.html", @"genindex-all.html", @"topics/introduction.html", @"introduction.html", @"api.rubyonrails.org/files/RDOC_MAIN_rdoc.html", @"scala/package.html", @"akka/package.html", @"docs/welcome.html", @"developer.mozilla.org/en/XSLT/Elements.html", @"developer.mozilla.org/en/XUL_Reference.html", @"genindex.html", @"html/classes.html", @"html/qtdoc/classes.html", @"api.jquery.com/index.html", @"helphelp.html", @"partials/guide/index.html", @"elisp/index.html", @"docs/right-pane.html", @"doc/man_index.html", @"docs.go-mono.com/monoroot.html", @"api/index.html", @"mongo/genindex.html", @"HyperSpec/HyperSpec/Front/index.htm", @"api.jqueryui.com/category/all/index.html", @"golang.org/ref/index.html", @"documentation/ToolsLanguages/Conceptual/Xcode_Overview/About_Xcode/about.html", @"documentation/Cocoa/Reference/Foundation/ObjC_classic/index.html", @"documentation/ToolsLanguages/Conceptual/Xcode_Overview/index.html", nil];
+    
+    /* DmytriE: Ensures that the appropriate ANSI-C programming language
+     * is retrived as to its alternative (C++).
+     */
     if([platform isEqualToString:@"c"])
     {
         [pathsToTry removeObject:@"output/en/cpp.html"];

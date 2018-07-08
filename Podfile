@@ -25,6 +25,8 @@ target "Dash" do
     pod 'SAMKeychain'
     pod 'NSTimer-Blocks'
     pod 'GZIP'
+
+		use_frameworks!
 end
 
 post_install do | installer |

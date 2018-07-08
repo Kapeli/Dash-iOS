@@ -27,6 +27,13 @@
 
 @end
 
+/* DmytriE:
+ * @param rect:  Rectangular object
+ * @param x:     The x-coordinate from which width and height are extrapolated
+ * @param y:     The y-coordinate from which width and height are extrapolated
+ * @param width: The width of the rectangle starting at x- and y- coordinates
+ * @param height: The height of the rectangle starting at x- and y- coordinates
+ */
 CGRect CGIncreaseRect(CGRect rect, CGFloat x, CGFloat y, CGFloat width, CGFloat height) {
     return CGRectMake(rect.origin.x+x, rect.origin.y+y, rect.size.width+width, rect.size.height+height);
 }

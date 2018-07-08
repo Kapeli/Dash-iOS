@@ -97,6 +97,10 @@
     }
 }
 
+/** ECKD:
+ * @param indexPath: The depth of docset selections selected.  The lower the number the closer the
+ * user is to the documentation set selected (i.e. Java, Angular, C, etc.)
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *entry = self.activeSections[indexPath.section][indexPath.row];

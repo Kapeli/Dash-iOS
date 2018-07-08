@@ -144,6 +144,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Determines type of segue
     DHBrowserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:(self.isLoading || self.isEmpty) ? @"DHLoadingCell" : @"DHBrowserCell" forIndexPath:indexPath];
     
     if((self.isLoading || self.isEmpty) && indexPath.row == 2)
@@ -171,6 +172,10 @@
     return cell;
 }
 
+/* This block is called when the user selects an item from the
+ * list of entries in the table.  The selection has an index
+ * associated with it.  This value
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DHDBResult *result = self.entries[indexPath.row];
