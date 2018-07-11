@@ -1,0 +1,6 @@
+framework module GZIP {
+  umbrella header "GZIP-umbrella.h"
+
+  export *
+  module * { export * }
+}

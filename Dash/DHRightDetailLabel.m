@@ -19,6 +19,10 @@
 
 @implementation DHRightDetailLabel
 
+/** DmytriE 2018-07-10:
+ *  @param rect: A structure which contains the location and dimensions of the rectangle.
+ *  @return NONE
+ */
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
@@ -26,11 +30,12 @@
     {
         NSMutableParagraphStyle *paragraph = NSMutableParagraphStyle.new;
         paragraph.alignment = NSTextAlignmentRight;
-        rect = self.bounds;
+        rect = self.bounds; // Redefine the size of rect to the size of the RightDetailLabel
         if(self.isBrowserCell)
         {
+            rect.size.height += 11;
             rect.origin.y += 11;
-            rect.size.width -= 2;
+            //rect.size.width -= 2;
             if(isRetina)
             {
                 rect.origin.y -= 0.5;                
@@ -53,7 +58,10 @@
     }
 }
 
-/* TODO: DmytriE: Shifts the text eastward */
+/** DmytriE: 2018-07-11
+ *  @param rect: A structure which contains the location and dimensions of the rectangle.
+ *  @return NONE
+ */
 - (void)drawTextInRect:(CGRect)rect
 {
     if(self._rightDetailText.length)
