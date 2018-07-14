@@ -202,7 +202,7 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"Stylus.xml" icon:@"stylus" aliases:@[@"nodejs", @"node.js"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Susy.xml" icon:@"susy" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"SVG.xml" icon:@"svg" aliases:@[@"mdn", @"mozilla developer network"] doesNotHaveVersions:YES],
-                           [DHFeed feedWithFeed:@"Swift.xml" icon:@"swift" aliases:@[@"leopard", @"snow leopard", @"lion", @"mountain lion", @"mavericks", @"yosemite", @"10.10", @"10.8", @"10.6", @"mac osx", @"10.7", @"10.9", @"10.5", @"xcode", @"apple", @"cocoa", @"objective-c", @"objc", @"iphone", @"ipad", @"cocoa touch"] doesNotHaveVersions:YES],
+                           [DHFeed feedWithFeed:@"Swift.xml" icon:@"swift" aliases:@[@"leopard", @"snow leopard", @"lion", @"mountain lion", @"mavericks", @"yosemite", @"10.10", @"10.8", @"10.6", @"mac osx", @"10.7", @"10.9", @"10.5", @"xcode", @"apple", @"cocoa", @"objective-c", @"objc", @"iphone", @"ipad", @"cocoa touch"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Symfony.xml" icon:@"symfony" aliases:@[@"php"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Tcl.xml" icon:@"tcl" aliases:@[@"tcl/tk", @"tcltk", @"tcl tk"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Tornado.xml" icon:@"tornado" aliases:@[@"python", @"tornado web server"] doesNotHaveVersions:NO],
@@ -233,7 +233,7 @@ static id singleton = nil;
     for(NSDictionary *feedDictionary in savedFeeds)
     {
         DHFeed *savedFeed = [DHFeed feedWithDictionaryRepresentation:feedDictionary];
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/JavaFX.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/Swift.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml", @"http://kapeli.com/feeds/OpenCV_C.xml", @"http://kapeli.com/feeds/OpenCV_C++.xml", @"http://kapeli.com/feeds/OpenCV_Java.xml", @"http://kapeli.com/feeds/OpenCV_Python.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/JavaFX.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml", @"http://kapeli.com/feeds/OpenCV_C.xml", @"http://kapeli.com/feeds/OpenCV_C++.xml", @"http://kapeli.com/feeds/OpenCV_Java.xml", @"http://kapeli.com/feeds/OpenCV_Python.xml"] containsObject:savedFeed.feedURL])
         {
             if(savedFeed.installed)
             {
@@ -706,11 +706,6 @@ static id singleton = nil;
     {
         title = @"Apple API Reference";
         message = @"To install the Apple API Reference docset you need to:\n\n1. Use Dash for macOS to install the Apple API Reference docset from Preferences > Downloads\n2. Go to Preferences > Docsets, right click the Apple API Reference docset and select \"Generate iOS Compatible Docset\"\n3. Transfer the resulting docset using iTunes File Sharing or AirDrop";
-    }
-    else if([feed.feedURL isEqualToString:@"http://kapeli.com/feeds/Swift.xml"])
-    {
-        title = @"Apple API Reference";
-        message = @"There is no Swift docset. The documentation for Swift can be found inside the Apple API Reference docset. Install it instead.";
     }
     else if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/macOS.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml"] containsObject:feed.feedURL])
     {
