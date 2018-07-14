@@ -1,6 +1,6 @@
 # Master
 
-* Nothing yet.
+* Added the Swift docset back - [ec51356](https://github.com/Kapeli/Dash-iOS/commit/ec51356e95ac7a0aedbd94e648771578174db35a)
 
 # 1.8.8
 
