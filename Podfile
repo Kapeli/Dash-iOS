@@ -25,8 +25,9 @@ target "Dash" do
     pod 'SAMKeychain'
     pod 'NSTimer-Blocks'
     pod 'GZIP'
-
-		use_frameworks!
+    
+    # Added due to KissXML issue
+    use_frameworks!
 end
 
 post_install do | installer |

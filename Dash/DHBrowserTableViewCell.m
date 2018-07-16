@@ -19,32 +19,49 @@
 
 @implementation DHBrowserTableViewCell
 
+/** DmytriE 2018-07-15: Customizes the default configuration of any controls to
+ *  update the properties for that object.
+ *  @return NONE
+ */
 - (void)awakeFromNib
 {
     [super awakeFromNib];
     self.titleLabel.isBrowserCell = YES;
 }
 
+/** DmytriE 2018-07-15:
+ *  @return NONE
+ */
 - (void)makeEntryCell
 {
+    // Returns if there is an image associated with the cell.
     if(self.typeImageView)
     {
         return;
     }
     self.separatorInset = UIEdgeInsetsMake(0, 70, 0, 0);
     [self.titleLabel increaseFrameByX:24 y:0 width:-24 height:0];
+    
+    // Create image view within the cell's frame and then add it to the view.
     UIImageView *typeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.imageView.frame.origin.x+28, self.imageView.frame.origin.y+1, 14, 14)];
+    typeImageView.layer.cornerRadius = 5;
+    typeImageView.clipsToBounds = YES;
     [typeImageView setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
     self.typeImageView = typeImageView;
     [self addSubview:typeImageView];
 }
 
-/* ECKD: Returns the image of the documentation set. */
+/** DmytriE 2018-07-12: Returns appropriate documentation set image.
+ *  @return platformImageView: Pointer to the ImageView
+ */
 - (UIImageView *)imageView
 {
     return self.platformImageView;
 }
 
+/** DmytriE 2018-07-12: Returns the text label.
+ *  @return Pointer to the cell text label.
+ */
 - (UILabel *)textLabel
 {
     return self.titleLabel;

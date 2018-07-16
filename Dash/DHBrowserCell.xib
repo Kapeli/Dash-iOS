@@ -31,6 +31,7 @@
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
+            <!-- DmytriE 2018-07-12: Inserts the horizontal line between table cells. -->
             <inset key="separatorInset" minX="46" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="platformImageView" destination="JGq-Sz-Apf" id="el0-Nd-vxM"/>

@@ -16,6 +16,7 @@
 //
 
 #import "DHRightDetailLabel.h"
+#import <stdio.h>
 
 @implementation DHRightDetailLabel
 
@@ -33,6 +34,10 @@
         rect = self.bounds; // Redefine the size of rect to the size of the RightDetailLabel
         if(self.isBrowserCell)
         {
+            NSString *type = UIDevice.currentDevice.model;
+            NSString *version = UIDevice.currentDevice.localizedModel;
+            NSLog(@"%@ %@", type, version);
+            
             rect.size.height += 11;
             rect.origin.y += 11;
             //rect.size.width -= 2;
@@ -70,18 +75,22 @@
     }
     if(self.subtitle.length)
     {
-        rect = CGIncreaseRect(rect, 0, -7, 0, 0);
+        rect = CGIncreaseRect(rect, 0, -100, 0, 0);
     }
     [super drawTextInRect:rect];
 }
 
+/** DmytriE 2018-07-15:
+ *  @param rightDetailText
+ *  @param adjustWidth
+ *  @return NONE
+ */
 - (void)setRightDetailText:(NSString *)rightDetailText adjustMainWidth:(BOOL)adjustWidth
 {
     [self setRightDetailText:rightDetailText];
     if(adjustWidth)
     {
-        // Defines the font size based on whether it is a browser cell.  If it is
-        // then the size if 20 otherwise it's 12.
+        //
         self.maxRightDetailWidth = [rightDetailText attributedSizeWithFont:[UIFont systemFontOfSize:(self.isBrowserCell) ? 20 : 12]].width;
     }
 }

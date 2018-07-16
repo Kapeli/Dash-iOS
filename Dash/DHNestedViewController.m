@@ -96,6 +96,11 @@
     return self.result.similarResults.count+1;
 }
 
+/** DmytriE: 2018-07-11:
+ *  @param tableView: The pointer to the table view which contains all of the options.
+ *  @param  indexPath: An index to the options information.
+ *  @return cell: A table cell option available for selecting.
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DHBrowserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DHBrowserCell" forIndexPath:indexPath];
@@ -113,6 +118,8 @@
     cell.titleLabel.font = [UIFont fontWithName:@"Menlo" size:16];
     cell.typeImageView.image = result.typeImage;
     cell.platformImageView.image = result.platformImage;
+    
+    // Defines whether a chevron will appear on the right
     cell.accessoryType = (!isRegularHorizontalClass) ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
     return cell;
 }

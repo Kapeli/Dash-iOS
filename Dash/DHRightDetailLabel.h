@@ -20,13 +20,13 @@
 @interface DHRightDetailLabel : UILabel
 
 /** DmytriE: Property Definitions:
- * @ *_rightDetailText: Pointer to the object which holds the text
- * @ maxRightDetailWidth: The width of the part of the cell which
+ * @param *_rightDetailText: Pointer to the object which holds the text
+ * @param maxRightDetailWidth: The width of the part of the cell which
  * contains the count of items for a given selection and the right
  * chevron.
- * @ isBrowserCell: Boolean which decideds whether it points to
+ * @param isBrowserCell: Boolean which decideds whether it points to
  * another form with sub-selections or a Docset entry.
- * @ subtitle: The title of the browser or docset entry.
+ * @param subtitle: The title of the browser or docset entry.
  */
 @property (strong) NSString *_rightDetailText;                  // The text for a given option
 @property (assign, nonatomic) CGFloat maxRightDetailWidth;      // Width of the option
