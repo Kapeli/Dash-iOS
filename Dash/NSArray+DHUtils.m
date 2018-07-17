@@ -21,7 +21,6 @@
 #include <net/if.h>
 
 @implementation NSArray (DHUtils)
-
 - (NSArray *)characterIndexTitles
 {
     NSMutableOrderedSet *chars = [NSMutableOrderedSet orderedSet];

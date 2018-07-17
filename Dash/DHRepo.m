@@ -53,6 +53,8 @@
         }
         [self emptyTrashAtPath:[self trashPath]];
     });
+    
+    // Define how the download circular progress icon appears.
     [MRCircularProgressView appearance].lineWidth = 2.0f;
     [MRCircularProgressView appearance].borderWidth = 1.0f;
 }
@@ -299,6 +301,11 @@
     } completion:nil];
 }
 
+/** DmytriE: 2018-07-15: Display the uninstall (trash) icon for installed
+ *  documentation sets.
+ *  feed: The list of documentation sets
+ *  @return NONE
+ */
 - (void)showUninstallButtonForFeed:(DHFeed *)feed
 {
     DHRepoTableViewCell *cell = feed.cell;
@@ -322,6 +329,11 @@
     }];
 }
 
+/** DmytriE: 2018-07-15: Cancels the the download of the feed defined by the
+ *  sender value.
+ *  @param  sender: A UIBarItem which denotes the DocSet you wish to stop
+ *  downloading information.
+ */
 - (IBAction)stopButtonPressed:(id)sender
 {
     NSUInteger row = [sender tag];
@@ -335,6 +347,9 @@
     feed.detailString = @"";
     feed.maxRightDetailWidth = 0.0;
     feed.cell.titleLabel.rightDetailText = @"";
+    
+    // Display the downloaded feed and provide Uninstall button otherwise
+    // display the download button.
     if(feed.installed)
     {
         [self setTitle:[feed docsetNameWithVersion:YES] forCell:feed.cell];
@@ -380,6 +395,11 @@
     
 }
 
+/** DmytriE 2018-07-16:
+ *  @param trashPath: A pointer to the list of object which are destined
+ *  to be removed from the user's device.
+ *  @return NONE
+ */
 - (void)emptyTrashAtPath:(NSString *)trashPath
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -412,6 +432,11 @@
     [fileManager removeItemAtPath:trashPath error:nil];
 }
 
+/** DmytriE 2018-07-16: Display the appropriate button on the Repository
+ *  download section.
+ *  @param feed: Pointer to the list of all downloadable content
+ *  @return NONE
+ */
 - (void)showDownloadButtonForFeed:(DHFeed *)feed
 {
     DHRepoTableViewCell *cell = feed.cell;
@@ -420,6 +445,10 @@
     feed.maxRightDetailWidth = 0.0;
     feed.cell.titleLabel.rightDetailText = @"";
     feed.progressShown = NO;
+    
+    // Display the desired images indicating the different stages (downloadable,
+    // and completed).  Completed has the checkmark and uninstall image while
+    // downloadable has the download image.
     [UIView animateWithDuration:0.3 animations:^{
         cell.downloadButton.alpha = 1.0;
         cell.downloadButton.transform = CGAffineTransformMakeScale(1.0, 1.0);
@@ -462,6 +491,11 @@
     return self.feeds.count;
 }
 
+/** DmytriE 2018-07-16:
+ *  @param tableView:
+ *  @param indexPath
+ *  @return TableViewCell:
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DHRepoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DHRepoCell" forIndexPath:indexPath];
@@ -473,12 +507,10 @@
     NSArray *targetArray = (tableView != self.tableView) ? self.filteredFeeds : self.feeds;
     DHFeed *feed = targetArray[indexPath.row];
     cell.feed = feed;
-    [cell.progressView.stopButton addTarget:self action:@selector(stopButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.errorButton addTarget:self action:@selector(errorButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.downloadButton addTarget:self action:@selector(downloadButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.uninstallButton addTarget:self action:@selector(uninstallButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
     cell.titleLabel.opaque = NO;
-//    cell.checkmark.image = [cell.checkmark.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
+    //cell.checkmark.image = [cell.checkmark.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     cell.titleLabel.backgroundColor = [UIColor clearColor];
     cell.platform.image = feed.icon;
     [feed prepareCell:cell];
@@ -486,9 +518,19 @@
     cell.titleLabel.rightDetailText = feed.detailString;
     [self setSizeLabelForCell:cell];
     [self setTitle:[feed docsetNameWithVersion:!feed.installing] forCell:cell];
+    
+    // Group of actions which can be performed on any given cell feed
+    [cell.progressView.stopButton addTarget:self action:@selector(stopButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.errorButton addTarget:self action:@selector(errorButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.downloadButton addTarget:self action:@selector(downloadButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.uninstallButton addTarget:self action:@selector(uninstallButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
+/** DmytriE: 2018-07-16: Sets the size of the label which holds the DocSet title
+ *  @param cell: A cell in the DocSet Repo download table
+ *  @return NONE
+ */
 - (void)setSizeLabelForCell:(DHRepoTableViewCell *)cell
 {
     if(!isRegularHorizontalClass)
@@ -509,6 +551,15 @@
     cell.feed = nil;
 }
 
+/** DmytriE: 2018-07-16: Highlights the text which matches the search query.
+ *  @param  cell: The current cell being evaluated
+ *  @return NONE
+ */
+
+/*
+ * TODO: Determine why the search query "Ba" is returning "Xojo" when neither
+ * of the characters are found there.
+ */
 - (void)highlightCell:(DHRepoTableViewCell *)cell
 {
     NSRange range;
@@ -516,6 +567,9 @@
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:cell.titleLabel.attributedText];
     NSString *substring = [[string string] copy];
     BOOL didAddAttributes = NO;
+    
+    // Iterate through the characters in the string and highlight those characters which
+    // match the search query.
     while((range = [substring rangeOfString:self.filterQuery options:NSCaseInsensitiveSearch]).location != NSNotFound)
     {
         [string addAttributes:[DHDBResult highlightDictionary] range:NSMakeRange(range.location+offset, range.length)];
@@ -529,6 +583,10 @@
     }
 }
 
+/** DmytriE 2018-07-16:
+ *  @param  tableView
+ *  @return
+ */
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     if(self.searchBarActive || (self.searchBarActiveIsALie && !self.searchBarActive))
@@ -597,6 +655,10 @@
     self.searchBarActive = NO;
 }
 
+/** DmytriE 2018-07-16:
+ *  @param  query
+ *  @return NONE
+ */
 - (void)filterFeedsWithQuery:(NSString *)query
 {
     self.filterQuery = query;
@@ -610,6 +672,15 @@
         }
         else
         {
+            /* DmytriE 2018-07-16: Iterate through the list of aliases for a given
+             * docset.  If the query matches the aliases then it adds the feed to
+             * the filtered feeds list.  The list of aliases are found in DashDocset-
+             * Downloader.m
+             *
+             * TODO: Do we want to add DocSets based on aliases that are not
+             * visible to the user?  It confused me when I did the "ba" search.
+             * Add "subtitle" notice indicating it was selected from its alias.
+             */
             for(NSString *alias in feed.aliases)
             {
                 if([alias contains:query])
@@ -641,6 +712,11 @@
     [self.filteredFeeds addObjectsFromArray:aliasMatches];
 }
 
+/** DmytriE: 2018-07-16:
+ *  @param  title: Name of the Documentation Set
+ *  @param  cell: The cell which will be updated.
+ *  @return NONE
+ */
 - (void)setTitle:(NSString *)title forCell:(DHRepoTableViewCell *)cell
 {
     cell.titleLabel.text = title;
@@ -655,6 +731,11 @@
     
 }
 
+/** DmytriE 2018-07-16
+ *  @param feed: Documentation set
+ *  @param isAnUpdate: New installation or an update?
+ *  @return NONE
+ */
 - (void)startInstallingFeed:(DHFeed *)feed isAnUpdate:(BOOL)isAnUpdate
 {
     [self showDownloadProgressViewForFeed:feed];
@@ -672,8 +753,7 @@
         dispatch_sync(dispatch_get_main_queue(), ^{
             if(!feed.installing || [result isEqualToString:@"cancelled"])
             {
-                 // user cancelled install
-                return;
+                return; // user cancelled install
             }
             feed.installing = NO;
             NSString *version = feed.feedResult.version;

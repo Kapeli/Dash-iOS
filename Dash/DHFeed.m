@@ -69,6 +69,10 @@
     return feed;
 }
 
+/** DmytriE 2018-07-16:
+ *  @param withVersion:
+ *  @return NSString which contains the docset name
+ */
 - (NSString *)docsetNameWithVersion:(BOOL)withVersion
 {
     NSString *docsetName = [NSString stringWithFormat:@"%@", [[[[self.feedURL lastPathComponent] stringByDeletingPathExtension] stringByReplacingOccurrencesOfString:@"_" withString:@" "] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];

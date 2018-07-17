@@ -264,6 +264,10 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     return CGPointMake(0, 16);
 }
 
+/** DmytriE: 2018-07-15:
+ *  @param scrollView: The current scroll view
+ *  @return NONE
+ */
 - (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView
 {
     [self openSettings:self];
