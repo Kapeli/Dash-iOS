@@ -243,6 +243,14 @@
     return nil;
 }
 
+/** DmytriE 2018-07-17: Based on the feed selected to install it takes the row value and
+ *  finds it in the list of active feeds (list of available feeds to install).  It then
+ *  determines whether the feed is downloadable.  If so, it begins installing the feed to
+ *  your device.
+ *
+ *  @param sender: The event handler for button click
+ *  @return Iteractive Button Action response
+ */
 - (IBAction)downloadButtonPressed:(id)sender
 {
     NSUInteger row = [sender tag];
@@ -254,6 +262,10 @@
     }
 }
 
+/** DmytriE 2018-07-17:
+ *  @param  feed: DocSet to display Circular Progress Bar
+ *  @return NONE
+ */
 - (void)showDownloadProgressViewForFeed:(DHFeed *)feed
 {
     DHRepoTableViewCell *cell = feed.cell;
@@ -596,6 +608,12 @@
     return [self.feeds characterIndexTitles];
 }
 
+/** DmytriE 2018-07-17:
+ *  @param  tableView: The current table view
+ *  @param  title: Title of the documentation set
+ *  @param  aIndex:
+ *  @return Index of the first character match with the title
+ */
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)aIndex
 {
     NSInteger index = [self.feeds indexOfFirstObjectThatStartsWithCharacter:title];
@@ -606,12 +624,21 @@
     return index;
 }
 
+/** DmytriE 2018-07-17:
+ *  @param  controller:
+ *  @param  tableView: A view of all the
+ *  @return NONE
+ */
 - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
     [controller.searchResultsTableView registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
     tableView.allowsSelection = NO;
 }
 
+/** DmytriE 2018-07-17: Begin searching by displaying search bar
+ *  @param  controller: Current view controller
+ *  @return NONE
+ */
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
 {
     controller.searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -620,18 +647,31 @@
     [self.tableView reloadSectionIndexTitles];
 }
 
+/** DmytriE 2018-07-17: Hide the repo search bar
+ *  @param  controller: Current view controller
+ *  @return NONE
+ */
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
 {
     self.searchBarActive = NO;
     [self reload];
 }
 
+/** DmytriE 2018-07-17: Reloads the docsets which match the query
+ *  @param  controller: Current view controller
+ *  @param  searchString: Search query string
+ *  @return Truthy boolean indicating docset feed was filtered
+ */
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     [self filterFeedsWithQuery:searchString];
     return YES;
 }
 
+/** DmytriE 2018-07-17: Display the search bar for the user to enter their query.
+ *  @param  controller: Current view controller
+ *  @param  tableView: View associated with the table.
+ */
 - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView
 {
     if(!self.searchBarActive)
@@ -650,13 +690,17 @@
     [self.tableView reloadData];
 }
 
+/** DmytriE 2018-07-17: Set the search bar boolean value to false.
+ *  @param  controller: Current view controller
+ *  @return NONE
+ */
 - (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
 {
     self.searchBarActive = NO;
 }
 
 /** DmytriE 2018-07-16:
- *  @param  query
+ *  @param  query: Text entered into search box
  *  @return NONE
  */
 - (void)filterFeedsWithQuery:(NSString *)query
@@ -731,9 +775,10 @@
     
 }
 
-/** DmytriE 2018-07-16
+/** DmytriE 2018-07-17:
  *  @param feed: Documentation set
- *  @param isAnUpdate: New installation or an update?
+ *  @param isAnUpdate: Using the isAnUpdate variable determines whether to
+ *  download a new DocSet or retrieve the DocSet changes.
  *  @return NONE
  */
 - (void)startInstallingFeed:(DHFeed *)feed isAnUpdate:(BOOL)isAnUpdate
@@ -755,6 +800,8 @@
             {
                 return; // user cancelled install
             }
+            
+
             feed.installing = NO;
             NSString *version = feed.feedResult.version;
             feed.feedResult = nil;

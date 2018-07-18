@@ -53,6 +53,11 @@
     return dictionary;
 }
 
+/** DmytriE 2018-07-17: Create the desired dictionary representation of the
+ *  information.
+ *  @param  dictionary:
+ *  @return feed: The feed with all of the information
+ */
 + (DHFeed *)feedWithDictionaryRepresentation:(NSDictionary *)dictionary
 {
     DHFeed *feed = [[DHFeed alloc] init];
@@ -113,7 +118,27 @@
 
 - (BOOL)isMajorVersioned:(NSString *)feedURL
 {
-    return [feedURL isEqualToString:@"http://kapeli.com/feeds/Drupal_7.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Drupal_8.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Zend_Framework_1.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Zend_Framework_2.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Zend_Framework_3.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Bootstrap_2.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Bootstrap_3.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Bootstrap_4.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Python_2.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Python_3.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Java_SE6.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Java_SE7.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Java_SE8.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Ruby_on_Rails_3.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Ruby_on_Rails_4.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Ruby_on_Rails_5.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Qt_4.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Qt_5.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Lua_5.1.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Lua_5.2.xml"] || [feedURL isEqualToString:@"http://kapeli.com/feeds/Ruby_2.xml"];
+    return  [feedURL isEqualToString:@"http://kapeli.com/feeds/Drupal_7.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Drupal_8.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Zend_Framework_1.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Zend_Framework_2.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Zend_Framework_3.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Bootstrap_2.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Bootstrap_3.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Bootstrap_4.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Python_2.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Python_3.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Java_SE6.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Java_SE7.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Java_SE8.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Ruby_on_Rails_3.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Ruby_on_Rails_4.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Ruby_on_Rails_5.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Qt_4.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Qt_5.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Lua_5.1.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Lua_5.2.xml"] ||
+            [feedURL isEqualToString:@"http://kapeli.com/feeds/Ruby_2.xml"];
 }
 
 - (NSString *)sortName
@@ -131,10 +156,15 @@
     return [self docsetNameWithVersion:NO];
 }
 
+/** DmytriE 2018-07-17: Preparing the cell with the appropriate images, including,
+ *  (Download / Uninstall / Checkmark / DocSet Image).
+ *  @param  cell: DocSet table cell to prepare
+ *  @return NONE
+ */
 - (void)prepareCell:(DHRepoTableViewCell *)cell
 {
     self.cell = cell;
-    if(self.progressShown)
+    if(self.progressShown) // Display progress indicator
     {
         cell.progressView.alpha = 1.0;
         cell.downloadButton.alpha = 0.0;
@@ -145,13 +175,13 @@
     else
     {
         cell.progressView.alpha = 0.0;
-        if(self.installed)
+        if(self.installed) // Display Uninstall and Checkmark
         {
             cell.downloadButton.alpha = 0.0;
             cell.uninstallButton.alpha = 1.0;
             cell.checkmark.alpha = 1.0;
         }
-        else
+        else // Display Download button
         {
             cell.downloadButton.alpha = 1.0;
             cell.uninstallButton.alpha = 0.0;
@@ -169,6 +199,10 @@
     [self adjustTitleLabelWidthBasedOnButtonsShown];
 }
 
+/** DmytriE 2018-07-17:
+ *  @param  NONE
+ *  @return NONE
+ */
 - (void)adjustTitleLabelWidthBasedOnButtonsShown
 {
     CGFloat endX = self.cell.downloadButton.frame.origin.x;
