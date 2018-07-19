@@ -941,11 +941,23 @@
     return [[self defaultsKey] stringByAppendingString:@"LastUpdateCheck"];
 }
 
+/** DmytriE:
+ *  @param: NONE
+ *  @return: Path to the recycle bin is the DocSet Install Path with ".Trash"
+ *  appended to the end of the docSet installation path.  Following folder
+ *  structure:
+ *  /docset/Angular         (Contains docset data)
+ *  /docset/Angular.Trash   (Uninstalled docset ready for deletion).
+ */
 - (NSString *)trashPath
 {
     return [[self docsetInstallFolderPath] stringByAppendingPathComponent:@".Trash"];
 }
 
+/** DmytriE 2018-07-19:
+ *  @param NONE
+ *  @return path the the recycle bin.
+ */
 - (NSString *)uniqueTrashPath
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];

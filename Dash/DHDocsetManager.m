@@ -106,6 +106,11 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:DHDocsetsChangedNotification object:self];
 }
 
+/** DmytriE 2018-07-19: Equivallent to uninstalling the DocSet. It deletes
+ *  the files associated with the documentation set from the File Manager.
+ *  @param path: Path to the documentation set in the file system.
+ *  @return NONE
+ */
 - (void)removeDocsetsInFolder:(NSString *)path
 {
     [self.docsets removeObjectsAtIndexes:[self.docsets indexesOfObjectsPassingTest:^BOOL(DHDocset *obj, NSUInteger idx, BOOL *stop) {

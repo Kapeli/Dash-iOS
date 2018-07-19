@@ -240,6 +240,9 @@ static id singleton = nil;
     for(NSDictionary *feedDictionary in savedFeeds)
     {
         DHFeed *savedFeed = [DHFeed feedWithDictionaryRepresentation:feedDictionary];
+        /* ECKD: Removes documentation if on an iOS device that contains docsets related
+         * to Apple products (iOS, OS X, watch OS, and tvOS.
+         */
         if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml"] containsObject:savedFeed.feedURL])
         {
             if(savedFeed.installed)
@@ -279,6 +282,10 @@ static id singleton = nil;
     self.feeds = dashFeeds;
 }
 
+/** DmytriE 2018-07-19:
+ *  @param installFeed: The selected docset
+ *  @param isAnUpdate: Determine whether to install or update the docset.
+ */
 - (NSString *)installFeed:(DHFeed *)feed isAnUpdate:(BOOL)isAnUpdate
 {
     NSObject *identifier = [[NSObject alloc] init];
@@ -315,6 +322,7 @@ static id singleton = nil;
     dispatch_sync(dispatch_get_main_queue(), ^{
         shouldWait = [[DHLatencyTester sharedLatency] performTests:YES];
     });
+    
     if(shouldWait)
     {
         [NSThread sleepForTimeInterval:0.8f];
@@ -746,6 +754,8 @@ static id singleton = nil;
     return downloader;
 }
 
+/** DmytriE 2018-07-19: Limits the number of instance of the DHDownloader available
+ */
 + (id)alloc
 {
     if(singleton)
