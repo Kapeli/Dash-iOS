@@ -67,19 +67,6 @@
     return self.titleLabel;
 }
 
-/** ECKD 2018-07-07: Dictates the orientation and size of the cell's title.  The title is comprised of the
- *  label for the button, in addition to the number of cells found on a future-sub-view.  If the number of
- *  clickable options in the next view are 12 then a 12 will display within the parent's clickable cell.
- *
- *
- *  TODO: The iPhone 10 has introduced a number of obstacles which must be overcome to accomodate the users
- *  of the Dash iOS application.
- *  1.) Is the iPhone 10 notch (black bar at the top) present.  If so, then
- *  adjust the number accordingly.
- *  2.) There is an application available by Apple, which allows users to remove the black notch if they so
- *  desire.  This is a new feature which will require a new placement.  Hopefully we can add simple logic
- *  which will be used for future releases.
- */
 - (void)layoutSubviews
 {
     [super layoutSubviews];
