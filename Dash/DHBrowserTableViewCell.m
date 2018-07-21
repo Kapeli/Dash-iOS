@@ -71,6 +71,7 @@
  *  label for the button, in addition to the number of cells found on a future-sub-view.  If the number of
  *  clickable options in the next view are 12 then a 12 will display within the parent's clickable cell.
  *
+ *
  *  TODO: The iPhone 10 has introduced a number of obstacles which must be overcome to accomodate the users
  *  of the Dash iOS application.
  *  1.) Is the iPhone 10 notch (black bar at the top) present.  If so, then
@@ -82,13 +83,20 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    /* DmytriE 2018-07-21: This section of code was removed to allow for orientation
+     * changes to occur while also displaying the counter in the RightDetailLabel
+     * for iPhones 6 - X.
+     * Not sure what the purpose of this section was...
+     */
     if(self.accessoryType == UITableViewCellAccessoryDisclosureIndicator)
     {
-        [self.titleLabel setFrame:CGRectMake(self.titleLabel.frame.origin.x, self.titleLabel.frame.origin.y, self.frame.size.width-self.titleLabel.frame.origin.x-33, self.titleLabel.frame.size.height)];
+        // Determien the width of the iPhone then subtract the width of the frame.
+        // This will be the width that is required to produce the desired result.
+       //[self.titleLabel setFrame:CGRectMake(self.titleLabel.frame.origin.x, self.titleLabel.frame.origin.y, self.frame.size.width-self.titleLabel.frame.origin.x-33, self.titleLabel.frame.size.height)];
     }
     else
     {
-        [self.titleLabel setFrame:CGRectMake(self.titleLabel.frame.origin.x, self.titleLabel.frame.origin.y, self.frame.size.width-self.titleLabel.frame.origin.x-16, self.titleLabel.frame.size.height)];
+        //[self.titleLabel setFrame:CGRectMake(self.titleLabel.frame.origin.x, self.titleLabel.frame.origin.y, self.frame.size.width-self.titleLabel.frame.origin.x-16, self.titleLabel.frame.size.height)];
     }
 }
 

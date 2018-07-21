@@ -34,13 +34,9 @@
         rect = self.bounds; // Redefine the size of rect to the size of the RightDetailLabel
         if(self.isBrowserCell)
         {
-            NSString *type = UIDevice.currentDevice.model;
-            NSString *version = UIDevice.currentDevice.localizedModel;
-            NSLog(@"%@ %@", type, version);
-            
             rect.size.height += 11;
             rect.origin.y += 11;
-            //rect.size.width -= 2;
+            rect.size.width -= 2;
             if(isRetina)
             {
                 rect.origin.y -= 0.5;                
