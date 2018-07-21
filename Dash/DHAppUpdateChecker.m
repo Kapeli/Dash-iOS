@@ -33,6 +33,10 @@
     return _checker;
 }
 
+/** DmytriE 2018-07-19: Checks whether any of the downloaded docsets are in need of
+ *  an update.  This is checked every 24 days.
+ *  @return NONE
+ */
 - (void)backgroundCheckForUpdatesIfNeeded
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -60,6 +64,9 @@
     }
 }
 
+/** DmytriE 2018-07-19:
+ *  @return Signals display notification alert for an update
+ */
 - (BOOL)alertIfUpdatesAreScheduled
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

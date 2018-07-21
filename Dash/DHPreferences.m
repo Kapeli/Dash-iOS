@@ -244,6 +244,9 @@
     }
 }
 
+/** DmytriE 2018-07-12: Opens webpage where the user can purcahse Dash for MacOS
+ *  @param: sender: Click event
+ */
 - (IBAction)getDashForMacOS:(id)sender
 {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://kapeli.com/dash"]];

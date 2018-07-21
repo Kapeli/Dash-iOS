@@ -1,9 +1,7 @@
 # [KissXML](https://github.com/robbiehanson/KissXML)
 
 [![CI Status](http://img.shields.io/travis/robbiehanson/KissXML.svg?style=flat)](https://travis-ci.org/robbiehanson/KissXML)
-[![Version](https://img.shields.io/cocoapods/v/KissXML.svg?style=flat)](http://cocoapods.org/pods/KissXML)
-[![License](https://img.shields.io/cocoapods/l/KissXML.svg?style=flat)](http://cocoapods.org/pods/KissXML)
-[![Platform](https://img.shields.io/cocoapods/p/KissXML.svg?style=flat)](http://cocoapods.org/pods/KissXML)
+[![Version](https://img.shields.io/cocoapods/v/KissXML.svg?style=flat)](http://cocoapods.org/pods/KissXML) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Platform](https://img.shields.io/cocoapods/p/KissXML.svg?style=flat)](http://cocoapods.org/pods/KissXML) [![License](https://img.shields.io/cocoapods/l/KissXML.svg?style=flat)](http://cocoapods.org/pods/KissXML)
 
 KissXML provides a drop-in replacement for Apple's NSXML class culster in environments without NSXML (e.g. iOS).
 
@@ -21,18 +19,15 @@ KissXML was inspired by the TouchXML project, but was created to add full suppor
 
 ### Getting Started
 
-The minimum deployment target is iOS 6.0 / macOS 10.8 / tvOS 9.0 / watchOS 2.0.
+The minimum deployment target is iOS 8.0 / macOS 10.9 / tvOS 9.0 / watchOS 2.0.
+
+#### CocoaPods
 
 The easiest way to install `KissXML` is using CocoaPods.
 
 ```ruby
-pod 'KissXML'
-```
-If you're using Swift you can enable mappings from DDXML to NSXML by using the `SwiftNSXML` subspec.
-
-```ruby
 use_frameworks!
-pod 'KissXML/SwiftNSXML'
+pod 'KissXML'
 ```
 
 After `pod install` open your `.xcworkspace` and import:
@@ -41,10 +36,12 @@ After `pod install` open your `.xcworkspace` and import:
 // Swift
 import KissXML     
 // Objective-C on iOS 8+ with `use_frameworks!`
-@import KissXML;   
-// Objective-C when integrated as a static library
-#import <KissXML/KissXML.h>  
+@import KissXML;
 ```
+
+#### Carthage
+
+The `KissXML.xcodeproj` project contains framework targets for iOS, macOS, tvOS, and watchOS.
 
 ### Learn More
 
@@ -55,10 +52,15 @@ import KissXML
 Can't find the answer to your question in any of the [wiki](https://github.com/robbiehanson/KissXML/wiki) articles? Try the **[mailing list](http://groups.google.com/group/kissxml)**.
 <br/>
 <br/>
-Love the project? Wanna buy me a coffee? (or a beer :D) [![donation](http://www.paypal.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=69SPF7R4ZF69J)
+Love the project? Wanna buy me a ☕️&nbsp;&nbsp;? (or a 🍺&nbsp;&nbsp;😀&nbsp;):
+
+[![donation-bitcoin](https://bitpay.com/img/donate-sm.png)](https://onename.com/robbiehanson)
+[![donation-paypal](http://www.paypal.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=69SPF7R4ZF69J)
 
 ## Changelog
 
+* 5.2.0 - Feb 2 2017 - Swift 3 and Carthage support. Requires iOS 8 or higher, removes static library support.
+* 5.1.2 - Jul 8 2016 - Better Swift generated interface cross-compatibility with NSXML by matching NSXML headers more closely, specifically by changing many set/get methods to properties.
 * 5.1.1 - Jul 7 2016 - Fixes issue when integrated as a static library. Min iOS version is back to 6.0. Moved DDXML->NSXML Swift mappings to `SwiftNSXML` subspec. Added test for static library integration.
 * 5.1.0 - Jul 6 2016 - Removed need for `libxml_module` subspec by removing references to libxml in public headers. Added Obj-C generics and nullability support to match NSXML API. Added watchOS support. Minimum iOS version is now 8.0.
 * 5.0.3 - Feb 1 2016 - Removed `DDXML_NS_DECLARATIONS_ENABLED` to allow for better Swift compatibility. Added `DDXML.swift` with mappings between NSXML classes and constants and DDXML.

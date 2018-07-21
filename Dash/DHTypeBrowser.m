@@ -196,16 +196,29 @@
     return 1;
 }
 
+/** DmytriE: Count the number of rows for a section.  Currently, it appears
+ *  a section are the types of classifications you are looking to dive into.
+ *  These sections could be functions, modules, guides, etc.
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(self.isLoading || self.isEmpty)
     {
-        return 3;
+        return 3; // Not sure what the value 3 represents
     }
+    
+    // Counts the number of elements in an array.
     NSInteger count = self.types.count;
     return count;
 }
 
+/** DmytriE: Creates the table view by iterating through all of the options that are
+ * available for a given Docset.
+ * @param indexPath: This param contains two values.
+ *      - indexPath[0] index of the selected Docset.
+ *      - indexPath[1] index of the sub-documentation.
+ * @param tableView: Pointer to the table object.
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DHBrowserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:(self.isLoading || self.isEmpty) ? @"DHLoadingCell" : @"DHBrowserCell" forIndexPath:indexPath];
@@ -225,12 +238,23 @@
     }
     else
     {
+        /* DmytriE: Creates an interactive cell in the DHEntryBrowser.  This is where it creates the text label, provides
+         * the number of subsections for a given entry, and provides the right pointing chevron.  The cell.accessoryType
+         * is the chevron.
+         *
+         * userInteractionEnabled:  Determines where the user is able to interact with the cell.
+         * type:                    The type of items found in the sub-section
+         * textLabel:               The text to display in the cell
+         * setRigthDetailText:      Displays the number of cells found in the sub-section
+         * imageView:               The image of the sub-section: (Functions, Modules, etc.)
+         * accessoryType:           Displays the right Chevrom.  (Where is the placement of this decided?...)
+         */
         cell.userInteractionEnabled = YES;
         NSDictionary *type = self.types[indexPath.row];
         cell.textLabel.text = type[@"plural"];
         [cell.titleLabel setRightDetailText:[type[@"count"] stringValue] adjustMainWidth:YES];
         cell.imageView.image = [UIImage imageNamed:type[@"type"]];;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     return cell;
 }

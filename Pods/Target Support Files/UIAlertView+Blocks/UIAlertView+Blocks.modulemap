@@ -1,0 +1,6 @@
+framework module UIAlertView_Blocks {
+  umbrella header "UIAlertView+Blocks-umbrella.h"
+
+  export *
+  module * { export * }
+}

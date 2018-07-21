@@ -190,12 +190,34 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     }
 }
 
+/****  START: EMPTY DOCUMENT SET ****/
+/** DmytriE 2018-07-15:
+ *  @param  scrollView: The current scroll View
+ *  @return The open book image with text below it.
+ */
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"placeholder_docsets"];
+}
+
+/** DmytriE 2018-07-15: Display the message "No Docsets" on the initial and
+ *  subsequent segues to the screen until a document set has been downloaded.
+ *  @param scrollView: The current scroll view
+ *  @return A string which has the appropriate format.  (Font, Size, and Color).
+ */
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
     NSString *text = @"No Docsets";
     return [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:22.0], NSForegroundColorAttributeName: [UIColor colorWithWhite:201.0/255.0 alpha:1.0]}];
 }
 
+/** DmytriE 2018-07-15: Displays a message which tells the user to download document
+ *  sets in the settings menu.  This does NOT affect the message "No Docsets" or the
+ *  image above it.
+ *  @param  scrollView: The current scroll view
+ *  @return An attributed string for the dataset description text, combining font,
+ *  text color, text pararaph style, etc.
+ */
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
     
     NSString *text = @"You can download some in Settings.";
@@ -203,15 +225,19 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
     paragraph.alignment = NSTextAlignmentCenter;
     paragraph.lineSpacing = 4.0;
+    
+    // Defines how the message below the "No Docsets" image and captions appears
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:13.0], NSForegroundColorAttributeName: [UIColor colorWithWhite:207.0/255.0 alpha:1.0], NSParagraphStyleAttributeName: paragraph};
+    
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
-- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
-{
-    return [UIImage imageNamed:@"placeholder_docsets"];
-}
-
+/** DmytriE 2018-07-15: Provides a button for the user to segue to the settings
+ *  menu to start downloading documentation.
+ *  @param  scrollView: The current scroll view
+ *  @param  state:
+ *  @return
+ */
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
 {
     NSString *text = @"Open Settings";
@@ -219,9 +245,13 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
+/** DmytriE: 2018-07-15:
+ *  @param  scrollView: The current scroll view
+ *  @return boolean value whether to allow scrolling
+ */
 - (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
 {
-    return YES;
+    return NO;
 }
 
 - (CGFloat)spaceHeightForEmptyDataSet:(UIScrollView *)scrollView
@@ -234,10 +264,15 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     return CGPointMake(0, 16);
 }
 
+/** DmytriE: 2018-07-15:
+ *  @param scrollView: The current scroll view
+ *  @return NONE
+ */
 - (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView
 {
     [self openSettings:self];
 }
+/****  END: EMPTY DOCUMENT SET ****/
 
 - (void)reload:(NSNotification *)notification
 {
@@ -260,14 +295,24 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     }
 }
 
+/** DmytriE 2018-07-15: Counts the nubmer of sections in the table view.
+ *  @param tableView: This is the current view with all of the view's
+ *  parameters
+ *  @return count: The number of sections for the current view
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     [self updateSections:YES];
     return self.sections.count;
 }
 
+/** DmytriE 2018-07-15:
+ *  @param withTitleUpdate: Boolean whether to update Navigation Bar Title
+ *  @return NONE
+ */
 - (void)updateSections:(BOOL)withTitleUpdate
 {
+    // Create brand new Mutable Array
     NSMutableArray *sections = [NSMutableArray array];
     if([DHRemoteServer sharedServer].remotes.count)
     {
@@ -278,17 +323,22 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     }
     NSMutableArray *docsets = (self.isEditing) ? [DHDocsetManager sharedManager].docsets : (self.keyDocsets) ? self.keyDocsets : [DHDocsetManager sharedManager].enabledDocsets;
     self.shownDocsets = docsets;
+    
     if(docsets.count)
     {
         [sections addObject:docsets];
     }
-    self.sections = sections;
+    self.sections = sections;   // Add the sections object
     if(withTitleUpdate)
     {
         [self updateTitle];
     }
 }
 
+/** DmytriE: 2018-07-15: Sets the title of the Navigation Bar based on the
+ *  current view.  It appears that 'Docsets & Remotes' are not used currently.
+ *  @return NONE
+ */
 - (void)updateTitle
 {
     if([DHRemoteServer sharedServer].remotes.count && !self.isEditing)
@@ -301,6 +351,11 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     }
 }
 
+/** Dmytri 2018-07-15: Returns the number of cell elements based on previous table cell selection.
+ *  @param tableView: The current table view
+ *  @param section: The selection index on the previuos table view
+ *  @return The number of options available for current selection
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.sections[section] count];

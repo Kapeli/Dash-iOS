@@ -39,34 +39,22 @@
 
 - (void)viewWillAppear
 {
-    if(self.displayController.active)
-    {
-        
-    }
+    if(self.displayController.active) { }
 }
 
 - (void)viewDidAppear
 {
-    if(self.displayController.active)
-    {
-
-    }
+    if(self.displayController.active) { }
 }
 
 - (void)viewWillDisappear
 {
-    if(self.displayController.active)
-    {
-    
-    }
+    if(self.displayController.active) { }
 }
 
 - (void)viewDidDisappear
 {
-    if(self.displayController.active)
-    {
-
-    }
+    if(self.displayController.active) { }
 }
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection

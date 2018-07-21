@@ -16,9 +16,14 @@
 //
 
 #import "DHRightDetailLabel.h"
+#import <stdio.h>
 
 @implementation DHRightDetailLabel
 
+/** DmytriE 2018-07-10:
+ *  @param rect: A structure which contains the location and dimensions of the rectangle.
+ *  @return NONE
+ */
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
@@ -26,15 +31,17 @@
     {
         NSMutableParagraphStyle *paragraph = NSMutableParagraphStyle.new;
         paragraph.alignment = NSTextAlignmentRight;
-        rect = self.bounds;
+        rect = self.bounds; // Redefine the size of rect to the size of the RightDetailLabel
         if(self.isBrowserCell)
         {
+            rect.size.height += 11;
             rect.origin.y += 11;
             rect.size.width -= 2;
             if(isRetina)
             {
                 rect.origin.y -= 0.5;                
             }
+            // Defines the right most text.  This does not alter the Chevron!!
             [self._rightDetailText drawInRect:rect withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16], NSParagraphStyleAttributeName: paragraph, NSForegroundColorAttributeName: [UIColor colorWithRed:142.0/255.0 green:142.0/255.0 blue:147.0/255.0 alpha:1.0]}];
         }
         else
@@ -52,6 +59,10 @@
     }
 }
 
+/** DmytriE: 2018-07-11
+ *  @param rect: A structure which contains the location and dimensions of the rectangle.
+ *  @return NONE
+ */
 - (void)drawTextInRect:(CGRect)rect
 {
     if(self._rightDetailText.length)
@@ -60,23 +71,31 @@
     }
     if(self.subtitle.length)
     {
-        rect = CGIncreaseRect(rect, 0, -7, 0, 0);
+        rect = CGIncreaseRect(rect, 0, -100, 0, 0);
     }
     [super drawTextInRect:rect];
 }
 
+/** DmytriE 2018-07-15:
+ *  @param rightDetailText
+ *  @param adjustWidth
+ *  @return NONE
+ */
 - (void)setRightDetailText:(NSString *)rightDetailText adjustMainWidth:(BOOL)adjustWidth
 {
     [self setRightDetailText:rightDetailText];
     if(adjustWidth)
     {
-        self.maxRightDetailWidth = [rightDetailText attributedSizeWithFont:[UIFont systemFontOfSize:(self.isBrowserCell) ? 16 : 12]].width;
+        //
+        self.maxRightDetailWidth = [rightDetailText attributedSizeWithFont:[UIFont systemFontOfSize:(self.isBrowserCell) ? 20 : 12]].width;
     }
 }
 
 - (void)setRightDetailText:(NSString *)rightDetailText
 {
     self._rightDetailText = rightDetailText;
+    
+    // Removes the right pointed chevron
     if(!rightDetailText.length)
     {
         self.maxRightDetailWidth = 0.0;

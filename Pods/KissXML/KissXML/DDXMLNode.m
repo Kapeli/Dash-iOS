@@ -1172,24 +1172,28 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 	{
 		return @"";
 	}
+    
+    NSMutableString *xmlString;
 	
 	if ([self kind] == DDXMLTextKind)
 	{
-		NSString *result = [NSString stringWithUTF8String:(const char *)bufferPtr->content];
+		xmlString = [NSMutableString stringWithUTF8String:(const char *)bufferPtr->content];
 		
 		xmlBufferFree(bufferPtr);
-		
-		return result;
 	}
 	else
 	{
-		NSMutableString *resTmp = [NSMutableString stringWithUTF8String:(const char *)bufferPtr->content];
-		CFStringTrimWhitespace((__bridge CFMutableStringRef)resTmp);
+		xmlString = [NSMutableString stringWithUTF8String:(const char *)bufferPtr->content];
+		CFStringTrimWhitespace((__bridge CFMutableStringRef)xmlString);
 		
 		xmlBufferFree(bufferPtr);
-		
-		return [resTmp copy];
 	}
+    
+    // Revert wide unicode characters in XML Attribute string values
+    // being converted to XML Hex by libXML
+    CFRange range = CFRangeMake(0, CFStringGetLength((__bridge CFMutableStringRef)xmlString));
+    CFStringTransform((__bridge CFMutableStringRef)xmlString, &range, kCFStringTransformToXMLHex, 1);
+    return [xmlString stringByReplacingOccurrencesOfString:@"\\N" withString:@""];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

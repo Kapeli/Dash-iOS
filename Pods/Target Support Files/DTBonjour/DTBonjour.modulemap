@@ -1,0 +1,6 @@
+framework module DTBonjour {
+  umbrella header "DTBonjour-umbrella.h"
+
+  export *
+  module * { export * }
+}

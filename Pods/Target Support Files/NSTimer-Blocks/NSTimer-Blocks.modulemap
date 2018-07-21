@@ -1,0 +1,6 @@
+framework module NSTimer_Blocks {
+  umbrella header "NSTimer-Blocks-umbrella.h"
+
+  export *
+  module * { export * }
+}

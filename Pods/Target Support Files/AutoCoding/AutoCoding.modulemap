@@ -1,0 +1,6 @@
+framework module AutoCoding {
+  umbrella header "AutoCoding-umbrella.h"
+
+  export *
+  module * { export * }
+}
