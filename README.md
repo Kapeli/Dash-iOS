@@ -27,6 +27,6 @@ All you need to do is:
 
 ## Contribution Guidelines
 
-I am currently only accepting pull requests that fix bugs or add/improve features. I can't allocate time to review pull requests that only refactor things.
+I am currently only accepting pull requests that fix bugs or add/improve features. I can't allocate time to review pull requests that only refactor things or add comments.
 
 Try to maintain the same coding style I use (e.g. curly braces on their own line). I know it's a bit different from anyone else's and you might disagree with it, but having sections of code with a different style would make things worse.
