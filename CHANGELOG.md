@@ -1,6 +1,7 @@
 # Master
 
 * Added the Swift docset back - [ec51356](https://github.com/Kapeli/Dash-iOS/commit/ec51356e95ac7a0aedbd94e648771578174db35a)
+* Fixed an UI issue which occurred only in landscape mode on iPhone X. Thanks to [@qinyuhang](https://github.com/qinyuhang) for reporting the issue and [@DmytriE](https://github.com/DmytriE) for fixing it - [#80](https://github.com/Kapeli/Dash-iOS/pull/80)
 
 # 1.8.8
 
