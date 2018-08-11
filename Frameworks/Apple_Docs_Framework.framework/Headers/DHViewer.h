@@ -25,6 +25,7 @@
 - (NSString *)renderContentXML:(id)contentXML;
 - (NSString *)renderDisplayNameXML:(NSString *)displayNameXML;
 - (NSString *)convertDashLinkToLocalDumpIfAppropriate:(NSString *)dashLink;
+- (NSMutableDictionary *)grabJSON;
 + (void)cleanUp;
 
 @end
