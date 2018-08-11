@@ -49,24 +49,6 @@
     return self.titleLabel;
 }
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    /* DmytriE 2018-07-21: Constraints are already set in the interface builder.  What is the purpose
-     * of checking whether the right chevron is present?
-     
-        if(self.accessoryType == UITableViewCellAccessoryDisclosureIndicator)
-        {
-            [self.titleLabel setFrame:CGRectMake(self.titleLabel.frame.origin.x, self.titleLabel.frame.origin.y, self.frame.size.width-self.titleLabel.frame.origin.x-33, self.titleLabel.frame.size.height)];
-        }
-        else
-        {
-            [self.titleLabel setFrame:CGRectMake(self.titleLabel.frame.origin.x, self.titleLabel.frame.origin.y, self.frame.size.width-self.titleLabel.frame.origin.x-16, self.titleLabel.frame.size.height)];
-        }
-     */
-}
-
 - (void)insertSubview:(UIView *)view atIndex:(NSInteger)index
 {
     if(self.editing)
