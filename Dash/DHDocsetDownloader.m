@@ -50,7 +50,7 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"Bootstrap_4.xml" icon:@"bootstrap" aliases:@[@"twitter bootstrap"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Bourbon.xml" icon:@"bourbon" aliases:@[@"ruby gems", @"rubygems"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"C.xml" icon:@"c" aliases:nil doesNotHaveVersions:YES],
-                           [DHFeed feedWithFeed:@"C++.xml" icon:@"cpp" aliases:nil doesNotHaveVersions:YES],
+                           [DHFeed feedWithFeed:@"C++.xml" icon:@"cpp" aliases:@[@"cpp"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"CakePHP.xml" icon:@"cakephp" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Cappuccino.xml" icon:@"cappuccino" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Chai.xml" icon:@"chai" aliases:@[@"chaijs assertion library", @"chai.js assertion library", @"chai assertion library", @"nodejs", @"node.js"] doesNotHaveVersions:NO],
