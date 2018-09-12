@@ -1,6 +1,6 @@
 # Master
 
-* Nothing yet.
+* Added support for the Xcode 10 GM docs - [26b1dfc](https://github.com/Kapeli/Dash-iOS/commit/26b1dfcaf877c77bf8f3e267d3203eb5805bb624)
 
 # 1.8.9
 
