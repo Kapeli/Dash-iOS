@@ -766,10 +766,23 @@ static NSDictionary *highlightDictionary;
 - (void)highlightLabel:(UILabel *)label
 {
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:label.attributedText];
-    for(NSValue *aValue in self.highlightRanges)
+    if(self.highlightRanges.count)
     {
-        NSRange range = [aValue rangeValue];
-        [string addAttributes:[DHDBResult highlightDictionary] range:range];
+        for(NSValue *aValue in self.highlightRanges)
+        {
+            NSRange range = [aValue rangeValue];
+            [string addAttributes:[DHDBResult highlightDictionary] range:range];
+        }
+    }
+    else
+    {
+        // This is needed when the name is not contained within originalName, like the C++ docset
+        // It's a basic workaround that only covers the easiest case
+        NSRange queryRange = [self.name rangeOfString:self.query options:NSCaseInsensitiveSearch];
+        if(queryRange.location != NSNotFound)
+        {
+            [string addAttributes:[DHDBResult highlightDictionary] range:queryRange];
+        }
     }
     label.attributedText = string;
 }
