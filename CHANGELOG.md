@@ -1,6 +1,7 @@
 # Master
 
-* Added support for the Xcode 10 GM docs - [26b1dfc](https://github.com/Kapeli/Dash-iOS/commit/26b1dfcaf877c77bf8f3e267d3203eb5805bb624) and [0922161](https://github.com/Kapeli/Dash-iOS/commit/092216199f04cff877ab69c1726690d74cd1aefc)
+* Added support for the Xcode 10 docs - [2aa2284](https://github.com/Kapeli/Dash-iOS/commit/2aa228480092f311b6ae809cfedff2ad5701e2cf)
+* Added Java SE11 docset
 
 # 1.8.9
 
