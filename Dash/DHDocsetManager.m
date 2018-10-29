@@ -129,6 +129,10 @@
 
 - (DHDocset *)docsetForDocumentationPage:(NSString *)url
 {
+    if([url hasPrefix:@"dash-apple-api://"])
+    {
+        return [self appleAPIReferenceDocset];
+    }
     url = [[url stringByDeletingPathFragment] stringByReplacingPercentEscapes];
     for(DHDocset *docset in [NSArray arrayWithArray:self.docsets])
     {
@@ -164,6 +168,21 @@
         }
     }
     return enabled;
+}
+
+- (DHDocset *)appleAPIReferenceDocset
+{
+    NSMutableOrderedSet *toCheck = [NSMutableOrderedSet orderedSet];
+    [toCheck addObjectsFromArray:self.enabledDocsets];
+    [toCheck addObjectsFromArray:self.docsets];
+    for(DHDocset *docset in toCheck)
+    {
+        if([[[docset relativePath] lastPathComponent] isEqualToString:@"Apple_API_Reference.docset"] && [[NSFileManager defaultManager] fileExistsAtPath:[[docset documentsPath] stringByAppendingPathComponent:@"Apple Docs Helper"]] && ![[[docset plist] objectForKey:@"DashDocSetIsGeneratedForiOSCompatibility"] boolValue])
+        {
+            return docset;
+        }
+    }
+    return nil;
 }
 
 @end

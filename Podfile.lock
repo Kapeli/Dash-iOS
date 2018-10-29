@@ -1,8 +1,11 @@
 PODS:
-  - AutoCoding (2.2.2)
+  - AutoCoding (2.2.3)
   - DTBonjour (1.1.1)
-  - DZNEmptyDataSet (1.4.1)
-  - GZIP (1.1.1)
+  - DZNEmptyDataSet (1.7.3)
+  - GZIP (1.2.1)
+  - HockeySDK (5.1.2):
+    - HockeySDK/DefaultLib (= 5.1.2)
+  - HockeySDK/DefaultLib (5.1.2)
   - JGMethodSwizzler (2.0.1)
   - KissXML (5.1.2):
     - KissXML/Core (= 5.1.2)
@@ -37,17 +40,18 @@ PODS:
     - MRProgress/Helper
   - NSTimer-Blocks (0.0.1)
   - Reachability (3.2)
-  - SAMKeychain (1.5.2)
+  - SAMKeychain (1.5.3)
   - UIActionSheet+Blocks (0.9)
   - UIAlertView+Blocks (0.9)
 
 DEPENDENCIES:
   - AutoCoding
   - DTBonjour (from `Modified Pods/DTBonjour/DTBonjour.podspec`)
-  - DZNEmptyDataSet (from `Modified Pods/DZNEmptyDataSet/DZNEmptyDataSet.podspec`)
+  - DZNEmptyDataSet (from `https://github.com/benrudhart/DZNEmptyDataSet.git`)
   - GZIP
+  - HockeySDK
   - JGMethodSwizzler
-  - KissXML (~> 5.1.2)
+  - KissXML (from `Modified Pods/KissXML-5.1.2/KissXML.podspec`)
   - MRProgress (from `Modified Pods/MRProgress/MRProgress.podspec`)
   - NSTimer-Blocks
   - Reachability
@@ -59,24 +63,32 @@ EXTERNAL SOURCES:
   DTBonjour:
     :path: Modified Pods/DTBonjour/DTBonjour.podspec
   DZNEmptyDataSet:
-    :path: Modified Pods/DZNEmptyDataSet/DZNEmptyDataSet.podspec
+    :git: https://github.com/benrudhart/DZNEmptyDataSet.git
+  KissXML:
+    :path: Modified Pods/KissXML-5.1.2/KissXML.podspec
   MRProgress:
     :path: Modified Pods/MRProgress/MRProgress.podspec
 
+CHECKOUT OPTIONS:
+  DZNEmptyDataSet:
+    :commit: 7b9c2734aa5832606099fb1dee7b3ed188d627d4
+    :git: https://github.com/benrudhart/DZNEmptyDataSet.git
+
 SPEC CHECKSUMS:
-  AutoCoding: 56fa46dbfa89d44189a26ce64e6a470ed8ff4661
-  DTBonjour: f221ef5500b109de0eb8cf0f6700c10a27cc8eb0
-  DZNEmptyDataSet: b6d8ef0e69a4347b70c642148453174dbf8817f1
-  GZIP: f8beb59597f651e6970a45b816508a9c6d700b77
+  AutoCoding: 90ca3cbc0d77a37cfff75167d705b44148c5fc51
+  DTBonjour: a7a1cdc391a3cd624ffba29f11e4f52f835acf41
+  DZNEmptyDataSet: dd7cca17c1d07dfa78956859b1e70a52505678ef
+  GZIP: 7ee835f989fb3c6ea79005fc90b8fa6af710a70d
+  HockeySDK: 38b7e2726af1ea86ae97ce4b5de33ab0817e3500
   JGMethodSwizzler: e0ea5c1c6c55304ec4ef3f54e441400c6735c899
-  KissXML: 246c842586bb77110e04fb88e19376d96245c856
-  MRProgress: ae0bff676bc83d62cfd5567bba3325f4617c7215
+  KissXML: 7d52dbfb2cfecb02ee2db9308bc5a714be8f3da6
+  MRProgress: f772175ff3d21908d6f5149768d9f919cf5aa9ae
   NSTimer-Blocks: 88faf9aef5f250ead087f3f67ae642517083bf36
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
+  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
 
-PODFILE CHECKSUM: 078890cfa742b9866ed6825f1ee87b83ba9f5702
+PODFILE CHECKSUM: 70a8dd77fbb2aad2f2f1bf1a4d6c3efa0fdd0a69
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.4.0

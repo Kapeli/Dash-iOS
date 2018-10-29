@@ -33,14 +33,12 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"ActionScript.xml" icon:@"actionscript" aliases:@[@"adobe flash as3"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Akka.xml" icon:@"akka" aliases:@[@"scala"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Android.xml" icon:@"android" aliases:@[@"java"] doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"Angular.dart.xml" icon:@"angulardart" aliases:@[@"angular.io angular for dartlang", @"angulardart.js", @"angulardartjs", @"angulardartlang", @"angulardart.js lang", @"angulardart lang", @"angulardartjs lang", @"angular.dart.js", @"angular.dartjs", @"angular.dartlang", @"angular.dart.js lang", @"angular.dart lang", @"angular.dartjs lang", @"angular2", @"angular 2", @"angulardart 2", @"angular.dart 2", @"angularjs 2", @"angular.js 2"] doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"AngularJS.xml" icon:@"angularjs" aliases:@[@"google angularjs", @"angular.io angular for javascript angular for js", @"google angular.js", @"angular2", @"angular 2", @"angularjs 2", @"angular.js 2"] doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"AngularTS.xml" icon:@"angularts" aliases:@[@"google angularjs", @"google angular.js", @"angular2", @"angular 2", @"angularjs 2", @"angular.js 2", @"google angularts", @"angular.io angular for typescript angular for ts angular.typescript angular.ts angulartypescript", @"google angular.ts", @"angular2", @"angular 2", @"angularts 2", @"angular.ts 2"] doesNotHaveVersions:NO],
+                           [DHFeed feedWithFeed:@"Angular.xml" icon:@"angular" aliases:@[@"google angularjs", @"google angular.js", @"angular2", @"angular 2", @"angularjs 2", @"angular.js 2", @"google angularts", @"angular.io angular for typescript angular for ts angular.typescript angular.ts angulartypescript", @"google angular.ts", @"angular2", @"angular 2", @"angularts 2", @"angular.ts 2"] doesNotHaveVersions:NO],
+                           [DHFeed feedWithFeed:@"AngularJS.xml" icon:@"angularjs" aliases:@[@"google angularjs", @"google angular.js", @"angular", @"angularjs", @"angular.js"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Ansible.xml" icon:@"ansible" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Apache_HTTP_Server.xml" icon:@"apache" aliases:@[@"httpd"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Appcelerator_Titanium.xml" icon:@"titanium" aliases:@[@"Appcelerator Platform"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Apple_API_Reference.xml" icon:@"apple" aliases:@[@"leopard", @"snow leopard", @"lion", @"mountain lion", @"mavericks", @"yosemite", @"macos sierra", @"10.10", @"10.8", @"10.6", @"mac osx", @"10.7", @"10.9", @"10.5", @"xcode", @"apple", @"cocoa", @"objective-c", @"objc", @"macosx", @"macos x", @"swift", @"iphone", @"ipad", @"cocoa touch", @"tvos", @"tvservices", @"apple tv", @"ios", @"iphoneos", @"watchkit"] doesNotHaveVersions:YES],
-                           [DHFeed feedWithFeed:@"Apple_Guides_and_Sample_Code.xml" icon:@"apple" aliases:@[@"leopard", @"snow leopard", @"lion", @"mountain lion", @"mavericks", @"yosemite", @"macos sierra", @"10.10", @"10.8", @"10.6", @"mac osx", @"10.7", @"10.9", @"10.5", @"xcode", @"apple", @"cocoa", @"objective-c", @"objc", @"macosx", @"macos x", @"swift", @"iphone", @"ipad", @"cocoa touch", @"tvos", @"tvservices", @"apple tv", @"ios", @"iphoneos", @"watchkit"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"AppleScript.xml" icon:@"applescript" aliases:nil doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Arduino.xml" icon:@"arduino" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"AWS_JavaScript.xml" icon:@"awsjs" aliases:@[@"aws nodejs", @"aws node.js", @"amazon"] doesNotHaveVersions:NO],
@@ -52,7 +50,7 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"Bootstrap_4.xml" icon:@"bootstrap" aliases:@[@"twitter bootstrap"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Bourbon.xml" icon:@"bourbon" aliases:@[@"ruby gems", @"rubygems"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"C.xml" icon:@"c" aliases:nil doesNotHaveVersions:YES],
-                           [DHFeed feedWithFeed:@"C++.xml" icon:@"cpp" aliases:nil doesNotHaveVersions:YES],
+                           [DHFeed feedWithFeed:@"C++.xml" icon:@"cpp" aliases:@[@"cpp"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"CakePHP.xml" icon:@"cakephp" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Cappuccino.xml" icon:@"cappuccino" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Chai.xml" icon:@"chai" aliases:@[@"chaijs assertion library", @"chai.js assertion library", @"chai assertion library", @"nodejs", @"node.js"] doesNotHaveVersions:NO],
@@ -96,7 +94,6 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"GLib.xml" icon:@"glib" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Go.xml" icon:@"go" aliases:@[@"google golang"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Gradle_DSL.xml" icon:@"gradle" aliases:nil doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"Gradle_Groovy_API.xml" icon:@"gradle" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Gradle_Java_API.xml" icon:@"gradle" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Gradle_User_Guide.xml" icon:@"gradle" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Grails.xml" icon:@"grails" aliases:@[@"java"] doesNotHaveVersions:NO],
@@ -111,12 +108,15 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"Ionic.xml" icon:@"ionic" aliases:@[@"ionic framework"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"iOS.xml" icon:@"iphone" aliases:@[@"iphone", @"ipad", @"xcode", @"apple", @"cocoa touch", @"objective-c", @"objc", @"swift"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Jasmine.xml" icon:@"jasmine" aliases:@[@"jasminejs", @"jasmine.js"] doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"Java_EE6.xml" icon:@"jee6" aliases:@[@"javaee6"] doesNotHaveVersions:YES],
-                           [DHFeed feedWithFeed:@"Java_EE7.xml" icon:@"jee7" aliases:@[@"javaee7"] doesNotHaveVersions:YES],
+                           [DHFeed feedWithFeed:@"Java_EE6.xml" icon:@"jee6" aliases:@[@"javaee6", @"jee6"] doesNotHaveVersions:YES],
+                           [DHFeed feedWithFeed:@"Java_EE7.xml" icon:@"jee7" aliases:@[@"javaee7", @"jee7"] doesNotHaveVersions:YES],
+                           [DHFeed feedWithFeed:@"Java_EE8.xml" icon:@"jee8" aliases:@[@"javaee8", @"jee8"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Java_SE6.xml" icon:@"java" aliases:@[@"javase6"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Java_SE7.xml" icon:@"java" aliases:@[@"javase7"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Java_SE8.xml" icon:@"java" aliases:@[@"javase8"] doesNotHaveVersions:YES],
-                           [DHFeed feedWithFeed:@"JavaFX.xml" icon:@"javafx" aliases:nil doesNotHaveVersions:NO],
+                           [DHFeed feedWithFeed:@"Java_SE9.xml" icon:@"java" aliases:@[@"javase9", @"javafx"] doesNotHaveVersions:YES],
+                           [DHFeed feedWithFeed:@"Java_SE10.xml" icon:@"java" aliases:@[@"javase10", @"javafx"] doesNotHaveVersions:YES],
+                           [DHFeed feedWithFeed:@"Java_SE11.xml" icon:@"java" aliases:@[@"javase11", @"javafx"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"JavaScript.xml" icon:@"javascript" aliases:@[@"mdn", @"mozilla developer network", @"dom events", @"canvas", @"js"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Jekyll.xml" icon:@"jekyll" aliases:@[@"jekyllrb jekyll.rb jekyll ruby"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Jinja.xml" icon:@"jinja" aliases:@[@"python jinja2 template engine jinja 2 template engine"] doesNotHaveVersions:NO],
@@ -150,17 +150,14 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"NodeJS.xml" icon:@"nodejs" aliases:@[@"node.js"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"NumPy.xml" icon:@"numpy" aliases:@[@"scipy", @"sci.py", @"num.py", @"python"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"OCaml.xml" icon:@"ocaml" aliases:nil doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"OpenCV_C.xml" icon:@"cvc" aliases:nil doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"OpenCV_C++.xml" icon:@"cvcpp" aliases:nil doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"OpenCV_Java.xml" icon:@"cvj" aliases:nil doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"OpenCV_Python.xml" icon:@"cvp" aliases:nil doesNotHaveVersions:NO],
+                           [DHFeed feedWithFeed:@"OpenCV.xml" icon:@"opencv" aliases:nil doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"OpenGL_2.xml" icon:@"gl2" aliases:@[@"opengl"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"OpenGL_3.xml" icon:@"gl3" aliases:@[@"opengl"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"OpenGL_4.xml" icon:@"gl4" aliases:@[@"opengl glsl openglsl"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"macOS.xml" icon:@"Mac" aliases:@[@"leopard", @"snow leopard", @"lion", @"mountain lion", @"mavericks", @"yosemite", @"10.10", @"10.8", @"10.6", @"mac osx", @"mac os x", @"10.7", @"10.9", @"10.5", @"xcode", @"apple", @"cocoa", @"macosx", @"macos x", @"objective-c", @"objc", @"swift"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Pandas.xml" icon:@"pandas" aliases:@[@"python"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Perl.xml" icon:@"perl" aliases:nil doesNotHaveVersions:NO],
-                           [DHFeed feedWithFeed:@"Phalcon.xml" icon:@"phalcon" aliases:@"php" doesNotHaveVersions:NO],
+                           [DHFeed feedWithFeed:@"Phalcon.xml" icon:@"phalcon" aliases:@[@"cphalcon", @"php"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"PhoneGap.xml" icon:@"phonegap" aliases:@"Apache Cordova adobe phonegap" doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"PHP.xml" icon:@"php" aliases:nil doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"PHPUnit.xml" icon:@"phpunit" aliases:nil doesNotHaveVersions:NO],
@@ -226,7 +223,6 @@ static id singleton = nil;
                            [DHFeed feedWithFeed:@"Xamarin.xml" icon:@"xamarin" aliases:@[@"xamarin.ios", @"xamarin.mac", @"xamarin.android", @"xamarin.osx", @"xamarin ios", @"xamarin mac", @"xamarin android", @"xamarin osx", @"xamarin for ios", @"xamarin for mac", @"xamarin for android", @"xamarin for osx"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Xojo.xml" icon:@"xojo" aliases:@[@"realbasic", @"real basic", @"real studio", @"realstudio"] doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"XSLT.xml" icon:@"xslt" aliases:@[@"mdn", @"mozilla developer network", @"exslt", @"xpath"] doesNotHaveVersions:YES],
-                           [DHFeed feedWithFeed:@"XUL.xml" icon:@"xul" aliases:@[@"mdn", @"mozilla developer network"] doesNotHaveVersions:YES],
                            [DHFeed feedWithFeed:@"Yii.xml" icon:@"yii" aliases:@"yii framework yii2 framework php" doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"YUI.xml" icon:@"yui" aliases:@"yui library" doesNotHaveVersions:NO],
                            [DHFeed feedWithFeed:@"Zend_Framework_1.xml" icon:@"zend" aliases:@[@"zf1"] doesNotHaveVersions:NO],
@@ -238,7 +234,7 @@ static id singleton = nil;
     for(NSDictionary *feedDictionary in savedFeeds)
     {
         DHFeed *savedFeed = [DHFeed feedWithDictionaryRepresentation:feedDictionary];
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/JavaFX.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml", @"http://kapeli.com/feeds/OpenCV_C.xml", @"http://kapeli.com/feeds/OpenCV_C++.xml", @"http://kapeli.com/feeds/OpenCV_Java.xml", @"http://kapeli.com/feeds/OpenCV_Python.xml"] containsObject:savedFeed.feedURL])
         {
             if(savedFeed.installed)
             {
@@ -254,7 +250,7 @@ static id singleton = nil;
             savedFeed.installed = NO;
             savedFeed.installedVersion = nil;
         }
-        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml"] containsObject:savedFeed.feedURL])
+        if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/Jade.xml", @"http://kapeli.com/feeds/JavaFX.xml", @"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml", @"http://kapeli.com/feeds/Angular.dart.xml", @"http://kapeli.com/feeds/AngularTS.xml", @"http://kapeli.com/feeds/Gradle_Groovy_API.xml", @"http://kapeli.com/feeds/XUL.xml", @"http://kapeli.com/feeds/OpenCV_C.xml", @"http://kapeli.com/feeds/OpenCV_C++.xml", @"http://kapeli.com/feeds/OpenCV_Java.xml", @"http://kapeli.com/feeds/OpenCV_Python.xml"] containsObject:savedFeed.feedURL])
         {
             continue;
         }
@@ -311,11 +307,11 @@ static id singleton = nil;
     
     __block BOOL shouldWait = NO;
     dispatch_sync(dispatch_get_main_queue(), ^{
-        shouldWait = [[DHLatencyTester sharedLatency] performTests:YES];
+        shouldWait = [[DHLatencyTester sharedLatency] performTests:NO];
     });
     if(shouldWait)
     {
-        [NSThread sleepForTimeInterval:0.8f];
+        [NSThread sleepForTimeInterval:3.0f];
     }
     if(!feed.installing || feed.identifier != identifier)
     {
@@ -710,18 +706,13 @@ static id singleton = nil;
     else if([feed.feedURL isEqualToString:@"http://kapeli.com/feeds/Apple_API_Reference.xml"])
     {
         title = @"Apple API Reference";
-        message = @"To install the Apple API Reference docset you need to:\n\n1. Use Dash for macOS to install the Apple API Reference docset from Preferences > Downloads\n2. Go to Preferences > Docsets, right click the Apple API Reference docset and select \"Generate iOS Compatible Docset\"\n3. Transfer the resulting docset using iTunes File Sharing";
-    }
-    else if([feed.feedURL isEqualToString:@"http://kapeli.com/feeds/Apple_Guides_and_Sample_Code.xml"])
-    {
-        title = @"Apple Guides and Sample Code";
-        message = @"To install the Apple Guides and Sample Code docset you need to:\n\n1. Download the docset in Xcode 8's Preferences > Components > Documentation\n2.Transfer it to Dash for iOS using iTunes File Sharing";
+        message = @"To install the Apple API Reference docset you need to:\n\n1. Use Dash for macOS to install the Apple API Reference docset from Preferences > Downloads\n2. Go to Preferences > Docsets, right click the Apple API Reference docset and select \"Generate iOS Compatible Docset\"\n3. Transfer the resulting docset using iTunes File Sharing or AirDrop";
     }
     else if([@[@"http://kapeli.com/feeds/OS_X.xml", @"http://kapeli.com/feeds/macOS.xml", @"http://kapeli.com/feeds/watchOS.xml", @"http://kapeli.com/feeds/iOS.xml", @"http://kapeli.com/feeds/tvOS.xml"] containsObject:feed.feedURL])
     {
         title = @"Apple API Reference";
         NSString *name = [[[feed.feedURL lastPathComponent] stringByDeletingPathExtension] stringByReplacingOccurrencesOfString:@"_" withString:@" "];
-        message = [NSString stringWithFormat:@"There is no %@ docset. The documentation for %@ can be found inside the Apple API Reference docset. \n\nTo install the Apple API Reference docset you need to:\n\n1. Use Dash for macOS to install the docset from Preferences > Downloads\n2. Go to Preferences > Docsets, right click the Apple API Reference docset and select \"Generate iOS-compatible Docset\"\n3. Transfer the resulting docset using iTunes File Sharing", name, name];
+        message = [NSString stringWithFormat:@"There is no %@ docset. The documentation for %@ can be found inside the Apple API Reference docset. \n\nTo install the Apple API Reference docset you need to:\n\n1. Use Dash for macOS to install the docset from Preferences > Downloads\n2. Go to Preferences > Docsets, right click the Apple API Reference docset and select \"Generate iOS-compatible Docset\"\n3. Transfer the resulting docset using iTunes File Sharing or AirDrop", name, name];
     }
     
     if(title && message)

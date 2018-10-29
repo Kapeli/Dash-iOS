@@ -1,5 +1,9 @@
 # SAMKeychain
 
+[![Version](https://img.shields.io/github/release/soffes/SAMKeychain.svg)](https://github.com/soffes/SAMKeychain/releases)
+[![CocoaPods](https://img.shields.io/cocoapods/v/SAMKeychain.svg)](https://cocoapods.org/pods/SAMKeychain)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 SAMKeychain is a simple wrapper for accessing accounts, getting passwords, setting passwords, and deleting passwords using the system Keychain on Mac OS X and iOS.
 
 ## Adding to Your Project
@@ -78,6 +82,6 @@ for other options.
 
 ## Thanks
 
-This was originally inspired by EMKeychain and SDKeychain (both of which are now gone). Thanks to the authors. SAMKeychain has since switched to a simpler implementation that was abstracted from [SSToolkit](http://sstoolk.it).
+This was originally inspired by EMKeychain and SDKeychain (both of which are now gone). Thanks to the authors. SAMKeychain has since switched to a simpler implementation that was abstracted from [SSToolkit](https://github.com/soffes/sstoolkit).
 
 A huge thanks to [Caleb Davenport](https://github.com/calebd) for leading the way on version 1.0 of SAMKeychain.

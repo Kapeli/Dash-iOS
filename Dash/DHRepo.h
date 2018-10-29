@@ -52,6 +52,7 @@
 - (void)backgroundCheckForUpdatesIfNeeded;
 - (NSString *)repoIdentifier; // Used to find a corresponding repo for a installed docset
 - (NSString *)defaultsAutomaticallyCheckForUpdatesKey;
+@property (nonatomic, strong, readonly, class) NSString *defaultsAlphabetizingKey;
 - (void)emptyTrashAtPath:(NSString *)trashPath;
 - (NSString *)docsetInstallFolderPath;
 - (NSString *)uniqueTrashPath;
@@ -67,3 +68,5 @@
 @end
 
 NSInteger compareFeeds(id feed1, id feed2, void *context);
+
+#define DHSettingsChangedNotification @"DHSettingsChangedNotification"

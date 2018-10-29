@@ -525,13 +525,13 @@
 
 - (void)setSizeLabelForCell:(DHRepoTableViewCell *)cell
 {
-    if(!isRegularHorizontalClass)
-    {
-        [cell.titleLabel setRightDetailText:nil];
-        return;
-    }
     if(cell.feed.installed && !cell.feed.installing && cell.feed.size && cell.feed.size.length)
     {
+        if(!isRegularHorizontalClass)
+        {
+            [cell.titleLabel setRightDetailText:nil];
+            return;
+        }
         NSString *label = [cell.feed.size stringByAppendingString:@""];
         cell.titleLabel.maxRightDetailWidth = [DHRightDetailLabel calculateMaxDetailWidthBasedOnLongestPossibleString:label];
         [cell.titleLabel setRightDetailText:label];
@@ -552,6 +552,10 @@
     NSRange range;
     NSInteger offset = 0;
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:cell.titleLabel.attributedText];
+    for(NSString *key in [DHDBResult highlightDictionary])
+    {
+        [string removeAttribute:key range:NSMakeRange(0, string.length)];
+    }
     NSString *substring = [[string string] copy];
     BOOL didAddAttributes = NO;
     while((range = [substring rangeOfString:self.filterQuery options:NSCaseInsensitiveSearch]).location != NSNotFound)
@@ -588,6 +592,13 @@
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
+    if(isIOS11)
+    {
+        if(@available(iOS 11.0, *))
+        {
+            tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+    }
     [controller.searchResultsTableView registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
     [controller.searchResultsTableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
     tableView.allowsSelection = NO;
@@ -779,6 +790,13 @@
     {
         [super traitCollectionDidChange:previousTraitCollection];
     }
+    if(self.searchController.isActive)
+    {
+        @try {
+            [self.searchController setActive:NO animated:NO];
+        } @catch (NSException *exception) {
+        }
+    }
     if(isRegularHorizontalClass)
     {
         [self.navigationItem setHidesBackButton:YES animated:NO];
@@ -803,10 +821,6 @@
 {
     [super viewWillDisappear:animated];
     [UIApplication sharedApplication].idleTimerDisabled = NO;
-    if(self.searchController.isActive)
-    {
-        [self.searchController setActive:NO animated:YES];
-    }
 }
 
 - (NSString *)docsetInstallFolderName
@@ -848,6 +862,10 @@
 - (NSString *)defaultsAutomaticallyCheckForUpdatesKey
 {
     return @"AutomaticallyCheckForUpdates";
+}
+
++ (NSString *)defaultsAlphabetizingKey {
+    return @"DocSetAlphabetizing";
 }
 
 - (NSString *)defaultsUpdateLastCheckDateKey

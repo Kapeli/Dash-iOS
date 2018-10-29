@@ -18,7 +18,6 @@
 #import "DHLatencyTestResult.h"
 #import "DHLatencyTester.h"
 
-
 @implementation DHLatencyTestResult
 
 + (DHLatencyTestResult *)resultWithDictionaryRepresentation:(NSDictionary *)dictionary
@@ -39,46 +38,64 @@
     return @{@"host": self.host, @"latency": @(self.latency)};
 }
 
-- (BOOL)performTest
+- (BOOL)shouldPerformTest
 {
-    BOOL result = NO;
-    if((!self.lastTestDate || [[NSDate date] timeIntervalSinceDate:self.lastTestDate] > 60) && !self.isPerformingTest)
+    return (!self.lastTestDate || [[NSDate date] timeIntervalSinceDate:self.lastTestDate] > 60) && !self.isPerformingTest;
+}
+
+- (void)performTest
+{
+    if([self shouldPerformTest])
     {
-        result = YES;
         self.startTestDate = [NSDate date];
         self.isPerformingTest = YES;
-        dispatch_queue_t randQueue = dispatch_queue_create([self.host UTF8String], 0);
-        dispatch_async(randQueue, ^{
+        double minLatency = 10000.0;
+        BOOL success = NO;
+        BOOL didCheckExtraMirrors = NO;
+        for(int i = 0; i < 3; i++)
+        {
+            success = NO;
+            self.startTestDate = [NSDate date];
             NSDate *then = [NSDate date];
-            NSString *host = self.host;
-            if([host hasSuffix:@"/"])
+            NSString *theHost = self.host;
+            if([theHost hasSuffix:@"/"])
             {
-                host = [host substringToDashIndex:host.length-1];
+                theHost = [theHost substringToDashIndex:theHost.length-1];
             }
-            NSURL *url = [NSURL URLWithString:[[host stringByAppendingString:@"/latencyTest_v2.txt"] stringByConvertingKapeliHttpURLToHttps]];
+            NSURL *url = [NSURL URLWithString:[[theHost stringByAppendingFormat:@"/latencyTest_v2.txt?cache_buster=%u", arc4random() % 1000000] stringByConvertingKapeliHttpURLToHttps]];
             if(url)
             {
                 NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
                 NSURLResponse *response = nil;
                 NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
                 NSString *string = nil;
-                BOOL success = NO;
                 if(data)
                 {
                     string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                     if(string && [string hasPrefix:@"Just a latency test. Move along."])
                     {
-                        self.latency = [[NSDate date] timeIntervalSinceDate:then];
-//                        NSLog(@"%f for %@", self.latency, self.host);
-                        success = YES;
-                        // E.g. Extra mirrors: http://newyork3.kapeli.com/feeds/, http://newyork4.kapeli.com/feeds/
-                        NSString *mirrorsString = [string substringFromStringReturningNil:@"Extra mirrors: "];
-                        if(mirrorsString && mirrorsString.length)
+                        NSTimeInterval latency = [[NSDate date] timeIntervalSinceDate:then];
+                        
+                        if(minLatency > latency)
                         {
-                            NSMutableArray *mirrors = [NSMutableArray arrayWithArray:[mirrorsString componentsSeparatedByString:@", "]];
-                            if(mirrors && mirrors.count)
+                            minLatency = latency;
+                            self.latency = latency;
+                        }
+                        success = YES;
+                        if(!didCheckExtraMirrors)
+                        {
+                            // E.g. Extra mirrors: http://newyork3.kapeli.com/feeds/, http://newyork4.kapeli.com/feeds/
+                            NSString *mirrorsString = [string substringFromStringReturningNil:@"Extra mirrors: "];
+                            if(mirrorsString && mirrorsString.length)
                             {
-                                [[DHLatencyTester sharedLatency] checkExtraMirrors:mirrors];
+                                NSMutableArray *mirrors = [NSMutableArray arrayWithArray:[mirrorsString componentsSeparatedByString:@", "]];
+                                if(mirrors && mirrors.count)
+                                {
+                                    didCheckExtraMirrors = YES;
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                        [[DHLatencyTester sharedLatency] checkExtraMirrors:mirrors];
+                                    });
+                                }
                             }
                         }
                     }
@@ -86,14 +103,19 @@
                 if(!success)
                 {
                     self.latency = 10000.0;
+                    break;
                 }
             }
-            self.lastTestDate = [NSDate date];
-            self.startTestDate = nil;
-            self.isPerformingTest = NO;
-        });
+        }
+        if(success && minLatency > 0 && minLatency < 10000.0)
+        {
+            self.latency = minLatency;
+        }
+//        NSLog(@"%f for %@", self.latency, self.host);
+        self.lastTestDate = [NSDate date];
+        self.startTestDate = nil;
+        self.isPerformingTest = NO;
     }
-    return result;
 }
 
 - (double)adaptiveLatency

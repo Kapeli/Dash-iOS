@@ -303,7 +303,7 @@ static id singleton = nil;
 
 - (void)setUpTOC
 {
-    if([DHRemoteServer sharedServer].connectedRemote)
+    if([DHRemoteServer sharedServer].connectedRemote || [[self loadedURL] hasPrefix:@"dash-apple-api://"])
     {
         return;
     }
@@ -328,7 +328,16 @@ static id singleton = nil;
         {
             methods = json[@"entries_swift"];
         }
-        self.currentMethods = methods;
+        NSMutableArray *actualMethods = [NSMutableArray array];
+        for(NSDictionary *method in methods)
+        {
+            if([method[@"isSpacer"] boolValue])
+            {
+                continue;
+            }
+            [actualMethods addObject:method];
+        }
+        self.currentMethods = actualMethods;
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"tocMenu"] style:UIBarButtonItemStylePlain target:self action:@selector(tocButtonPressed:)];
         if(json[@"title"] && [[json[@"title"] trimWhitespace] length])
         {
@@ -704,7 +713,7 @@ static id singleton = nil;
     {
         return NO;
     }
-    if([[self mainFrameURL] rangeOfString:@"file://"].location != NSNotFound || [[self mainFrameURL] hasPrefix:@"dash-stack://"] || [[self mainFrameURL] hasPrefix:@"dash-tarix://"])
+    if([[self mainFrameURL] rangeOfString:@"file://"].location != NSNotFound || [[self mainFrameURL] hasPrefix:@"dash-stack://"] || [[self mainFrameURL] hasPrefix:@"dash-apple-api://"] || [[self mainFrameURL] hasPrefix:@"dash-tarix://"])
     {
         return YES;
     }

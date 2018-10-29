@@ -8,11 +8,13 @@ Also please check out [Dash for macOS](https://kapeli.com/dash).
 
 ## Installation Instructions
 
-You can use Xcode 8 to install Dash on your iOS device using just your Apple ID.
+The recommended way of installing Dash is through the [App Store](https://itunes.apple.com/us/app/dash-offline-api-docs/id1239167694?mt=8).
+
+Alternatively, you can use Xcode to install Dash on your iOS device using just your Apple ID.
 
 All you need to do is:
 
-1. Install [Xcode 8](https://developer.apple.com/xcode/download/)
+1. Install [Xcode](https://developer.apple.com/xcode/download/)
 1. Download the [Dash for iOS Source Code](https://github.com/Kapeli/Dash-iOS/releases/latest) or `git clone https://github.com/Kapeli/Dash-iOS.git`
 1. Open "Dash iOS.xcworkspace" in Xcode
 1. Go to Xcode's Preferences > Accounts and add your Apple ID
@@ -25,6 +27,6 @@ All you need to do is:
 
 ## Contribution Guidelines
 
-I am currently only accepting pull requests that fix bugs or add/improve features. I can't allocate time to review pull requests that only refactor things.
+I am currently only accepting pull requests that fix bugs or add/improve features. I can't allocate time to review pull requests that only refactor things or add comments.
 
 Try to maintain the same coding style I use (e.g. curly braces on their own line). I know it's a bit different from anyone else's and you might disagree with it, but having sections of code with a different style would make things worse.

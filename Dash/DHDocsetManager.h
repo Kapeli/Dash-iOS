@@ -29,6 +29,7 @@
 - (NSMutableArray *)enabledDocsets;
 - (void)saveDefaults;
 - (DHDocset *)docsetWithRelativePath:(NSString *)relativePath;
+- (DHDocset *)appleAPIReferenceDocset;
 
 @end
 

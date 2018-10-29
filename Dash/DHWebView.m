@@ -36,11 +36,7 @@
 + (NSString *)viewportContent:(CGRect)frame
 {
     NSString *content = [NSString stringWithFormat:@"width=%ld", (long)frame.size.width];
-    if(isRegularHorizontalClass)
-    {
-        return [content stringByAppendingString:@", initial-scale=1"];
-    }
-    return content;
+    return [content stringByAppendingString:@", initial-scale=1"];
 }
 
 - (void)setHasHistory:(BOOL)hasHistory

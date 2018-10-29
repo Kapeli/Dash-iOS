@@ -82,6 +82,10 @@
     NSRange range;
     NSInteger offset = 0;
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:cell.titleLabel.attributedText];
+    for(NSString *key in [DHDBResult highlightDictionary])
+    {
+        [string removeAttribute:key range:NSMakeRange(0, string.length)];
+    }
     NSString *substring = [[string string] copy];
     BOOL didAddAttributes = NO;
     while((range = [substring rangeOfString:self.searchController.searchBar.text options:NSCaseInsensitiveSearch]).location != NSNotFound)
@@ -147,6 +151,13 @@
 - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
     self.searchController = controller;
+    if(isIOS11)
+    {
+        if(@available(iOS 11.0, *))
+        {
+            tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+    }
     tableView.rowHeight = 44;
     tableView.separatorInset = UIEdgeInsetsMake(0, DHHeaderSeparatorInset, 0, 0);
     if(iPad && isRegularHorizontalClass)

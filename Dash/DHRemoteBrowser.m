@@ -167,6 +167,10 @@
 - (void)highlightCell:(DHBrowserTableViewCell *)cell result:(DHDBResult *)result
 {
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:cell.textLabel.attributedText];
+    for(NSString *key in [DHDBResult highlightDictionary])
+    {
+        [string removeAttribute:key range:NSMakeRange(0, string.length)];
+    }
     BOOL didAddAttributes = NO;
     for(NSValue *highlightRangeValue in result.highlightRanges)
     {

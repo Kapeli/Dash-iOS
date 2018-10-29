@@ -8,13 +8,12 @@ target "Dash" do
     # MRStopButton has support for whole sizes (their calculations ended up with non-integral frames)
     # Also overwrote pointInside: for MRCircularProgressView...
     # Removed AccessibilityValueChangeNotify because it causes VoiceOver to stall
-    pod 'KissXML', '~> 5.1.2'
+    pod 'KissXML', :path => 'Modified Pods/KissXML-5.1.2/KissXML.podspec'
+    # Modified to make addChild: remove parent
     pod 'UIAlertView+Blocks'
     pod 'UIActionSheet+Blocks'
     pod 'AutoCoding'
-#    pod 'HockeySDK'
-    pod 'DZNEmptyDataSet', :path => 'Modified Pods/DZNEmptyDataSet/DZNEmptyDataSet.podspec'
-    # Some changes in terms of repositioning after orientation change
+    pod 'DZNEmptyDataSet', :git => 'https://github.com/benrudhart/DZNEmptyDataSet.git'
     pod 'JGMethodSwizzler'
     pod 'DTBonjour', :path => 'Modified Pods/DTBonjour/DTBonjour.podspec'
     # Modified to add originating IP address support to DTBonjourDataConnection
@@ -25,6 +24,9 @@ target "Dash" do
     pod 'SAMKeychain'
     pod 'NSTimer-Blocks'
     pod 'GZIP'
+    target "Dash App Store" do
+        pod 'HockeySDK'
+    end
 end
 
 post_install do | installer |

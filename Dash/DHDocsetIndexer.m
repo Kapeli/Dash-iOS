@@ -92,7 +92,7 @@
                     BOOL hasTOKENUSR = NO;
                     if(!isDash && isApple)
                     {
-                        hasTOKENUSR = [db columnExists:@"ZTOKEN" columnName:@"ZTOKENUSR"];
+                        hasTOKENUSR = [db columnExists:@"ZTOKENUSR" inTableWithName:@"ZTOKEN"];
                         if(hasTOKENUSR)
                         {
                             indexQuery = @"SELECT CASE WHEN m.ZFILE IS NOT NULL THEN f.ZPATH ELSE u.ZPATH END, CASE WHEN m.ZANCHOR IS NOT NULL THEN m.ZANCHOR ELSE u.ZANCHOR END, t.ZTOKENNAME, ty.ZTYPENAME, t.rowid, t.ZTOKENUSR FROM ZTOKEN t, ZTOKENTYPE ty, ZTOKENMETAINFORMATION m LEFT JOIN ZFILEPATH f ON m.ZFILE = f.Z_PK LEFT JOIN ZNODEURL u ON t.ZPARENTNODE = u.ZNODE WHERE ty.Z_PK = t.ZTOKENTYPE AND m.ZTOKEN = t.Z_PK ";

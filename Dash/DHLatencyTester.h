@@ -20,6 +20,9 @@
 @interface DHLatencyTester : NSObject
 
 @property (retain) NSMutableArray *results;
+@property (retain) NSOperationQueue *queue;
+@property (retain) NSMutableArray *defaultResults;
+@property (retain) NSMutableArray *resultsAllowedInUserDefaults;
 
 + (DHLatencyTester *)sharedLatency;
 - (BOOL)performTests:(BOOL)forcePerform;
@@ -29,5 +32,6 @@
 - (NSString *)bestMirrorReturningNil;
 - (NSString *)bestMirror;
 - (NSString *)secondBestMirror;
+- (NSMutableArray *)sortedTestResults;
 
 @end

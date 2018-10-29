@@ -138,11 +138,11 @@ static id singleton = nil;
     
     __block BOOL shouldWait = NO;
     dispatch_sync(dispatch_get_main_queue(), ^{
-        shouldWait = [[DHLatencyTester sharedLatency] performTests:YES];
+        shouldWait = [[DHLatencyTester sharedLatency] performTests:NO];
     });
     if(shouldWait)
     {
-        [NSThread sleepForTimeInterval:0.8f];
+        [NSThread sleepForTimeInterval:3.0f];
     }
     if(!feed.installing || feed.identifier != identifier)
     {

@@ -88,6 +88,13 @@
 {
     self.loading = YES;
     tableView.allowsSelection = NO;
+    if(isIOS11)
+    {
+        if(@available(iOS 11.0, *))
+        {
+            tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+    }
     [tableView registerNib:[UINib nibWithNibName:@"DHBrowserCell" bundle:nil] forCellReuseIdentifier:@"DHBrowserCell"];
     [tableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
 }
@@ -168,11 +175,18 @@
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView
 {
-
+    if([self.viewController isKindOfClass:[UITableViewController class]])
+    {
+        [(UITableViewController*)self.viewController tableView].separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
 }
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView
 {
+    if([self.viewController isKindOfClass:[UITableViewController class]])
+    {
+        [(UITableViewController*)self.viewController tableView].separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }
     [self.searcher cancelSearch];
     self.searcher = nil;
 }
@@ -298,6 +312,10 @@
 {
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:cell.textLabel.attributedText];
     BOOL didAddAttributes = NO;
+    for(NSString *key in [DHDBResult highlightDictionary])
+    {
+        [string removeAttribute:key range:NSMakeRange(0, string.length)];
+    }
     for(NSValue *highlightRangeValue in result.highlightRanges)
     {
         NSRange highlightRange = [highlightRangeValue rangeValue];
