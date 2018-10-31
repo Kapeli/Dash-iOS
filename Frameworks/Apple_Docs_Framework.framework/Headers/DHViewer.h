@@ -106,3 +106,4 @@
 #define k2x_Scale @"2x"
 #define k2x_DarkScale @"d2x"
 #define kMissing_Paths @"xp"
+#define kAvailabilityConstraints @"availabilityConstraints"

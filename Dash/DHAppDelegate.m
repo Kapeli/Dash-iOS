@@ -249,17 +249,17 @@
 - (void)checkCommitHashes
 {
     NSDictionary *hashes = @{@"DHDBSearcher": @"f3a251f7",
-                             @"DHDBResult": @"4bbe246d",
+                             @"DHDBResult": @"f561a420",
                              @"DHDBUnifiedResult": @"f2731133",
                              @"DHQueuedDB": @"0199255c",
                              @"DHUnifiedQueuedDB": @"dd42266b",
                              @"DHDBUnifiedOperation": @"1671a905",
-                             @"DHWebViewController": @"d1ebd6cd",
-                             @"DHWebPreferences": @"8419f130",
-                             @"DHDocsetDownloader": @"dc586701",
+                             @"DHWebViewController": @"4777c865",
+                             @"DHWebPreferences": @"19872dd4",
+                             @"DHDocsetDownloader": @"5bc1aef5",
                              @"PlatformIcons": @"6bd7e7a7",
-                             @"DHTypes": @"1ec6d1a4",
-                             @"Types": @"1ec6d1a4",
+                             @"DHTypes": @"9e61df75",
+                             @"Types": @"9e61df75",
                              @"CSS": @"7be5591d",
                              };
     [hashes enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
