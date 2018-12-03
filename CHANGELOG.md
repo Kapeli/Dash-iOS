@@ -1,6 +1,6 @@
 # Master
 
-* Nothing yet.
+* Added support for the Xcode 10.1 docs - [b6d3e4f](https://github.com/Kapeli/Dash-iOS/commit/b6d3e4f3d53c4ac77628e3142b656aaa7c0ab966)
 
 # 1.8.10
 
