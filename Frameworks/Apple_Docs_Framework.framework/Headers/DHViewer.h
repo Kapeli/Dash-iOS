@@ -107,3 +107,8 @@
 #define k2x_DarkScale @"d2x"
 #define kMissing_Paths @"xp"
 #define kAvailabilityConstraints @"availabilityConstraints"
+#define kNewAvailabilityConstraints @"yc"
+#define kPageType @"rg"
+#define kPossible_Values @"av"
+#define kProperty_List_Declaration @"atd"
+#define kProperty_List_Declaration_Type @"bt"
