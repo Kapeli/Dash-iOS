@@ -2,6 +2,10 @@
 
 * Nothing yet.
 
+# 1.8.13
+
+* Added support for the Xcode 11 docs - [b052c97](https://github.com/Kapeli/Dash-iOS/commit/b052c970b6536cc12ce5ab216f723466eff9899c)
+
 # 1.8.12
 
 * Added support for the Xcode 10.2 docs - [2065d5b](https://github.com/Kapeli/Dash-iOS/commit/2065d5b4995d7ab4b35a25a3bd12ad305a4a106d)
