@@ -1,6 +1,6 @@
-# Notice
+# Discontinued
 
-This app was [discontinued](https://blog.kapeli.com/goodbye-dash-for-ios).
+Dash for iOS was [discontinued](https://blog.kapeli.com/goodbye-dash-for-ios). Please check out [Dash for macOS](https://kapeli.com/dash) instead.
 
 # [Dash for iOS](https://kapeli.com/dash_ios)
 
