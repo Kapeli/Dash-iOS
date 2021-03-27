@@ -35,6 +35,8 @@
     self.searchResultTableView = tableViewController.tableView;
     self.clearsSelectionOnViewWillAppear = NO;
     self.dbSearchController = [DHDBSearchController searchControllerWithDocsets:@[self.docset] typeLimit:self.type viewController:self];
+    self.navigationItem.searchController = self.searchController;
+    self.navigationItem.hidesSearchBarWhenScrolling = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prepareForURLSearch:) name:DHPrepareForURLSearch object:nil];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"DHBrowserCell" bundle:nil] forCellReuseIdentifier:@"DHBrowserCell"];

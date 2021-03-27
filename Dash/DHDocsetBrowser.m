@@ -58,7 +58,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     self.navigationItem.hidesSearchBarWhenScrolling = YES;
     [self.tableView registerNib:[UINib nibWithNibName:@"DHBrowserCell" bundle:nil] forCellReuseIdentifier:@"DHBrowserCell"];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:)s name:DHDocsetsChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:DHDocsetsChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:DHRemotesChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:DHSettingsChangedNotification object:nil];
     self.tableView.rowHeight = 44;

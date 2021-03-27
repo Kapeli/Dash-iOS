@@ -35,6 +35,8 @@
     [super viewDidLoad];
     self.clearsSelectionOnViewWillAppear = NO;
     self.dbSearchController = [DHDBSearchController searchControllerWithDocsets:@[self.docset] typeLimit:nil viewController:self];
+    self.navigationItem.searchController = self.searchController;
+    self.navigationItem.hidesSearchBarWhenScrolling = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prepareForURLSearch:) name:DHPrepareForURLSearch object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enforceSmartTitleBarButton) name:DHSplitViewControllerDidSeparate object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enforceSmartTitleBarButton) name:DHSplitViewControllerDidCollapse object:nil];

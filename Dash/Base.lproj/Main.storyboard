@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -126,14 +125,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Main Docsets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ug3-nq-xyc">
-                                                    <rect key="frame" x="51" y="0.0" width="355" height="44"/>
+                                                    <rect key="frame" x="63" y="0.0" width="331" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="main_repo" id="CfY-ch-rUA">
-                                                    <rect key="frame" x="8" y="8" width="28" height="28"/>
+                                                    <rect key="frame" x="20" y="8" width="28" height="28"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -168,14 +167,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="User Contributed Docsets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g0J-MY-Gyr">
-                                                    <rect key="frame" x="51" y="0.0" width="355" height="44"/>
+                                                    <rect key="frame" x="63" y="0.0" width="331" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="user_repo" id="6px-e6-A4A">
-                                                    <rect key="frame" x="8" y="8" width="28" height="28"/>
+                                                    <rect key="frame" x="20" y="8" width="28" height="28"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -193,14 +192,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Transfer Docsets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tH7-qh-OUH">
-                                                    <rect key="frame" x="51" y="0.0" width="355" height="44"/>
+                                                    <rect key="frame" x="63" y="0.0" width="331" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="transfer_repo" id="hJO-jA-eBm">
-                                                    <rect key="frame" x="8" y="8" width="28" height="28"/>
+                                                    <rect key="frame" x="20" y="8" width="28" height="28"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -218,7 +217,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Automatic Updates" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L5q-QS-QhJ">
-                                                    <rect key="frame" x="15" y="0.0" width="391" height="44"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -364,17 +363,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="VJR-eZ-B8V">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                            <connections>
-                                <outlet property="delegate" destination="MG8-DW-Fv2" id="4dd-ej-3oY"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BLABLA" id="VA8-am-q6Z">
-                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VA8-am-q6Z" id="nIL-hj-vFk">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -407,17 +398,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" restorationIdentifier="EntriesSearchBar" id="ar1-R2-LNh">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                            <connections>
-                                <outlet property="delegate" destination="9Rs-Yt-R1b" id="dCU-Oq-KCt"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BLABLA" id="gr3-qP-hfk">
-                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gr3-qP-hfk" id="HWD-2S-7F9">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -508,14 +491,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" restorationIdentifier="UserRepoSearchBar" placeholder="Find docsets to download" id="frS-D7-CD1">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                            <connections>
-                                <outlet property="delegate" destination="7Pl-oD-WzV" id="G9T-Rt-21p"/>
-                            </connections>
-                        </searchBar>
                         <connections>
                             <outlet property="dataSource" destination="7Pl-oD-WzV" id="VGy-Sm-bWh"/>
                             <outlet property="delegate" destination="7Pl-oD-WzV" id="PBv-CB-bY0"/>
@@ -529,9 +504,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="searchBar" destination="frS-D7-CD1" id="faI-Fs-5RH"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DbY-qO-Frw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -587,18 +559,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="Lzc-4G-LSC">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                            <connections>
-                                <outlet property="delegate" destination="Wkz-GU-NNB" id="08o-8I-7Be"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BLABLA" id="uat-DW-uld">
-                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uat-DW-uld" id="B7g-3q-qBW">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -620,9 +583,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="searchBar" destination="Lzc-4G-LSC" id="kW7-uu-5Rf"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fg-gS-VxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -654,14 +614,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" restorationIdentifier="CheatRepoSearchBar" placeholder="Find cheat sheets to download" id="0Tx-yl-ZpH">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                            <connections>
-                                <outlet property="delegate" destination="bSe-FO-aTh" id="tFS-Ty-amy"/>
-                            </connections>
-                        </searchBar>
                         <connections>
                             <outlet property="dataSource" destination="bSe-FO-aTh" id="ZXy-xZ-NcM"/>
                             <outlet property="delegate" destination="bSe-FO-aTh" id="hUe-NY-iYK"/>
@@ -675,9 +627,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="searchBar" destination="0Tx-yl-ZpH" id="pnt-J4-9nb"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpb-DD-g0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -688,9 +637,9 @@
         <segue reference="z3k-ky-jyi"/>
         <segue reference="vh9-ti-qTq"/>
         <segue reference="UMU-KR-a0h"/>
-        <segue reference="BAb-G2-tNG"/>
-        <segue reference="JVl-yk-gWU"/>
-        <segue reference="Zvp-4Y-BjQ"/>
+        <segue reference="tZ0-kY-m9B"/>
+        <segue reference="5fr-qx-aky"/>
+        <segue reference="ljv-Qq-slv"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cheat_repo" width="28" height="28"/>

@@ -39,7 +39,6 @@
     controller.searchController.searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
     controller.searchController.searchBar.barTintColor = [UIColor colorWithRed:0.79 green:0.79 blue:0.81 alpha:1.00];
     controller.searchController.searchBar.searchTextField.backgroundColor = UIColor.whiteColor;
-    viewController.searchResultTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     
     [controller hookToSearchController:viewController.searchController];
     [[NSNotificationCenter defaultCenter] addObserver:controller selector:@selector(traitCollectionDidChange:) name:DHWindowChangedTraitCollection object:nil];
@@ -87,6 +86,7 @@
 }
 
 - (void)hookToSearchController:(UISearchController *)searchController {
+    
     searchController.delegate = self;
     searchController.searchBar.delegate = self;
     searchController.searchResultsUpdater = self;
@@ -96,16 +96,9 @@
 }
 
 - (void)willPresentSearchController:(UISearchController *)searchController {
-    [self.searchController.view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:NSClassFromString(@"_UISearchBarContainerView")]) {
-            obj.backgroundColor = [UIColor colorWithRed:0.78 green:0.78 blue:0.81 alpha:1.00];
-            *stop = YES;
-        }
-    }];
     self.loading = YES;
     UITableView *tableView = self.viewController.searchResultTableView;
     tableView.allowsSelection = NO;
-    tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     [tableView registerNib:[UINib nibWithNibName:@"DHBrowserCell" bundle:nil] forCellReuseIdentifier:@"DHBrowserCell"];
     [tableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
     if([self.viewController isKindOfClass:[UITableViewController class]])
@@ -123,58 +116,17 @@
     }];
 }
 
-//- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
-//{
-//    self.loading = YES;
-//    tableView.allowsSelection = NO;
-//    if(isIOS11)
-//    {
-//        if(@available(iOS 11.0, *))
-//        {
-//            tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-//        }
-//    }
-//    [tableView registerNib:[UINib nibWithNibName:@"DHBrowserCell" bundle:nil] forCellReuseIdentifier:@"DHBrowserCell"];
-//    [tableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
-//}
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     if([self.viewController respondsToSelector:@selector(searchBarTextDidBeginEditing:)])
     {
         [(id)self.viewController searchBarTextDidBeginEditing:searchBar];
     }
-    [self.searchController.view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:NSClassFromString(@"_UISearchBarContainerView")]) {
-            obj.backgroundColor = [UIColor colorWithRed:0.78 green:0.78 blue:0.81 alpha:1.00];
-            *stop = YES;
-        }
-    }];
     self.loading = YES;
     self.viewController.searchResultTableView.allowsSelection = NO;
     [self.viewController.searchResultTableView reloadData];
     self.viewControllerTitle = self.viewController.navigationItem.title;
     self.viewController.navigationItem.title = @"Search";
 }
-//- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
-//{
-//    if([self.viewController respondsToSelector:@selector(searchDisplayControllerWillBeginSearch:)])
-//    {
-//        [(id)self.viewController searchDisplayControllerWillBeginSearch:controller];
-//    }
-//    self.loading = YES;
-//    self.displayController.searchResultsTableView.allowsSelection = NO;
-//    [self.displayController.searchResultsTableView reloadData];
-//}
-
-
-//- (void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller
-//{
-//    if([self.viewController respondsToSelector:@selector(searchDisplayControllerDidBeginSearch:)])
-//    {
-//        [(id)self.viewController searchDisplayControllerDidBeginSearch:controller];
-//    }
-//    self.viewControllerTitle = self.viewController.navigationItem.title;
-//    self.viewController.navigationItem.title = @"Search";
-//}
 
 - (void)willDismissSearchController:(UISearchController *)searchController {
     if([self.viewController respondsToSelector:@selector(willDismissSearchController:)])
@@ -191,35 +143,7 @@
     self.searcher = nil;
 }
 
-//- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
-//{
-//    if([self.viewController respondsToSelector:@selector(searchDisplayControllerWillEndSearch:)])
-//    {
-//        [(id)self.viewController searchDisplayControllerWillEndSearch:controller];
-//    }
-//    self.viewController.navigationItem.title = self.viewControllerTitle;
-//    [self.searcher cancelSearch];
-//    self.searcher = nil;
-//}
-
-//- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
-//{
-//    if([self.viewController respondsToSelector:@selector(searchDisplayControllerDidEndSearch:)])
-//    {
-//        [(id)self.viewController searchDisplayControllerDidEndSearch:controller];
-//    }
-//}
-
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    UITableView *tableView = self.viewController.searchResultTableView;
-    NSLog(@"%@", NSStringFromCGPoint(tableView.contentOffset));
-    NSLog(@"%@", NSStringFromUIEdgeInsets(tableView.contentInset));
-    NSLog(@"%@", NSStringFromUIEdgeInsets(tableView.adjustedContentInset));
-    UIEdgeInsets insets = UIEdgeInsetsMake(self.viewController.topLayoutGuide.length + self.searchController.searchBar.frame.size.height,
-                                           0.0,
-                                           self.viewController.bottomLayoutGuide.length,
-                                           0.0);
-    tableView.contentInset = insets;
     NSString *searchString = searchController.searchBar.text;
     if(self.isRestoring)
     {

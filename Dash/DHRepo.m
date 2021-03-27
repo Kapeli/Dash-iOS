@@ -824,7 +824,6 @@
     self.resultViewController = [DHSearchResultViewController new];
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultViewController];
     self.searchBar = self.searchController.searchBar;
-//    self.tableView.tableHeaderView = self.searchBar;
     self.navigationController.navigationItem.searchController = self.searchController;
     self.searchController.delegate = self;
     self.searchController.searchResultsUpdater = self;

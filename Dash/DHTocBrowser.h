@@ -24,8 +24,6 @@
 @property (strong) NSMutableArray *sectionTitles;
 @property (strong) NSMutableArray *filteredSections;
 @property (strong) NSMutableArray *filteredSectionTitles;
-@property (weak) UISearchDisplayController *searchController;
-@property (assign) IBOutlet UISearchBar *searchBar;
 
 - (IBAction)dismissModal:(id)sender;
 

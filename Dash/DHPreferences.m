@@ -34,6 +34,7 @@
     [super viewWillAppear:animated];
     [self.updatesSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:[[DHDocsetDownloader sharedDownloader] defaultsAutomaticallyCheckForUpdatesKey]]];
     [self.alphabetizingSwitch setOn:[NSUserDefaults.standardUserDefaults boolForKey:DHDocsetDownloader.defaultsAlphabetizingKey]];
+    [self traitCollectionDidChange:nil];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self updateAlphabetizingSwitchFooterView:nil];
         [self updateUpdatesSwitchFooterView:nil];
