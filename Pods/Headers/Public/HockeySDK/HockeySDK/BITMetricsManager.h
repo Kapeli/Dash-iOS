@@ -1,1 +1,0 @@
-../../../../HockeySDK/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITMetricsManager.h

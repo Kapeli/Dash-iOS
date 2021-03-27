@@ -1,4 +1,7 @@
-[![Build Status](https://travis-ci.org/nicklockwood/GZIP.svg)](https://travis-ci.org/nicklockwood/GZIP)
+[![Travis Status](https://img.shields.io/travis/nicklockwood/GZIP.svg)](https://travis-ci.org/nicklockwood/GZIP)
+[![Coveralls](https://coveralls.io/repos/github/nicklockwood/GZIP/badge.svg)](https://coveralls.io/github/nicklockwood/GZIP)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://opensource.org/licenses/MIT)
+[![Twitter](https://img.shields.io/badge/twitter-@nicklockwood-blue.svg)](http://twitter.com/nicklockwood)
 
 
 Purpose
@@ -10,8 +13,8 @@ GZIP is category on NSData that provides simple gzip compression and decompressi
 Supported OS & SDK Versions
 -----------------------------
 
-* Supported build target - iOS 10.3 / Mac OS 10.12 (Xcode 8.3)
-* Earliest supported deployment target - iOS 8.0 / Mac OS 10.9
+* Supported build target - iOS 12.0 / Mac OS 10.14 (Xcode 10.1)
+* Earliest supported deployment target - iOS 9.0 / Mac OS 10.12
 * Earliest compatible deployment target - iOS 8.0 / Mac OS 10.6
 
 NOTE: 'Supported' means that the library has been tested with this version. 'Compatible' means that the library should work on this iOS version (i.e. it doesn't rely on any unavailable SDK features) but is no longer being tested for compatibility and may require tweaking or bug fixes to run correctly.
@@ -34,7 +37,7 @@ Installation
 
 The simplest way to install GZIP is to use CocoaPods, by adding the following to your Podfile:
 
-	pod 'GZIP', '~> 1.2'
+	pod 'GZIP', '~> 1.3.0'
 
 Alternatively you can use Carthage, or if you prefer to install manually, drag the GZIP.xcodeproj into your project or workspace and include GZIP.framework under the linked libraries in your target.
 

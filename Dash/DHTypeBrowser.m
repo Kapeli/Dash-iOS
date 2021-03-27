@@ -18,6 +18,7 @@
 #import "DHTypeBrowser.h"
 #import "DHTypes.h"
 #import "DHDocsetManager.h"
+#import "Dash-Swift.h"
 
 @implementation DHTypeBrowser
 
@@ -28,9 +29,12 @@
         // happens during state restoration
         return;
     }
+    UITableViewController *tableViewController = [UITableViewController new];
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController: tableViewController];
+    self.searchResultTableView = tableViewController.tableView;
     [super viewDidLoad];
     self.clearsSelectionOnViewWillAppear = NO;
-    self.searchController = [DHDBSearchController searchControllerWithDocsets:@[self.docset] typeLimit:nil viewController:self];
+    self.dbSearchController = [DHDBSearchController searchControllerWithDocsets:@[self.docset] typeLimit:nil viewController:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prepareForURLSearch:) name:DHPrepareForURLSearch object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enforceSmartTitleBarButton) name:DHSplitViewControllerDidSeparate object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enforceSmartTitleBarButton) name:DHSplitViewControllerDidCollapse object:nil];
@@ -160,7 +164,7 @@
         }
     }
     [self.tableView deselectAll:YES];
-    [self.searchController viewWillAppear];
+    [self.dbSearchController viewWillAppear];
 }
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
@@ -169,26 +173,26 @@
     {
         [super traitCollectionDidChange:previousTraitCollection];
     }
-    [self.searchController traitCollectionDidChange:previousTraitCollection];
+    [self.dbSearchController traitCollectionDidChange:previousTraitCollection];
     [self enforceSmartTitleBarButton];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.searchController viewWillDisappear];
+    [self.dbSearchController viewWillDisappear];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    [self.searchController viewDidDisappear];
+    [self.dbSearchController viewDidDisappear];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.searchController viewDidAppear];
+    [self.dbSearchController viewDidAppear];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -257,7 +261,7 @@
     }
     else
     {
-        [self.searchController prepareForSegue:segue sender:sender];
+        [self.dbSearchController prepareForSegue:segue sender:sender];
     }
 }
 
@@ -268,7 +272,7 @@
 
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder
 {
-    [self.searchController encodeRestorableStateWithCoder:coder];
+    [self.dbSearchController encodeRestorableStateWithCoder:coder];
     [coder encodeObject:self.docset.relativePath forKey:@"docsetRelativePath"];
     [coder encodeObject:self.types forKey:@"types"];
     [super encodeRestorableStateWithCoder:coder];
@@ -282,7 +286,7 @@
     [self viewDidLoad];
     self.isRestoring = NO;
     self.types = [coder decodeObjectForKey:@"types"];
-    [self.searchController decodeRestorableStateWithCoder:coder];
+    [self.dbSearchController decodeRestorableStateWithCoder:coder];
     [super decodeRestorableStateWithCoder:coder];
 }
 

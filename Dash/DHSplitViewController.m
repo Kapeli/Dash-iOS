@@ -114,9 +114,9 @@
         {
             return [controller searchBar];
         }
-        if([controller respondsToSelector:@selector(searchController)] && [controller searchController])
+        if([controller respondsToSelector:@selector(dbSearchController)] && [controller searchController])
         {
-            return [[[(DHDocsetBrowser*)controller searchController] displayController] searchBar];
+            return [[[(DHDocsetBrowser*)controller dbSearchController] searchController] searchBar];
         }
     }
     return nil;

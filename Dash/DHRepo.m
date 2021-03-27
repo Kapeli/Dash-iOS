@@ -22,6 +22,7 @@
 #import "DHDocsetTransferrer.h"
 #import "DHCheatRepo.h"
 #import "DHRightDetailLabel.h"
+#import "Dash-Swift.h"
 
 @implementation DHRepo
 
@@ -450,12 +451,12 @@
 
 - (UITableView *)activeTableView
 {
-    return (self.searchBarActive) ? self.searchController.searchResultsTableView : self.tableView;
+    return (self.searchBarActive) ? ((DHSearchResultViewController *)self.searchController.searchResultsController).tableView : self.tableView;
 }
 
 - (NSMutableArray *)activeFeeds
 {
-    return (self.searchBarActive) ? self.filteredFeeds : self.feeds;
+    return (self.searchController.active) ? self.filteredFeeds : self.feeds;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -590,62 +591,106 @@
     return index;
 }
 
-- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
-{
-    if(isIOS11)
-    {
-        if(@available(iOS 11.0, *))
-        {
-            tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        }
-    }
-    [controller.searchResultsTableView registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
-    [controller.searchResultsTableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
-    tableView.allowsSelection = NO;
+- (UITableView *)resultTableview {
+    return ((DHSearchResultViewController *)self.searchController.searchResultsController).tableView;
 }
 
-- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
-{
-    controller.searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    self.searchController = controller;
+- (void)willPresentSearchController:(UISearchController *)searchController {
+    UITableView* tableview = ((DHSearchResultViewController *)searchController.searchResultsController).tableView;
+    [tableview registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
+    [tableview registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
+    self.tableView.allowsSelection = NO;
+}
+
+//- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
+//{
+//    if(isIOS11)
+//    {
+//        if(@available(iOS 11.0, *))
+//        {
+//            tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        }
+//    }
+//    [controller.searchResultsTableView registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
+//    [controller.searchResultsTableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
+//    tableView.allowsSelection = NO;
+//}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.searchBarActive = YES;
     [self.tableView reloadSectionIndexTitles];
 }
 
-- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
-{
+//- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
+//{
+//    controller.searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
+//    self.searchController = controller;
+//    self.searchBarActive = YES;
+//    [self.tableView reloadSectionIndexTitles];
+//}
+//
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
     self.searchBarActive = NO;
     [self reload];
 }
+//- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
+//{
+//    self.searchBarActive = NO;
+//    [self reload];
+//}
+//
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
+
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    NSString *searchString = searchController.searchBar.text;
     [self filterFeedsWithQuery:searchString];
-    return YES;
+    [self.resultTableview reloadData];;
 }
 
-- (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView
-{
-    if(!self.searchBarActive)
-    {
-        return;
-    }
-    self.searchBarActive = NO;
-    self.searchBarActiveIsALie = YES;
-    [self reload];
-    self.searchBarActiveIsALie = NO;
-    self.searchBarActive = YES;
+
+//- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+//{
+//    [self filterFeedsWithQuery:searchString];
+//    return YES;
+//}
+//
+
+- (void)willDismissSearchController:(UISearchController *)searchController {
+        if(!self.searchBarActive)
+        {
+            return;
+        }
+        self.searchBarActive = NO;
+        self.searchBarActiveIsALie = YES;
+        [self reload];
+        self.searchBarActiveIsALie = NO;
+        self.searchBarActive = YES;
 }
+
+//- (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView
+//{
+//    if(!self.searchBarActive)
+//    {
+//        return;
+//    }
+//    self.searchBarActive = NO;
+//    self.searchBarActiveIsALie = YES;
+//    [self reload];
+//    self.searchBarActiveIsALie = NO;
+//    self.searchBarActive = YES;
+//}
 
 - (void)reload
 {
     [self.tableView reloadData];
 }
 
-- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
-{
-    self.searchBarActive = NO;
-}
+//- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
+//{
+//    self.searchBarActive = NO;
+//}
 
 - (void)filterFeedsWithQuery:(NSString *)query
 {
@@ -776,12 +821,31 @@
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
+    self.resultViewController = [DHSearchResultViewController new];
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultViewController];
+    self.searchBar = self.searchController.searchBar;
+//    self.tableView.tableHeaderView = self.searchBar;
+    self.navigationController.navigationItem.searchController = self.searchController;
+    self.searchController.delegate = self;
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.delegate = self;
+    self.searchController.dimsBackgroundDuringPresentation = YES;
+    [self resultTableview].dataSource = self;
+    [self resultTableview].delegate = self;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self traitCollectionDidChange:nil];
+    self.navigationItem.searchController = self.searchController;
+    self.tableView.contentOffset = CGPointMake(self.tableView.contentOffset.x, self.tableView.contentOffset.y - self.searchBar.frame.size.height);
+//    [UIView performWithoutAnimation:^{
+//        self.navigationItem.hidesSearchBarWhenScrolling = NO;
+//    }];
+    
+
 }
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
@@ -793,7 +857,9 @@
     if(self.searchController.isActive)
     {
         @try {
-            [self.searchController setActive:NO animated:NO];
+            [UIView performWithoutAnimation:^{
+                self.searchController.active = NO;
+            }];
         } @catch (NSException *exception) {
         }
     }
@@ -815,6 +881,9 @@
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     [[DHLatencyTester sharedLatency] performTests:NO];
     [self traitCollectionDidChange:nil];
+//    [UIView performWithoutAnimation:^{
+//        self.navigationItem.hidesSearchBarWhenScrolling = YES;
+//    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

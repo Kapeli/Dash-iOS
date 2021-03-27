@@ -21,20 +21,22 @@
 #import "MRProgress.h"
 #import "DHDocsetIndexer.h"
 #import "DHUnarchiver.h"
+@class DHSearchResultViewController;
 
-@interface DHRepo : UITableViewController <UIActionSheetDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface DHRepo : UITableViewController <UIActionSheetDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate,UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
 @property (strong) NSMutableArray *feeds;
 @property (strong) NSMutableArray *filteredFeeds;
 @property (assign) BOOL searchBarActive;
 @property (assign) BOOL searchBarActiveIsALie;
 @property (assign) BOOL didFirstReload;
-@property (weak) UISearchDisplayController *searchController;
+@property (strong) UISearchController *searchController;
 @property (strong) NSString *filterQuery;
 @property (weak) MRProgressOverlayView *updateOverlay;
-@property (assign) IBOutlet UISearchBar *searchBar;
+@property (strong) UISearchBar *searchBar;
 @property (assign) BOOL loading;
 @property (assign) NSString *loadingText;
+@property (strong) DHSearchResultViewController *resultViewController;
 
 - (void)setUp;
 - (IBAction)downloadButtonPressed:(id)sender;

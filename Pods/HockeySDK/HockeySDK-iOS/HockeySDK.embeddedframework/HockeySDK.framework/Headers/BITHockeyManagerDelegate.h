@@ -41,6 +41,10 @@
 #import "BITFeedbackManagerDelegate.h"
 #endif
 
+#if HOCKEYSDK_FEATURE_STORE_UPDATES
+#import "BITStoreUpdateManagerDelegate.h"
+#endif
+
 #if HOCKEYSDK_FEATURE_AUTHENTICATOR
 #import "BITAuthenticator.h"
 #endif
@@ -62,6 +66,9 @@
 #endif
 #if HOCKEYSDK_FEATURE_FEEDBACK
   , BITFeedbackManagerDelegate
+#endif
+#if HOCKEYSDK_FEATURE_STORE_UPDATES
+  , BITStoreUpdateManagerDelegate
 #endif
 #if HOCKEYSDK_FEATURE_AUTHENTICATOR
   , BITAuthenticatorDelegate

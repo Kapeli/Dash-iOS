@@ -1,11 +1,10 @@
- [![Build Status](https://www.bitrise.io/app/30bf519f6bd0a5e2/status.svg?token=RKqHc7-ojjLiEFds53d-ZA&branch=master)](https://www.bitrise.io/app/30bf519f6bd0a5e2)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](http://cocoapod-badges.herokuapp.com/v/HockeySDK/badge.png)](http://cocoadocs.org/docsets/HockeySDK)
  [![Slack Status](https://slack.hockeyapp.net/badge.svg)](https://slack.hockeyapp.net)
  
-## Version 5.1.2
+## Version 5.1.4
 
-- [Changelog](http://www.hockeyapp.net/help/sdk/ios/5.1.2/docs/docs/Changelog.html)
+- [Changelog](http://www.hockeyapp.net/help/sdk/ios/5.1.4/docs/docs/Changelog.html)
 
 **NOTE** If your are using the binary integration of our SDK, make sure that the `HockeySDKResources.bundle` inside the `HockeySDK.embeddedframework`-folder has been added to your application.
 
@@ -64,7 +63,7 @@ This document contains the following sections:
 ## 1. Requirements
 
 1. We assume that you already have a project in Xcode and that this project is opened in Xcode 8 or later.
-2. The SDK supports iOS 8.0 and later.
+2. The SDK supports iOS 9.0 and later.
 
 <a id="setup"></a>
 ## 2. Setup
@@ -215,7 +214,7 @@ Note that not using clang modules also means that you can't use the `@import` sy
 **Podfile**
 
 ```ruby
-platform :ios, '8.0'
+platform :ios, '9.0'
 pod "HockeySDK"
 ```
 
@@ -224,7 +223,7 @@ pod "HockeySDK"
 The default and recommended distribution is a binary (static library) and a resource bundle with translations and images for all SDK features.
 
 ```ruby
-platform :ios, '8.0'
+platform :ios, '9.0'
 pod "HockeySDK"
 ```
 
@@ -821,7 +820,7 @@ To check if data is send properly to HockeyApp and also see some additional SDK 
 <a id="documentation"></a>
 ## 4. Documentation
 
-Our documentation can be found on [HockeyApp](http://hockeyapp.net/help/sdk/ios/5.1.2/index.html).
+Our documentation can be found on [HockeyApp](http://hockeyapp.net/help/sdk/ios/5.1.4/index.html).
 
 <a id="troubleshooting"></a>
 ## 5.Troubleshooting
@@ -835,7 +834,7 @@ Our documentation can be found on [HockeyApp](http://hockeyapp.net/help/sdk/ios/
   Make sure none of the following files are copied into your app bundle, check under app target, `Build Phases`, `Copy Bundle Resources` or in the `.app` bundle after building:
 
   - `HockeySDK.framework` (except if you build a dynamic framework version of the SDK yourself!)
-  - `de.bitstadium.HockeySDK-iOS-5.1.2.docset`
+  - `de.bitstadium.HockeySDK-iOS-5.1.4.docset`
 
 ### Features are not working as expected
 

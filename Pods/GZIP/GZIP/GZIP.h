@@ -1,4 +1,4 @@
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 //! Project version number for GZIP.
 FOUNDATION_EXPORT double GZIPVersionNumber;

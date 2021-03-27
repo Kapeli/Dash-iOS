@@ -26,6 +26,7 @@
 #import "DHRemoteBrowser.h"
 #import "DHWebView.h"
 #import "DHDocsetBrowserViewModel.h"
+#import "Dash-Swift.h"
 
 static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
@@ -46,10 +47,15 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UITableViewController *tableViewController = [UITableViewController new];
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController: tableViewController];
+    self.searchResultTableView = tableViewController.tableView;
+    
     self.viewModel = [[DHDocsetBrowserViewModel alloc] init];
     self.clearsSelectionOnViewWillAppear = NO;
-    self.searchController = [DHDBSearchController searchControllerWithDocsets:nil typeLimit:nil viewController:self];
-    
+    self.dbSearchController = [DHDBSearchController searchControllerWithDocsets:nil typeLimit:nil viewController:self];
+    self.navigationController.navigationItem.searchController = self.searchController;
+    self.navigationItem.hidesSearchBarWhenScrolling = YES;
     [self.tableView registerNib:[UINib nibWithNibName:@"DHBrowserCell" bundle:nil] forCellReuseIdentifier:@"DHBrowserCell"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:DHDocsetsChangedNotification object:nil];
@@ -72,14 +78,14 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
         self.didFirstReload = YES;
         [self reload:nil];
     }
-    [self.searchController viewDidAppear];
+    [self.dbSearchController viewDidAppear];
     [self grabTitleBarItemAttributedStringTemplate];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    [self.searchController viewDidDisappear];
+    [self.dbSearchController viewDidDisappear];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -90,7 +96,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     {
         [self.tableView deselectAll:YES];        
     }
-    [self.searchController viewWillAppear];
+    [self.dbSearchController viewWillAppear];
     if([DHRemoteServer sharedServer].connectedRemote)
     {
         [UIApplication sharedApplication].idleTimerDisabled = NO;
@@ -110,7 +116,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.searchController viewWillDisappear];
+    [self.dbSearchController viewWillDisappear];
 }
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
@@ -119,7 +125,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     {
         [super traitCollectionDidChange:previousTraitCollection];
     }
-    [self.searchController traitCollectionDidChange:previousTraitCollection];
+    [self.dbSearchController traitCollectionDidChange:previousTraitCollection];
 }
 
 - (void)performURLSearch:(NSNotification *)notification
@@ -454,8 +460,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     self.tableView.tableFooterView = (self.sections.count) ? nil : [UIView new];
 }
 
-- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
-{
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     if(self.viewModel.keyDocsets)
     {
         [self reload:nil];
@@ -476,8 +481,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     }
 }
 
-- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
-{
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
     self.isSearching = NO;
     if(self.needsToReloadWhenDoneSearching || self.viewModel.keyDocsets)
     {
@@ -506,10 +510,62 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     });
 }
 
-- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
-{
-    [self updateTitle];
-}
+//- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
+//{
+//    if(self.viewModel.keyDocsets)
+//    {
+//        [self reload:nil];
+//    }
+//    self.isSearching = YES;
+//    BOOL remotesWereShown = [DHRemoteServer sharedServer].remotes.count > 0;
+//    if(remotesWereShown)
+//    {
+//        [self updateSections:YES];
+//        [self.tableView beginUpdates];
+//        if(remotesWereShown)
+//        {
+//            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+//        }
+//        [self.tableView endUpdates];
+//        [self.tableView reloadEmptyDataSet];
+//        self.tableView.tableFooterView = (self.sections.count) ? nil : [UIView new];
+//    }
+//}
+
+//- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
+//{
+//    self.isSearching = NO;
+//    if(self.needsToReloadWhenDoneSearching || self.viewModel.keyDocsets)
+//    {
+//        self.viewModel.keyDocsets = nil;
+//        self.needsToReloadWhenDoneSearching = NO;
+//        [self reload:nil];
+//    }
+//    else
+//    {
+//        BOOL remotesShouldBeShown = [DHRemoteServer sharedServer].remotes.count > 0;
+//        if(remotesShouldBeShown)
+//        {
+//            [self updateSections:YES];
+//            [self.tableView beginUpdates];
+//            if(remotesShouldBeShown)
+//            {
+//                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+//            }
+//            [self.tableView endUpdates];
+//            [self.tableView reloadEmptyDataSet];
+//            self.tableView.tableFooterView = (self.sections.count) ? nil : [UIView new];
+//        }
+//    }
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self updateTitle];
+//    });
+//}
+
+//- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
+//{
+//    [self updateTitle];
+//}
 
 - (void)orientationChanged:(id)sender
 {
@@ -539,7 +595,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     }
     else
     {
-        [self.searchController prepareForSegue:segue sender:sender];
+        [self.dbSearchController prepareForSegue:segue sender:sender];
     }
 }
 
@@ -576,7 +632,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 {
     if(self.navigationController.viewControllers.count > 1)
     {
-        if([self.navigationController.visibleViewController respondsToSelector:@selector(searchController)] && [[(DHDocsetBrowser*)self.navigationController.visibleViewController searchController] isKindOfClass:[DHDBSearchController class]] && [(DHDocsetBrowser*)self.navigationController.visibleViewController searchController].displayController.active)
+        if([self.navigationController.visibleViewController respondsToSelector:@selector(dbSearchController)] && [[(DHDocsetBrowser*)self.navigationController.visibleViewController dbSearchController] isKindOfClass:[DHDBSearchController class]] && [(DHDocsetBrowser*)self.navigationController.visibleViewController dbSearchController].searchController.active)
         {
             return NO;
         }
@@ -601,14 +657,14 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
 
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder
 {
-    [self.searchController encodeRestorableStateWithCoder:coder];
+    [self.dbSearchController encodeRestorableStateWithCoder:coder];
     [super encodeRestorableStateWithCoder:coder];
 }
 
 - (void)decodeRestorableStateWithCoder:(NSCoder *)coder
 {
     [super decodeRestorableStateWithCoder:coder];
-    [self.searchController decodeRestorableStateWithCoder:coder];
+    [self.dbSearchController decodeRestorableStateWithCoder:coder];
 }
 
 - (void)applicationFinishedRestoringState

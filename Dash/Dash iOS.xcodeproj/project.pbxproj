@@ -250,6 +250,11 @@
 		43FD2F0219BB8D87007E594D /* DHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FD2F0119BB8D87007E594D /* DHWebViewController.m */; };
 		43FD2F0419BB8D87007E594D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FD2F0319BB8D87007E594D /* Images.xcassets */; };
 		45D28F8ABD1FC392B1930467 /* libPods-Dash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2364AD2032B0714BCD2265 /* libPods-Dash.a */; };
+		820E1793260D9D4D006AB5B9 /* SwiftMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820E1792260D9D4D006AB5B9 /* SwiftMacro.swift */; };
+		82568438260E262800102511 /* DHSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82568437260E262800102511 /* DHSearchResultViewController.swift */; };
+		82568439260E262800102511 /* DHSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82568437260E262800102511 /* DHSearchResultViewController.swift */; };
+		8256844B260F094B00102511 /* KVOObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256844A260F094B00102511 /* KVOObserver.swift */; };
+		8256844C260F094B00102511 /* KVOObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256844A260F094B00102511 /* KVOObserver.swift */; };
 		F5C39C00200A836D00734571 /* DHDocsetBrowserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C39BFF200A836D00734571 /* DHDocsetBrowserViewModel.m */; };
 /* End PBXBuildFile section */
 
@@ -485,6 +490,11 @@
 		642921D57BB2F4B0450331EC /* Pods-Dash-Dash App Store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash-Dash App Store.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Dash-Dash App Store/Pods-Dash-Dash App Store.debug.xcconfig"; sourceTree = "<group>"; };
 		6BB3997912C96D08897BF444 /* Pods-Dash-Dash App Store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash-Dash App Store.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Dash-Dash App Store/Pods-Dash-Dash App Store.release.xcconfig"; sourceTree = "<group>"; };
 		7E45E2662CBB7671D0D844A3 /* Pods-Dash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Dash/Pods-Dash.release.xcconfig"; sourceTree = "<group>"; };
+		820E158C260D92BF006AB5B9 /* Dash-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dash-Bridging-Header.h"; sourceTree = "<group>"; };
+		820E1792260D9D4D006AB5B9 /* SwiftMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMacro.swift; sourceTree = "<group>"; };
+		82568432260DAAB300102511 /* Dash App Store-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dash App Store-Bridging-Header.h"; sourceTree = "<group>"; };
+		82568437260E262800102511 /* DHSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHSearchResultViewController.swift; sourceTree = "<group>"; };
+		8256844A260F094B00102511 /* KVOObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVOObserver.swift; sourceTree = "<group>"; };
 		9A2364AD2032B0714BCD2265 /* libPods-Dash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FB91D369AD27465BED375AD /* libPods-Dash-Dash App Store.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dash-Dash App Store.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE47FF5DEE33300EBFF9AEA /* Pods-Dash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dash.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Dash/Pods-Dash.debug.xcconfig"; sourceTree = "<group>"; };
@@ -648,6 +658,7 @@
 				435145941DEB701E000874A8 /* Cheat Sheets */,
 				437699A219D8FD00008B37F4 /* Transferrer */,
 				434AB15819C273A500791E07 /* Others */,
+				82568437260E262800102511 /* DHSearchResultViewController.swift */,
 			);
 			name = Repos;
 			sourceTree = "<group>";
@@ -675,6 +686,7 @@
 				439051F719E684160083A55E /* DHEntryBrowser.h */,
 				439051F819E684160083A55E /* DHEntryBrowser.m */,
 				439051F319E67D5B0083A55E /* Others */,
+				8256844A260F094B00102511 /* KVOObserver.swift */,
 			);
 			name = Browser;
 			sourceTree = "<group>";
@@ -1013,6 +1025,9 @@
 				43FD2EEC19BB8D87007E594D /* Supporting Files */,
 				43FD2EF319BB8D87007E594D /* Dash-Prefix.pch */,
 				43FD2EED19BB8D87007E594D /* Dash-Info.plist */,
+				820E158C260D92BF006AB5B9 /* Dash-Bridging-Header.h */,
+				82568432260DAAB300102511 /* Dash App Store-Bridging-Header.h */,
+				820E1792260D9D4D006AB5B9 /* SwiftMacro.swift */,
 			);
 			name = Dash;
 			sourceTree = "<group>";
@@ -1050,7 +1065,6 @@
 				43AB65821ED19D2F00A6EC18 /* Frameworks */,
 				43AB658D1ED19D2F00A6EC18 /* Resources */,
 				43AB65AC1ED19D2F00A6EC18 /* Git Hashes */,
-				43AB65AD1ED19D2F00A6EC18 /* [CP] Embed Pods Frameworks */,
 				43AB65AE1ED19D2F00A6EC18 /* [CP] Copy Pods Resources */,
 				43A1C2652001708700512DB3 /* Strip Frameworks */,
 			);
@@ -1073,7 +1087,6 @@
 				43FD2EDF19BB8D87007E594D /* Frameworks */,
 				43FD2EE019BB8D87007E594D /* Resources */,
 				43F760BF19EA8C57002BD8A6 /* Git Hashes */,
-				C71793A2EB8A6FB0EA63C3D3 /* [CP] Embed Pods Frameworks */,
 				988D171F13583CC36FBA7412 /* [CP] Copy Pods Resources */,
 				43A1C270200175F700512DB3 /* Strip Frameworks */,
 			);
@@ -1098,10 +1111,12 @@
 				TargetAttributes = {
 					43AB65311ED19D2F00A6EC18 = {
 						DevelopmentTeam = JP58VMK957;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 					};
 					43FD2EE119BB8D87007E594D = {
-						DevelopmentTeam = JP58VMK957;
+						DevelopmentTeam = RJJ4L4FV66;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1269,28 +1284,13 @@
 			shellPath = /bin/sh;
 			shellScript = "[ -d /Users/bogdan/Projects/Dash ] || exit 0;\n \nPLISTBUDDY=\"/usr/libexec/PlistBuddy\"\nINFOPLISTPATH=\"${TARGET_BUILD_DIR}/${EXECUTABLE_NAME}.app/Info.plist\"\n\ncd \"/Users/bogdan/Projects/Dash/Dash/\"\n\nDHDBSearcherCommit=$(git log -n 1 --pretty=format:%h -- DHDBSearcher.m)\n$PLISTBUDDY -c \"Set :DHDBSearcherCommit $DHDBSearcherCommit\" \"${INFOPLISTPATH}\"\nDHDBResultCommit=$(git log -n 1 --pretty=format:%h -- DHDBResult.m)\n$PLISTBUDDY -c \"Set :DHDBResultCommit $DHDBResultCommit\" \"${INFOPLISTPATH}\"\nDHDBUnifiedResultCommit=$(git log -n 1 --pretty=format:%h -- DHDBUnifiedResult.m)\n$PLISTBUDDY -c \"Set :DHDBUnifiedResultCommit $DHDBUnifiedResultCommit\" \"${INFOPLISTPATH}\"\nDHQueuedDBCommit=$(git log -n 1 --pretty=format:%h -- DHQueuedDB.m)\n$PLISTBUDDY -c \"Set :DHQueuedDBCommit $DHQueuedDBCommit\" \"${INFOPLISTPATH}\"\nDHUnifiedQueuedDBCommit=$(git log -n 1 --pretty=format:%h -- DHUnifiedQueuedDB.m)\n$PLISTBUDDY -c \"Set :DHUnifiedQueuedDBCommit $DHUnifiedQueuedDBCommit\" \"${INFOPLISTPATH}\"\nDHTypesCommit=$(git log -n 1 --pretty=format:%h -- DHTypes.m)\n$PLISTBUDDY -c \"Set :DHTypesCommit $DHTypesCommit\" \"${INFOPLISTPATH}\"\nDHDBUnifiedOperationCommit=$(git log -n 1 --pretty=format:%h -- DHDBUnifiedOperation.m)\n$PLISTBUDDY -c \"Set :DHDBUnifiedOperationCommit $DHDBUnifiedOperationCommit\" \"${INFOPLISTPATH}\"\nDHWebPreferencesCommit=$(git log -n 1 --pretty=format:%h -- DHWebPreferences.m)\n$PLISTBUDDY -c \"Set :DHWebPreferencesCommit $DHWebPreferencesCommit\" \"${INFOPLISTPATH}\"\nDHWebViewControllerCommit=$(git log -n 1 --pretty=format:%h -- DHWebViewController.m)\n$PLISTBUDDY -c \"Set :DHWebViewControllerCommit $DHWebViewControllerCommit\" \"${INFOPLISTPATH}\"\nDHDocsetDownloaderCommit=$(git log -n 1 --pretty=format:%h -- DHDocsetDownloader.m)\n$PLISTBUDDY -c \"Set :DHDocsetDownloaderCommit $DHDocsetDownloaderCommit\" \"${INFOPLISTPATH}\"\n\ncd \"/Users/bogdan/Projects/Dash/Resources/\"\n\nPlatformIconsCommit=$(git log -n 1 --pretty=format:%h -- PlatformIcons)\n$PLISTBUDDY -c \"Set :PlatformIconsCommit $PlatformIconsCommit\" \"${INFOPLISTPATH}\"\nTypesCommit=$(git log -n 1 --pretty=format:%h -- Types)\n$PLISTBUDDY -c \"Set :TypesCommit $TypesCommit\" \"${INFOPLISTPATH}\"\nCSSCommit=$(git log -n 1 --pretty=format:%h -- CSS)\n$PLISTBUDDY -c \"Set :CSSCommit $CSSCommit\" \"${INFOPLISTPATH}\"\n";
 		};
-		43AB65AD1ED19D2F00A6EC18 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Dash-Dash App Store/Pods-Dash-Dash App Store-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		43AB65AE1ED19D2F00A6EC18 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-Dash-Dash App Store/Pods-Dash-Dash App Store-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Dash-Dash App Store/Pods-Dash-Dash App Store-resources.sh",
 				"${PODS_ROOT}/SAMKeychain/Support/SAMKeychain.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/HockeySDK/HockeySDKResources.bundle",
 			);
@@ -1301,7 +1301,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Dash-Dash App Store/Pods-Dash-Dash App Store-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dash-Dash App Store/Pods-Dash-Dash App Store-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		43F760BF19EA8C57002BD8A6 /* Git Hashes */ = {
@@ -1342,7 +1342,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-Dash/Pods-Dash-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Dash/Pods-Dash-resources.sh",
 				"${PODS_ROOT}/SAMKeychain/Support/SAMKeychain.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1351,22 +1351,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Dash/Pods-Dash-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C71793A2EB8A6FB0EA63C3D3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Dash/Pods-Dash-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dash/Pods-Dash-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1400,6 +1385,7 @@
 				43AB65481ED19D2F00A6EC18 /* NSString+GTM.m in Sources */,
 				43AB65491ED19D2F00A6EC18 /* DHDBSearcher.m in Sources */,
 				43AB654A1ED19D2F00A6EC18 /* DHRemoteImage.m in Sources */,
+				8256844C260F094B00102511 /* KVOObserver.swift in Sources */,
 				43AB654B1ED19D2F00A6EC18 /* DHAppleActiveLanguage.m in Sources */,
 				43AB654C1ED19D2F00A6EC18 /* DHBrowserTableView.m in Sources */,
 				43AB654D1ED19D2F00A6EC18 /* DHRemote.m in Sources */,
@@ -1422,6 +1408,7 @@
 				43AB655E1ED19D2F00A6EC18 /* DHDocsetManager.m in Sources */,
 				43AB655F1ED19D2F00A6EC18 /* DHTransferFeed.m in Sources */,
 				43AB65601ED19D2F00A6EC18 /* NSFileManager+DHUtils.m in Sources */,
+				82568439260E262800102511 /* DHSearchResultViewController.swift in Sources */,
 				43AB65611ED19D2F00A6EC18 /* whitespace_tokenizer.c in Sources */,
 				43AB65621ED19D2F00A6EC18 /* DHJavaScriptBridge.m in Sources */,
 				43AB65631ED19D2F00A6EC18 /* NSTimer+DHUtils.m in Sources */,
@@ -1478,6 +1465,7 @@
 				43FD2F0219BB8D87007E594D /* DHWebViewController.m in Sources */,
 				43DCAEB81A9C3C8500A28A95 /* NSData+DHUtils.m in Sources */,
 				4303A3BE19C6584F00A7CD85 /* FMDatabaseAdditions.m in Sources */,
+				82568438260E262800102511 /* DHSearchResultViewController.swift in Sources */,
 				436DF78019FFA926008814F8 /* DHRepoTableView.m in Sources */,
 				43F25F9C19EBDEF30025CDC4 /* DHBlockProtocol.m in Sources */,
 				43B0956C19BFD57500F8611B /* DHRepo.m in Sources */,
@@ -1492,6 +1480,7 @@
 				43DFED801A9EBEA5008F7795 /* DHRemote.m in Sources */,
 				4338AB601AAF70AF007B85DE /* DHWebProgressView.m in Sources */,
 				4303A3C719C6590000A7CD85 /* DHDocset.m in Sources */,
+				8256844B260F094B00102511 /* KVOObserver.swift in Sources */,
 				43256F0A19F7B4B9003919BA /* UITableView+DHUtils.m in Sources */,
 				438525E519C13E42002BAFD1 /* NSArray+DHUtils.m in Sources */,
 				43D4F06A19E7DF3900C22AF5 /* DHDBNestedResultSorter.m in Sources */,
@@ -1515,6 +1504,7 @@
 				430C768B19E52B7F006F0DE0 /* DHTarixProtocol.m in Sources */,
 				4303A3D419C668C200A7CD85 /* DHTypes.m in Sources */,
 				4303A3C019C6584F00A7CD85 /* FMDatabasePool.m in Sources */,
+				820E1793260D9D4D006AB5B9 /* SwiftMacro.swift in Sources */,
 				4341A1F619BFE89A00AD164A /* DHDocsetTransferrer.m in Sources */,
 				43F760B219EA61B5002BD8A6 /* DHSearchDisplayController.m in Sources */,
 				43DF51941A07B4C0006AB295 /* DHNavigationController.m in Sources */,
@@ -1616,6 +1606,9 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				STRIP_STYLE = debugging;
 				STRIP_SWIFT_SYMBOLS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Dash App Store-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1669,6 +1662,8 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				STRIP_STYLE = debugging;
 				STRIP_SWIFT_SYMBOLS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Dash App Store-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1789,7 +1784,7 @@
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bogdan Popescu (JB3QRP5DC5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JP58VMK957;
+				DEVELOPMENT_TEAM = RJJ4L4FV66;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../Frameworks\"";
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1801,20 +1796,24 @@
 				IBSC_NOTICES = NO;
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = "Dash-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.dash.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.chy.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				STRIP_STYLE = debugging;
 				STRIP_SWIFT_SYMBOLS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Dash-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1829,7 +1828,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bogdan Popescu (JB3QRP5DC5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = JP58VMK957;
+				DEVELOPMENT_TEAM = RJJ4L4FV66;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1846,19 +1845,22 @@
 				IBSC_NOTICES = NO;
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = "Dash-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.dash.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kapeli.chy.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				STRIP_STYLE = debugging;
 				STRIP_SWIFT_SYMBOLS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Dash-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

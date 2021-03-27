@@ -18,6 +18,7 @@
 #import <Foundation/Foundation.h>
 #import "FMDatabase.h"
 #import "FMDatabaseAdditions.h"
+@import UIKit;
 
 @interface DHDocset : NSObject
 

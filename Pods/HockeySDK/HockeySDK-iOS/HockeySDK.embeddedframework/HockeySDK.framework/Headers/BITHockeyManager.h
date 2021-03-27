@@ -212,6 +212,8 @@ NS_ASSUME_NONNULL_BEGIN
  @see BITCrashManagerDelegate
  @see BITUpdateManagerDelegate
  @see BITFeedbackManagerDelegate
+ @see BITAuthenticatorDelegate
+ @see BITStoreUpdateManagerDelegate
  */
 @property (nonatomic, weak, nullable) id<BITHockeyManagerDelegate> delegate;
 

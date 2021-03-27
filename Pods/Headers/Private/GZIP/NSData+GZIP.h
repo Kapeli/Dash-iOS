@@ -1,1 +1,1 @@
-../../../GZIP/GZIP/NSData+GZIP.h
+../../../GZIP/GZIP/Sources/NSData+GZIP.h
