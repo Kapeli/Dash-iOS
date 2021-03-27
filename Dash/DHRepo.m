@@ -839,10 +839,8 @@
     [super viewWillAppear:animated];
     [self traitCollectionDidChange:nil];
     self.navigationItem.searchController = self.searchController;
-    self.tableView.contentOffset = CGPointMake(self.tableView.contentOffset.x, self.tableView.contentOffset.y - self.searchBar.frame.size.height);
-//    [UIView performWithoutAnimation:^{
-//        self.navigationItem.hidesSearchBarWhenScrolling = NO;
-//    }];
+    self.navigationItem.hidesSearchBarWhenScrolling = NO;
+    [UIView setAnimationsEnabled: NO];
     
 
 }
@@ -880,9 +878,8 @@
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     [[DHLatencyTester sharedLatency] performTests:NO];
     [self traitCollectionDidChange:nil];
-//    [UIView performWithoutAnimation:^{
-//        self.navigationItem.hidesSearchBarWhenScrolling = YES;
-//    }];
+    self.navigationItem.hidesSearchBarWhenScrolling = YES;
+    [UIView setAnimationsEnabled: YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

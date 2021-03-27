@@ -76,7 +76,7 @@
 
 - (void)highlightCell:(DHBrowserTableViewCell *)cell
 {
-    if(!self.searchController.active)
+    if(!self.navigationItem.searchController.active)
     {
         return;
     }
@@ -89,7 +89,7 @@
     }
     NSString *substring = [[string string] copy];
     BOOL didAddAttributes = NO;
-    while((range = [substring rangeOfString:self.searchController.searchBar.text options:NSCaseInsensitiveSearch]).location != NSNotFound)
+    while((range = [substring rangeOfString:self.navigationItem.searchController.searchBar.text options:NSCaseInsensitiveSearch]).location != NSNotFound)
     {
         [string addAttributes:[DHDBResult highlightDictionary] range:NSMakeRange(range.location+offset, range.length)];
         substring = [substring substringFromDashIndex:range.location+range.length];
@@ -135,12 +135,12 @@
 
 - (NSMutableArray *)activeSections
 {
-    return self.searchController. active && self.searchController.searchBar.text.length ? self.filteredSections : self.sections;
+    return self.navigationItem.searchController.active && self.navigationItem.searchController.searchBar.text.length ? self.filteredSections : self.sections;
 }
 
 - (NSMutableArray *)activeSectionTitles
 {
-    return self.searchController.active && self.searchController.searchBar.text.length ? self.filteredSectionTitles : self.sectionTitles;
+    return self.navigationItem.searchController.active && self.navigationItem.searchController.searchBar.text.length ? self.filteredSectionTitles : self.sectionTitles;
 }
 
 - (IBAction)dismissModal:(id)sender
@@ -151,7 +151,7 @@
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
-    self.searchController = controller;
+    self.navigationItem.searchController = controller;
     if(isIOS11)
     {
         if(@available(iOS 11.0, *))
