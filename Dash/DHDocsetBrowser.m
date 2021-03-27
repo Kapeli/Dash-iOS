@@ -54,11 +54,11 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     self.viewModel = [[DHDocsetBrowserViewModel alloc] init];
     self.clearsSelectionOnViewWillAppear = NO;
     self.dbSearchController = [DHDBSearchController searchControllerWithDocsets:nil typeLimit:nil viewController:self];
-    self.navigationController.navigationItem.searchController = self.searchController;
+    self.navigationItem.searchController = self.searchController;
     self.navigationItem.hidesSearchBarWhenScrolling = YES;
     [self.tableView registerNib:[UINib nibWithNibName:@"DHBrowserCell" bundle:nil] forCellReuseIdentifier:@"DHBrowserCell"];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:DHDocsetsChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:)s name:DHDocsetsChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:DHRemotesChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:DHSettingsChangedNotification object:nil];
     self.tableView.rowHeight = 44;
