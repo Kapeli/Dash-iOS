@@ -78,10 +78,10 @@
     NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:4*1024*1024 diskCapacity:32*1024*1024 diskPath:@"dh_nsurlcache"];
     [sharedCache removeAllCachedResponses];
     [NSURLCache setSharedURLCache:sharedCache];
-    [NSURLProtocol registerClass:[DHTarixProtocol class]];
+//    [NSURLProtocol registerClass:[DHTarixProtocol class]];
 //    [NSURLProtocol registerClass:[DHAppleAPIProtocol class]];
-    [NSURLProtocol registerClass:[DHRemoteProtocol class]];
-    [NSURLProtocol registerClass:[DHBlockProtocol class]];
+//    [NSURLProtocol registerClass:[DHRemoteProtocol class]];
+//    [NSURLProtocol registerClass:[DHBlockProtocol class]];
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
     [DHDocset stepLock];
     [DHDocsetManager sharedManager];
