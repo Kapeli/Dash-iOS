@@ -17,9 +17,9 @@
 
 #import "DHDocsetBrowser.h"
 #import "DHDBSearchController.h"
-@protocol SearchableController;
+@protocol SearchViewController;
 
-@interface DHTypeBrowser : UITableViewController <UINavigationControllerDelegate, SearchableController>
+@interface DHTypeBrowser : UITableViewController <UINavigationControllerDelegate, SearchViewController>
 
 @property (strong) DHDocset *docset;
 @property (strong) NSMutableArray *types;

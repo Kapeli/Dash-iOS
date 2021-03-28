@@ -31,4 +31,11 @@
     ctx[@"window"][@"dash"] = [DHJavaScriptBridge sharedBridge];
 }
 
+- (NSString *)getNSString {
+    if ([self isKindOfClass:NSString.class]) {
+        return (NSString *)self;
+    } else {
+        return nil;
+    }
+}
 @end

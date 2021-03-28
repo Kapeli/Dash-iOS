@@ -24,7 +24,7 @@
 #import "DHAppDelegate.h"
 #import "DHDocsetDownloader.h"
 #import "DHRemoteBrowser.h"
-#import "DHWebView.h"
+
 #import "DHDocsetBrowserViewModel.h"
 #import "Dash-Swift.h"
 

@@ -20,12 +20,13 @@
 #import "DHDBResult.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "DHWebProgressView.h"
+@class DHWebView;
 
 @class DHTocBrowser;
+// WKNavigationDelegate Conformance implemented in a Swift file
+@interface DHWebViewController : UIViewController <UISplitViewControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate>
 
-@interface DHWebViewController : UIViewController <UISplitViewControllerDelegate, UINavigationControllerDelegate, UIWebViewDelegate, UIScrollViewDelegate>
-
-@property (assign) IBOutlet UIWebView *webView;
+@property (strong) DHWebView *webView;
 @property (strong) UIBarButtonItem *backButton;
 @property (strong) UIBarButtonItem *forwardButton;
 //@property (strong) UIBarButtonItem *stopButton;
@@ -35,7 +36,7 @@
 @property (strong) DHWebProgressView *progressView;
 @property (strong) DHDBResult *result;
 @property (assign) BOOL ignoreScroll;
-@property (strong) NSString *mainFrameURL;
+@property (nullable, strong) NSString *mainFrameURL;
 @property (strong) NSString *previousMainFrameURL;
 @property (strong) NSArray *currentMethods;
 @property (strong) UIPopoverController *methodsPopover;
@@ -67,5 +68,11 @@
 - (void)snippetUseButtonPressed:(id)sender;
 - (IBAction)tocButtonPressed:(id)sender;
 - (void)reload;
+// private
+- (void)updateStopReloadButtonState;
+- (void)setToolbarHidden:(BOOL)hidden;
+- (void)updateTitle;
+- (void)setUpScripts;
+- (void)setUpTOC;
 
 @end

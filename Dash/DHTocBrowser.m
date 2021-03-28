@@ -18,6 +18,7 @@
 #import "DHTocBrowser.h"
 #import "DHBrowserTableViewCell.h"
 #import "DHJavaScript.h"
+#import "Dash-Swift.h"
 
 #define DHHeaderSeparatorInset 14
 
@@ -111,12 +112,14 @@
     webViewController.nextAnchorChangeNotCausedByUserNavigation = YES;
     webViewController.anchorChangeInProgress = YES;
     webViewController.ignoreScroll = YES;
-    [webViewController.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"if(window.location.hash == \"#%@\") { window.location.hash = ''; } window.location.hash = \"#%@\"", hash, hash]];
+    [webViewController.webView evaluateJavaScript:[NSString stringWithFormat:@"if(window.location.hash == \"#%@\") { window.location.hash = ''; } window.location.hash = \"#%@\"", hash, hash] completionHandler:nil];
     webViewController.anchorChangeInProgress = NO;
     webViewController.ignoreScroll = NO;
     if([DHRemoteServer sharedServer].connectedRemote)
     {
-        [[DHRemoteServer sharedServer] sendWebViewURL:[webViewController.webView stringByEvaluatingJavaScriptFromString:@"window.location.href"]];        
+        [webViewController.webView evaluateJavaScript:@"window.location.href" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+            [DHRemoteServer.sharedServer sendWebViewURL:result];
+        }];
     }
     if(!iPad || !isRegularHorizontalClass)
     {

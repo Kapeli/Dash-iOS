@@ -451,7 +451,7 @@
 
 - (UITableView *)activeTableView
 {
-    return (self.searchBarActive) ? ((DHSearchResultViewController *)self.searchController.searchResultsController).tableView : self.tableView;
+    return (self.searchBarActive) ? ((UITableViewController *)self.searchController.searchResultsController).tableView : self.tableView;
 }
 
 - (NSMutableArray *)activeFeeds
@@ -592,11 +592,11 @@
 }
 
 - (UITableView *)resultTableview {
-    return ((DHSearchResultViewController *)self.searchController.searchResultsController).tableView;
+    return ((UITableViewController *)self.searchController.searchResultsController).tableView;
 }
 
 - (void)willPresentSearchController:(UISearchController *)searchController {
-    UITableView* tableview = ((DHSearchResultViewController *)searchController.searchResultsController).tableView;
+    UITableView* tableview = ((UITableViewController *)searchController.searchResultsController).tableView;
     [tableview registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
     [tableview registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
     self.tableView.allowsSelection = NO;
@@ -821,7 +821,7 @@
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"DHRepoCell" bundle:nil] forCellReuseIdentifier:@"DHRepoCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DHLoadingCell" bundle:nil] forCellReuseIdentifier:@"DHLoadingCell"];
-    self.resultViewController = [DHSearchResultViewController new];
+    self.resultViewController = [UITableViewController new];
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultViewController];
     self.searchBar = self.searchController.searchBar;
     self.navigationController.navigationItem.searchController = self.searchController;

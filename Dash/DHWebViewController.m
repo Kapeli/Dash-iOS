@@ -16,7 +16,6 @@
 //
 
 #import "DHWebViewController.h"
-#import "DHWebViewController.h"
 #import "DHNavigationAnimator.h"
 #import "JGMethodSwizzler.h"
 #import "DHDocsetManager.h"
@@ -29,7 +28,8 @@
 #import "DHRemoteProtocol.h"
 #import "DHTypeBrowser.h"
 #import "DHEntryBrowser.h"
-#import "DHWebView.h"
+#import "Dash-Swift.h"
+#import "Masonry.h"
 
 @implementation DHWebViewController
 
@@ -38,6 +38,7 @@ static id singleton = nil;
 
 - (void)viewDidLoad
 {
+    [self configWebView];
     if([self callStackIsRestoring] && !self.isRestoring)
     {
         return;
@@ -51,9 +52,6 @@ static id singleton = nil;
     self.title = @"";
     self.webView.scrollView.delegate = self;
     self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.webView.allowsInlineMediaPlayback = YES;
-    self.webView.delegate = self;
-    self.webView.dataDetectorTypes = UIDataDetectorTypeNone;
     CGFloat progressBarHeight = 2.f;
     CGRect navigationBarBounds = self.navigationController.navigationBar.bounds;
     CGRect barFrame = CGRectMake(0, navigationBarBounds.size.height - progressBarHeight, navigationBarBounds.size.width, progressBarHeight);
@@ -227,79 +225,81 @@ static id singleton = nil;
     }
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
-//    self.title = @"Loading...";
-    [self updateBackForwardButtonState];
-    [self.progressView setProgress:0 animated:NO];
-    [self.progressView fakeSetProgress:0.6];
-}
+//- (void)webViewDidStartLoad:(UIWebView *)webView
+//{
+////    self.title = @"Loading...";
+//    [self updateBackForwardButtonState];
+//    [self.progressView setProgress:0 animated:NO];
+//    [self.progressView fakeSetProgress:0.6];
+//}
 
 - (void)webViewDidChangeLocationWithinPage
 {
     if(!self.nextAnchorChangeNotCausedByUserNavigation && [DHRemoteServer sharedServer].connectedRemote)
     {
-        [[DHRemoteServer sharedServer] sendWebViewURL:[self.webView stringByEvaluatingJavaScriptFromString:@"window.location.href"]];
+        [self.webView evaluateJavaScript:@"window.location.href" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+            [DHRemoteServer.sharedServer sendWebViewURL: [result getNSString]];
+        }];
     }
     self.nextAnchorChangeNotCausedByUserNavigation = NO;
 }
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    if([[request URL].absoluteString isEqualToString:@"about:blank"])
-    {
-        return NO;
-    }
-    BOOL isFrame = ![[[request URL] absoluteString] isEqualToString:[[request mainDocumentURL] absoluteString]];
-    if(!isFrame)
-    {
-        self.lastLoadDate = [NSDate date];
-        self.previousMainFrameURL = self.mainFrameURL;
-        self.mainFrameURL = request.URL.absoluteString;
-        if(!self.anchorChangeInProgress)
-        {
-            [self updateStopReloadButtonState];
-            [self setToolbarHidden:NO];
-        }
-    }
-    if(!self.anchorChangeInProgress && [[[request URL] scheme] isCaseInsensitiveEqual:@"file"])
-    {
-        BOOL isMain = [request.URL isEqual:request.mainDocumentURL];
-        NSMutableURLRequest *mutRequest = (id)request;
-        NSString *url = [[[request URL] absoluteString] stringByReplacingOccurrencesOfString:@"file://" withString:@"dash-tarix://"];
-        NSURL *newURL = [NSURL URLWithString:url];
-        [mutRequest setURL:newURL];
-        if(isMain)
-        {
-            [mutRequest setMainDocumentURL:newURL];
-        }
-        [self performSelector:@selector(updateBackForwardButtonState) withObject:self afterDelay:0.1];
-        return YES;
-    }
-    if(navigationType == UIWebViewNavigationTypeLinkClicked || navigationType == UIWebViewNavigationTypeFormSubmitted || navigationType == UIWebViewNavigationTypeFormResubmitted)
-    {
-        [[DHRemoteServer sharedServer] sendWebViewURL:[request URL].absoluteString];
-    }
-    [self performSelector:@selector(updateBackForwardButtonState) withObject:self afterDelay:0.1];
-    return YES;
-}
+//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+//{
+//    if([[request URL].absoluteString isEqualToString:@"about:blank"])
+//    {
+//        return NO;
+//    }
+//    BOOL isFrame = ![[[request URL] absoluteString] isEqualToString:[[request mainDocumentURL] absoluteString]];
+//    if(!isFrame)
+//    {
+//        self.lastLoadDate = [NSDate date];
+//        self.previousMainFrameURL = self.mainFrameURL;
+//        self.mainFrameURL = request.URL.absoluteString;
+//        if(!self.anchorChangeInProgress)
+//        {
+//            [self updateStopReloadButtonState];
+//            [self setToolbarHidden:NO];
+//        }
+//    }
+//    if(!self.anchorChangeInProgress && [[[request URL] scheme] isCaseInsensitiveEqual:@"file"])
+//    {
+//        BOOL isMain = [request.URL isEqual:request.mainDocumentURL];
+//        NSMutableURLRequest *mutRequest = (id)request;
+//        NSString *url = [[[request URL] absoluteString] stringByReplacingOccurrencesOfString:@"file://" withString:@"dash-tarix://"];
+//        NSURL *newURL = [NSURL URLWithString:url];
+//        [mutRequest setURL:newURL];
+//        if(isMain)
+//        {
+//            [mutRequest setMainDocumentURL:newURL];
+//        }
+//        [self performSelector:@selector(updateBackForwardButtonState) withObject:self afterDelay:0.1];
+//        return YES;
+//    }
+//    if(navigationType == UIWebViewNavigationTypeLinkClicked || navigationType == UIWebViewNavigationTypeFormSubmitted || navigationType == UIWebViewNavigationTypeFormResubmitted)
+//    {
+//        [[DHRemoteServer sharedServer] sendWebViewURL:[request URL].absoluteString];
+//    }
+//    [self performSelector:@selector(updateBackForwardButtonState) withObject:self afterDelay:0.1];
+//    return YES;
+//}
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    if([self stopButtonIsShown])
-    {
-        [self updateStopReloadButtonState];
-    }
-    [self updateBackForwardButtonState];
-    [self updateTitle];
-    [self setUpScripts];
-    [self setUpTOC];
-    [self.progressView setProgress:1.0 animated:YES];
-    if (self.isRestoreScroll) {
-        [self.webView.scrollView setContentOffset:self.webViewOffset animated:NO];
-        self.isRestoreScroll = NO;
-    }
-}
+//- (void)webViewDidFinishLoad:(UIWebView *)webView
+//{
+//    if([self stopButtonIsShown])
+//    {
+//        [self updateStopReloadButtonState];
+//    }
+//    [self updateBackForwardButtonState];
+//    [self updateTitle];
+//    [self setUpScripts];
+//    [self setUpTOC];
+//    [self.progressView setProgress:1.0 animated:YES];
+//    if (self.isRestoreScroll) {
+//        [self.webView.scrollView setContentOffset:self.webViewOffset animated:NO];
+//        self.isRestoreScroll = NO;
+//    }
+//}
 
 - (void)setUpTOC
 {
@@ -406,31 +406,32 @@ static id singleton = nil;
     [tocBrowser setSectionTitles:sectionTitles];
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    if([self stopButtonIsShown])
-    {
-        [self updateStopReloadButtonState];
-    }
-    NSString *customMessage = nil;
-    [self updateTitle];
-    if([error code] == NSURLErrorCancelled || ([error.domain isEqualToString:@"WebKitErrorDomain"] && error.code == 204) || ([error.domain isEqualToString:@"WebKitErrorDomain"] && error.code == 102 && ![[[error userInfo][NSURLErrorFailingURLStringErrorKey] substringFromString:@"://"] isCaseInsensitiveEqual:[self.mainFrameURL substringFromString:@"://"]]))
-    {
-        return;
-    }
-    else if([error.domain isEqualToString:@"WebKitErrorDomain"] && error.code == 102)
-    {
-        customMessage = @"Invalid URL.";
-    }
-    self.mainFrameURL = self.previousMainFrameURL;
-    [self.progressView setProgress:1.0 animated:YES];
-    [[[UIAlertView alloc] initWithTitle:@"Error Loading Page" message:(customMessage) ? customMessage : error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-}
+//- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+//{
+//    if([self stopButtonIsShown])
+//    {
+//        [self updateStopReloadButtonState];
+//    }
+//    NSString *customMessage = nil;
+//    [self updateTitle];
+//    if([error code] == NSURLErrorCancelled || ([error.domain isEqualToString:@"WebKitErrorDomain"] && error.code == 204) || ([error.domain isEqualToString:@"WebKitErrorDomain"] && error.code == 102 && ![[[error userInfo][NSURLErrorFailingURLStringErrorKey] substringFromString:@"://"] isCaseInsensitiveEqual:[self.mainFrameURL substringFromString:@"://"]]))
+//    {
+//        return;
+//    }
+//    else if([error.domain isEqualToString:@"WebKitErrorDomain"] && error.code == 102)
+//    {
+//        customMessage = @"Invalid URL.";
+//    }
+//    self.mainFrameURL = self.previousMainFrameURL;
+//    [self.progressView setProgress:1.0 animated:YES];
+//    [[[UIAlertView alloc] initWithTitle:@"Error Loading Page" message:(customMessage) ? customMessage : error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+//}
 
 - (JSContext *)jsContext
 {
-    JSContext *ctx = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-    return ctx;
+//    JSContext *ctx = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+//    return ctx;
+    return nil;
 }
 
 - (void)setUpScripts
@@ -629,16 +630,19 @@ static id singleton = nil;
 
 - (void)removeDashClearedClass
 {
-    if([[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.className"] contains:@"dash_cleared"])
-    {
-        [self.webView stringByEvaluatingJavaScriptFromString:@"document.body.className = document.body.className.replace(/\\bdash_cleared\\b/, \" \");"];
-        self.title = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.title"] trimWhitespace];
-    }
+    [self.webView evaluateJavaScript:@"document.body.className" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+        if ([[result getNSString] contains:@"dash_cleared"]) {
+            [self.webView stringByEvaluatingJavaScriptFromString:@"document.body.className = document.body.className.replace(/\\bdash_cleared\\b/, \" \");"];
+            [self.webView evaluateJavaScript:@"document.title" completionHandler:^(id _Nullable title, NSError * _Nullable error1) {
+                self.title = [[title getNSString] trimWhitespace];
+            }];
+        }
+    }];
 }
 
 - (NSString *)loadedURL
 {
-    return self.webView.request.URL.absoluteString;
+    return self.webView.URL.absoluteString;
 }
 
 - (void)reload
@@ -648,12 +652,19 @@ static id singleton = nil;
 
 - (void)updateTitle
 {
-    NSString *newTitle = self.pageTitle;
-    if(![self.title isEqualToString:newTitle])
-    {
-        self.title = self.pageTitle;
-        [self.actualTOCBrowser setTitle:self.title];
-    }
+    [self.webView evaluateJavaScript:@"document.title" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+        NSString *newTitle = [result getNSString];
+        if(!newTitle.length && [[self loadedURL] contains:@"://"])
+        {
+            newTitle = [[[[self mainFrameURL] stringByDeletingPathFragment] lastPathComponent] stringByDeletingPathExtension];
+            newTitle = (newTitle.length) ? newTitle : @"No Title";
+        }
+        if(![self.title isEqualToString:newTitle])
+        {
+            self.title = newTitle;
+            [self.actualTOCBrowser setTitle:self.title];
+        }
+    }];
 }
 
 - (DHTocBrowser *)actualTOCBrowser
@@ -661,16 +672,7 @@ static id singleton = nil;
     return [self.lastTocBrowser isKindOfClass:[DHTocBrowser class]] ? self.lastTocBrowser : [self.lastTocBrowser topViewController];
 }
 
-- (NSString *)pageTitle
-{
-    NSString *title = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.title"] trimWhitespace];
-    if(!title.length && [[self loadedURL] contains:@"://"])
-    {
-        title = [[[[self mainFrameURL] stringByDeletingPathFragment] lastPathComponent] stringByDeletingPathExtension];
-        title = (title.length) ? title : @"No Title";
-    }
-    return title;
-}
+
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController*)fromVC toViewController:(UIViewController*)toVC
 {
@@ -749,7 +751,7 @@ static id singleton = nil;
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder
 {
     [super encodeRestorableStateWithCoder:coder];
-    [coder encodeObject:self.webView.request.URL.absoluteString forKey:@"webViewURL"];
+    [coder encodeObject:self.webView.URL.absoluteString forKey:@"webViewURL"];
     [coder encodeObject:homePath forKey:@"homePath"];
     [coder encodeCGPoint:self.webView.scrollView.contentOffset forKey:@"webViewOffset"];
 }
@@ -822,7 +824,7 @@ static inline UIBarButtonItem *UIBarButtonWithFixedWidth(CGFloat width)
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     self.navigationController.delegate = nil;
     self.webView.scrollView.delegate = nil;
-    self.webView.delegate = nil;
+    self.webView.navigationDelegate = nil;
     [self.webView loadHTMLString:@"" baseURL:nil];
     [self.webView stopLoading];
     [self.webView removeFromSuperview];

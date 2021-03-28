@@ -19,7 +19,7 @@
 #import "DHUnarchiver.h"
 #import "DHCSS.h"
 #import "DHWebViewController.h"
-#import "DHWebView.h"
+#import "Dash-Swift.h"
 
 @implementation DHTarixProtocol
 

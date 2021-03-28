@@ -10,6 +10,7 @@ PODS:
   - KissXML (5.1.2):
     - KissXML/Core (= 5.1.2)
   - KissXML/Core (5.1.2)
+  - Masonry (1.1.0)
   - MRProgress (0.7.0):
     - MRProgress/ActivityIndicator (= 0.7.0)
     - MRProgress/Blur (= 0.7.0)
@@ -41,6 +42,7 @@ PODS:
   - NSTimer-Blocks (0.0.1)
   - Reachability (3.2)
   - SAMKeychain (1.5.3)
+  - SnapKit (4.2.0)
   - "UIActionSheet+Blocks (0.9)"
   - "UIAlertView+Blocks (0.9)"
 
@@ -52,10 +54,12 @@ DEPENDENCIES:
   - HockeySDK
   - JGMethodSwizzler
   - KissXML (from `Modified Pods/KissXML-5.1.2/KissXML.podspec`)
+  - Masonry
   - MRProgress (from `Modified Pods/MRProgress/MRProgress.podspec`)
   - NSTimer-Blocks
   - Reachability
   - SAMKeychain
+  - SnapKit
   - "UIActionSheet+Blocks"
   - "UIAlertView+Blocks"
 
@@ -65,9 +69,11 @@ SPEC REPOS:
     - GZIP
     - HockeySDK
     - JGMethodSwizzler
+    - Masonry
     - NSTimer-Blocks
     - Reachability
     - SAMKeychain
+    - SnapKit
     - "UIActionSheet+Blocks"
     - "UIAlertView+Blocks"
 
@@ -94,13 +100,15 @@ SPEC CHECKSUMS:
   HockeySDK: c2b7e0afce4587af7b6264ab0fd854f5876afaa6
   JGMethodSwizzler: e0ea5c1c6c55304ec4ef3f54e441400c6735c899
   KissXML: 246c842586bb77110e04fb88e19376d96245c856
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MRProgress: ae0bff676bc83d62cfd5567bba3325f4617c7215
   NSTimer-Blocks: 88faf9aef5f250ead087f3f67ae642517083bf36
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   "UIActionSheet+Blocks": e180b7dad0a721ab7f212ac9742af799008bb358
   "UIAlertView+Blocks": a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
 
-PODFILE CHECKSUM: 70a8dd77fbb2aad2f2f1bf1a4d6c3efa0fdd0a69
+PODFILE CHECKSUM: 49269cb51e262dc4128894ffa8206caab861f1bc
 
 COCOAPODS: 1.8.4

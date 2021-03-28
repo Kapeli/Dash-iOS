@@ -1,0 +1,6 @@
+module Pods_Dash_Dash_App_Store {
+  umbrella header "Pods-Dash-Dash App Store-umbrella.h"
+
+  export *
+  module * { export * }
+}

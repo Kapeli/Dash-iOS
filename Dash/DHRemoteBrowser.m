@@ -17,7 +17,8 @@
 
 #import "DHRemoteBrowser.h"
 #import "DHNestedViewController.h"
-#import "DHWebView.h"
+
+#import "Dash-Swift.h"
 
 @implementation DHRemoteBrowser
 

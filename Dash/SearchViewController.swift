@@ -1,5 +1,5 @@
 //
-//  DHSearchResultViewController.swift
+//  UITableViewController.swift
 //  Dash iOS
 //
 //  Created by chenhaoyu.1999 on 2021/3/26.
@@ -8,11 +8,7 @@
 
 import UIKit
 
-@objc class DHSearchResultViewController: UITableViewController {
-    
-}
-
-@objc protocol SearchableController where Self: UIViewController {
+@objc protocol SearchViewController where Self: UIViewController {
     var searchController: UISearchController { get }
     var searchResultTableView: UITableView { get }
     var tableView: UITableView { get }

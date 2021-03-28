@@ -20,5 +20,6 @@
 @interface NSObject (DHUtils)
 
 - (BOOL)callStackIsRestoring;
+- (NSString *)getNSString;
 
 @end

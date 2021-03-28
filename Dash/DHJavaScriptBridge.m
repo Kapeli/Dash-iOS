@@ -18,6 +18,7 @@
 #import "DHJavaScriptBridge.h"
 #import "DHWebViewController.h"
 #import "DHCSS.h"
+#import "Dash-Swift.h"
 
 @implementation DHJavaScriptBridge
 
@@ -77,11 +78,11 @@
     }
     if([message isKindOfClass:[NSString class]] && [message isEqualToString:@"selected"])
     {
-        NSString *value = [[[DHWebViewController sharedWebViewController] webView] stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('cSelect-Selected')[0].innerText"];
-        if(value && value.length)
-        {
-            [[NSUserDefaults standardUserDefaults] setObject:value forKey:@"unitySelectedSnippetLanguage"];
-        }
+        [DHWebViewController.sharedWebViewController.webView evaluateJavaScript:@"document.getElementsByClassName('cSelect-Selected')[0].innerText" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+            if ([result isKindOfClass:NSString.class] && ![result isEmpty]) {
+                [[NSUserDefaults standardUserDefaults] setObject:result forKey:@"unitySelectedSnippetLanguage"];
+            }
+        }];
     }
 }
 

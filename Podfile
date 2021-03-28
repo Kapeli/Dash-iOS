@@ -24,6 +24,8 @@ target "Dash" do
     pod 'SAMKeychain'
     pod 'NSTimer-Blocks'
     pod 'GZIP'
+    pod 'Masonry'
+    pod 'SnapKit'
     target "Dash App Store" do
         pod 'HockeySDK'
     end

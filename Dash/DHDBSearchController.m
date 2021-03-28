@@ -24,12 +24,11 @@
 #import "Dash-Swift.h"
 
 @interface DHDBSearchController()
-@property (retain) KVOObserver *observer;
 @end
 
 @implementation DHDBSearchController
 
-+ (DHDBSearchController *)searchControllerWithDocsets:(NSArray *)docsets typeLimit:(NSString *)typeLimit viewController:( UIViewController<SearchableController>*)viewController;
++ (DHDBSearchController *)searchControllerWithDocsets:(NSArray *)docsets typeLimit:(NSString *)typeLimit viewController:( UIViewController<SearchViewController>*)viewController;
 {
     DHDBSearchController *controller = [[DHDBSearchController alloc] init];
     controller.docsets = docsets;

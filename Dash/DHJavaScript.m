@@ -17,7 +17,7 @@
 
 #import "DHJavaScript.h"
 #import "DHCSS.h"
-#import "DHWebView.h"
+#import "Dash-Swift.h"
 #import "DHWebViewController.h"
 
 @implementation DHJavaScript

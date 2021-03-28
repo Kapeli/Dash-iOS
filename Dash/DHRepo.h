@@ -21,7 +21,6 @@
 #import "MRProgress.h"
 #import "DHDocsetIndexer.h"
 #import "DHUnarchiver.h"
-@class DHSearchResultViewController;
 
 @interface DHRepo : UITableViewController <UIActionSheetDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate,UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
@@ -36,7 +35,7 @@
 @property (strong) UISearchBar *searchBar;
 @property (assign) BOOL loading;
 @property (assign) NSString *loadingText;
-@property (strong) DHSearchResultViewController *resultViewController;
+@property (strong) UITableViewController *resultViewController;
 
 - (void)setUp;
 - (IBAction)downloadButtonPressed:(id)sender;

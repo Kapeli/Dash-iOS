@@ -1,0 +1,6 @@
+framework module JGMethodSwizzler {
+  umbrella header "JGMethodSwizzler-umbrella.h"
+
+  export *
+  module * { export * }
+}

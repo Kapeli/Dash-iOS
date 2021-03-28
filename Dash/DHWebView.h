@@ -15,13 +15,13 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <UIKit/UIKit.h>
+//#import <UIKit/UIKit.h>
 
-@interface DHWebView : UIWebView
-
-+ (NSString *)viewportContent:(CGRect)frame;
-- (void)setHasHistory:(BOOL)hasHistory;
-- (void)resetHistory;
-- (void)updateViewPortContent:(CGRect)frame;
-
-@end
+//@interface DHWebView : UIWebView
+//
+//+ (NSString *)viewportContent:(CGRect)frame;
+//- (void)setHasHistory:(BOOL)hasHistory;
+//- (void)resetHistory;
+//- (void)updateViewPortContent:(CGRect)frame;
+//
+//@end
