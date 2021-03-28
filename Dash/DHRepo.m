@@ -840,7 +840,6 @@
     [self traitCollectionDidChange:nil];
     self.navigationItem.searchController = self.searchController;
     self.navigationItem.hidesSearchBarWhenScrolling = NO;
-    [UIView setAnimationsEnabled: NO];
     
 
 }
@@ -878,8 +877,6 @@
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     [[DHLatencyTester sharedLatency] performTests:NO];
     [self traitCollectionDidChange:nil];
-    self.navigationItem.hidesSearchBarWhenScrolling = YES;
-    [UIView setAnimationsEnabled: YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

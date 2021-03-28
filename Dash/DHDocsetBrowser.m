@@ -55,7 +55,6 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     self.clearsSelectionOnViewWillAppear = NO;
     self.dbSearchController = [DHDBSearchController searchControllerWithDocsets:nil typeLimit:nil viewController:self];
     self.navigationItem.searchController = self.searchController;
-    self.navigationItem.hidesSearchBarWhenScrolling = YES;
     [self.tableView registerNib:[UINib nibWithNibName:@"DHBrowserCell" bundle:nil] forCellReuseIdentifier:@"DHBrowserCell"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:DHDocsetsChangedNotification object:nil];
@@ -96,6 +95,7 @@ static NSAttributedString *_titleBarItemAttributedStringTemplate = nil;
     {
         [self.tableView deselectAll:YES];        
     }
+    self.navigationItem.hidesSearchBarWhenScrolling = NO;
     [self.dbSearchController viewWillAppear];
     if([DHRemoteServer sharedServer].connectedRemote)
     {

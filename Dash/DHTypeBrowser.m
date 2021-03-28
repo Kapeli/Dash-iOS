@@ -194,7 +194,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.navigationItem.hidesSearchBarWhenScrolling = YES;
     [self.dbSearchController viewDidAppear];
 }
 
